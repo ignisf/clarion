@@ -19,6 +19,8 @@ gem 'rails-i18n'
 gem 'devise'
 gem 'devise-i18n'
 
+gem 'simple_form'
+
 group :development do
   gem 'spring'
   gem 'spring-commands-rspec'
