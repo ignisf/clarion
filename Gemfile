@@ -19,6 +19,7 @@ gem 'rails-i18n'
 group :development do
   gem 'spring'
   gem 'spring-commands-rspec'
+  gem 'guard-rspec' # Continuous testing with Guard
 end
 
 group :development, :test do
