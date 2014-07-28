@@ -5,4 +5,4 @@ rvm:
   - 2.0.0
   - 2.1.2
 script:
-  - RAILS_ENV=test bundle exec rake --trace initial_setup spec
+  - RAILS_ENV=test bundle exec rake --trace bootstrap spec
