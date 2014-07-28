@@ -12,7 +12,7 @@ gem 'coffee-rails'
 gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
 
-gem 'slim'
+gem 'slim-rails'
 
 gem 'rails-i18n'
 
