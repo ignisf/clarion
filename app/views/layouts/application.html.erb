@@ -1,14 +1,34 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Clarion</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Clarion</title>
+    <%= stylesheet_link_tag 'application' %>
+    <%= stylesheet_link_tag 'http://openfest.org/wp-content/themes/thematic-openfest/style.css' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div id="wrapper" class="hfeed">
+      <header id="header">
+        <div id="branding">
+	  <div id="blog-title">
+	    <span>
+              <a href="http://openfest.org/" title="OpenFest" rel="home">
+                <img src="//openfest.org/images/logo-header.png" alt="OpenFest" />
+              </a>
+            </span>
+	  </div>
+	  <h1 id="blog-description">да споделим свободата</h1>
+	</div><!--  #branding -->
 
-<%= yield %>
+	<div id="access">
+          <%= render partial: '/layouts/nav' %>
+	</div><!-- #access -->
+      </header>
 
-</body>
+      <div id="main">
+        <%= yield %>
+      </div>
+    </div>
+    <%= javascript_include_tag 'application' %>
+  </body>
 </html>
