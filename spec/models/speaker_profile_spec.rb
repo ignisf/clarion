@@ -32,6 +32,64 @@ RSpec.describe SpeakerProfile, :type => :model do
     end
   end
 
+  describe 'public email' do
+    it 'can be absent' do
+      expect(build(:speaker_profile, public_email: '')).to_not have_error_on :public_email
+    end
+
+    it 'can contain exatly one @ when present' do
+      expect(build(:speaker_profile, public_email: 'test@@example.com')).to have_error_on :public_email
+      expect(build(:speaker_profile, public_email: 'test@example.com')).to_not have_error_on :public_email
+      expect(build(:speaker_profile, public_email: 'testexample.com')).to have_error_on :public_email
+    end
+  end
+
+  describe 'twitter handle' do
+    it 'can be absent' do
+      expect(build(:speaker_profile, twitter: '')).to_not have_error_on :twitter
+    end
+
+    context 'when present' do
+      it 'is stored without a starting @' do
+        expect(create(:speaker_profile, twitter: '@foobar').twitter).to eq 'foobar'
+      end
+
+      it 'must contain only alphanumeric symbols or an underscore' do
+        speaker_profile = build :speaker_profile
+        speaker_profile.twitter = 'fooBar_1'
+        expect(speaker_profile).to_not have_error_on :twitter
+
+        speaker_profile.twitter = 'foobar!'
+        expect(speaker_profile).to have_error_on :twitter
+      end
+
+      it 'must be maximum 15 symbols long' do
+        expect(build(:speaker_profile, twitter: 'a'*16)).to have_error_on :twitter
+      end
+    end
+  end
+
+  describe 'github account' do
+    it 'can be absent' do
+      expect(build(:speaker_profile, github: '')).to_not have_error_on :twitter
+    end
+
+    context 'when present' do
+      it 'must contain only alphanumeric symbols or a dash' do
+        speaker_profile = build :speaker_profile
+        speaker_profile.github = 'fooBar-1'
+        expect(speaker_profile).to_not have_error_on :github
+
+        speaker_profile.github = 'foobar!'
+        expect(speaker_profile).to have_error_on :github
+      end
+
+      it 'must not start with a dash' do
+        expect(build(:speaker_profile, github: '-foobar')).to have_error_on :github
+      end
+    end
+  end
+
   it 'is invalid without a bio' do
     expect(build(:speaker_profile, biography: nil)).to have_error_on :biography
   end
