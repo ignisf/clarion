@@ -25,6 +25,7 @@ group :development do
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'guard-rspec' # Continuous testing with Guard
+  gem 'rails-erd'
 end
 
 group :development, :test do
