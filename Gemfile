@@ -21,6 +21,9 @@ gem 'devise-i18n'
 
 gem 'simple_form'
 
+# Phone validation
+gem 'phony_rails'
+
 group :development do
   gem 'spring'
   gem 'spring-commands-rspec'

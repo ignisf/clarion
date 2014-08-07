@@ -21,3 +21,6 @@
 
 bg:
   hello: "Здравей, свят"
+  errors:
+    messages:
+      improbable_phone: 'не е валиден телефонен номер'

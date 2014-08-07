@@ -13,8 +13,23 @@ RSpec.describe SpeakerProfile, :type => :model do
     expect(build(:speaker_profile, photo_url: nil)).to have_error_on :photo_url
   end
 
-  it 'is invalid without a mobile phone' do
-    expect(build(:speaker_profile, mobile_phone: nil)).to have_error_on :mobile_phone
+  describe 'mobile_phone' do
+    it 'must be present' do
+      expect(build(:speaker_profile, mobile_phone: nil)).to have_error_on :mobile_phone
+    end
+
+    it 'must be a valid phone number' do
+      expect(build(:speaker_profile, mobile_phone: 'abc')).to have_error_on :mobile_phone
+    end
+
+    it 'is stored in a normalized form' do
+      speaker_profile = create :speaker_profile, mobile_phone: '0883444555'
+      expect(speaker_profile.mobile_phone).to eq '359883444555'
+
+      speaker_profile.mobile_phone = '+1883444555'
+      speaker_profile.save
+      expect(speaker_profile.mobile_phone).to eq '1883444555'
+    end
   end
 
   it 'is invalid without a bio' do
