@@ -7,6 +7,7 @@ class Conference < ActiveRecord::Base
   validate :end_date_is_before_start_date
 
   has_many :tracks
+  has_many :events, through: :tracks
 
   private
 

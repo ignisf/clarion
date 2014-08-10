@@ -1,5 +1,6 @@
 class Track < ActiveRecord::Base
   belongs_to :conference
+  has_many :events
 
   validates :name, presence: true
   validates :color, presence: true, format: {with: /\A[a-f0-9]{6}\z/i}
