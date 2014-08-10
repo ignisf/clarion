@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'home/index'
+  resources :lectures, only: [:new, :create, :edit, :update, :show]
 
   devise_for :users
 

@@ -20,7 +20,22 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 bg:
-  hello: "Здравей, свят"
+  activerecord:
+    models:
+      lecture:
+        one: Лекция
+        other: Лекции
+      track: Поток от лекции
+    attributes:
+      lecture:
+        title: Заглавие
+        subtitle: Подзаглавие
+        length: Продължителност
+        language: Език
+        abstract: Резюме
+        description: Описание
+        notes: Забележки
+        track: Поток от лекции
   errors:
     messages:
       improbable_phone: 'не е валиден телефонен номер'
