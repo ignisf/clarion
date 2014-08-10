@@ -6,6 +6,8 @@ class Conference < ActiveRecord::Base
   validates :end_date, presence: true
   validate :end_date_is_before_start_date
 
+  has_many :tracks
+
   private
 
   def end_date_is_before_start_date
