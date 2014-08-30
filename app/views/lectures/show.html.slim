@@ -1,2 +1,20 @@
-h1 Lectures#show
-p Find me in app/views/lectures/show.html.slim
+h1.entry-title Преглед на лекция
+
+h2.lecture-title
+  = @lecture.title
+  span.subtitle = @lecture.subtitle
+  .entry-meta
+    |
+      поток: „#{@lecture.track.name}“,
+      продължителност: #{@lecture.length} мин.
+
+section.abstract
+  h3 Резюме
+  = simple_format @lecture.abstract
+
+section.description
+  h3 Описание
+  = simple_format @lecture.description
+
+- if current_user == @lecture.user
+  = link_to 'Редактирай', edit_lecture_path(@lecture)
