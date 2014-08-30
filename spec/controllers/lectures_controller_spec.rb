@@ -7,8 +7,13 @@ RSpec.describe LecturesController, type: :controller do
     sign_in user
   end
 
+  describe 'GET index' do
+    it 'returns HTTP Success status code'
+    it 'assigns the lectures of the current user to @lectures'
+  end
+
   describe 'GET new' do
-    it 'returns http success' do
+    it 'returns HTTP Success status code' do
       get :new
       expect(response).to be_success
     end

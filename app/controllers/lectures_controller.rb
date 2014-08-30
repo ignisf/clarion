@@ -2,6 +2,10 @@ class LecturesController < ApplicationController
   before_filter :authenticate_user!
   before_action :assign_lecture, only: [:show, :edit, :update]
 
+  def index
+    @lectures = Lecture.where user: current_user
+  end
+
   def new
     @lecture = Lecture.new
   end

@@ -8,10 +8,10 @@
       <%= content_tag :li, class: [('current_page_item' if controller_name == 'sessions')] do %>
         <%= link_to "Вход", new_user_session_path %>
       <% end %>
-      <%= content_tag :li, class: [('current_page_item' if controller_name == 'registrations')] do %>
-        <%= link_to "Регистрация", new_user_registration_path %>
-      <% end %>
     <% else %>
+      <%= content_tag :li, class: [('current_page_item' if controller_name == 'lectures')] do %>
+        <%= link_to "Лекции", lectures_path %>
+      <% end %>
       <%= content_tag :li, class: [('current_page_item' if controller_name == 'registrations')] do %>
         <%= link_to "Редакция на профил", edit_user_registration_path %>
       <% end %>
