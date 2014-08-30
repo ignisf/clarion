@@ -1,6 +1,6 @@
 class LecturesController < ApplicationController
   before_filter :authenticate_user!
-  before_action :assign_lecture, only: [:show]
+  before_action :assign_lecture, only: [:show, :edit, :update]
 
   def new
     @lecture = Lecture.new
@@ -20,6 +20,11 @@ class LecturesController < ApplicationController
   end
 
   def update
+    if @lecture.update lecture_params
+      redirect_to @lecture
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def show
