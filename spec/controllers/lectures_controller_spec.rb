@@ -1,45 +1,73 @@
 require 'rails_helper'
 
-RSpec.describe LecturesController, :type => :controller do
+RSpec.describe LecturesController, type: :controller do
+  let(:user) { create :user, confirmed_at: Time.now }
 
-  describe "GET new" do
-    it "returns http success" do
+  before do
+    sign_in user
+  end
+
+  describe 'GET new' do
+    it 'returns http success' do
       get :new
       expect(response).to be_success
     end
+
+    it 'assigns a blank lecture to @lecture'
   end
 
-  describe "POST create" do
-    it "returns http success" do
-      new_track = create :track
-      new_user = create :user
+  describe 'POST create' do
+    it 'assigns the new lecture to @lecture'
 
-      post :create, lecture: build(:lecture, track: new_track, user: new_user).attributes
-      expect(response.status).to eq 201
+    context 'when passed correct parameters' do
+      it 'creates a new lecture'
+      it 'redirects to the created lecture'
+    end
+
+    context 'when passed incorrect parameters' do
+      it 'renders the edit template'
+      it 'returns HTTP Unprocessable Entity status code'
     end
   end
 
-  describe "GET edit" do
-    it "returns http success" do
-      event = create :lecture
-      get :edit, id: event.id
-      expect(response).to be_success
+  describe 'GET edit' do
+    context 'when the lecture exists' do
+      it 'returns http success'
+      it 'assigns the lecture to @lecture'
+    end
+
+    context 'when the lecture does not exist' do
+      it 'returns HTTP Not Found status code'
     end
   end
 
-  describe "PUT update" do
-    it "returns http success" do
-      event = create :lecture
-      put :update, id: event.id, lecture: event.attributes
-      expect(response).to be_success
+  describe 'PUT update' do
+    context 'when the lecture does not exist' do
+      it 'returns HTTP Not Found status code'
+    end
+
+    context 'when the lecture exists' do
+      it 'assigns the lecture to @lecture'
+
+      context 'when passed correct parameters' do
+        it 'redirects to the updated lecture'
+      end
+
+      context 'when passed incorrect parameters' do
+        it 'renders the edit template'
+        it 'returns HTTP Unprocessable Entity status code'
+      end
     end
   end
 
-  describe "GET show" do
-    it "returns http success" do
-      event = create :lecture
-      get :show, id: event.id
-      expect(response).to be_success
+  describe 'GET show' do
+    context 'when the lecture exists' do
+      it 'returns HTTP Success status code'
+      it 'assigns the lecture to @lecture'
+    end
+
+    context 'when the lecture does not exist' do
+      it 'returns HTTP Not Found status code'
     end
   end
 end
