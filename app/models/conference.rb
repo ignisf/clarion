@@ -9,8 +9,11 @@ class Conference < ActiveRecord::Base
   has_many :tracks
   has_many :events, through: :tracks
 
-  scope :future, -> { where 'start_date >= ?', Date.today }
-  scope :current, -> { future.first || last }
+  scope :future, -> { where('start_date >= ?', Date.today).order('start_date ASC') }
+
+  def self.current
+    future.first || last
+  end
 
   private
 
