@@ -25,9 +25,21 @@ bg:
       lecture:
         one: Лекция
         other: Лекции
+      workshop:
+        one: Уъркшоп
+        other: Уъркшопи
       track: Поток от лекции
     attributes:
       lecture:
+        title: Заглавие
+        subtitle: Подзаглавие
+        length: Продължителност
+        language: Език
+        abstract: Резюме
+        description: Описание
+        notes: Забележки
+        track: Поток от лекции
+      workshop:
         title: Заглавие
         subtitle: Подзаглавие
         length: Продължителност

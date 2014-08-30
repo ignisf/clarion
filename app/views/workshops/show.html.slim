@@ -1,0 +1,20 @@
+h1.entry-title Преглед на уъркшоп
+
+h2.workshop-title
+  = @workshop.title
+  span.subtitle = @workshop.subtitle
+  .entry-meta
+    |
+      поток: „#{@workshop.track.name}“,
+      продължителност: #{@workshop.length} мин.
+
+section.abstract
+  h3 Резюме
+  = simple_format @workshop.abstract
+
+section.description
+  h3 Описание
+  = simple_format @workshop.description
+
+- if current_user == @workshop.user
+  = link_to 'Редактирай', edit_workshop_path(@workshop)

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :lectures, only: [:index, :new, :create, :edit, :update, :show]
+  resources :workshops, only: [:index, :new, :create, :edit, :update, :show]
 
   devise_for :users
 
