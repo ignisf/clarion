@@ -1,9 +1,45 @@
 en:
   simple_form:
-    "yes": 'Yes'
-    "no": 'No'
+    "yes": Yes
+    "no": No
     required:
-      text: 'required'
+      text: Required field
       mark: '*'
     error_notification:
-      default_message: "Please review the problems below:"
+      default_message: 'Please see the errors below:'
+    hints:
+      user:
+        email: Your email address. Will be visible to the organizers only.
+        password: Password with length between 8 and 128 symbols
+        password_confirmation: Repeat the password
+        speaker_profile:
+          picture: Your photo
+          first_name: First name
+          last_name: Last name
+          organisation: Your organization
+          public_email: E-mail address, visible to the visitors
+          mobile_phone: Mobile phone, visible for the organizers only
+          biography: Describe yourself in a few sentences in third person :).
+          github: Your Github account
+          twitter: Your Twitter account
+      lecture:
+        title: Title of your talk
+        subtitle: Sub-title of your talk (if applicable)
+        track: Track for your talk
+        length: The length of your talk can be from 40 to 45 minutes
+        language: Language in with the talk will be presented
+        abstract: Abstract of the talk, for the visitors
+        description: Detailed description of the talk, visible to the visitors
+        notes: Notes on your talk, visible only to the organizers
+      workshop:
+        title: Title of your workshop
+        subtitle: Sub-title of your workshop (if applicable)
+        track: Track for your workshop
+        length: The length of the workshop can be from 30 to 120 minutes
+        language: Language in with the workshop will be conducted
+        abstract: Abstract of the workshop, visible to the visitors
+        description: Detailed description of the workshop, visible to the visitors
+        notes: Notes, visible only to the organizers
+    labels:
+      user:
+        a: b

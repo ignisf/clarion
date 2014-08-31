@@ -20,4 +20,61 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    models:
+      user:
+        one: User
+        other: Users
+      lecture:
+        one: Lecture
+        other: Lectures
+      workshop:
+        one: Workshop
+        other: Workshops
+      track: track
+    attributes:
+      user:
+        email: E-mail
+        current_password: Current password
+        password: Password
+        password_confirmation: Password confirmation
+        remember_me: Remember me
+      speaker_profile:
+        picture: Photo
+        first_name: First name
+        last_name: Last name
+        organisation: Organization
+        public_email: Public email
+        mobile_phone: Mobile phone
+        biography: Biography
+        github: Github account
+        twitter: Twitter account
+      lecture:
+        title: Title
+        subtitle: Sub-title
+        length: Length
+        language: Language
+        abstract: Abstract
+        description: Description
+        notes: Notes
+        track: Track
+      workshop:
+        title: Title
+        subtitle: Sub-title
+        length: Length
+        language: Language
+        abstract: Abstract
+        description: Description
+        notes: Notes
+        track: Track
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              invalid: is not a valid email address
+            password_confirmation:
+              confirmation: does not match the password
+  errors:
+    messages:
+      improbable_phone: 'not a valid phone number'
