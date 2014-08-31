@@ -1,22 +1,9 @@
-h2.entry-title Редакция на акаунт
-
 = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = f.error_notification
-
-  .form-inputs
-    h3 Данни за вход в системата
-    = f.input :email, required: true, autofocus: true
-
-    - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-      p Currently waiting confirmation for: #{resource.unconfirmed_email}
-
-    = f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false
-    = f.input :password_confirmation, required: false
-    = f.input :current_password, hint: "we need your current password to confirm your changes", required: true
-
   .form_inputs
-    h3 Лекторски профил
+    h2.entry-title Лекторски профил
+    = f.error_notification
     = f.simple_fields_for :speaker_profile do |ff|
+      = ff.input :picture, as: :file
       = ff.input :first_name
       = ff.input :last_name
       = ff.input :public_email
@@ -25,6 +12,18 @@ h2.entry-title Редакция на акаунт
       = ff.input :twitter
       = ff.input :mobile_phone, input_html: {value: resource.speaker_profile.mobile_phone.try(:phony_formatted, format: :international)}
       = ff.input :biography
+
+  .form-inputs
+    h3.entry-title Данни за вход в системата
+    = f.input :email, required: true, autofocus: true
+
+    - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+      p
+        Очаква се потвърждение на: #{resource.unconfirmed_email}
+
+    = f.input :password, autocomplete: "off", hint: "Не попълвайте, ако не желаете да промените паролата си", required: false
+    = f.input :password_confirmation, required: false
+    = f.input :current_password, hint: "Попълнете, ако искате да промените паролата или имейл адреса си.", required: true
 
   .form-actions
     = f.button :submit, 'Обнови'

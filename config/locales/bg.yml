@@ -35,10 +35,12 @@ bg:
     attributes:
       user:
         email: E-mail
+        current_password: Текуща парола
         password: Парола
         password_confirmation: Отново паролата
         remember_me: Запомни ме
       speaker_profile:
+        picture: Снимка
         first_name: Име
         last_name: Фамилия
         organisation: Организация

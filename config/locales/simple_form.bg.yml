@@ -13,6 +13,7 @@ bg:
         password: Парола с дължина между 8 и 128 символа
         password_confirmation: Отново въведената отгоре парола
         speaker_profile:
+          picture: Ваша снимка
           first_name: Малкото Ви име
           last_name: Фамилното Ви име
           organisation: Организацията, която представлявате
