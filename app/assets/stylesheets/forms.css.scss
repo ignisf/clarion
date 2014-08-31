@@ -78,3 +78,43 @@
     transform: translate(0, 0.1em);
     -webkit-transform: translate(0, 0.1em);
 }
+
+.centered {
+    text-align: center;
+}
+
+.large {
+    padding: 30px;
+}
+
+.btn-link {
+    background: #233e83;
+    padding: 0.4em 0.8em;
+    border-radius: 0.2em;
+    color: #FFF;
+    border: none;
+    border-bottom: 0.2em solid #7A95DC;
+    cursor: pointer;
+    transition: background 200ms, border 200ms, transform 200ms;
+    -webkit-transition: background 200ms, border 200ms, transform 200ms;
+}
+
+.btn-link:link, .btn-link:active, .btn-link:visited {
+    color: #FFF;
+    text-decoration: none;
+}
+
+.btn-link:hover {
+    background: #152551;
+}
+
+.btn-link:active {
+    background: #597AD2;
+    border-bottom: 0.2em solid #000;
+    transform: translate(0, 0.1em);
+    -webkit-transform: translate(0, 0.1em);
+}
+
+.btn-link-large {
+    font-size: 2em;
+}

@@ -9,7 +9,6 @@ ul
   - for track in @current_conference.tracks
     li = track.name
 
-.centered
-  = link_to 'Предложи лекция', new_lecture_path
-
-  = link_to 'Предложи уъркшоп', new_workshop_path
+.centered.large
+  => link_to 'Предложи лекция', new_lecture_path, class: 'btn-link btn-link-large'
+  = link_to 'Предложи уъркшоп', new_workshop_path, class: 'btn-link btn-link-large'
