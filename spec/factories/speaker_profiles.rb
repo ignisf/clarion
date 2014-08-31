@@ -6,7 +6,7 @@ FactoryGirl.define do
     last_name "Doe"
     organisation "Example Org"
     public_email "a@b.com"
-    photo_url "http://placehold.it/50x50"
+    picture { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec', 'support', 'picture.jpg')) }
     mobile_phone "0883444555"
     biography "Lorem ipsum"
     github "octocat"
