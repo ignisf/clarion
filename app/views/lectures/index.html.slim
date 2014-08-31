@@ -1,9 +1,9 @@
-h1.entry-title Моите предложения за лекции
+h1.entry-title = t :my_talks
 
 - unless @lectures.empty?
   ul
     = render @lectures
 - else
-  p Все още не Сте предложили лекция
+  p = t :no_talks_submitted
 
-= link_to 'Предложи лекция', new_lecture_path, class: 'btn-link'
+= link_to t(:submit_lecture), new_lecture_path, class: 'btn-link'

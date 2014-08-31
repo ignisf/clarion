@@ -1,4 +1,4 @@
-h2 Изпрати отново инструкции за отключване
+h2 =t :resend_unlock_instructions_title
 
 = simple_form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f|
   = f.error_notification
@@ -8,6 +8,6 @@ h2 Изпрати отново инструкции за отключване
     = f.input :email, required: true, autofocus: true, hint: false
 
   .form-actions
-    = f.button :submit, 'Изпрати отново инструкциите'
+    = f.button :submit, t(:resend_instructions_btn)
 
 == render 'devise/shared/links'

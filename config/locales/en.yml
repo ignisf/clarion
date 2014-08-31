@@ -111,3 +111,26 @@ en:
   pass_update_hint2: Fill this if you want to change your password or email.
   update: Обнови
 
+  resend_unlock_instructions_title: Re-send unlocking instructions
+  
+  edit_speaker_profile: Edit speaker's profile
+
+  edit_workshop: Edit workshop
+
+  edit_title: track: „%{track}“, duration: %{len} min.
+  abstract: Abstract
+  description: Description
+  edit: Edit
+
+  new_workshop_title: Submit new workshop
+
+  my_workshops: My submitted workshops
+  no_workshops_submitted: You have no submissions for workshops
+
+  edit_talk: Edit talk
+
+  submit_talk_header: Submit new talk
+
+  my_talks: My submitted talks
+  no_talks_submitted: You have no submissions for talks
+

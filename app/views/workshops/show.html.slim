@@ -3,16 +3,15 @@ h2.workshop-title
   span.subtitle = @workshop.subtitle
 .entry-meta
   |
-    поток: „#{@workshop.track.name}“,
-    продължителност: #{@workshop.length} мин.
+    = t :edit_title, track: @workshop.track.name, len: @workshop.length
 
 section.abstract
-  h3 Резюме
+  h3 = t :abstract
   = simple_format @workshop.abstract
 
 section.description
-  h3 Описание
+  h3 = t :description
   = simple_format @workshop.description
 
 - if current_user == @workshop.user
-  = link_to 'Редактирай', edit_workshop_path(@workshop), class: 'btn-link'
+  = link_to t(:edit), edit_workshop_path(@workshop), class: 'btn-link'

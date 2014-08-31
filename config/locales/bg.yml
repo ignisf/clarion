@@ -103,4 +103,25 @@ bg:
   pass_update_hint2: Попълнете, ако искате да промените паролата или имейл адреса си.
   update: Обнови
 
+  resend_unlock_instructions_title: Изпрати отново инструкции за отключване
 
+  edit_speaker_profile: Редакция на лекторски профил
+
+  edit_workshop: Редакция на уъркшоп
+
+  edit_title: поток: „%{track}“, продължителност: %{len} мин.
+  abstract: Резюме
+  description: Описание
+  edit: Редактирай
+
+  new_workshop_title: Предложи нов уъркшоп
+
+  my_workshops: Моите предложения за уъркшопи
+  no_workshops_submitted: Все още не сте предложили уъркшоп
+
+  edit_talk: Редакция на лекция
+
+  submit_talk_header: Предложи нова лекция
+
+  my_talks: Моите предложения за лекции
+  no_talks_submitted: Все още не сте предложили лекция

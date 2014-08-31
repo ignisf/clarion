@@ -3,16 +3,15 @@ h2.lecture-title
   span.subtitle = @lecture.subtitle
 .entry-meta
   |
-    поток: „#{@lecture.track.name}“,
-    продължителност: #{@lecture.length} мин.
+    =t :edit_title, track: @lecture.track.name, len: @lecture.length
 
 section.abstract
-  h3 Резюме
+  h3 = t :abstract
   = simple_format @lecture.abstract
 
 section.description
-  h3 Описание
+  h3 = t :description
   = simple_format @lecture.description
 
 - if current_user == @lecture.user
-  = link_to 'Редактирай', edit_lecture_path(@lecture), class: 'btn-link'
+  = link_to t(:edit), edit_lecture_path(@lecture), class: 'btn-link'

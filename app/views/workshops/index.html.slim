@@ -1,9 +1,9 @@
-h1.entry-title Моите предложения за уъркшопи
+h1.entry-title = t :my_workshops
 
 - unless @workshops.empty?
   ul
     = render @workshops
 - else
-  p Все още не Сте предложили уъркшоп
+  p = t :no_workshops_submitted
 
-= link_to 'Предложи уъркшоп', new_workshop_path, class: 'btn-link'
+= link_to t(:submit_workshop), new_workshop_path, class: 'btn-link'
