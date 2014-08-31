@@ -78,3 +78,29 @@ bg:
   errors:
     messages:
       improbable_phone: 'не е валиден телефонен номер'
+
+  home_title: %{conference} - зов за лектори
+  what_we_ask: Бихме искали да получим предложенията Ви за лекции и уъркшопи, принадлежащи към следните категории:
+  submit_lecture: Предложи лекция
+  submit_workshop: Предложи уъркшоп
+  resend_instructions_header: Повторно изпращане на инструкции за потвърждаване на акаунт
+  resend_instructions_btn: Изпрати отново инструкциите
+
+  enter: Вход
+  registration: Регистрация
+  lostpass: Забравена парола?
+  did_not_get_confirmation: Не сте получили инструкции за потвърждение?
+  did_not_get_unlock: Не сте получили инструкции за отключване?
+  change_pass: Промяна на парола
+  send_lostpass_instructions: Изпрати ми инструкции за промяна на парола
+
+  login_data: Данни за вход в системата
+  login_with: Влез с %{with}
+
+  speaker_profile: Лекторски профил
+  expected_validation: Очаква се потвърждение на: %{email}
+  pass_update_hint1: Не попълвайте, ако не желаете да промените паролата си
+  pass_update_hint2: Попълнете, ако искате да промените паролата или имейл адреса си.
+  update: Обнови
+
+

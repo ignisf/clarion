@@ -78,3 +78,36 @@ en:
   errors:
     messages:
       improbable_phone: 'not a valid phone number'
+
+  home_title: "%{conference} - call for speakers"
+  what_we_ask: Please send us applications for talks and workshops in the following categories:
+  submit_lecture: Submit lecture
+  submit_workshop: Submit workshop
+  resend_instructions_header: Re-send the instructions for confirming an account
+  resend_instructions_btn: Re-send instructions
+  enter: Login
+  login: Login
+  registration: Registration
+  lostpass: Lost password?
+  did_not_get_confirmation: Did not get confirmation instructions?
+  did_not_get_unlock: Did not get unlocking instructions?
+  change_pass: Change password
+  send_lostpass_instructions: Send instructions to reset lost password
+
+  enter: Вход
+  registration: Регистрация
+  lostpass: Забравена парола?
+  did_not_get_confirmation: Не сте получили инструкции за потвърждение?
+  did_not_get_unlock: Не сте получили инструкции за отключване?
+  change_pass: Промяна на парола
+  send_lostpass_instructions: Изпрати ми инструкции за промяна на парола
+
+  login_data: Login data
+  login_with: Login with %{with}
+
+  speaker_profile: Speaker's profile
+  expected_validation: Expected confirmation of: %{email}
+  pass_update_hint1: Do not fill, if you do not want to change your password
+  pass_update_hint2: Fill this if you want to change your password or email.
+  update: Обнови
+

@@ -1,6 +1,6 @@
 = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f|
   .form_inputs
-    h2.entry-title Лекторски профил
+    h2.entry-title = t :speaker_profile
     = f.error_notification
     = f.simple_fields_for :speaker_profile do |ff|
       = ff.input :picture, as: :image_preview, input_html: {preview_version: :thumb}
@@ -14,16 +14,16 @@
       = ff.input :biography
 
   .form-inputs
-    h3.entry-title Данни за вход в системата
+    h3.entry-title = t :login_data
     = f.input :email, required: true
 
     - if devise_mapping.confirmable? && resource.pending_reconfirmation?
       p
-        Очаква се потвърждение на: #{resource.unconfirmed_email}
+        = t :expected_validation, email: resource.unconfirmed_email
 
-    = f.input :password, autocomplete: "off", hint: "Не попълвайте, ако не желаете да промените паролата си", required: false
+    = f.input :password, autocomplete: "off", hint: t(:pass_update_hint1), required: false
     = f.input :password_confirmation, required: false
-    = f.input :current_password, hint: "Попълнете, ако искате да промените паролата или имейл адреса си.", required: true
+    = f.input :current_password, hint: t:(pass_update_hint2), required: true
 
   .form-actions
-    = f.button :submit, 'Обнови'
+    = f.button :submit, t(:update)

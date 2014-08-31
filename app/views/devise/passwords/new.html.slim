@@ -1,4 +1,4 @@
-h2.entry-title Забравена парола?
+h2.entry-title = t :lostpass
 
 = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
   = f.error_notification
@@ -7,6 +7,6 @@ h2.entry-title Забравена парола?
     = f.input :email, required: true, autofocus: true, hint: false
 
   .form-actions
-    = f.button :submit, 'Изпрати ми инструкции за промяна на парола'
+    = f.button :submit, t(:send_lostpass_instructions)
 
 == render 'devise/shared/links'

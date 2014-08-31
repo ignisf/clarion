@@ -1,4 +1,4 @@
-h2.entry-title Повторно изпращане на инструкции за потвърждаване на акаунт
+h2.entry-title = t :resend_instructions_header
 
 = simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
   = f.error_notification
@@ -8,6 +8,6 @@ h2.entry-title Повторно изпращане на инструкции з�
     = f.input :email, required: true, autofocus: true, hint: false
 
   .form-actions
-    = f.button :submit, 'Изпрати отново инструкциите'
+    = f.button :submit, t(:resend_instructions_btn)
 
 == render 'devise/shared/links'
