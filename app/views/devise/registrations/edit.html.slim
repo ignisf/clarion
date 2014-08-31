@@ -4,7 +4,7 @@
     = f.error_notification
     = f.simple_fields_for :speaker_profile do |ff|
       = ff.input :picture, as: :file
-      = ff.input :first_name
+      = ff.input :first_name, autofocus: true
       = ff.input :last_name
       = ff.input :public_email
       = ff.input :organisation
@@ -15,7 +15,7 @@
 
   .form-inputs
     h3.entry-title Данни за вход в системата
-    = f.input :email, required: true, autofocus: true
+    = f.input :email, required: true
 
     - if devise_mapping.confirmable? && resource.pending_reconfirmation?
       p

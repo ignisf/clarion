@@ -1,7 +1,9 @@
 h1.entry-title Моите предложения за лекции
 
-ul
-  - for lecture in @lectures
-    li = link_to lecture.title, lecture
+- unless @lectures.empty?
+  ul
+    = render @lectures
+- else
+  p Все още не Сте предложили лекция
 
-= link_to 'Предложи лекция', new_lecture_path
+= link_to 'Предложи лекция', new_lecture_path, class: 'btn-link'
