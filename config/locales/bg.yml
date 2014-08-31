@@ -22,6 +22,9 @@
 bg:
   activerecord:
     models:
+      user:
+        one: Потребител
+        other: Потребители
       lecture:
         one: Лекция
         other: Лекции
@@ -30,6 +33,11 @@ bg:
         other: Уъркшопи
       track: Поток от лекции
     attributes:
+      user:
+        email: E-mail
+        password: Парола
+        password_confirmation: Отново паролата
+        remember_me: Запомни ме
       lecture:
         title: Заглавие
         subtitle: Подзаглавие
@@ -48,6 +56,14 @@ bg:
         description: Описание
         notes: Забележки
         track: Поток от лекции
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              invalid: не е валиден имейл адрес
+            password_confirmation:
+              confirmation: не съответства на паролата
   errors:
     messages:
       improbable_phone: 'не е валиден телефонен номер'
