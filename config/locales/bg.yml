@@ -44,7 +44,7 @@ bg:
         first_name: Име
         last_name: Фамилия
         organisation: Организация
-        public_email: Публичен email
+        public_email: Публичен e-mail
         mobile_phone: Мобилен телефон
         biography: Биография
         github: Github акаунт
@@ -72,7 +72,7 @@ bg:
         user:
           attributes:
             email:
-              invalid: не е валиден имейл адрес
+              invalid: не е валиден e-mail адрес
             password_confirmation:
               confirmation: не съответства на паролата
   errors:
@@ -101,7 +101,7 @@ bg:
   speaker_profile: Лекторски профил
   expected_validation: Очаква се потвърждение на: %{email}
   pass_update_hint1: Не попълвайте, ако не желаете да промените паролата си
-  pass_update_hint2: Попълнете, ако искате да промените паролата или имейл адреса си.
+  pass_update_hint2: Попълнете, ако искате да промените паролата или e-mail адреса си.
   update: Обнови
 
   resend_unlock_instructions_title: Изпрати отново инструкции за отключване
