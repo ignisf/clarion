@@ -31,6 +31,8 @@ gem 'capistrano'
 gem 'capistrano-rails'
 gem 'capistrano-rvm'
 
+gem 'puma'
+
 group :development do
   gem 'spring'
   gem 'spring-commands-rspec'
