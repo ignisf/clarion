@@ -1,7 +1,9 @@
 h1.entry-title Моите предложения за уъркшопи
 
-ul
-  - for workshop in @workshops
-    li = link_to workshop.title, workshop
+- unless @workshops.empty?
+  ul
+    = render @workshops
+- else
+  p Все още не Сте предложили уъркшоп
 
-= link_to 'Предложи уъркшоп', new_workshop_path
+= link_to 'Предложи уъркшоп', new_workshop_path, class: 'btn-link'

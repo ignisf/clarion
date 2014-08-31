@@ -20,12 +20,14 @@ gem 'devise'
 gem 'devise-i18n'
 
 gem 'simple_form'
+gem 'simple_form_fancy_uploads', github: 'apeacox/simple_form_fancy_uploads'
 
 # Phone validation
 gem 'phony_rails'
 
 # Picture uploads
 gem 'carrierwave'
+gem 'rmagick'
 
 gem 'capistrano'
 gem 'capistrano-rails'
