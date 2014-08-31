@@ -44,27 +44,27 @@ en:
         first_name: First name
         last_name: Last name
         organisation: Organization
-        public_email: Public email
+        public_email: Public e-mail
         mobile_phone: Mobile phone
-        biography: Biography
+        biography: Short bography
         github: Github account
         twitter: Twitter account
       lecture:
         title: Title
         subtitle: Sub-title
-        length: Length
-        language: Language
-        abstract: Abstract
-        description: Description
+        length: Length (should be between 40 and 45 minutes)
+        language: Language of the talk
+        abstract: Abstract (one paragraph)
+        description: Description (3-4 paragraphs)
         notes: Notes
         track: Track
       workshop:
         title: Title
         subtitle: Sub-title
-        length: Length
+        length: Length (should be between 30 and 120 minutes)
         language: Language
-        abstract: Abstract
-        description: Description
+        abstract: Abstract (one paragraph)
+        description: Description (3-4 paragraphs)
         notes: Notes
         track: Track
     errors:
@@ -72,7 +72,7 @@ en:
         user:
           attributes:
             email:
-              invalid: is not a valid email address
+              invalid: is not a valid e-mail address
             password_confirmation:
               confirmation: does not match the password
   errors:
