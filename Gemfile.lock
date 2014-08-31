@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/apeacox/simple_form_fancy_uploads.git
+  revision: a135aad8f17cbf219a30ce5a30709406e277f7e0
+  specs:
+    simple_form_fancy_uploads (0.1.0)
+      carrierwave
+      rails (>= 4.0.0)
+      simple_form (~> 3.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -167,6 +176,7 @@ GEM
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
     ref (1.0.5)
+    rmagick (2.13.3)
     rspec (3.0.0)
       rspec-core (~> 3.0.0)
       rspec-expectations (~> 3.0.0)
@@ -266,9 +276,11 @@ DEPENDENCIES
   rails (= 4.1.5)
   rails-erd
   rails-i18n
+  rmagick
   rspec-rails
   sass-rails (~> 4.0.3)
   simple_form
+  simple_form_fancy_uploads!
   slim-rails
   spring
   spring-commands-rspec

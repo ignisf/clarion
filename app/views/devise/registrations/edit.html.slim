@@ -1,9 +1,9 @@
-= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f|
   .form_inputs
     h2.entry-title Лекторски профил
     = f.error_notification
     = f.simple_fields_for :speaker_profile do |ff|
-      = ff.input :picture, as: :file
+      = ff.input :picture, as: :image_preview, input_html: {preview_version: :thumb}
       = ff.input :first_name, autofocus: true
       = ff.input :last_name
       = ff.input :public_email

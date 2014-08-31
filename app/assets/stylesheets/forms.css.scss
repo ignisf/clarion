@@ -28,6 +28,18 @@
         width: 50em;
     }
 
+    img {
+        padding: 5px;
+        display: block;
+        border: 1px solid #CCC;
+        background-color: #F1F1F1;
+
+    }
+
+    img+input.image_preview  {
+        margin-left: 12.7em;
+    }
+
 }
 
 .input label.boolean {
