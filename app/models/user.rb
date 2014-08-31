@@ -7,4 +7,6 @@ class User < ActiveRecord::Base
   has_one :speaker_profile
   has_many :lectures
   has_many :workshops
+
+  accepts_nested_attributes_for :speaker_profile, update_only: true
 end

@@ -38,6 +38,15 @@ bg:
         password: Парола
         password_confirmation: Отново паролата
         remember_me: Запомни ме
+      speaker_profile:
+        first_name: Име
+        last_name: Фамилия
+        organisation: Организация
+        public_email: Публичен email
+        mobile_phone: Мобилен телефон
+        biography: Биография
+        github: Github акаунт
+        twitter: Twitter акаунт
       lecture:
         title: Заглавие
         subtitle: Подзаглавие

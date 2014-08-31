@@ -1,15 +1,15 @@
 class CreateSpeakerProfiles < ActiveRecord::Migration
   def change
     create_table :speaker_profiles do |t|
-      t.string :first_name, null: false
-      t.string :last_name, null: false
+      t.string :first_name
+      t.string :last_name
       t.string :organisation
       t.string :public_email
-      t.string :photo_url, null: false
-      t.string :mobile_phone, null: false
-      t.text :biography, null: false
-      t.string :github, null: false
-      t.string :twitter, null: false
+      t.string :photo_url
+      t.string :mobile_phone
+      t.text :biography
+      t.string :github
+      t.string :twitter
 
       t.timestamps
     end

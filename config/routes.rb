@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   resources :lectures, only: [:index, :new, :create, :edit, :update, :show]
   resources :workshops, only: [:index, :new, :create, :edit, :update, :show]
 
-  devise_for :users
+  devise_for :users, controllers: {registrations: 'registrations'}
+
+  resource :user, only: [] do
+    resource :speaker_profile, only: [:edit, :update]
+  end
 
   root 'home#index'
   # The priority is based upon order of creation: first created -> highest priority.

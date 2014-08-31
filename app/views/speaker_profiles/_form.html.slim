@@ -1,0 +1,14 @@
+== simple_form_for @speaker_profile do |form|
+  p
+    = form.error_notification
+
+  .form-inputs
+    = form.input :first_name, autofocus: true
+    = form.input :last_name
+    = form.input :public_email
+    = form.input :organisation
+    = form.input :github
+    = form.input :twitter
+    = form.input :mobile_phone
+    = form.input :biography
+    = form.button :submit
