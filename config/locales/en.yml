@@ -94,14 +94,6 @@ en:
   change_pass: Change password
   send_lostpass_instructions: Send instructions to reset lost password
 
-  enter: Вход
-  registration: Регистрация
-  lostpass: Забравена парола?
-  did_not_get_confirmation: Не сте получили инструкции за потвърждение?
-  did_not_get_unlock: Не сте получили инструкции за отключване?
-  change_pass: Промяна на парола
-  send_lostpass_instructions: Изпрати ми инструкции за промяна на парола
-
   login_data: Login data
   login_with: Login with %{with}
 
@@ -113,7 +105,7 @@ en:
 
   resend_unlock_instructions_title: Re-send unlocking instructions
   
-  edit_speaker_profile: Edit speaker's profile
+  edit_speaker_profile: Edit profile
 
   edit_workshop: Edit workshop
 
@@ -133,4 +125,23 @@ en:
 
   my_talks: My submitted talks
   no_talks_submitted: You have no submissions for talks
+
+  hello: Hello, %{name}
+  account_locked: Your account was locked because of too many failed login attempts.
+  click_to_unlock: Click on the link below to unlock it:
+
+  welcome: Welcome, %{name}
+  confirm_by_clicking: You can confirm your account by clicking on the link below:
+
+  someone_requested_passreset: Someone has requested a link to reset the password of your account. Your password can be changed through the link below.
+  do_not_want_pass_reset1: If you don't want to change your password, please delete this message.
+  do_not_want_pass_reset2: Your password will not be changed unless you click on the link above and enter a new password.
+
+  home: Home
+  talks: Lectures
+  workshops: Workshops
+  logout: Logout
+
+  of_motto: share the freedom
+
 

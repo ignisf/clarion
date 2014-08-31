@@ -1,5 +1,5 @@
-Добре дошли, <%= @email %>!
+<%= t(:welcome, name=@email) %>!
 
-Можете да потвърдите акаунта си като кликнете на линка отдолу:
+<%= t(:confirm_by_clicking) %>
 
 <%= confirmation_url(@resource, confirmation_token: @token) %>
