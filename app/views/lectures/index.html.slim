@@ -1,0 +1,7 @@
+h1.entry-title Моите предложения за лекции
+
+ul
+  - for lecture in @lectures
+    li = link_to lecture.title, lecture
+
+= link_to 'Предложи лекция', new_lecture_path

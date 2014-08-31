@@ -1,0 +1,7 @@
+h1.entry-title Моите предложения за уъркшопи
+
+ul
+  - for workshop in @workshops
+    li = link_to workshop.title, workshop
+
+= link_to 'Предложи уъркшоп', new_workshop_path

@@ -1,0 +1,14 @@
+== simple_form_for @lecture do |form|
+  p
+    = form.error_notification
+
+  .form-inputs
+    = form.input :title, autofocus: true
+    = form.input :subtitle
+    = form.association :track
+    = form.input :length
+    = form.input :language, collection: I18n.available_locales, include_blank: false, default: I18n.locale
+    = form.input :abstract
+    = form.input :description
+    = form.input :notes
+    = form.button :submit
