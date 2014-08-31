@@ -16,14 +16,22 @@
     float: left;
 }
 
-.input input, .input textarea, .input select {
-    font-size: 1em;
-    width: 20em;
-    float: left;
+.input {
+    input.string, input.email, input.password, select.select, input.numeric {
+        font-size: 1em;
+        width: 20em;
+        float: left;
+    }
+
+    textarea {
+        height: 15em;
+        width: 50em;
+    }
+
 }
 
-.input textarea {
-    height: 8em;
+.input label.boolean {
+    margin-left: 12em;
 }
 
 .input .hint, .input .error {
