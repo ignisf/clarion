@@ -9,8 +9,8 @@ RSpec.describe SpeakerProfile, :type => :model do
     expect(build(:speaker_profile, last_name: nil)).to have_error_on :last_name
   end
 
-  it 'is invalid without a photo' do
-    expect(build(:speaker_profile, photo_url: nil)).to have_error_on :photo_url
+  it 'is invalid without a picture' do
+    expect(build(:speaker_profile, picture: nil)).to have_error_on :picture
   end
 
   describe 'mobile_phone' do

@@ -24,6 +24,9 @@ gem 'simple_form'
 # Phone validation
 gem 'phony_rails'
 
+# Picture uploads
+gem 'carrierwave'
+
 group :development do
   gem 'spring'
   gem 'spring-commands-rspec'

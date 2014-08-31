@@ -26,6 +26,7 @@
       </header>
 
       <div id="main">
+        <%= render('/shared/flash_messages') unless flash.empty? %>
         <%= yield %>
       </div>
     </div>
