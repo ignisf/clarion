@@ -20,7 +20,7 @@ en:
   speaker_profile: Speaker's profile
   expected_validation: "Expected confirmation of: %{email}"
   pass_update_hint1: Do not fill, if you do not want to change your password
-  pass_update_hint2: Fill this if you want to change your password or email.
+  pass_update_hint2: Fill this if you want to change your password or e-mail.
   update: Обнови
 
   resend_unlock_instructions_title: Re-send unlocking instructions
