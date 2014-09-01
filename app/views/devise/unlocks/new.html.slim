@@ -1,3 +1,5 @@
+- content_for(:title) { ":: #{t :resend_unlock_instructions_title}" }
+
 h2 =t :resend_unlock_instructions_title
 
 = simple_form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f|

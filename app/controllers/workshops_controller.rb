@@ -37,7 +37,7 @@ class WorkshopsController < ApplicationController
   private
 
   def assign_workshop
-    @workshop = Workshop.find params[:id]
+    @workshop = current_user.workshops.find params[:id]
   end
 
   def workshop_params

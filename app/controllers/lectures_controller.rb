@@ -37,7 +37,7 @@ class LecturesController < ApplicationController
   private
 
   def assign_lecture
-    @lecture = Lecture.find params[:id]
+    @lecture = current_user.lectures.find params[:id]
   end
 
   def lecture_params

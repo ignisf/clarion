@@ -1,9 +1,10 @@
+- content_for(:title) { ":: #{@lecture.title}" }
+
 h2.lecture-title
   => @lecture.title
   span.subtitle = @lecture.subtitle
 .entry-meta
-  |
-    =t :edit_title, track: @lecture.track.name, len: @lecture.length
+  = t :edit_title, track: @lecture.track.name, len: @lecture.length
 
 section.abstract
   h3 = t :abstract

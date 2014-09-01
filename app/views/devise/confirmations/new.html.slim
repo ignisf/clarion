@@ -1,3 +1,5 @@
+- content_for(:title) { ":: #{t :resend_instructions_header}" }
+
 h2.entry-title = t :resend_instructions_header
 
 = simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|

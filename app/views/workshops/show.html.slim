@@ -1,9 +1,11 @@
+- content_for(:title) { ":: #{@workshop.title}" }
+
 h2.workshop-title
   = @workshop.title
   span.subtitle = @workshop.subtitle
+
 .entry-meta
-  |
-    = t :edit_title, track: @workshop.track.name, len: @workshop.length
+  = t :edit_title, track: @workshop.track.name, len: @workshop.length
 
 section.abstract
   h3 = t :abstract
