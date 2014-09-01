@@ -35,6 +35,8 @@ gem 'capistrano-rvm'
 
 gem 'puma'
 
+gem 'globalize', '~> 4.0.2'
+
 group :development do
   gem 'spring'
   gem 'spring-commands-rspec'
