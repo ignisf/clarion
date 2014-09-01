@@ -75,6 +75,12 @@ en:
               invalid: is not a valid e-mail address
             password_confirmation:
               confirmation: does not match the password
+        speaker_profile:
+          attributes:
+            twitter:
+              invalid: can contain a maximum of 15 symbols that need to be alphabet charachters, digits or an underscore
+            github:
+              invalid: can contain only alphabet characters, digits or a dash and cannot start with a dash
   errors:
     messages:
       improbable_phone: 'not a valid phone number'

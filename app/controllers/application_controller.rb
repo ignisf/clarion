@@ -5,11 +5,11 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
 
-  def default_url_options(options={})
-    if params[:locale]
-      {locale: I18n.locale}
+  def self.default_url_options(options={})
+    if I18n.locale != I18n.default_locale
+      options.merge({locale: I18n.locale})
     else
-      {}
+      options
     end
   end
 

@@ -18,3 +18,5 @@
 /config/secrets.yml
 /db/schema.rb
 /erd.pdf
+/public/uploads/tmp/*
+/public/uploads/speaker_profile/*

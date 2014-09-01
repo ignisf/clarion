@@ -14,14 +14,12 @@ en:
         password_confirmation: Repeat the password
         speaker_profile:
           picture: Your photo
-          first_name: First name
-          last_name: Last name
           organisation: Your organization
           public_email: E-mail address, visible to the visitors
           mobile_phone: Mobile phone, visible for the organizers only
           biography: Describe yourself in a few sentences in third person :).
-          github: Your Github account
-          twitter: Your Twitter account
+          github: Your Github username
+          twitter: Your Twitter username
       lecture:
         title: Title of your talk
         subtitle: Sub-title of your talk (if applicable)
