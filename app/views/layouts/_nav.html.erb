@@ -24,7 +24,11 @@
     <% end %>
 
     <li>
-      <a href="#">English</a>
+      <% if I18n.locale != :en %>
+        <%= link_to 'English', root_url(locale: 'en') %>
+      <% elsif I18n.locale != :bg %>
+        <%= link_to 'Български', root_url(locale: 'bg') %>
+      <% end %>
     </li>
   </ul>
 </nav>
