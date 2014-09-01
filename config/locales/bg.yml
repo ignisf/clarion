@@ -75,6 +75,12 @@ bg:
               invalid: не е валиден e-mail адрес
             password_confirmation:
               confirmation: не съответства на паролата
+        speaker_profile:
+          attributes:
+            twitter:
+              invalid: може да съдържа максимум 15 символа, които могат да бъдат само букви, числа или долна черта
+            github:
+              invalid: може да съдържа само букви, числа и тирета и не може да започва с тире
   errors:
     messages:
       improbable_phone: 'не е валиден телефонен номер'
