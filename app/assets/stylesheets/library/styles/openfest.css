@@ -1,0 +1,34 @@
+div#index-bottom {
+	border: 0 !important;
+	padding: 0 !important;
+	margin: 0 !important;
+}
+#index-bottom ul {
+	padding: 0 !important;
+}
+#index-top, #index-top-english {
+	border: 0 !important;
+}
+.program table td, .program table th {
+	padding-left: 13px;
+	padding-top: -2px;
+	padding-bottom: -2px;
+	border-bottom: 1px solid #FFFFFF;
+}
+.opentech { 
+	background-color: #D1B6E7; 
+	text: #000000; 
+}
+.openbiz { 
+	background-color: #a6e3d0; 
+	text: #000000; 
+}
+.bsdcon { 
+	background-color: #FF6666; 
+	text: #000000; 
+}
+.social { 
+	background-color: #A2D2FF; 
+	text: #000000; 
+}
+

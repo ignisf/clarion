@@ -10,7 +10,14 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
+ *= require library/styles/reset
+ *= require library/styles/typography
+ *= require library/layouts/2c-r-fixed
+ *= require library/styles/images
+ *= require library/styles/default
+ *= require library/styles/plugins
+ *= require library/styles/openfest
+ *= require_directory .
  *= require_self
  */
 
