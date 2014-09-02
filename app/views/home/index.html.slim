@@ -2,11 +2,10 @@ h1.entry-title = t :home_title, conference: @current_conference.title
 
 = simple_format @current_conference.description
 
-p =t :what_we_ask
+p = t :what_we_ask
 
 ul
-  - for track in @current_conference.tracks
-    li = track.name
+  = render partial: 'track', collection: @current_conference.tracks
 
 .centered.large
   => link_to t(:submit_lecture), new_lecture_path, class: 'btn-link btn-link-large'
