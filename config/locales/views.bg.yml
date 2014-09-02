@@ -19,6 +19,7 @@ bg:
   login_with: "Влез с %{with}"
 
   speaker_profile: Лекторски профил
+  please_fill_in_your_speaker_profile: Моля, попълнете данните в лекторския си профил
   expected_validation: "Очаква се потвърждение на: %{email}"
   pass_update_hint1: Не попълвайте, ако не желаете да промените паролата си
   pass_update_hint2: Попълнете, ако искате да промените паролата или e-mail адреса си.

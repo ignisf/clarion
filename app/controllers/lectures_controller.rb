@@ -14,7 +14,7 @@ class LecturesController < ApplicationController
     @lecture = current_user.lectures.build lecture_params
 
     if @lecture.save
-      redirect_to @lecture
+      after_save_redirection
     else
       render :new, status: :unprocessable_entity
     end
@@ -25,7 +25,7 @@ class LecturesController < ApplicationController
 
   def update
     if @lecture.update lecture_params
-      redirect_to @lecture
+      after_save_redirection
     else
       render :edit, status: :unprocessable_entity
     end
@@ -43,4 +43,13 @@ class LecturesController < ApplicationController
   def lecture_params
     params.require(:lecture).permit [:title, :subtitle, :length, :language, :abstract, :description, :notes, :track_id]
   end
+
+  def after_save_redirection
+    if current_user.speaker_profile.present?
+      redirect_to @lecture
+    else
+      redirect_to edit_user_registration_path, alert: I18n.t(:please_fill_in_your_speaker_profile)
+    end
+  end
+
 end

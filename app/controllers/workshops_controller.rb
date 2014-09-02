@@ -14,7 +14,7 @@ class WorkshopsController < ApplicationController
     @workshop = current_user.workshops.build workshop_params
 
     if @workshop.save
-      redirect_to @workshop
+      after_save_redirection
     else
       render :new, status: :unprocessable_entity
     end
@@ -25,7 +25,7 @@ class WorkshopsController < ApplicationController
 
   def update
     if @workshop.update workshop_params
-      redirect_to @workshop
+      after_save_redirection
     else
       render :edit, status: :unprocessable_entity
     end
@@ -42,5 +42,13 @@ class WorkshopsController < ApplicationController
 
   def workshop_params
     params.require(:workshop).permit [:title, :subtitle, :length, :language, :abstract, :description, :notes, :track_id]
+  end
+
+  def after_save_redirection
+    if current_user.speaker_profile.present?
+      redirect_to @workshop
+    else
+      redirect_to edit_user_registration_path, alert: I18n.t(:please_fill_in_your_speaker_profile)
+    end
   end
 end
