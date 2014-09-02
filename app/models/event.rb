@@ -8,4 +8,12 @@ class Event < ActiveRecord::Base
   belongs_to :track
   has_one :conference, through: :track
   belongs_to :user
+
+  after_create :send_new_event_notification
+
+  private
+
+  def send_new_event_notification
+    EventMailer.new_event_notification(self).deliver
+  end
 end

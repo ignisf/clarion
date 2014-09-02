@@ -1,0 +1,24 @@
+Здравейте,
+
+Беше получено следното предложение за <%= @event.class.model_name.human.mb_chars.downcase.to_s %>:
+
+Потребител: <%= @event.user.email %>
+
+Заглавие: <%= @event.title %>
+
+Подзаглавие: <%= @event.title %>
+
+Поток: <%= @event.track.name %>
+
+Продължителност: <%= @event.length %>
+
+Език: <%= @event.language %>
+
+Резюме:
+<%= @event.abstract %>
+
+Описание:
+<%= @event.description %>
+
+Забележки:
+<%= @event.notes %>
