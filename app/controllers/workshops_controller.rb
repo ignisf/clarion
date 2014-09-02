@@ -1,6 +1,6 @@
 class WorkshopsController < ApplicationController
   before_filter :authenticate_user!
-  before_action :assign_lecture, only: [:show, :edit, :update]
+  before_action :assign_workshop, only: [:show, :edit, :update]
 
   def index
     @workshops = Workshop.where user: current_user
