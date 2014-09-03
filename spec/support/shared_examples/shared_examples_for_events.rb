@@ -1,4 +1,9 @@
 RSpec.shared_examples 'an event' do
+  it 'is invalid if the event agrement is not accepted' do
+    event.agreement = false
+    expect(event).to have_error_on :agreement
+  end
+
   it 'is invalid without a title' do
     event.title = ''
     expect(event).to have_error_on :title

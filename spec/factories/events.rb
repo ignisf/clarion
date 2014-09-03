@@ -9,6 +9,7 @@ FactoryGirl.define do
     abstract "An Abstract"
     description "A Description"
     notes "Some Notes"
+    agreement true
     track
     user
   end
@@ -21,6 +22,7 @@ FactoryGirl.define do
     abstract "An Abstract"
     description "A Description"
     notes "Some Notes"
+    agreement true
     track
     user
   end

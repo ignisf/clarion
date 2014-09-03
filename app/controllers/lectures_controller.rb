@@ -41,7 +41,7 @@ class LecturesController < ApplicationController
   end
 
   def lecture_params
-    params.require(:lecture).permit [:title, :subtitle, :length, :language, :abstract, :description, :notes, :track_id]
+    params.require(:lecture).permit [:title, :subtitle, :length, :language, :abstract, :description, :notes, :track_id, :agreement]
   end
 
   def after_save_redirection

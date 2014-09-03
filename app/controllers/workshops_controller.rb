@@ -41,7 +41,7 @@ class WorkshopsController < ApplicationController
   end
 
   def workshop_params
-    params.require(:workshop).permit [:title, :subtitle, :length, :language, :abstract, :description, :notes, :track_id]
+    params.require(:workshop).permit [:title, :subtitle, :length, :language, :abstract, :description, :notes, :track_id, :agreement]
   end
 
   def after_save_redirection

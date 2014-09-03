@@ -58,6 +58,7 @@ bg:
         description: Описание
         notes: Забележки
         track: Поток от лекции
+        agreement: Съгласен(на) съм
       workshop:
         title: Заглавие
         subtitle: Подзаглавие
@@ -67,6 +68,7 @@ bg:
         description: Описание
         notes: Забележки
         track: Поток от уъркшопи
+        agreement: Съгласен(на) съм
     errors:
       models:
         user:

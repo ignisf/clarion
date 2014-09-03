@@ -4,6 +4,7 @@ class Event < ActiveRecord::Base
   validates :abstract, presence: true
   validates :description, presence: true
   validates :track, inclusion: { in: (Conference.current.try(:tracks) || []) }
+  validates :agreement, acceptance: true
 
   belongs_to :track
   has_one :conference, through: :track

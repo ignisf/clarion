@@ -58,6 +58,7 @@ en:
         description: Description (3-4 paragraphs)
         notes: Notes
         track: Track
+        agreement: I agree
       workshop:
         title: Title
         subtitle: Sub-title
@@ -67,6 +68,7 @@ en:
         description: Description (3-4 paragraphs)
         notes: Notes
         track: Track
+        agreement: I agree
     errors:
       models:
         user:
