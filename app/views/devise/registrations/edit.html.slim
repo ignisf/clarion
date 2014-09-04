@@ -5,7 +5,7 @@
     h2.entry-title = t :speaker_profile
     = f.error_notification
     = f.simple_fields_for :speaker_profile do |ff|
-      = ff.input :picture, as: :image_preview, input_html: {preview_version: :thumb}
+      = ff.input :picture, as: :image_preview, input_html: {preview_version: :thumb}, required: true
       = ff.input :first_name, autofocus: true
       = ff.input :last_name
       = ff.input :public_email
