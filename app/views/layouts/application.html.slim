@@ -5,7 +5,7 @@ html
     meta charset="utf-8"
     title
       = Conference.current.try :title
-      = yield :title if content_for? :title
+      =< yield :title if content_for? :title
     = stylesheet_link_tag 'application'
     = csrf_meta_tags
   body
