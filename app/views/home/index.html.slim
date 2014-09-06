@@ -7,6 +7,8 @@ p = t :what_we_ask
 ul
   = render partial: 'track', collection: @current_conference.tracks
 
+p = t :license_notice
+
 .centered.large
   => link_to t(:submit_lecture), new_lecture_path, class: 'btn-link btn-link-large'
   = link_to t(:submit_workshop), new_workshop_path, class: 'btn-link btn-link-large'

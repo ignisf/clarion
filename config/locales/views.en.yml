@@ -1,6 +1,7 @@
 en:
   home_title: "%{conference} - call for speakers"
-  what_we_ask: 'Please send us applications for talks and workshops in the following categories:'
+  what_we_ask: 'Please send us applications for talks and workshops in the foolowing categories until September 30, 2014:'
+  license_notice: 'Keep in mind that your workshop/presentation will later be published under the CC-BY-ND (Creative Commons – Attribution – No derivatives) license.'
   submit_lecture: Submit lecture
   submit_workshop: Submit workshop
   resend_instructions_header: Re-send the instructions for confirming an account
