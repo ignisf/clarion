@@ -8,7 +8,7 @@ class Conference < ActiveRecord::Base
 
   translates :title, :description
 
-  has_many :tracks
+  has_many :tracks, -> { order('id asc') }
   has_many :events, through: :tracks
 
   scope :future, -> { where('start_date >= ?', Date.today).order('start_date ASC') }
