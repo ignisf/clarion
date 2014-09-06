@@ -57,7 +57,7 @@ bg:
         abstract: Резюме
         description: Описание
         notes: Забележки
-        track: Поток от лекции
+        track_id: Поток от лекции
         agreement: Съгласен(на) съм
       workshop:
         title: Заглавие
@@ -67,7 +67,7 @@ bg:
         abstract: Резюме
         description: Описание
         notes: Забележки
-        track: Поток от уъркшопи
+        track_id: Поток от уъркшопи
         agreement: Съгласен(на) съм
     errors:
       models:

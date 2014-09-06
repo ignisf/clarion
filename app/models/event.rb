@@ -3,7 +3,7 @@ class Event < ActiveRecord::Base
   validates :length, presence: true, numericality: {only_integer: true, greater_than: 0}
   validates :abstract, presence: true
   validates :description, presence: true
-  validates :track, inclusion: { in: (Conference.current.try(:tracks) || []) }
+  validates :track_id, inclusion: { in: (Conference.current.try(:tracks) || []).map(&:id) }
   validates :agreement, acceptance: true
 
   belongs_to :track

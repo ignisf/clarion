@@ -5,7 +5,7 @@
   .form-inputs
     = form.input :title, autofocus: true
     = form.input :subtitle
-    = form.association :track
+    = form.input :track_id, collection: Conference.current.tracks.map { |track| [track.name, track.id, {title: track.description}] }, required: true
     = form.input :length, input_html: {value: 60}
     = form.input :language, collection: I18n.available_locales, include_blank: false, default: I18n.locale
     = form.input :abstract
