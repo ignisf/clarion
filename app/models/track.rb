@@ -5,6 +5,8 @@ class Track < ActiveRecord::Base
   validates :name, presence: true
   validates :color, presence: true, format: {with: /\A[a-f0-9]{6}\z/i}
 
+  translates :name, :description
+
   def color=(hex_triplet)
     write_attribute :color, hex_triplet.gsub(/\A#/,'') if hex_triplet
   end

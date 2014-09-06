@@ -9,6 +9,6 @@ class AddTranslationTablesToConferences < ActiveRecord::Migration
   end
 
   def down
-    Post.drop_translation_table! :migrate_data => true
+    Conference.drop_translation_table! :migrate_data => true
   end
 end
