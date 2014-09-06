@@ -9,7 +9,7 @@ en:
       default_message: 'Please see the errors below:'
     hints:
       user:
-        email: Your email address. Will be visible to the organizers only.
+        email: Your e-mail address. Will be visible to the organizers only.
         password: Password with length between 8 and 128 symbols
         password_confirmation: Repeat the password
         speaker_profile:
@@ -35,7 +35,7 @@ en:
         subtitle: Sub-title of your workshop (if applicable)
         track: Track for your workshop
         length: The length of the workshop can be from 30 to 120 minutes
-        language: Language in with the workshop will be conducted
+        language: Language in which the workshop will be conducted
         abstract: Abstract of the workshop, visible to the visitors
         description: Detailed description of the workshop, visible to the visitors
         notes: Notes, visible only to the organizers
