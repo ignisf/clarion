@@ -17,7 +17,7 @@ en:
           organisation: Your organization
           public_email: E-mail address, visible to the visitors
           mobile_phone: Mobile phone, visible for the organizers only
-          biography: Describe yourself in a few sentences in third person :).
+          biography: Describe yourself in a few sentences in third person :)
           github: Your Github username
           twitter: Your Twitter username
       lecture:
@@ -25,11 +25,11 @@ en:
         subtitle: Sub-title of your talk (if applicable)
         track: Track for your talk
         length: The length of your talk can be from 40 to 45 minutes
-        language: Language in with the talk will be presented
+        language: Language in which the talk will be presented
         abstract: Abstract of the talk, for the visitors
         description: Detailed description of the talk, visible to the visitors
         notes: Notes on your talk, visible only to the organizers
-        agreement: Indicate if you accept your lecture to be recorded and published under the CC-BY-ND (Creative Commons – Attribution – No Derivatives) license?
+        agreement: I accept my lecture to be recorded and published under the CC-BY-ND (Creative Commons – Attribution – No Derivatives) license?
       workshop:
         title: Title of your workshop
         subtitle: Sub-title of your workshop (if applicable)
@@ -39,4 +39,4 @@ en:
         abstract: Abstract of the workshop, visible to the visitors
         description: Detailed description of the workshop, visible to the visitors
         notes: Notes, visible only to the organizers
-        agreement: Indicate if you accept your workshop to be recorded and published under the CC-BY-ND (Creative Commons – Attribution – No Derivatives) license?
+        agreement: I accept my workshop to be recorded and published under the CC-BY-ND (Creative Commons – Attribution – No Derivatives) license?
