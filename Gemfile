@@ -37,6 +37,10 @@ gem 'puma'
 
 gem 'globalize', '~> 4.0.2'
 
+gem 'bootstrap-sass'
+gem 'bootstrap-sass-extras'
+gem 'autoprefixer-rails'
+
 group :development do
   gem 'spring'
   gem 'spring-commands-rspec'
