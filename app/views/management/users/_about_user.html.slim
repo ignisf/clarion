@@ -1,0 +1,32 @@
+.user-details id="about-user-#{@user.id}" tabindex="-1" role="dialog" aria-hidden="true"
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+        h4.modal-title = t(:more_about_user, user: @user.speaker_profile.name)
+      .modal-body
+        .center
+          = image_tag @user.speaker_profile.picture.url, class: "profile-image"
+          h3.media-heading
+            = @user.speaker_profile.name
+            small< = @user.speaker_profile.organisation
+          div.social
+            = link_to "mailto://#{@user.email}"
+              = fa_icon :envelope
+            - if @user.speaker_profile.github.present?
+              = link_to "https://github.com/#{@user.speaker_profile.github}"
+                = fa_icon :github
+            - if @user.speaker_profile.twitter.present?
+              = link_to "https://twitter.com/#{@user.speaker_profile.twitter}"
+                = fa_icon :twitter
+
+        hr
+
+        h5 = SpeakerProfile.human_attribute_name(:biography)
+        = simple_format @user.speaker_profile.biography
+
+        p #{glyph(:phone)} #{Phony.format(@user.speaker_profile.mobile_phone, format: :international)}
+
+      .modal-footer
+        button type="button" class="btn btn-default" data-dismiss="modal"
+          = t(:close)

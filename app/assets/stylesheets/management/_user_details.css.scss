@@ -1,0 +1,22 @@
+.user-details {
+    @extend .modal;
+    @extend .fade;
+    .center {
+        text-align: center;
+    }
+
+    .profile-image {
+        @extend .img-circle;
+        max-width: 140px;
+        max-height: 140px;
+    }
+
+    .social {
+        @extend .btn-group;
+
+        a {
+            @extend .btn;
+            @extend .btn-default;
+        }
+    }
+}

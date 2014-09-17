@@ -9,4 +9,8 @@ class User < ActiveRecord::Base
   has_many :workshops
 
   accepts_nested_attributes_for :speaker_profile, update_only: true
+
+  def toggle_admin!
+    update admin: !admin
+  end
 end

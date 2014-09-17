@@ -2,3 +2,4 @@ bg:
   are_you_sure: Сигурен ли си?
   view: Преглед
   home: Начало
+  more_about_user: "Повече информация за %{user}"

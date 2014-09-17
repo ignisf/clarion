@@ -1,14 +1,16 @@
 module Management
   class UsersController < ManagementController
-    before_action :assign_user, only: [:toggle_admin]
+    before_action :assign_user, only: [:show, :toggle_admin]
 
     def index
       @users = User.all
     end
 
     def toggle_admin
-      @user.admin = !@user.admin
-      @user.save
+      @user.toggle_admin!
+    end
+
+    def show
     end
 
     private
