@@ -5,6 +5,19 @@
         vertical-align: middle !important;
     }
 
+    th.picture, td.picture {
+        text-align: center;
+        width: 60px;
+    }
+
+    th.admin, td.admin {
+        width: 60px;
+    }
+
+    th.actions, td.actions {
+        width: 120px;
+    }
+
     .picture-placeholder {
         @extend .img-thumbnail;
 
@@ -16,7 +29,7 @@
         }
     }
 
-    .actions {
+    .actions div {
         @extend .pull-right;
         @extend .btn-group;
         white-space: nowrap;

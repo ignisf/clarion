@@ -1,5 +1,5 @@
 tr id="user-#{user.id}"
-  td
+  td.picture
     - if user.speaker_profile.present?
       = image_tag user.speaker_profile.picture.thumb.url, class: 'img-thumbnail'
     - else
@@ -8,15 +8,15 @@ tr id="user-#{user.id}"
   td = user.email
   td = user.speaker_profile.try(:first_name) or '-'
   td = user.speaker_profile.try(:last_name) or '-'
-  td
+  td.admin
     - if user.admin?
       span.toggle
         = link_to glyph(:check), toggle_admin_management_user_path(user), remote: true,  method: :post, data: {confirm: t(:are_you_sure)}, class: 'checked'
     - else
       span.toggle
         = link_to glyph(:unchecked), toggle_admin_management_user_path(user), remote: true, method: :post, data: {confirm: t(:are_you_sure)}, class: 'unchecked'
-  td
-    .actions
+  td.actions
+    div
       = link_to management_user_path(user), title: t(:view), remote: true, disabled: user.speaker_profile.blank?
         = glyph(:share)
       = link_to edit_management_user_path(user), title: t(:edit)
