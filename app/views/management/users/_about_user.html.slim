@@ -6,7 +6,7 @@
         h4.modal-title = t(:more_about_user, user: @user.speaker_profile.name)
       .modal-body
         .center
-          = image_tag @user.speaker_profile.picture.url, class: "profile-image"
+          = image_tag @user.speaker_profile.picture.medium.url, class: "profile-image"
           h3.media-heading
             = @user.speaker_profile.name
           - if @user.speaker_profile.organisation.present?
