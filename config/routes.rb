@@ -4,8 +4,13 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: {registrations: 'registrations', sessions: 'sessions'}
 
-  scope :management, module: :management do
+  namespace :management do
     get '/', to: 'home#index'
+    resources :users do
+      member do
+        post 'toggle_admin'
+      end
+    end
   end
 
   root 'home#index'

@@ -1,0 +1,32 @@
+.record-table {
+    @extend .table;
+
+    td {
+        vertical-align: middle !important;
+    }
+
+    .actions {
+        @extend .pull-right;
+        @extend .btn-group;
+        white-space: nowrap;
+
+        a {
+            @extend .btn;
+            @extend .btn-default;
+        }
+    }
+
+    .toggle {
+        a {
+            @extend .btn;
+        }
+
+        a.checked {
+            @extend .btn-success;
+        }
+
+        a.unchecked {
+            @extend .btn-primary;
+        }
+    }
+}

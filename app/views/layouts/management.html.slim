@@ -21,7 +21,7 @@ html
         .navbar-collapse.collapse
           ul.nav.navbar-nav
             li.active = link_to 'Home', root_path
-            li = link_to 'Users', root_path
+            li = link_to 'Users', management_users_path
     div.container
       == yield
     = javascript_include_tag "management/application"
