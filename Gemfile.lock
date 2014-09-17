@@ -44,6 +44,8 @@ GEM
       sass (~> 3.2)
     bootstrap-sass-extras (0.0.6)
       rails (>= 3.1.0)
+    bootswatch-rails (3.2.4)
+      railties (>= 3.1)
     builder (3.2.2)
     capistrano (3.2.1)
       i18n
@@ -270,6 +272,7 @@ DEPENDENCIES
   autoprefixer-rails
   bootstrap-sass
   bootstrap-sass-extras
+  bootswatch-rails
   capistrano
   capistrano-rails
   capistrano-rvm

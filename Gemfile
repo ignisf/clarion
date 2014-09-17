@@ -39,6 +39,7 @@ gem 'globalize', '~> 4.0.2'
 
 gem 'bootstrap-sass'
 gem 'bootstrap-sass-extras'
+gem 'bootswatch-rails'
 gem 'autoprefixer-rails'
 
 group :development do

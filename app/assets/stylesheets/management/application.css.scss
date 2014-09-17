@@ -1,5 +1,6 @@
 //= require_directory .
 
 @import "bootstrap-sprockets";
+@import "bootswatch/simplex/variables";
 @import "bootstrap";
-@import "bootstrap/theme";
+@import "bootswatch/simplex/bootswatch";
