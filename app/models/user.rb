@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
 
   accepts_nested_attributes_for :speaker_profile, update_only: true
 
+  default_scope { order id: :desc }
+
   def toggle_admin!
     update admin: !admin
   end
