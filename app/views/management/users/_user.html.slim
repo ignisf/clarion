@@ -11,7 +11,7 @@ tr id="user-#{user.id}"
         = link_to glyph(:unchecked), toggle_admin_management_user_path(user), remote: true, method: :post, data: {confirm: t(:are_you_sure)}, class: 'unchecked'
   td
     .actions
-      = link_to management_user_path(user), title: t(:edit)
+      = link_to management_user_path(user), title: t(:view)
         = glyph(:share)
       = link_to edit_management_user_path(user), title: t(:edit)
         = glyph(:edit)
