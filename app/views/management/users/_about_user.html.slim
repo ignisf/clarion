@@ -9,7 +9,10 @@
           = image_tag @user.speaker_profile.picture.url, class: "profile-image"
           h3.media-heading
             = @user.speaker_profile.name
-            small< = @user.speaker_profile.organisation
+          - if @user.speaker_profile.organisation.present?
+            div
+              => fa_icon(:briefcase)
+              = @user.speaker_profile.organisation
           div.social
             = link_to "mailto://#{@user.email}"
               = fa_icon :envelope
@@ -25,6 +28,12 @@
         h5 = SpeakerProfile.human_attribute_name(:biography)
         = simple_format @user.speaker_profile.biography
 
+        h5 = t :contacts
+        - if @user.speaker_profile.twitter.present?
+          p #{fa_icon(:twitter)} @#{@user.speaker_profile.twitter}
+        - if @user.speaker_profile.public_email.present?
+          p #{fa_icon(:envelope)} #{@user.speaker_profile.public_email} (#{t(:public)})
+        p #{fa_icon(:envelope)} #{@user.email} (#{t(:private)})
         p #{glyph(:phone)} #{Phony.format(@user.speaker_profile.mobile_phone, format: :international)}
 
       .modal-footer

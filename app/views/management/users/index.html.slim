@@ -5,6 +5,7 @@
     table.record-table
       thead
         tr
+          th = SpeakerProfile.human_attribute_name(:picture)
           th = User.human_attribute_name(:email)
           th = SpeakerProfile.human_attribute_name(:first_name)
           th = SpeakerProfile.human_attribute_name(:last_name)

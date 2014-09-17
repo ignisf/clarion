@@ -1,4 +1,10 @@
 tr id="user-#{user.id}"
+  td
+    - if user.speaker_profile.present?
+      = image_tag user.speaker_profile.picture.thumb.url, class: 'img-thumbnail'
+    - else
+      .picture-placeholder
+        = glyph(:user)
   td = user.email
   td = user.speaker_profile.try(:first_name) or '-'
   td = user.speaker_profile.try(:last_name) or '-'
