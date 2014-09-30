@@ -65,3 +65,4 @@ en:
   logout: Logout
 
   of_motto: share the freedom
+  meta_data: "Language: %{language}, track: \"%{track}\", length: %{length} min."

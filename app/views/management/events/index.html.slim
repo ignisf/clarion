@@ -1,0 +1,11 @@
+.row
+  table.record-table
+    thead
+      tr
+        th.picture = Event.human_attribute_name(:user)
+        th = Event.human_attribute_name(:title)
+        th = Track.model_name.human
+        th = Event.human_attribute_name(:type)
+        th.actions
+    tbody
+      = render partial: 'suggestion_group', collection: @suggestion_groups

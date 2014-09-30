@@ -20,10 +20,10 @@ html
           = link_to 'Clarion', root_path, class: 'navbar-brand'
         .navbar-collapse.collapse
           ul.nav.navbar-nav
-            li class="#{'active' if controller_name == 'home'}"
-              = link_to t(:home), management_path
             li class="#{'active' if controller_name == 'users'}"
               = link_to User.model_name.human(count: 2), management_users_path
+            li class="#{'active' if controller_name == 'events'}"
+              = link_to Event.model_name.human(count: 2), management_events_path
     div.container
       == yield
     = javascript_include_tag "management/application"

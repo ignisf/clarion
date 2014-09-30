@@ -31,6 +31,9 @@ bg:
       workshop:
         one: Уъркшоп
         other: Уъркшопи
+      event:
+        one: Предложение
+        other: Предложения
       track: Поток от лекции
     attributes:
       user:
@@ -49,7 +52,7 @@ bg:
         biography: Биография
         github: Github акаунт
         twitter: Twitter акаунт
-      lecture:
+      event:
         title: Заглавие
         subtitle: Подзаглавие
         length: Продължителност
@@ -59,16 +62,7 @@ bg:
         notes: Забележки
         track_id: Поток от лекции
         agreement: Съгласен(на) съм
-      workshop:
-        title: Заглавие
-        subtitle: Подзаглавие
-        length: Продължителност
-        language: Език
-        abstract: Резюме
-        description: Описание
-        notes: Забележки
-        track_id: Поток от уъркшопи
-        agreement: Съгласен(на) съм
+        user: Лектор
     errors:
       models:
         user:

@@ -66,3 +66,5 @@ bg:
   logout: Изход
 
   of_motto: да споделим свободата
+
+  meta_data: "Език: %{language}, поток: „%{track}“, продължителност: %{length} мин."

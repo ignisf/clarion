@@ -1,5 +1,6 @@
 .record-table {
     @extend .table;
+    @extend .table-striped;
 
     td {
         vertical-align: middle !important;
@@ -16,17 +17,6 @@
 
     th.actions, td.actions {
         width: 120px;
-    }
-
-    .picture-placeholder {
-        @extend .img-thumbnail;
-
-        .glyphicon {
-            width: 50px;
-            height: 50px;
-            font-size: 48px;
-            text-align: center;
-        }
     }
 
     .actions div {
@@ -52,5 +42,21 @@
         a.unchecked {
             @extend .btn-primary;
         }
+    }
+
+    .subtitle {
+        font-size: 0.9em;
+        font-style: italic;
+    }
+}
+
+.picture-placeholder {
+    @extend .img-thumbnail;
+
+    .glyphicon {
+        width: 50px;
+        height: 50px;
+        font-size: 48px;
+        text-align: center;
     }
 }
