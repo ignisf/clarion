@@ -1,12 +1,16 @@
 .row
   .panel.panel-primary
     .panel-heading
-      h3.panel-title = Event.model_name.human(count: 2)
+      h3.panel-title
+        = Event.model_name.human(count: 2)
+        span.pull-right
+          = t(:suggestion_and_speaker_count, suggestions: @suggestion_groups.map(&:suggestions).flatten.count, speakers: @suggestion_groups.count)
     table.record-table
       thead
         tr
           th.picture = Event.human_attribute_name(:user)
           th = Event.human_attribute_name(:title)
+          th = Event.human_attribute_name(:language)
           th = Track.model_name.human
           th = Event.human_attribute_name(:type)
           th.actions
