@@ -1,0 +1,29 @@
+doctype html
+
+html
+  head
+    meta charset="utf-8"
+    meta http-equiv="X-UA-Compatible" content="IE=edge"
+    meta name="viewport" content="width=device-width, initial-scale=1"
+    title Clarion
+    = stylesheet_link_tag "management/application"
+    = csrf_meta_tags
+  body
+    nav.navbar.navbar-default.navbar-fixed-top
+      .container
+        .navbar-header
+          button.navbar-toggle.collapsed type="button" data-toggle="collapse" data-target=".navbar-collapse"
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          = link_to 'Clarion', root_path, class: 'navbar-brand'
+        .navbar-collapse.collapse
+          ul.nav.navbar-nav
+            li class="#{'active' if controller_name == 'users'}"
+              = link_to User.model_name.human(count: 2), management_users_path
+            li class="#{'active' if controller_name == 'events'}"
+              = link_to Event.model_name.human(count: 2), management_events_path
+    div.container
+      == yield
+    = javascript_include_tag "management/application"

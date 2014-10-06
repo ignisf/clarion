@@ -7,6 +7,13 @@ class User < ActiveRecord::Base
   has_one :speaker_profile
   has_many :lectures
   has_many :workshops
+  has_many :events
 
   accepts_nested_attributes_for :speaker_profile, update_only: true
+
+  default_scope { order id: :desc }
+
+  def toggle_admin!
+    update admin: !admin
+  end
 end

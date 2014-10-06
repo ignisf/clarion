@@ -65,3 +65,5 @@ en:
   logout: Logout
 
   of_motto: share the freedom
+  meta_data: "Language: %{language}, track: \"%{track}\", length: %{length} min."
+  suggestion_and_speaker_count: "%{suggestions} suggestions by %{speakers} speakers"

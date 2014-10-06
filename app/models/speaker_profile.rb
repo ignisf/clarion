@@ -17,4 +17,8 @@ class SpeakerProfile < ActiveRecord::Base
   def twitter=(handle)
     write_attribute :twitter, handle.gsub(/\A@/,'') if handle
   end
+
+  def name
+    "#{first_name} #{last_name}"
+  end
 end

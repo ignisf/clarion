@@ -1,0 +1,5 @@
+$('body').append('<%= j render 'suggestion_details' %>');
+$('#suggestion-<%= @suggestion.id %>-details').on('hidden.bs.modal', function () {
+  $(this).remove();
+});
+$('#suggestion-<%= @suggestion.id %>-details').modal('show');

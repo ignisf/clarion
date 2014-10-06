@@ -4,6 +4,18 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: {registrations: 'registrations', sessions: 'sessions'}
 
+  namespace :management do
+    get '/', to: 'events#index'
+
+    resources :users do
+      member do
+        post 'toggle_admin'
+      end
+    end
+
+    resources :events
+  end
+
   root 'home#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

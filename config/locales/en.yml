@@ -32,6 +32,9 @@ en:
         one: Workshop
         other: Workshops
       track: track
+      event:
+        one: Suggestion
+        other: Suggestions
     attributes:
       user:
         email: E-mail
@@ -49,7 +52,7 @@ en:
         biography: Short bography
         github: Github account
         twitter: Twitter account
-      lecture:
+      event:
         title: Title
         subtitle: Sub-title
         length: Length (should be between 40 and 45 minutes)
@@ -59,16 +62,7 @@ en:
         notes: Notes
         track: Track
         agreement: I accept
-      workshop:
-        title: Title
-        subtitle: Sub-title
-        length: Length (should be between 30 and 120 minutes)
-        language: Language
-        abstract: Abstract (one paragraph)
-        description: Description (3-4 paragraphs)
-        notes: Notes
-        track: Track
-        agreement: I accept
+        user: Speaker
     errors:
       models:
         user:

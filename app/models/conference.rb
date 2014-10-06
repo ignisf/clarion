@@ -10,6 +10,7 @@ class Conference < ActiveRecord::Base
 
   has_many :tracks, -> { order('id asc') }
   has_many :events, through: :tracks
+  has_many :candidate_speakers, through: :events
 
   scope :future, -> { where('start_date >= ?', Date.today).order('start_date ASC') }
 

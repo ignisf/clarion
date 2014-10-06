@@ -8,7 +8,8 @@ class Event < ActiveRecord::Base
 
   belongs_to :track
   has_one :conference, through: :track
-  belongs_to :user
+  belongs_to :user # XXX: Transition to candidate_speaker
+  belongs_to :candidate_speaker, class_name: 'User', foreign_key: 'user_id'
 
   after_create :send_new_event_notification
 
