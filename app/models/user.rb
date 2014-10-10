@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
 
   default_scope { order id: :desc }
 
+  def name
+    speaker_profile.try(:name) || email
+  end
+
   def toggle_admin!
     update admin: !admin
   end
