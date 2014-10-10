@@ -23,11 +23,11 @@
         @extend .pull-right;
         @extend .btn-group;
         white-space: nowrap;
+    }
 
-        a {
-            @extend .btn;
-            @extend .btn-default;
-        }
+    .actions > div > a {
+        @extend .btn;
+        @extend .btn-default;
     }
 
     .toggle {

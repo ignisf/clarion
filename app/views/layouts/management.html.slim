@@ -22,8 +22,20 @@ html
           ul.nav.navbar-nav
             li class="#{'active' if controller_name == 'users'}"
               = link_to User.model_name.human(count: 2), management_users_path
-            li class="#{'active' if controller_name == 'events'}"
-              = link_to Event.model_name.human(count: 2), management_events_path
+            li class="dropdown #{'active' if controller_name == 'events'}"
+              = link_to '#', class: 'dropdown-toggle', data: {toggle: "dropdown"}
+                = Event.model_name.human(count: 2)
+                span.caret
+              ul.dropdown-menu role="menu"
+                li class="#{'active' if action_name == 'index'}"
+                  = link_to "Всички", management_events_path
+                li class="#{'active' if action_name == 'undecided'}"
+                  = link_to "Висящи", undecided_management_events_path
+                li class="#{'active' if action_name == 'approved'}"
+                  = link_to "Одобрени", approved_management_events_path
+                li class="#{'active' if action_name == 'rejected'}"
+                  = link_to "Отхвърлени", rejected_management_events_path
+
     div.container
       == yield
     = javascript_include_tag "management/application"

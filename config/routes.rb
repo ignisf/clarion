@@ -13,7 +13,17 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :events
+    resources :events do
+      member do
+        patch 'state'
+      end
+
+      collection do
+        get 'approved'
+        get 'rejected'
+        get 'undecided'
+      end
+    end
   end
 
   root 'home#index'

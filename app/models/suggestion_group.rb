@@ -8,7 +8,7 @@ class SuggestionGroup
     end
   end
 
-  def self.for_conference(conference)
-    where tracks: {conference_id: conference.id}
+  def self.for_conference(conference, conditions = {})
+    where conditions.merge({tracks: {conference_id: conference.id}})
   end
 end

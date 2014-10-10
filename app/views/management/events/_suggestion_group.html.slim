@@ -26,3 +26,4 @@
       div
         = link_to management_event_path(suggestion), title: t(:view), remote: true
           = glyph(:share)
+        = render partial: 'state', locals: {suggestion: suggestion}
