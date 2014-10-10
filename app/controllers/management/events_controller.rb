@@ -21,6 +21,11 @@ module Management
       render :index
     end
 
+    def backup
+      @suggestion_groups = SuggestionGroup.for_conference Conference.current, state: Event.states[:backup]
+      render :index
+    end
+
     def show
     end
 

@@ -13,11 +13,11 @@ class Event < ActiveRecord::Base
 
   after_create :send_new_event_notification
 
-  enum state: [:undecided, :approved, :rejected]
+  enum state: [:undecided, :approved, :rejected, :backup]
 
   # XXX: this belongs in a decorator
-  STATE_TO_GLYPH = {undecided: 'question-sign', rejected: 'thumbs-down', approved: 'thumbs-up'}
-  STATE_TO_CLASS = {undecided: 'warning', rejected: 'danger', approved: 'success'}
+  STATE_TO_GLYPH = {undecided: 'question-sign', rejected: 'thumbs-down', approved: 'thumbs-up', backup: 'retweet'}
+  STATE_TO_CLASS = {undecided: 'warning', rejected: 'danger', approved: 'success', backup: 'info'}
 
   private
 

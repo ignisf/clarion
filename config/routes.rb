@@ -22,6 +22,7 @@ Rails.application.routes.draw do
         get 'approved'
         get 'rejected'
         get 'undecided'
+        get 'backup'
       end
     end
   end

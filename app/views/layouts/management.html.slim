@@ -7,6 +7,7 @@ html
     meta name="viewport" content="width=device-width, initial-scale=1"
     title Clarion
     = stylesheet_link_tag "management/application"
+    = stylesheet_link_tag '//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.2.4/bootstrap-table.min.css'
     = csrf_meta_tags
   body
     nav.navbar.navbar-default.navbar-fixed-top
@@ -30,12 +31,15 @@ html
                 li class="#{'active' if action_name == 'index'}"
                   = link_to "Всички", management_events_path
                 li class="#{'active' if action_name == 'undecided'}"
-                  = link_to "Висящи", undecided_management_events_path
+                  = link_to "Нерешени", undecided_management_events_path
                 li class="#{'active' if action_name == 'approved'}"
                   = link_to "Одобрени", approved_management_events_path
+                li class="#{'active' if action_name == 'backup'}"
+                  = link_to "Резерви", backup_management_events_path
                 li class="#{'active' if action_name == 'rejected'}"
                   = link_to "Отхвърлени", rejected_management_events_path
 
     div.container
       == yield
     = javascript_include_tag "management/application"
+    = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.2.4/bootstrap-table.min.js'
