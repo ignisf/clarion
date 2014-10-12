@@ -32,6 +32,7 @@ Rails.application.routes.draw do
         get 'rejected'
         get 'undecided'
         get 'backup'
+        post 'send_acceptance_notifications'
       end
     end
   end

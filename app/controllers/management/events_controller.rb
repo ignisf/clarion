@@ -34,6 +34,15 @@ module Management
       @suggestion.save
     end
 
+    def send_acceptance_notifications
+      @suggestions = Conference.current.events.approved.where acceptance_notification_sent_at: nil
+      if @suggestions.all?(&:send_acceptance_notification!)
+        head :no_content
+      else
+        head :unprocessable_entity
+      end
+    end
+
     private
 
     def state_params

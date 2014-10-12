@@ -16,3 +16,7 @@
           th.actions
       tbody
         = render partial: 'suggestion_group', collection: @suggestion_groups
+    .panel-footer
+      .pull-right
+        = link_to 'Изпрати нотификации на одобрените', send_acceptance_notifications_management_events_path, remote: true, method: :post, data: {confirm: 'Сигурни ли сте'}, class: %w{btn btn-danger}
+      .clearfix
