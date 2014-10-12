@@ -24,6 +24,10 @@ class Event < ActiveRecord::Base
     touch :acceptance_notification_sent_at
   end
 
+  def confirmed?
+    !!confirmed_at
+  end
+
   private
 
   def send_new_event_notification

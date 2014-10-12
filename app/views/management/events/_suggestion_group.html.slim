@@ -14,7 +14,7 @@
 
     td
       span.title
-        = link_to management_event_path(suggestion), title: t(:view), remote: true
+        = link_to management_event_path(suggestion), title: t(:view), remote: true, class: "#{'text-success' if suggestion.confirmed?}"
           = suggestion.title
       br
       span.subtitle
