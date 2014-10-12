@@ -19,6 +19,11 @@ class Event < ActiveRecord::Base
   STATE_TO_GLYPH = {undecided: 'question-sign', rejected: 'remove', approved: 'ok', backup: 'retweet'}
   STATE_TO_CLASS = {undecided: 'warning', rejected: 'danger', approved: 'success', backup: 'info'}
 
+  def send_acceptance_notification!
+    EventMailer.acceptance_notification(self).deliver
+    touch :acceptance_notification_sent_at
+  end
+
   private
 
   def send_new_event_notification

@@ -20,6 +20,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 bg:
+  event_mailer:
+    acceptance_notification:
+      subject: 'Предложението ви за %{conference} е одобрено'
   activerecord:
     models:
       user:

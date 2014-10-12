@@ -20,6 +20,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  event_mailer:
+    acceptance_notification:
+      subject: 'Your submission for %{conference} has been approved'
   activerecord:
     models:
       user:
