@@ -67,3 +67,6 @@ en:
   of_motto: share the freedom
   meta_data: "Language: %{language}, track: \"%{track}\", length: %{length} min."
   suggestion_and_speaker_count: "%{suggestions} suggestions by %{speakers} speakers"
+
+  lecture_was_successfully_confirmed: "The lecture was successfully confirmed"
+  workshop_was_successfully_confirmed: "The workshop was successfully confirmed"

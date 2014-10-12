@@ -1,6 +1,6 @@
 class LecturesController < ApplicationController
   before_filter :authenticate_user!
-  before_action :assign_lecture, only: [:show, :edit, :update]
+  before_action :assign_lecture, only: [:show, :edit, :update, :confirm]
 
   def index
     @lectures = Lecture.where user: current_user
@@ -32,6 +32,11 @@ class LecturesController < ApplicationController
   end
 
   def show
+  end
+
+  def confirm
+    @lecture.touch :confirmed_at
+    redirect_to @lecture, notice: I18n.t(:lecture_was_successfully_confirmed)
   end
 
   private

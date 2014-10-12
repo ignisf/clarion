@@ -69,3 +69,6 @@ bg:
 
   meta_data: "Език: %{language}, поток: „%{track}“, продължителност: %{length} мин."
   suggestion_and_speaker_count: "%{suggestions} предложения от %{speakers} лектори"
+
+  lecture_was_successfully_confirmed: "Лекцията беше потвърдена успешно"
+  workshop_was_successfully_confirmed: "Уъркшопът беше потвърден успешно"

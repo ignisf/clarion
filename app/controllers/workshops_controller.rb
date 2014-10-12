@@ -1,6 +1,6 @@
 class WorkshopsController < ApplicationController
   before_filter :authenticate_user!
-  before_action :assign_workshop, only: [:show, :edit, :update]
+  before_action :assign_workshop, only: [:show, :edit, :update, :confirm]
 
   def index
     @workshops = Workshop.where user: current_user
@@ -32,6 +32,11 @@ class WorkshopsController < ApplicationController
   end
 
   def show
+  end
+
+  def confirm
+    @workshop.touch :confirmed_at
+    redirect_to @workshop, notice: I18n.t(:workshop_was_successfully_confirmed)
   end
 
   private

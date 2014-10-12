@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
-  resources :lectures, only: [:index, :new, :create, :edit, :update, :show]
-  resources :workshops, only: [:index, :new, :create, :edit, :update, :show]
+  resources :lectures, only: [:index, :new, :create, :edit, :update, :show] do
+    member do
+      get 'confirm'
+    end
+  end
+
+  resources :workshops, only: [:index, :new, :create, :edit, :update, :show] do
+    member do
+      get 'confirm'
+    end
+  end
 
   devise_for :users, controllers: {registrations: 'registrations', sessions: 'sessions'}
 
