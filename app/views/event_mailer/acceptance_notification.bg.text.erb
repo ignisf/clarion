@@ -3,7 +3,7 @@
 Радваме се да Ви съобщим, че предложението ви за участие в <%= @event.conference.title %> с <%= @event.class.model_name.human.mb_chars.downcase.to_s %> на тема „<%= @event.title %>“ беше одобрено.
 
 Първоначален вариант на програмата можете да видите тук:
-http://wwwt.openfest.org/bg/schedule-3/
+http://wwwt.openfest.org/bg/programa/
 
 Моля, потвърдете участието си възможно най-скоро като кликнете на следния линк:
 <% if @event.is_a? Lecture %>
@@ -11,6 +11,8 @@ http://wwwt.openfest.org/bg/schedule-3/
 <% elsif @event.is_a? Workshop %>
 <%= confirm_workshop_url(@event) %>
 <% end %>
+
+Отговорете на този email, ако възникнат някакви въпроси.
 
 Поздрави,
 Екипът на <%= @event.conference.title %>

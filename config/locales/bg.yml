@@ -22,7 +22,7 @@
 bg:
   event_mailer:
     acceptance_notification:
-      subject: 'Предложението ви за %{conference} за %{submission_type} със заглавие „%{title}“ е одобрено'
+      subject: 'Предложението ви за %{conference} за %{submission_type} „%{title}“ е одобрено'
   activerecord:
     models:
       user:
