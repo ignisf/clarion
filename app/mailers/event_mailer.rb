@@ -8,6 +8,6 @@ class EventMailer < ActionMailer::Base
   def acceptance_notification(event)
     @event = event
     I18n.locale = @event.language
-    mail to: @event.user.email, from: 'cfp@openfest.org', subject: I18n.t('event_mailer.acceptance_notification.subject', conference: @event.conference.title)
+    mail to: @event.user.email, from: 'program@openfest.org', subject: I18n.t('event_mailer.acceptance_notification.subject', conference: @event.conference.title, submission_type: @event.class.model_name.human.mb_chars.downcase.to_s, title: @event.title)
   end
 end

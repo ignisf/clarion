@@ -1,1 +1,16 @@
-Your submission was approved
+Hello,
+
+We are happy to notify you that your request for participation in <%= @event.conference.title %> with the <%= @event.class.model_name.human.mb_chars.downcase.to_s %> titled "<%= @event.title %>" was approved.
+
+The initial conference schedule can be found here:
+http://wwwt.openfest.org/en/schedule/
+
+Please confirm your participation as soon as you can by following the following link:
+<% if @event.is_a? Lecture %>
+<%= confirm_lecture_url(@event) %>
+<% elsif @event.is_a? Workshop %>
+<%= confirm_workshop_url(@event) %>
+<% end %>
+
+Regards,
+The <%= @event.conference.title %> Team
