@@ -7,9 +7,9 @@ http://wwwt.openfest.org/en/schedule/
 
 Please confirm your participation as soon as you can by following the following link:
 <% if @event.is_a? Lecture %>
-<%= confirm_lecture_url(@event) %>
+<%= confirm_lecture_url(@event, locale: 'en') %>
 <% elsif @event.is_a? Workshop %>
-<%= confirm_workshop_url(@event) %>
+<%= confirm_workshop_url(@event, locale: 'en') %>
 <% end %>
 
 Please respond to this email in case you have any questions.
