@@ -20,6 +20,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 bg:
+  locales:
+    bg: БГ
+    en: EN
   actions:
     create:
       button: Създай %{model}

@@ -25,24 +25,27 @@ html
         = link_to management_path, class: 'brand'
           | Clarion
       ul.right-menu.collapsable
+        - if @conference.present?
+          li.dropdown
+            a.dropdown-toggle href="#" data-toggle="dropdown"
+              i.fa.fa-users.fa-fw>
+              span = @conference.title
+              span.caret<
+            - if Conference.count > 1
+              ul.dropdown-menu role="menu"
+                - Conference.where.not(id: @conference.id).each do |conference|
+                  li
+                    = link_to conference.title, management_conference_path(conference)
+
         li.dropdown
           a.dropdown-toggle href="#" data-toggle="dropdown"
-            i.fa.fa-users.fa-fw>
-            span = Conference.current.title
+            i.fa.fa-flag.fa-fw>
+            span = t "locales.#{I18n.locale}"
             span.caret<
           ul.dropdown-menu role="menu"
-            - Conference.all.each do |conference|
-              li
-                = link_to conference.title, '#'
-
-        li
-          a href="#"
-            i.fa.fa-flag.fa-fw>
-            span = I18n.locale
-        li
-          a href="#"
-            i.fa.fa-cogs.fa-fw>
-            span = t :settings
+            - I18n.available_locales.each do |locale|
+              li.text-center
+                = link_to t("locales.#{locale}"), "?locale=#{locale}"
       .sidebar.collapsable
         ul.nav#side-menu
           li
