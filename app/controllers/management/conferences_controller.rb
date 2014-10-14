@@ -1,6 +1,7 @@
 module Management
   class ConferencesController < ManagementController
-    before_action :assign_conference, only: [:edit]
+    before_action :assign_conference, only: [:edit, :open_call_for_papers, :close_call_for_papers]
+    before_action :assign_conferences, only: [:index, :open_call_for_papers, :close_call_for_papers]
 
     def new
       @conference = Conference.new
@@ -17,13 +18,30 @@ module Management
     end
 
     def index
-      @conferences = Conference.all.order(start_date: :desc)
+    end
+
+    def open_call_for_papers
+      @conference.call_for_papers_open = true
+      @conference.save
+
+      render 'reload_table'
+    end
+
+    def close_call_for_papers
+      @conference.call_for_papers_open = false
+      @conference.save
+
+      render 'reload_table'
     end
 
     private
 
     def assign_conference
       @conference = Conference.find params[:id]
+    end
+
+    def assign_conferences
+      @conferences = Conference.all.order(start_date: :desc)
     end
 
     def conference_params

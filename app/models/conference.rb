@@ -16,11 +16,19 @@ class Conference < ActiveRecord::Base
 
   scope :future, -> { where('start_date >= ?', Date.today).order('start_date ASC') }
 
+  before_save :close_all_other_calls_for_papers
+
   def self.current
     future.first || last
   end
 
   private
+
+  def close_all_other_calls_for_papers
+    if call_for_papers_open? and call_for_papers_open_changed?
+      Conference.where.not(id: self.id).update_all call_for_papers_open: false
+    end
+  end
 
   def end_date_is_before_start_date
     if start_date.present? and end_date.present? and start_date > end_date

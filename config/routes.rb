@@ -17,6 +17,11 @@ Rails.application.routes.draw do
     get '/', to: 'events#index'
 
     resources :conferences do
+      member do
+        post 'cfp', to: 'conferences#open_call_for_papers'
+        delete 'cfp', to: 'conferences#close_call_for_papers'
+      end
+
       resources :events do
         patch 'state'
       end

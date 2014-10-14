@@ -7,12 +7,13 @@
       .panel-heading
         h1.panel-title = Conference.model_name.human(count: 2).mb_chars.capitalize
       .panel-body
-        table.table.table-striped.table-hover.record-table
+        table.table.table-striped.table-hover.record-table#conferences
           thead
             tr
               th = Conference.human_attribute_name :title
-              th = Conference.human_attribute_name :start_date
-              th = Conference.human_attribute_name :end_date
+              th.hidden-xs.hidden-sm = Conference.human_attribute_name :start_date
+              th.hidden-xs.hidden-sm = Conference.human_attribute_name :end_date
+              th.action = Conference.human_attribute_name :call_for_papers_open
               th = Conference.human_attribute_name :submissions
               th.actions
           tbody

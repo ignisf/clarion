@@ -3,10 +3,14 @@ th.actions, td.actions {
     text-align: right;
 }
 
-td.actions {
+td.action, td.actions {
     i.fa {
-        font-size: 16px;
+        font-size: 14px;
     }
+}
+
+th.action, td.action {
+    text-align: center;
 }
 
 .record-table td {
