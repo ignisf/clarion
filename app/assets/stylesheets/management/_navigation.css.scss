@@ -34,6 +34,23 @@
         margin-bottom: 0;
     }
 
+    .sidebar {
+        background: none;
+    }
+
+    .sidebar li a:hover {
+        background: none;
+        color: $link-color;
+    }
+
+    .sidebar ul li a {
+        color: $gray;
+    }
+
+    .sidebar ul li.active a {
+        color: $link-color;
+    }
+
     .sidebar .arrow {
         float: right;
     }
@@ -68,4 +85,7 @@
             padding-right: 30px;
         }
     }
+}
+#side-menu {
+
 }

@@ -47,8 +47,11 @@ html
         ul.nav#side-menu
           li
             a.active href="index.html"
-              i.fa.fa-wrench.fa-fw
+              i.fa.fa-dashboard.fa-fw
               | Dashboard
+          li class="#{controller_name == 'conferences' ? 'active' : nil}"
+            = link_to management_conferences_path
+              = fa_icon :group, text: Conference.model_name.human(count: 2).mb_chars.capitalize
 
     div.content#page-wrapper
       == yield
