@@ -11,8 +11,9 @@ class Conference < ActiveRecord::Base
   has_many :tracks, -> { order('id asc') }
   has_many :events, through: :tracks
   has_many :candidate_speakers, through: :events
+  has_many :halls
 
-  accepts_nested_attributes_for :tracks
+  accepts_nested_attributes_for :tracks, :halls, allow_destroy: true
 
   scope :future, -> { where('start_date >= ?', Date.today).order('start_date ASC') }
 

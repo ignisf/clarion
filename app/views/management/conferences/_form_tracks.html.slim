@@ -2,13 +2,19 @@ div#tracks
   = form.simple_fields_for :tracks do |ff|
     .col-lg-6
       .panel.panel-default
+        .panel-heading
+          .panel-title
+            = Track.model_name.human.mb_chars.capitalize
+            = ff.link_to_remove fa_icon(:remove), class: ['btn', 'btn-danger', 'btn-xs', 'pull-right', ff.object.events.any? ? 'disabled' : nil]
+
         .panel-body
           = ff.input :name
           = ff.input :color, as: :color
           = ff.input :description
-        .panel-footer.text-right
-          = ff.link_to_remove t('actions.destroy.button', model: Track.model_name.human), class: ['btn', 'btn-danger', ff.object.events.any? ? 'disabled' : nil]
 .col-lg-6
   .panel.panel-default
-    .panel-body.text-right
+    .panel-heading
+      .panel-title
+        = t 'actions.new.title_m', model: Track.model_name.human
+    .panel-body.text-center
       = form.link_to_add t('actions.create.button', model: Track.model_name.human), :tracks, data: {target: '#tracks'}, class: 'btn btn-success'

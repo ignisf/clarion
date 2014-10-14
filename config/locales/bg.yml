@@ -33,13 +33,17 @@ bg:
       button: Прегледай %{model}
       title: Преглед на %{model}
     are_you_sure: Сигурен ли си?
-
-  create_new: Създаване на %{model_name}
+    new:
+      title_f: Нова %{model}
+      title_m: Нов %{model}
   event_mailer:
     acceptance_notification:
       subject: 'Предложението ви за %{conference} за %{submission_type} „%{title}“ е одобрено'
   activerecord:
     models:
+      hall:
+        one: зала
+        other: зали
       user:
         one: Потребител
         other: Потребители
@@ -59,6 +63,12 @@ bg:
         one: конференция
         other: конференции
     attributes:
+      hall:
+        name: Име
+      track:
+        name: Име
+        color: Цвят
+        description: Описание
       conference:
         email: E-mail
         title: Заглавие

@@ -10,7 +10,13 @@
           = f.input :start_date, as: :date
           = f.input :end_date, as: :date
           = f.input :description
-
+      hr
+      .row
+        .col-lg-12
+          h2 = Hall.model_name.human(count: 2).mb_chars.capitalize
+      .row
+        = render partial: 'form_halls', locals: {form: f}
+      hr
       .row
         .col-lg-12
           h2 = Track.model_name.human(count: 2).mb_chars.capitalize

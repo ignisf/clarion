@@ -1,0 +1,19 @@
+div#halls
+  = form.simple_fields_for :halls do |ff|
+    .col-md-3
+      .panel.panel-default
+        .panel-heading
+          .panel-title
+            = Hall.model_name.human.mb_chars.capitalize
+            = ff.link_to_remove fa_icon(:remove), class: ['btn', 'btn-danger', 'btn-xs', 'pull-right']
+          span.clearfix
+        .panel-body
+          = ff.input :name
+.col-md-3
+  .panel.panel-default
+    .panel-heading
+      .panel-title
+        = t 'actions.new.title_f', model: Hall.model_name.human
+    .panel-body
+      .form-group.text-center
+        = form.link_to_add t('actions.create.button', model: Hall.model_name.human), :halls, data: {target: '#halls'}, class: 'btn btn-success'
