@@ -5,41 +5,51 @@ html
     meta charset="utf-8"
     meta http-equiv="X-UA-Compatible" content="IE=edge"
     meta name="viewport" content="width=device-width, initial-scale=1"
-    title Clarion
+    title
+      - if content_for? :title
+        = content_for :title
+        | | Clarion
+      - else
+        | Clarion
+
     = stylesheet_link_tag "management/application"
-    = stylesheet_link_tag '//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.2.4/bootstrap-table.min.css'
     = csrf_meta_tags
   body
-    nav.navbar.navbar-default.navbar-fixed-top
-      .container
-        .navbar-header
-          button.navbar-toggle.collapsed type="button" data-toggle="collapse" data-target=".navbar-collapse"
-            span.sr-only Toggle navigation
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          = link_to 'Clarion', root_path, class: 'navbar-brand'
-        .navbar-collapse.collapse
-          ul.nav.navbar-nav
-            li class="#{'active' if controller_name == 'users'}"
-              = link_to User.model_name.human(count: 2), management_users_path
-            li class="dropdown #{'active' if controller_name == 'events'}"
-              = link_to '#', class: 'dropdown-toggle', data: {toggle: "dropdown"}
-                = Event.model_name.human(count: 2)
-                span.caret
-              ul.dropdown-menu role="menu"
-                li class="#{'active' if action_name == 'index'}"
-                  = link_to "Всички", management_events_path
-                li class="#{'active' if action_name == 'undecided'}"
-                  = link_to "Нерешени", undecided_management_events_path
-                li class="#{'active' if action_name == 'approved'}"
-                  = link_to "Одобрени", approved_management_events_path
-                li class="#{'active' if action_name == 'backup'}"
-                  = link_to "Резерви", backup_management_events_path
-                li class="#{'active' if action_name == 'rejected'}"
-                  = link_to "Отхвърлени", rejected_management_events_path
+    nav.navigation role="navigation"
+      .header
+        = button_tag type: 'button', class: 'toggle', data: {toggle: 'collapse', target: '.collapsable'}
+          span.sr-only Toggle Navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        = link_to management_path, class: 'brand'
+          | Clarion
+      ul.right-menu.collapsable
+        li.dropdown
+          a.dropdown-toggle href="#" data-toggle="dropdown"
+            i.fa.fa-users.fa-fw>
+            span = Conference.current.title
+            span.caret<
+          ul.dropdown-menu role="menu"
+            - Conference.all.each do |conference|
+              li
+                = link_to conference.title, '#'
 
-    div.container
+        li
+          a href="#"
+            i.fa.fa-flag.fa-fw>
+            span = I18n.locale
+        li
+          a href="#"
+            i.fa.fa-cogs.fa-fw>
+            span = t :settings
+      .sidebar.collapsable
+        ul.nav#side-menu
+          li
+            a.active href="index.html"
+              i.fa.fa-wrench.fa-fw
+              | Dashboard
+
+    div.content#page-wrapper
       == yield
     = javascript_include_tag "management/application"
-    = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.2.4/bootstrap-table.min.js'
