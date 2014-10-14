@@ -1,3 +1,5 @@
+- content_for :title
+  = t 'actions.create.title', model: Conference.model_name.human
 .row
   .col-lg-12
     = render partial: 'form'

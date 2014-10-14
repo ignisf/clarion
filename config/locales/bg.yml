@@ -20,8 +20,20 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 bg:
-  helpers:
-    destroy: Премахни %{model}
+  actions:
+    create:
+      button: Създай %{model}
+      title: Създаване на %{model}
+    destroy:
+      button: Премахни %{model}
+    edit:
+      button: Редактирай %{model}
+      title: Редакция на %{model}
+    view:
+      button: Прегледай %{model}
+      title: Преглед на %{model}
+    are_you_sure: Сигурен ли си?
+
   create_new: Създаване на %{model_name}
   event_mailer:
     acceptance_notification:

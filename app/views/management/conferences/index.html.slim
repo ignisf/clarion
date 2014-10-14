@@ -1,0 +1,23 @@
+- content_for :title
+  = Conference.model_name.human(count: 2).mb_chars.capitalize
+
+.row
+  .col-lg-12
+    .panel.panel-primary
+      .panel-heading
+        h1.panel-title = Conference.model_name.human(count: 2).mb_chars.capitalize
+      .panel-body
+        table.table.table-striped.table-hover.record-table
+          thead
+            tr
+              th = Conference.human_attribute_name :title
+              th = Conference.human_attribute_name :start_date
+              th = Conference.human_attribute_name :end_date
+              th = Conference.human_attribute_name :submissions
+              th.actions
+          tbody
+            = render @conferences
+      .panel-footer
+        .text-right
+          = link_to new_management_conference_path, class: 'btn btn-primary'
+            => fa_icon 'plus fw', text: t('actions.create.button', model: Conference.model_name.human)

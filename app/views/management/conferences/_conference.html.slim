@@ -1,0 +1,13 @@
+tr
+  td = conference.title
+  td = l conference.start_date.to_date, format: :long
+  td = l conference.end_date.to_date, format: :long
+  td = conference.events.count
+  td.actions
+    div.btn-group.btn-group-sm
+      = link_to management_conference_path(conference), title: t('actions.view.button', model: Conference.model_name.human), class: 'btn btn-info'
+        = fa_icon :eye
+      = link_to edit_management_conference_path(conference), title: t('actions.edit.button', model: Conference.model_name.human), class: 'btn btn-primary'
+        = fa_icon :edit
+      = link_to management_conference_path(conference), title: t('actions.destroy.button', model: Conference.model_name.human), class: 'btn btn-danger', method: :delete, data: {confirm: t('actions.are_you_sure')}
+        = fa_icon :trash

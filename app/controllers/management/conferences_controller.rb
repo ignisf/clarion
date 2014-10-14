@@ -16,6 +16,10 @@ module Management
     def edit
     end
 
+    def index
+      @conferences = Conference.all.order(start_date: :desc)
+    end
+
     private
 
     def assign_conference

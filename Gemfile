@@ -46,6 +46,7 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-rails'
 
 gem 'nested_form'
+gem 'jquery-datatables-rails'
 
 group :development do
   gem 'spring'
