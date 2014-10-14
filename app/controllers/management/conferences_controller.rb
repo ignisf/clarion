@@ -1,11 +1,11 @@
 module Management
   class ConferencesController < ManagementController
-    before_action :assign_conference, only: [:edit, :update, :open_call_for_papers, :close_call_for_papers]
-    before_action :assign_conferences, only: [:index, :open_call_for_papers, :close_call_for_papers]
+    before_action :assign_conference, only: [:edit, :update, :show, :destroy, :open_call_for_papers, :close_call_for_papers]
+    before_action :assign_conferences, only: [:index, :destroy, :open_call_for_papers, :close_call_for_papers]
 
     def new
       @conference = Conference.new
-      3.times { @conference.tracks.build }
+      @conference.tracks.build(name: 'Track 1')
       @conference.halls.build(name: 'Hall 1')
     end
 
@@ -25,6 +25,15 @@ module Management
     end
 
     def index
+    end
+
+    def show
+    end
+
+    def destroy
+      @conference.destroy
+
+      render 'reload_table'
     end
 
     def open_call_for_papers

@@ -17,5 +17,5 @@ tr
         = fa_icon :eye
       = link_to edit_management_conference_path(conference), title: t('actions.edit.button', model: Conference.model_name.human), class: 'btn btn-primary'
         = fa_icon :edit
-      = link_to management_conference_path(conference), title: t('actions.destroy.button', model: Conference.model_name.human), class: 'btn btn-danger', method: :delete, data: {confirm: t('actions.are_you_sure')}
+      = link_to management_conference_path(conference), title: t('actions.destroy.button', model: Conference.model_name.human), class: ['btn', 'btn-danger', conference.events.any? ? 'disabled' : nil], remote: true, method: :delete, data: {confirm: t('actions.are_you_sure')}
         = fa_icon :trash

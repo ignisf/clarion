@@ -8,12 +8,12 @@ class Conference < ActiveRecord::Base
 
   translates :title, :description
 
-  has_many :tracks, -> { order('id asc') }
+  has_many :tracks, -> { order('id asc') }, dependent: :destroy
   has_many :events, through: :tracks
   has_many :candidate_speakers, through: :events
-  has_many :halls
+  has_many :halls, dependent: :destroy
 
-  accepts_nested_attributes_for :tracks, :halls, allow_destroy: true
+  accepts_nested_attributes_for :tracks, :halls, reject_if: :all_blank, allow_destroy: true
 
   scope :future, -> { where('start_date >= ?', Date.today).order('start_date ASC') }
 
