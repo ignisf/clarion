@@ -12,6 +12,8 @@ class Conference < ActiveRecord::Base
   has_many :events, through: :tracks
   has_many :candidate_speakers, through: :events
 
+  accepts_nested_attributes_for :tracks
+
   scope :future, -> { where('start_date >= ?', Date.today).order('start_date ASC') }
 
   def self.current

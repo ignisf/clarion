@@ -20,6 +20,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 bg:
+  helpers:
+    destroy: Премахни %{model}
+  create_new: Създаване на %{model_name}
   event_mailer:
     acceptance_notification:
       subject: 'Предложението ви за %{conference} за %{submission_type} „%{title}“ е одобрено'
@@ -37,8 +40,19 @@ bg:
       event:
         one: Предложение
         other: Предложения
-      track: Поток от лекции
+      track:
+        one: поток от лекции
+        other: потоци от лекции
+      conference:
+        one: конференция
+        other: конференции
     attributes:
+      conference:
+        email: E-mail
+        title: Заглавие
+        start_date: Начална дата
+        end_date: Крайна дата
+        description: Описание
       user:
         email: E-mail
         current_password: Текуща парола

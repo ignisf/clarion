@@ -1,0 +1,14 @@
+div#tracks
+  = form.simple_fields_for :tracks do |ff|
+    .col-lg-6
+      .panel.panel-default
+        .panel-body
+          = ff.input :name
+          = ff.input :color, as: :color
+          = ff.input :description
+        .panel-footer.text-right
+          = ff.link_to_remove t('helpers.destroy', model: Track.model_name.human), class: ['btn', 'btn-danger', ff.object.events.any? ? 'disabled' : nil]
+.col-lg-6
+  .panel.panel-default
+    .panel-body.text-right
+      = form.link_to_add t('helpers.submit.create', model: Track.model_name.human), :tracks, data: {target: '#tracks'}, class: 'btn btn-success'

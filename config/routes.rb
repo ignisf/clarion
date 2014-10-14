@@ -16,6 +16,12 @@ Rails.application.routes.draw do
   namespace :management do
     get '/', to: 'events#index'
 
+    resources :conferences do
+      resources :events do
+        patch 'state'
+      end
+    end
+
     resources :users do
       member do
         post 'toggle_admin'

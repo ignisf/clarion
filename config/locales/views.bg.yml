@@ -72,3 +72,6 @@ bg:
 
   lecture_was_successfully_confirmed: "Лекцията беше потвърдена успешно"
   workshop_was_successfully_confirmed: "Уъркшопът беше потвърден успешно"
+  views:
+    conference:
+      info: Информация за конференция

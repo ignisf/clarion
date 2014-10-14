@@ -1,0 +1,20 @@
+= simple_nested_form_for [:management, @conference], wrapper: :horizontal_form, html: { class: 'form-horizontal' } do |f|
+  .panel.panel-primary
+    .panel-heading
+      h1.panel-title = t 'views.conference.info'
+    .panel-body
+      .row
+        .col-lg-12
+          = f.input :title
+          = f.input :email
+          = f.input :start_date, as: :date
+          = f.input :end_date, as: :date
+          = f.input :description
+
+      .row
+        .col-lg-12
+          h2 = Track.model_name.human(count: 2).mb_chars.capitalize
+      .row
+        = render partial: 'form_tracks', locals: {form: f}
+    .panel-footer.text-right
+      = f.submit class: 'btn btn-primary'

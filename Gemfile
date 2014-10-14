@@ -19,7 +19,7 @@ gem 'rails-i18n'
 gem 'devise'
 gem 'devise-i18n'
 
-gem 'simple_form'
+gem 'simple_form', '~> 3.1.0.rc2'
 gem 'simple_form_fancy_uploads', github: 'apeacox/simple_form_fancy_uploads'
 
 # Phone validation
@@ -44,6 +44,8 @@ gem 'bootstrap-sass-extras'
 gem 'bootswatch-rails'
 gem 'autoprefixer-rails'
 gem 'font-awesome-rails'
+
+gem 'nested_form'
 
 group :development do
   gem 'spring'

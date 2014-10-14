@@ -1,0 +1,10 @@
+select.date, select.datetime, select.time {
+    display: inline;
+    width: auto;
+}
+
+@media(min-width:768px) {
+    form .text {
+        height: 180px;
+    }
+}
