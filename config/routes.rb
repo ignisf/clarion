@@ -23,27 +23,24 @@ Rails.application.routes.draw do
       end
 
       resources :events do
-        patch 'state'
+        member do
+          patch 'state'
+        end
+
+        collection do
+          get 'approved'
+          get 'rejected'
+          get 'undecided'
+          get 'backup'
+          get 'confirmed'
+          post 'send_acceptance_notifications'
+        end
       end
     end
 
     resources :users do
       member do
         post 'toggle_admin'
-      end
-    end
-
-    resources :events do
-      member do
-        patch 'state'
-      end
-
-      collection do
-        get 'approved'
-        get 'rejected'
-        get 'undecided'
-        get 'backup'
-        post 'send_acceptance_notifications'
       end
     end
   end

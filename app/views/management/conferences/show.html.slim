@@ -1,0 +1,71 @@
+- content_for :title
+  = @conference.title
+.row
+  .col-lg-12
+    h1.page-header
+      = @conference.title
+.row
+  .col-lg-3.col-md-6
+    .panel.panel-primary
+      .panel-heading
+        .row
+          .col-xs-3
+            = fa_icon 'bullhorn 5x'
+          .col-xs-9.text-right
+            .huge
+              = @conference.events.count
+            div
+              = t Event.model_name.human(count: @conference.events.count)
+      = link_to management_conference_events_path(@conference)
+        .panel-footer.text-primary
+          span.pull-left = t 'views.conference.see_details'
+          span.pull-right = fa_icon 'arrow-circle-right'
+          span.clearfix
+  .col-lg-3.col-md-6
+    .panel.panel-danger
+      .panel-heading
+        .row
+          .col-xs-3
+            = fa_icon 'thumbs-down 5x'
+          .col-xs-9.text-right
+            .huge
+              = @conference.events.rejected.count
+            div
+              = t 'event_states.rejected', count: @conference.events.rejected.count
+      = link_to rejected_management_conference_events_path(@conference)
+        .panel-footer.text-danger
+          span.pull-left = t 'views.conference.see_details'
+          span.pull-right = fa_icon 'arrow-circle-right'
+          span.clearfix
+  .col-lg-3.col-md-6
+    .panel.panel-info
+      .panel-heading
+        .row
+          .col-xs-3
+            = fa_icon 'thumbs-up 5x'
+          .col-xs-9.text-right
+            .huge
+              = @conference.events.approved.count
+            div
+              = t 'event_states.approved', count: @conference.events.approved.count
+      = link_to approved_management_conference_events_path(@conference)
+        .panel-footer.text-info
+          span.pull-left = t 'views.conference.see_details'
+          span.pull-right = fa_icon 'arrow-circle-right'
+          span.clearfix
+  .col-lg-3.col-md-6
+    .panel.panel-success
+      .panel-heading
+        .row
+          .col-xs-3
+            = fa_icon 'check 5x'
+          .col-xs-9.text-right
+            .huge
+              = @conference.events.approved.confirmed.count
+            div
+              = t 'event_states.confirmed', count: @conference.events.approved.confirmed.count
+      = link_to confirmed_management_conference_events_path(@conference)
+        .panel-footer.text-success
+          span.pull-left = t 'views.conference.see_details'
+          span.pull-right = fa_icon 'arrow-circle-right'
+          span.clearfix

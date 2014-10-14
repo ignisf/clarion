@@ -39,6 +39,22 @@ bg:
     new:
       title_f: Нова %{model}
       title_m: Нов %{model}
+  event_states:
+    undecided:
+      one: 'Нерешено'
+      other: 'Нерешени'
+    approved:
+      one: 'Одобрено'
+      other: 'Одобрени'
+    rejected:
+      one: 'Отхвърлено'
+      other: 'Отхвърлени'
+    backup:
+      one: 'В резерв'
+      other: 'В резерв'
+    confirmed:
+      one: 'Потвърдено'
+      other: 'Потвърдени'
   event_mailer:
     acceptance_notification:
       subject: 'Предложението ви за %{conference} за %{submission_type} „%{title}“ е одобрено'

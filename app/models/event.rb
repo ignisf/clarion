@@ -16,6 +16,8 @@ class Event < ActiveRecord::Base
 
   enum state: [:undecided, :approved, :rejected, :backup]
 
+  scope :confirmed, -> { where.not confirmed_at: nil }
+
   # XXX: this belongs in a decorator
   STATE_TO_GLYPH = {undecided: 'question-sign', rejected: 'remove', approved: 'ok', backup: 'retweet'}
   STATE_TO_CLASS = {undecided: 'warning', rejected: 'danger', approved: 'success', backup: 'info'}
