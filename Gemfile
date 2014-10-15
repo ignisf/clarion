@@ -47,6 +47,8 @@ gem 'font-awesome-rails'
 
 gem 'nested_form'
 gem 'jquery-datatables-rails'
+gem 'morrisjs-rails'
+gem 'raphael-rails'
 
 group :development do
   gem 'spring'

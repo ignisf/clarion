@@ -69,3 +69,6 @@
           span.pull-left = t 'views.conference.see_details'
           span.pull-right = fa_icon 'arrow-circle-right'
           span.clearfix
+.row
+  .col-lg-12
+    .submissions-chart#submissions-chart data-submissions="#{submissions_chart_data(@conference).to_json}"

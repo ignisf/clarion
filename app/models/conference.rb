@@ -23,6 +23,20 @@ class Conference < ActiveRecord::Base
     future.first || last
   end
 
+  def submissions_grouped_by_day
+    submissions = Event.where(track: tracks, created_at: created_at..start_date)
+    submissions = submissions.group('date(created_at)')
+    submissions = submissions.select('created_at, count(id) as number')
+    submissions.group_by { |s| s.created_at.to_date }
+  end
+
+  def submissions_grouped_by_confirmation_day
+    submissions = Event.approved.where(track: tracks, created_at: created_at..start_date).where.not(confirmed_at: nil)
+    submissions = submissions.group('date(confirmed_at)')
+    submissions = submissions.select('confirmed_at, count(id) as number')
+    submissions.group_by { |s| s.confirmed_at.to_date }
+  end
+
   private
 
   def close_all_other_calls_for_papers

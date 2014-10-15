@@ -5,4 +5,6 @@
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require bootstrap-sprockets
 //= require metisMenu/metisMenu
+//= require raphael
+//= require morris
 //= require_directory .
