@@ -1,6 +1,6 @@
 .navigation {
     @extend .navbar;
-    @extend .navbar-default;
+    @extend .navbar-inverse;
     @extend .navbar-static-top;
 
     .header {
