@@ -25,6 +25,11 @@ class Event < ActiveRecord::Base
     touch :acceptance_notification_sent_at
   end
 
+  def send_acceptance_second_notification!
+    EventMailer.acceptance_second_notification(self).deliver
+    touch :acceptance_notification_sent_at
+  end
+
   def send_rejection_notification!
     EventMailer.rejection_notification(self).deliver
   end
