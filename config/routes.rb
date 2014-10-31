@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resource :schedule, only: [:show]
+
   devise_for :users, controllers: {registrations: 'registrations', sessions: 'sessions'}
 
   namespace :management do
