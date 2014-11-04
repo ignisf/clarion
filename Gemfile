@@ -55,6 +55,9 @@ group :development do
   gem 'spring-commands-rspec'
   gem 'guard-rspec' # Continuous testing with Guard
   gem 'rails-erd'
+  gem 'pry-rails'
+  gem 'hirb'
+  gem 'awesome_print'
 end
 
 group :development, :test do
