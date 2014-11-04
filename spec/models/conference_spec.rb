@@ -10,6 +10,11 @@ RSpec.describe Conference, :type => :model do
       create :conference, title: 'ExampleConf'
       expect(build(:conference, title: 'ExampleConf')).to have_error_on :title
     end
+
+    it 'must be translatable' do
+      conference = build(:conference)
+      expect(conference).to have_translatable :title
+    end
   end
 
   describe 'email' do
@@ -24,8 +29,14 @@ RSpec.describe Conference, :type => :model do
     end
   end
 
-  it 'is invalid without a description' do
-    expect(build(:conference, description: '')).to have_error_on :description
+  describe 'description' do
+    it 'must be present' do
+      expect(build(:conference, description: '')).to have_error_on :description
+    end
+
+    it 'must be translatable' do
+      expect(build(:conference)).to have_translatable :description
+    end
   end
 
   it 'is invalid without a start date' do
@@ -38,19 +49,5 @@ RSpec.describe Conference, :type => :model do
 
   it 'is invalid when the end date is before the start date' do
     expect(build(:conference, start_date: '2014-07-29 21:29:13', end_date: '2014-07-28 01:00:00')).to have_error_on :end_date
-  end
-
-  describe '::current' do
-    it 'returns the next conference if there is one' do
-      create :past_conference
-      conference = create :future_conference
-      create :future_conference, start_date: Date.today + 100.years, end_date: Date.today + 150.years
-      expect(Conference.current).to eq conference
-    end
-
-    it 'returns the last conference if there is no future conference' do
-      conference = create :past_conference
-      expect(Conference.current).to eq conference
-    end
   end
 end
