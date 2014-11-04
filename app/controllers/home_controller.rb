@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @current_conference = Conference.current || Conference.new
+    @current_conference = Conference.first
   end
 end
