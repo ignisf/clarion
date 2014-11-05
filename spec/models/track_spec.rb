@@ -16,4 +16,9 @@ RSpec.describe Track, :type => :model do
       expect(build(:track, color: '#000000')).to_not have_error_on :color
     end
   end
+
+  it 'belongs to a conference' do
+    conference = create :conference
+    expect(build(:track, conference_id: conference.id).conference).to eq conference
+  end
 end
