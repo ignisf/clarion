@@ -32,5 +32,5 @@ Rails.application.routes.draw do
     end
   end
 
-  root 'home#index'
+  root 'management/events#index'
 end

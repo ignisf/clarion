@@ -19,11 +19,14 @@ class ApplicationController < ActionController::Base
     I18n.locale = params[:locale] || I18n.default_locale
   end
 
+  layout 'management'
+
+
   protected
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:account_update) do |u|
-      u.permit(:email, :password, :password_confirmation, :current_password, speaker_profile_attributes: [:first_name, :last_name, :public_email, :organisation, :github, :twitter, :mobile_phone, :biography, :picture, :id])
+      u.permit :email, :password, :password_confirmation, :current_password, :first_name, :last_name
     end
   end
 end
