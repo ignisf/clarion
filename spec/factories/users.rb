@@ -6,6 +6,7 @@ FactoryGirl.define do
   factory :user do
     password 'password'
     password_confirmation 'password'
+    confirmed_at Time.now - 15.minutes
     email
   end
 end
