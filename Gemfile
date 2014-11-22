@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.1.6'
+gem 'rails', '4.1.8'
 
 gem 'sqlite3'
 gem 'pg'
 
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails', '~> 5.0.0.beta1'
 
 gem 'uglifier'
 gem 'coffee-rails'
@@ -35,7 +35,7 @@ gem 'capistrano-rvm'
 
 gem 'puma'
 
-gem 'globalize', '~> 4.0.2'
+gem 'globalize'
 
 gem 'yaml_db', github: 'jetthoughts/yaml_db', ref: 'fb4b6bd7e12de3cffa93e0a298a1e5253d7e92ba'
 
