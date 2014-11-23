@@ -21,3 +21,4 @@
 /public/uploads/tmp/*
 /public/uploads/speaker_profile/*
 .sass-cache/
+/coverage/

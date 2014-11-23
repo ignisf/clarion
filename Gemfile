@@ -20,7 +20,6 @@ gem 'devise'
 gem 'devise-i18n'
 
 gem 'simple_form', '~> 3.1.0.rc2'
-gem 'simple_form_fancy_uploads', github: 'apeacox/simple_form_fancy_uploads'
 
 # Phone validation
 gem 'phony_rails'
@@ -33,7 +32,7 @@ gem 'capistrano'
 gem 'capistrano-rails'
 gem 'capistrano-rvm'
 
-gem 'puma'
+gem 'puma', group: :production
 
 gem 'globalize'
 
@@ -65,4 +64,5 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'capybara'
+  gem 'simplecov'
 end
