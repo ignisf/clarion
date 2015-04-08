@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :conference do
-    title { |n| "Conference-#{n}"}
+    title { |n| "Conference-#{n}" }
     email
     description 'MyText'
     start_date '2014-07-29 21:29:13'
