@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.1.8'
+gem 'rails', '4.2.1'
 
 gem 'sqlite3'
 gem 'pg'
 
-gem 'sass-rails', '~> 5.0.0.beta1'
+gem 'sass-rails'
 
 gem 'uglifier'
 gem 'coffee-rails'
@@ -19,7 +19,7 @@ gem 'rails-i18n'
 gem 'devise'
 gem 'devise-i18n'
 
-gem 'simple_form', '~> 3.1.0.rc2'
+gem 'simple_form'
 
 # Phone validation
 gem 'phony_rails'
