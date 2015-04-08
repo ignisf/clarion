@@ -42,7 +42,7 @@ gem 'bootstrap-sass'
 gem 'bootstrap-sass-extras'
 gem 'bootswatch-rails'
 gem 'autoprefixer-rails'
-gem 'font-awesome-rails'
+gem 'font-awesome-sass'
 
 gem 'nested_form'
 gem 'jquery-datatables-rails'

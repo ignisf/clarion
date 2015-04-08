@@ -5,7 +5,7 @@ div#tracks
         .panel-heading
           .panel-title
             = Track.model_name.human.mb_chars.capitalize
-            = ff.link_to_remove fa_icon(:remove), class: ['btn', 'btn-danger', 'btn-xs', 'pull-right', ff.object.events.any? ? 'disabled' : nil]
+            = ff.link_to_remove icon(:remove), class: ['btn', 'btn-danger', 'btn-xs', 'pull-right', ff.object.events.any? ? 'disabled' : nil]
 
         .panel-body
           = ff.input :name

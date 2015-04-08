@@ -21,4 +21,4 @@
       .panel-footer
         .text-right
           = link_to new_management_conference_path, class: 'btn btn-primary'
-            => fa_icon 'plus fw', text: t('actions.create.button', model: Conference.model_name.human)
+            => icon 'plus', t('actions.create.button', model: Conference.model_name.human), class: 'fa-fw'

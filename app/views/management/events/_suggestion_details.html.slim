@@ -25,18 +25,18 @@
               = @suggestion.user.speaker_profile.name
             - if @suggestion.user.speaker_profile.organisation.present?
               div
-                => fa_icon(:briefcase)
+                => icon(:briefcase)
                 = @suggestion.user.speaker_profile.organisation
 
             div.social
               = link_to "mailto://#{@suggestion.user.email}"
-                = fa_icon :envelope
+                = icon :envelope
               - if @suggestion.user.speaker_profile.github.present?
                 = link_to "https://github.com/#{@suggestion.user.speaker_profile.github}"
-                  = fa_icon :github
+                  = icon :github
               - if @suggestion.user.speaker_profile.twitter.present?
                 = link_to "https://twitter.com/#{@suggestion.user.speaker_profile.twitter}"
-                  = fa_icon :twitter
+                  = icon :twitter
 
         h4 = @suggestion.class.human_attribute_name(:abstract)
         = simple_format @suggestion.abstract

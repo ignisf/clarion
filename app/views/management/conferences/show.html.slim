@@ -10,7 +10,7 @@
       .panel-heading
         .row
           .col-xs-3
-            = fa_icon 'files-o 5x'
+            = icon 'files-o', '', class: 'fa-5x'
           .col-xs-9.text-right
             .huge
               = @conference.events.count
@@ -19,14 +19,14 @@
       = link_to management_conference_events_path(@conference)
         .panel-footer.text-primary
           span.pull-left = t 'views.conference.see_details'
-          span.pull-right = fa_icon 'arrow-circle-right'
+          span.pull-right = icon 'arrow-circle-right'
           span.clearfix
   .col-lg-3.col-md-6
     .panel.panel-danger
       .panel-heading
         .row
           .col-xs-3
-            = fa_icon 'thumbs-down 5x'
+            = icon 'thumbs-down', '', class: 'fa-5x'
           .col-xs-9.text-right
             .huge
               = @conference.events.rejected.count
@@ -35,14 +35,14 @@
       = link_to rejected_management_conference_events_path(@conference)
         .panel-footer.text-danger
           span.pull-left = t 'views.conference.see_details'
-          span.pull-right = fa_icon 'arrow-circle-right'
+          span.pull-right = icon 'arrow-circle-right'
           span.clearfix
   .col-lg-3.col-md-6
     .panel.panel-info
       .panel-heading
         .row
           .col-xs-3
-            = fa_icon 'thumbs-up 5x'
+            = icon 'thumbs-up', class: 'fa-5x'
           .col-xs-9.text-right
             .huge
               = @conference.events.approved.count
@@ -51,14 +51,14 @@
       = link_to approved_management_conference_events_path(@conference)
         .panel-footer.text-info
           span.pull-left = t 'views.conference.see_details'
-          span.pull-right = fa_icon 'arrow-circle-right'
+          span.pull-right = icon 'arrow-circle-right'
           span.clearfix
   .col-lg-3.col-md-6
     .panel.panel-success
       .panel-heading
         .row
           .col-xs-3
-            = fa_icon 'check 5x'
+            = icon 'check', '', class: 'fa-5x'
           .col-xs-9.text-right
             .huge
               = @conference.events.approved.confirmed.count
@@ -67,7 +67,7 @@
       = link_to confirmed_management_conference_events_path(@conference)
         .panel-footer.text-success
           span.pull-left = t 'views.conference.see_details'
-          span.pull-right = fa_icon 'arrow-circle-right'
+          span.pull-right = icon 'arrow-circle-right'
           span.clearfix
 .row
   .col-lg-12

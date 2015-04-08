@@ -5,17 +5,17 @@ tr
   td.action
     - if conference.call_for_papers_open?
       = link_to cfp_management_conference_path(conference), method: :delete, class: 'btn btn-sm btn-success cfp-toggle', remote: true, onclick: '$(".cfp-toggle").addClass("disabled")'
-        = fa_icon 'dot-circle-o fw'
+        = icon 'dot-circle-o', '', class: 'fa-fw'
     - else
       = link_to cfp_management_conference_path(conference), method: :post, class: 'btn btn-sm btn-warning cfp-toggle', remote: true, onclick: '$(".cfp-toggle").addClass("disabled")'
-        = fa_icon 'circle-o fw'
+        = icon 'circle-o', class: 'fa-fw'
 
   td = conference.events.count
   td.actions
     div.btn-group.btn-group-sm
       = link_to management_conference_path(conference), title: t('actions.view.button', model: Conference.model_name.human), class: 'btn btn-info'
-        = fa_icon :eye
+        = icon :eye
       = link_to edit_management_conference_path(conference), title: t('actions.edit.button', model: Conference.model_name.human), class: 'btn btn-primary'
-        = fa_icon :edit
+        = icon :edit
       = link_to management_conference_path(conference), title: t('actions.destroy.button', model: Conference.model_name.human), class: ['btn', 'btn-danger', conference.events.any? ? 'disabled' : nil], remote: true, method: :delete, data: {confirm: t('actions.are_you_sure')}
-        = fa_icon :trash
+        = icon :trash

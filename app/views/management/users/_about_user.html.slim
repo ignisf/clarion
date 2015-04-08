@@ -11,17 +11,17 @@
             = @user.speaker_profile.name
           - if @user.speaker_profile.organisation.present?
             div
-              => fa_icon(:briefcase)
+              => icon(:briefcase)
               = @user.speaker_profile.organisation
           div.social
             = link_to "mailto://#{@user.email}"
-              = fa_icon :envelope
+              = icon :envelope
             - if @user.speaker_profile.github.present?
               = link_to "https://github.com/#{@user.speaker_profile.github}"
-                = fa_icon :github
+                = icon :github
             - if @user.speaker_profile.twitter.present?
               = link_to "https://twitter.com/#{@user.speaker_profile.twitter}"
-                = fa_icon :twitter
+                = icon :twitter
 
         hr
 
@@ -30,10 +30,10 @@
 
         h5 = t :contacts
         - if @user.speaker_profile.twitter.present?
-          p #{fa_icon(:twitter)} @#{@user.speaker_profile.twitter}
+          p #{icon(:twitter)} @#{@user.speaker_profile.twitter}
         - if @user.speaker_profile.public_email.present?
-          p #{fa_icon(:envelope)} #{@user.speaker_profile.public_email} (#{t(:public)})
-        p #{fa_icon(:envelope)} #{@user.email} (#{t(:private)})
+          p #{icon(:envelope)} #{@user.speaker_profile.public_email} (#{t(:public)})
+        p #{icon(:envelope)} #{@user.email} (#{t(:private)})
         p #{glyph(:phone)} #{Phony.format(@user.speaker_profile.mobile_phone, format: :international)}
 
       .modal-footer
