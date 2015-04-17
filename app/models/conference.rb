@@ -10,6 +10,8 @@ class Conference < ActiveRecord::Base
 
   has_many :tracks
   has_many :halls
+  has_many :events, through: :tracks
+
 
   accepts_nested_attributes_for :tracks, :halls, reject_if: :all_blank, allow_destroy: true
 
