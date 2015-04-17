@@ -7,7 +7,6 @@ RSpec.describe Slot, :type => :model do
   end
 
   it 'belongs to an event' do
-    pending 'Events not implemented'
     event = create :event
     expect(build(:slot, event_id: event.id).event).to eq event
   end
