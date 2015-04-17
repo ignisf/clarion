@@ -4,10 +4,4 @@ class Event < ActiveRecord::Base
   validates :abstract, presence: true
   validates :description, presence: true
   validates :agreement, acceptance: true
-
-  private
-
-  def self.inheritance_column
-    'something'
-  end
 end
