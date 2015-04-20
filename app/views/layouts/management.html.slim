@@ -15,50 +15,7 @@ html
     = stylesheet_link_tag "management/application"
     = csrf_meta_tags
   body
-    nav.navigation role="navigation"
-      .header
-        = button_tag type: 'button', class: 'toggle', data: {toggle: 'collapse', target: '.collapsable'}
-          span.sr-only Toggle Navigation
-          span.icon-bar
-          span.icon-bar
-          span.icon-bar
-        = link_to management_path, class: 'brand'
-          | Clarion
-      ul.right-menu.collapsable
-        - if @conference.present?
-          li.dropdown
-            a.dropdown-toggle href="#" data-toggle="dropdown"
-              i.fa.fa-users.fa-fw>
-              span = @conference.title
-              span.caret<
-            - if Conference.count > 1
-              ul.dropdown-menu role="menu"
-                - Conference.where.not(id: @conference.id).each do |conference|
-                  li
-                    = link_to conference.title, management_conference_path(conference)
-        li.dropdown
-          a.dropdown-toggle href="#" data-toggle="dropdown"
-            i.fa.fa-flag.fa-fw>
-            span = t "locales.#{I18n.locale}"
-            span.caret<
-          ul.dropdown-menu role="menu"
-            - I18n.available_locales.each do |locale|
-              li.text-center
-                = link_to t("locales.#{locale}"), "?locale=#{locale}"
-      .sidebar.collapsable
-        ul.nav#side-menu
-          li class="#{controller_name == 'conferences' ? 'active' : nil}"
-            = link_to management_conferences_path
-              = icon 'group', Conference.model_name.human(count: 2).mb_chars.capitalize, class: 'fw'
-            ul.nav.nav-second-level
-              - Conference.all.each do |conference|
-                li
-                  = link_to conference.title, management_conference_path(conference)
-          li class="#{controller_name == 'users' ? 'active' : nil}"
-            = link_to management_users_path
-              = icon 'user', User.model_name.human(count: 2).mb_chars.capitalize, class: 'fw'
-
-
+    = render partial: 'layouts/management/navigation'
     div.content#page-wrapper
       == yield
     = javascript_include_tag "management/application"
