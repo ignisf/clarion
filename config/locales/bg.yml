@@ -138,3 +138,35 @@ bg:
   errors:
     messages:
       improbable_phone: 'не е валиден телефонен номер'
+  registrations:
+    sign_up: Регистрация
+    sign_me_up: Регистрирай ме
+    minimum_characters: "най-малко %{minimum} символа"
+    edit_account: Редакция на акаунт
+    leave_blank_if_you_do_not_want_to_change: оставете празно, ако не искате да я променяте
+    we_need_your_current_password: нуждаем се от сегашната Ви парола, за да потвърдим промените
+    update: Промени
+    account_cancelation: Изтриване на акаунт
+    unhappy: Не Сте щастливи?
+    cancel_my_account: Изтрий акаунта ми
+    are_you_sure: Сигурни ли Сте, че искате да изтриете регистрацията си?
+    add_phone_number: Добави телефонен номер
+  passwords:
+    forgotten_password: Забравена парола
+    send_instructions: Изпрати инструкции
+    change_your_password: Променете паролата си
+    new_password: Нова парола
+    confirm_your_new_password: Потвърждение на новата парола
+  sessions:
+    sign_in: Влез
+    sign_in_heading: Вход
+    remember_me: Запомни ме
+    sign_in_with: "Влез с %{provider}"
+  confirmations:
+    resend_confirmation: Изпращане на Email за потвърждение
+    resend: Изпрати
+    did_not_receive_confirmation_instructions: Не сте получили инструкции за потвърждение?
+  unlocks:
+    did_not_receive_unlock_instructions: Не сте получили инструкции за отключване?
+    resend_unlock_instructions: Изпращане на инструкции за отключване
+    resend: Изпрати
