@@ -15,6 +15,16 @@ class Conference < ActiveRecord::Base
 
   accepts_nested_attributes_for :tracks, :halls, reject_if: :all_blank, allow_destroy: true
 
+  def submissions_grouped_by_day
+    submissions = events.group('date(events.created_at)').select('events.created_at, count(events.id) as number')
+    submissions.group_by { |s| s.created_at.to_date }
+  end
+
+  def submissions_grouped_by_confirmation_day
+    submissions = events.approved.confirmed.group('date(events.confirmed_at)').select('events.confirmed_at, count(events.id) as number')
+    submissions.group_by { |s| s.confirmed_at.to_date }
+  end
+
   private
 
   def start_date_is_before_end_date
