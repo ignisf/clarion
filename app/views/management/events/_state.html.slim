@@ -1,9 +1,0 @@
-.btn-group id="suggestion-#{suggestion.id}-state"
-  button class="btn dropdown-toggle btn-#{Event::STATE_TO_CLASS[suggestion.state.to_sym]}" type="button" title="#{suggestion.state}" data-toggle="dropdown"
-    => glyph Event::STATE_TO_GLYPH[suggestion.state.to_sym]
-    span.caret
-  ul.dropdown-menu role="menu"
-    - Event.states.each do |state, number|
-      - next if state == suggestion.state
-      li
-        = link_to glyph(Event::STATE_TO_GLYPH[state.to_sym]), state_management_event_path(suggestion, state: state), title: state, class: "btn text-#{Event::STATE_TO_CLASS[state.to_sym]}", remote: true, method: :patch

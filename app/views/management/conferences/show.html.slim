@@ -32,7 +32,7 @@
               = @conference.events.rejected.count
             div
               = t 'event_states.rejected', count: @conference.events.rejected.count
-      = link_to rejected_management_conference_events_path(@conference)
+      = link_to management_conference_events_path(@conference, status: :rejected)
         .panel-footer.text-danger
           span.pull-left = t 'views.conference.see_details'
           span.pull-right = icon 'arrow-circle-right'
@@ -48,7 +48,7 @@
               = @conference.events.approved.count
             div
               = t 'event_states.approved', count: @conference.events.approved.count
-      = link_to approved_management_conference_events_path(@conference)
+      = link_to management_conference_events_path(@conference, status: :approved)
         .panel-footer.text-info
           span.pull-left = t 'views.conference.see_details'
           span.pull-right = icon 'arrow-circle-right'
@@ -64,7 +64,7 @@
               = @conference.events.approved.confirmed.count
             div
               = t 'event_states.confirmed', count: @conference.events.approved.confirmed.count
-      = link_to confirmed_management_conference_events_path(@conference)
+      = link_to management_conference_events_path(@conference, status: :approved, confirmed: true)
         .panel-footer.text-success
           span.pull-left = t 'views.conference.see_details'
           span.pull-right = icon 'arrow-circle-right'

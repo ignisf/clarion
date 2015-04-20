@@ -4,10 +4,10 @@ tr
   td.hidden-xs.hidden-sm = l conference.end_date.to_date, format: :long
   td.action
     - if conference.call_for_papers_open?
-      = link_to cfp_management_conference_path(conference), method: :delete, class: 'btn btn-sm btn-success cfp-toggle', remote: true, onclick: '$(".cfp-toggle").addClass("disabled")'
+      = link_to '#', method: :delete, class: 'btn btn-sm btn-success cfp-toggle', remote: true, onclick: '$(".cfp-toggle").addClass("disabled")'
         = icon 'dot-circle-o', '', class: 'fa-fw'
     - else
-      = link_to cfp_management_conference_path(conference), method: :post, class: 'btn btn-sm btn-warning cfp-toggle', remote: true, onclick: '$(".cfp-toggle").addClass("disabled")'
+      = link_to '#', method: :post, class: 'btn btn-sm btn-warning cfp-toggle', remote: true, onclick: '$(".cfp-toggle").addClass("disabled")'
         = icon 'circle-o', class: 'fa-fw'
 
   td = conference.events.count

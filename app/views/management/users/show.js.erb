@@ -1,5 +1,0 @@
-$('body').append('<%= j render 'about_user' %>');
-$('#about-user-<%= @user.id %>').on('hidden.bs.modal', function () {
-  $(this).remove();
-});
-$('#about-user-<%= @user.id %>').modal('show');
