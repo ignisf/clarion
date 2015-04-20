@@ -1,4 +1,4 @@
-- content_for(:title) { ":: #{t :login}" }
+- content_for(:title) { t 'sessions.sign_in' }
 
 h2.entry-title = t :login
 
@@ -9,6 +9,6 @@ h2.entry-title = t :login
     = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
 
   .form-actions
-    = f.button :submit, t(:login)
+    = f.button :submit, t('sessions.sign_in')
 
 == render 'devise/shared/links'
