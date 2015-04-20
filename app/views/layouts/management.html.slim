@@ -16,6 +16,6 @@ html
     = csrf_meta_tags
   body
     = render partial: 'layouts/management/navigation'
-    div.content#page-wrapper
+    main
       == yield
     = javascript_include_tag "management/application"
