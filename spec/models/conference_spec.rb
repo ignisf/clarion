@@ -81,6 +81,26 @@ RSpec.describe Conference, :type => :model do
     end
   end
 
+  describe 'call for participation association' do
+    let(:conference) { build :conference }
+    let(:call_for_participation) { build :call_for_participation }
+
+    before(:each) do
+      conference.save
+      call_for_participation.conference = conference
+      call_for_participation.save
+    end
+
+    it 'has one call for participation' do
+      expect(conference.call_for_participation).to eq call_for_participation
+    end
+
+    it 'destroys the associated call for participation when destroyed' do
+      conference.destroy
+      expect { CallForParticipation.find(call_for_participation.id) }.to raise_exception ActiveRecord::RecordNotFound
+    end
+  end
+
   it 'accepts nested attributes for tracks' do
     track_attributes = build(:track, conference: nil).attributes
     conference = create :conference
