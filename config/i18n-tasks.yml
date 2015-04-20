@@ -3,7 +3,7 @@
 # The "main" locale.
 base_locale: bg
 ## All available locales are inferred from the data by default. Alternatively, specify them explicitly:
-# locales: [es, fr]
+locales: [bg, en]
 ## Reporting locale, default: en. Available: en, ru.
 # internal_locale: en
 
@@ -15,6 +15,8 @@ data:
 
   # Locale files or `File.find` patterns where translations are read from:
   read:
+    - config/locales/%{locale}.yml
+    - config/locales/*.%{locale}.yml
     ## Default:
     # - config/locales/%{locale}.yml
     ## More files:
