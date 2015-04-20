@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   namespace :management do
-    get '/', to: 'events#index'
+    get '/', to: 'conferences#index'
 
     resources :conferences do
       member do
@@ -32,5 +32,5 @@ Rails.application.routes.draw do
     end
   end
 
-  root 'management/events#index'
+  root 'management/conferences#index'
 end
