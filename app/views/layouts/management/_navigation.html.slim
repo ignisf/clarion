@@ -10,7 +10,7 @@ nav.navbar.navbar-static-top.navbar-inverse role="navigation"
     .navbar-collapse.collapse.navbar-inverse-collapse
       - if user_signed_in?
         ul.nav.navbar-nav
-          li.dropdown
+          li.dropdown class="#{'active' if current_page?(management_path) || current_page?(management_conferences_path)}"
             a.dropdown-toggle href="#" data-toggle="dropdown"
               => icon 'users', class: 'fa-fw'
               span = Conference.model_name.human(count: 2).mb_chars.capitalize
