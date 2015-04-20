@@ -1,4 +1,6 @@
 class Event < ActiveRecord::Base
+  include Proposable
+
   validates :title, presence: true
   validates :length, presence: true, numericality: {only_integer: true, greater_than: 0}
   validates :abstract, presence: true
