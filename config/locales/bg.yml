@@ -81,6 +81,12 @@ bg:
       conference:
         one: конференция
         other: конференции
+      sponsorship_offer:
+        one: спонсор
+        other: спонсори
+      volunteership:
+        one: доброволец
+        other: доброволци
     attributes:
       hall:
         name: Име
