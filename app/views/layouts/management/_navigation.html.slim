@@ -28,15 +28,3 @@ nav.navigation role="navigation"
         - I18n.available_locales.each do |locale|
           li.text-center
             = link_to t("locales.#{locale}"), "?locale=#{locale}"
-  .sidebar.collapsable
-    ul.nav#side-menu
-      li class="#{controller_name == 'conferences' ? 'active' : nil}"
-        = link_to management_conferences_path
-          = icon 'group', Conference.model_name.human(count: 2).mb_chars.capitalize, class: 'fw'
-        ul.nav.nav-second-level
-          - Conference.all.each do |conference|
-            li
-              = link_to conference.title, management_conference_path(conference)
-      li class="#{controller_name == 'users' ? 'active' : nil}"
-        = link_to management_users_path
-          = icon 'user', User.model_name.human(count: 2).mb_chars.capitalize, class: 'fw'
