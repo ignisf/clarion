@@ -1,30 +1,35 @@
-nav.navigation role="navigation"
-  .header
-    = button_tag type: 'button', class: 'toggle', data: {toggle: 'collapse', target: '.collapsable'}
-      span.sr-only Toggle Navigation
-      span.icon-bar
-      span.icon-bar
-      span.icon-bar
-    = link_to management_path, class: 'brand'
-      | Clarion
-  ul.right-menu.collapsable
-    - if @conference.present?
-      li.dropdown
-        a.dropdown-toggle href="#" data-toggle="dropdown"
-          i.fa.fa-users.fa-fw>
-          span = @conference.title
-          span.caret<
-        - if Conference.count > 1
+nav.navbar.navbar-static-top.navbar-inverse role="navigation"
+  .container
+    .navbar-header
+      = button_tag type: 'button', class: 'navbar-toggle', data: {toggle: 'collapse', target: '.navbar-inverse-collapse'}
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      = link_to management_path, class: 'navbar-brand'
+        | Clarion
+    .navbar-collapse.collapse.navbar-inverse-collapse
+      - if user_signed_in?
+        ul.nav.navbar-nav
+          li.dropdown
+            a.dropdown-toggle href="#" data-toggle="dropdown"
+              => icon 'users', class: 'fa-fw'
+              span = Conference.model_name.human(count: 2).mb_chars.capitalize
+              span.caret<
+            ul.dropdown-menu role="menu"
+              - Conference.all.each do |conference|
+                li
+                  = link_to conference.title, management_conference_path(conference)
+      ul.nav.navbar-nav.navbar-right
+        li.dropdown
+          = link_to '#', class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
+            => icon 'flag', class: 'fa-fw'
+            = t("locales.#{I18n.locale}")
+            span.caret<
           ul.dropdown-menu role="menu"
-            - Conference.where.not(id: @conference.id).each do |conference|
-              li
-                = link_to conference.title, management_conference_path(conference)
-    li.dropdown
-      a.dropdown-toggle href="#" data-toggle="dropdown"
-        i.fa.fa-flag.fa-fw>
-        span = t "locales.#{I18n.locale}"
-        span.caret<
-      ul.dropdown-menu role="menu"
-        - I18n.available_locales.each do |locale|
-          li.text-center
-            = link_to t("locales.#{locale}"), "?locale=#{locale}"
+            - I18n.available_locales.each do |locale|
+              li.text-center
+                = link_to t("locales.#{locale}"), "?locale=#{locale}"
+        - if user_signed_in?
+          li
+            = link_to destroy_user_session_path, method: :delete do
+              = icon 'sign-out', t('sessions.sign_out')
