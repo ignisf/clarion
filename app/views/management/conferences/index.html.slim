@@ -3,9 +3,9 @@
 
 .row
   .col-lg-12
-    .panel.panel-primary
+    .panel.panel-default
       .panel-heading
-        h1.panel-title = Conference.model_name.human(count: 2).mb_chars.capitalize
+        h2.panel-title = Conference.model_name.human(count: 2).mb_chars.capitalize
       .panel-body
         table.table.table-striped.table-hover.record-table#conferences
           thead
