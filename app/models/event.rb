@@ -6,4 +6,6 @@ class Event < ActiveRecord::Base
   validates :abstract, presence: true
   validates :description, presence: true
   validates :agreement, acceptance: true
+
+  scope :confirmed, -> { where.not confirmed_at: nil }
 end
