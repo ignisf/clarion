@@ -15,7 +15,8 @@ html
     = stylesheet_link_tag "management/application"
     = csrf_meta_tags
   body
-    = render partial: 'layouts/management/navigation'
+    = render 'layouts/management/navigation'
     main
+      = render 'layouts/management/flash'
       == yield
     = javascript_include_tag "management/application"

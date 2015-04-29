@@ -1,6 +1,7 @@
 - content_for :title
   => t 'actions.edit.title', model: Conference.model_name.human
   = @conference.title
+
 .row
   .col-lg-12
     = render partial: 'form'

@@ -1,0 +1,9 @@
+.row
+  .col-lg-12
+    - if flash[:notice]
+      .alert.alert-success
+        = flash[:notice]
+
+    - if flash[:alert]
+      .alert.alert-error
+        = flash[:alert]
