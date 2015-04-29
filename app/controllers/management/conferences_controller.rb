@@ -11,8 +11,12 @@ module Management
 
     def create
       @conference = Conference.new conference_params
-      @conference.save
-      render :new
+
+      if @conference.save
+        redirect_to [:management, @conference]
+      else
+        render :new
+      end
     end
 
     def update
