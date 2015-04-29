@@ -1,0 +1,14 @@
+- User-facing:
+    - Event proposal: lecture, workshop, open space (CRUD)
+    - Volunteership
+    - Sponsorship
+
+- Admin:
+    - Create a conference, halls, tracks
+    - Starting a CFP
+    - conferences#show -> admin dashboard
+    - proposals#index -> grouped by user
+    - volunteers#index -> approved volunteers
+    - events#index -> approved events
+    - sponsorships#index -> generate token, links to send around
+    - scheduling -> calendar with events
