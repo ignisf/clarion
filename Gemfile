@@ -57,6 +57,7 @@ group :development do
   gem 'pry-rails'
   gem 'hirb'
   gem 'awesome_print'
+  gem 'quiet_assets'
 end
 
 group :development, :test do
