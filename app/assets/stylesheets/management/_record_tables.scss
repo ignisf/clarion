@@ -15,4 +15,9 @@ th.action, td.action {
 
 .record-table td {
     vertical-align: middle !important;
+
+    &.boolean-col {
+        .fa-check-square-o { color: $color-success; }
+        .fa-minus-square-o { color: $color-failure; }
+    }
 }

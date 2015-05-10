@@ -1,0 +1,30 @@
+.row
+  .col-lg-12
+    .panel.panel-default
+      .panel-heading
+        h2.panel-title= User.model_name.human(count: 2).mb_chars.capitalize
+      .panel-body
+        table.table.table-striped.table-hover.record-table#conferences
+          thead
+            tr
+              th = User.human_attribute_name :title
+              th = User.human_attribute_name :admin
+              th.actions
+          tbody
+            - @users.each do |user|
+              tr
+                td= user.name
+                td.boolean-col
+                  - if user.admin?
+                    = icon 'check-square-o'
+                  - else
+                    = icon 'minus-square-o'
+
+                td.actions
+                  div.btn-group.btn-group-sm
+                    = link_to management_user_path(user), title: t('actions.view.button', model: User.model_name.human), class: 'btn btn-info'
+                      = icon :eye
+                    = link_to edit_management_user_path(user), title: t('actions.edit.button', model: User.model_name.human), class: 'btn btn-primary'
+                      = icon :edit
+                    = link_to management_user_path(user), title: t('actions.destroy.button', model: User.model_name.human), class: ['btn', 'btn-danger'], remote: true, method: :delete, data: {confirm: t('actions.are_you_sure')}
+                      = icon :trash

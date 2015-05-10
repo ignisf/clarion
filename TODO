@@ -4,11 +4,20 @@
     - Sponsorship
 
 - Admin:
-    - Create a conference, halls, tracks
+    - # Create a conference, halls, tracks
     - Starting a CFP
-    - conferences#show -> admin dashboard
+    - # conferences#show -> admin dashboard
     - proposals#index -> grouped by user
     - volunteers#index -> approved volunteers
     - events#index -> approved events
     - sponsorships#index -> generate token, links to send around
     - scheduling -> calendar with events
+
+    - users:
+      - edit profile: image upload and stuff
+      - show profile
+
+Notes:
+  - .row > .col-lg-12 -> put that outside of the "yield"?
+  - mb_chars?
+  - human_attribute_name -> create a short alias?

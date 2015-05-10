@@ -1,0 +1,12 @@
+- content_for :title
+  = @user.name
+
+.row
+  .col-lg-12
+    h1.page-header
+      // - if @profile.present?
+      //   = image_tag(@profile.picture.medium.url)
+      = @user.name
+
+    - if @profile.present?
+      p.biography= simple_format @profile.biography

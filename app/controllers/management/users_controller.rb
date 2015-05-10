@@ -1,22 +1,23 @@
 module Management
   class UsersController < ManagementController
-    before_action :assign_user, only: [:show, :toggle_admin]
-
     def index
       @users = User.all
     end
 
     def toggle_admin
+      @user = find_user
       @user.toggle_admin!
     end
 
     def show
+      @user    = find_user
+      @profile = @user.speaker_profile
     end
 
     private
 
-    def assign_user
-      @user = User.find params[:id]
+    def find_user
+      User.find(params[:id])
     end
   end
 end
