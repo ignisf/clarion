@@ -70,4 +70,34 @@ RSpec.describe CallForParticipation, type: :model do
       expect(cfp.in_progress?).to be false
     end
   end
+
+  describe '#open!' do
+    it 'changes the status of the CFP to open' do
+      expect { cfp.open! }.to change { cfp.open? }.from(false).to(true)
+    end
+
+    it 'does not change the open time of the CFP when it has already been set' do
+      cfp.opens_at = 10.minutes.ago
+      expect { cfp.open! }.to_not change { cfp.opens_at }
+    end
+
+    it 'unsets the close time of the CFP' do
+      cfp.closes_at = 10.minutes.ago
+      expect { cfp.open! }.to change { cfp.closes_at }.to(nil)
+    end
+
+    it 'saves the record' do
+      expect { cfp.open! }.to change { cfp.persisted? }.from(false).to(true)
+    end
+  end
+
+  describe '#close!' do
+    it 'changes the status of the CFP to closed' do
+      expect { cfp.close! }.to change { cfp.closed? }.from(false).to(true)
+    end
+
+    it 'saves the record' do
+      expect { cfp.close! }.to change { cfp.persisted? }.from(false).to(true)
+    end
+  end
 end
