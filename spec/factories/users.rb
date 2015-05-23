@@ -8,5 +8,9 @@ FactoryGirl.define do
     password_confirmation 'password'
     confirmed_at Time.now - 15.minutes
     email
+
+    factory :administrator do
+      admin true
+    end
   end
 end
