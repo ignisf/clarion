@@ -99,6 +99,11 @@ RSpec.describe Conference, :type => :model do
       conference.destroy
       expect { CallForParticipation.find(call_for_participation.id) }.to raise_exception ActiveRecord::RecordNotFound
     end
+
+    it 'creates an associated call for participation when the conference is created' do
+      conference.save
+      expect(conference.call_for_participation).to be_present
+    end
   end
 
   it 'accepts nested attributes for tracks' do
