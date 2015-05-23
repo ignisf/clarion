@@ -1,4 +1,6 @@
 $ ->
+  $('.cfp-toggle').click ->
+    $(this).addClass("disabled")
   Morris.Line
     element: 'submissions-chart'
     data: $('#submissions-chart').data('submissions')

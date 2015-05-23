@@ -1,0 +1,2 @@
+$('#cfp-status-<%= @conference.id %>').replaceWith('<%= j render partial: 'status', locals: {conference: @conference}%>');
+$('#cfp-status-<%= @conference.id %>').children('.cfp-toggle').click(function() {$(this).addClass("disabled");});
