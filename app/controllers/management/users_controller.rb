@@ -14,10 +14,42 @@ module Management
       @profile = @user.speaker_profile
     end
 
+    def edit
+      @user = find_user
+      @user.build_speaker_profile
+    end
+
+    def update
+      @user = find_user
+
+      if @user.update_attributes(user_params)
+        redirect_to [:management, @user]
+      else
+        render action: 'edit'
+      end
+    end
+
     private
 
     def find_user
       User.find(params[:id])
+    end
+
+    def user_params
+      params.require(:user).permit(
+        :email,
+        speaker_profile_attributes: [
+          :picture,
+          :first_name,
+          :last_name,
+          :mobile_phone,
+          :biography,
+          :organisation,
+          :public_email,
+          :github,
+          :twitter,
+        ]
+      )
     end
   end
 end

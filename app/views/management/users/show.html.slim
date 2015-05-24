@@ -2,10 +2,14 @@
   = @user.name
 
 .row
-  .col-lg-12
+  .col-lg-2
+    - if @profile.present? and @profile.picture.present?
+      = image_tag(@profile.picture.medium.url)
+    - else
+      -# TODO photo placeholder, default user image
+
+  .col-lg-10
     h1.page-header
-      // - if @profile.present?
-      //   = image_tag(@profile.picture.medium.url)
       = @user.name
 
     - if @profile.present?
