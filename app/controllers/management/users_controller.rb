@@ -1,7 +1,7 @@
 module Management
   class UsersController < ManagementController
     def index
-      @users = User.all
+      @users = User.includes(:speaker_profile)
     end
 
     def toggle_admin

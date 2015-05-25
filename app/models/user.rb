@@ -20,4 +20,12 @@ class User < ActiveRecord::Base
   def toggle_admin!
     update admin: !admin
   end
+
+  def profile_picture
+    if speaker_profile.present?
+      speaker_profile.picture
+    else
+      PictureUploader.new
+    end
+  end
 end
