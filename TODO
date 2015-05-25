@@ -14,10 +14,10 @@
     - scheduling -> calendar with events
 
     - users:
-      - edit profile: image upload and stuff
+      - # edit profile: image upload and stuff
       - show profile
 
 Notes:
   - .row > .col-lg-12 -> put that outside of the "yield"?
-  - mb_chars?
   - human_attribute_name -> create a short alias?
+  - NullSpeakerProfile with placeholders?
