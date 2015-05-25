@@ -3,10 +3,7 @@
 
 .row
   .col-lg-2
-    - if @profile.present? and @profile.picture.present?
-      = image_tag(@profile.picture.medium.url)
-    - else
-      -# TODO photo placeholder, default user image
+    = image_tag(@user.profile_picture.medium.url)
 
   .col-lg-10
     h1.page-header
