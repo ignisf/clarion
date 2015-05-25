@@ -26,5 +26,5 @@
                       = icon :eye
                     = link_to edit_management_user_path(user), title: t('actions.edit.button', model: User.model_name.human), class: 'btn btn-primary'
                       = icon :edit
-                    = link_to management_user_path(user), title: t('actions.destroy.button', model: User.model_name.human), class: ['btn', 'btn-danger'], remote: true, method: :delete, data: {confirm: t('actions.are_you_sure')}
+                    = link_to management_user_path(user), title: t('actions.destroy.button', model: User.model_name.human), class: ['btn', 'btn-danger'], method: :delete, data: {confirm: t('actions.are_you_sure')}
                       = icon :trash

@@ -29,6 +29,13 @@ module Management
       end
     end
 
+    def destroy
+      @user = find_user
+      @user.destroy
+
+      redirect_to action: :index
+    end
+
     private
 
     def find_user
