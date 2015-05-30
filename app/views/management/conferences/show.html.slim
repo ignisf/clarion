@@ -16,11 +16,13 @@
               = @conference.events.count
             div
               = t Event.model_name.human(count: @conference.events.count)
-      = link_to management_conference_events_path(@conference)
+
+      = link_to management_events_path
         .panel-footer.text-primary
           span.pull-left = t 'views.conference.see_details'
           span.pull-right = icon 'arrow-circle-right'
           span.clearfix
+
   .col-lg-3.col-md-6
     .panel.panel-danger
       .panel-heading
@@ -32,11 +34,12 @@
               = @conference.events.rejected.count
             div
               = t 'event_states.rejected', count: @conference.events.rejected.count
-      = link_to management_conference_events_path(@conference, status: :rejected)
+      = link_to management_events_path(status: :rejected)
         .panel-footer.text-danger
           span.pull-left = t 'views.conference.see_details'
           span.pull-right = icon 'arrow-circle-right'
           span.clearfix
+
   .col-lg-3.col-md-6
     .panel.panel-info
       .panel-heading
@@ -48,7 +51,7 @@
               = @conference.events.approved.count
             div
               = t 'event_states.approved', count: @conference.events.approved.count
-      = link_to management_conference_events_path(@conference, status: :approved)
+      = link_to management_events_path(status: :approved)
         .panel-footer.text-info
           span.pull-left = t 'views.conference.see_details'
           span.pull-right = icon 'arrow-circle-right'
@@ -64,7 +67,7 @@
               = @conference.events.approved.confirmed.count
             div
               = t 'event_states.confirmed', count: @conference.events.approved.confirmed.count
-      = link_to management_conference_events_path(@conference, status: :approved, confirmed: true)
+      = link_to management_events_path(status: :approved, confirmed: true)
         .panel-footer.text-success
           span.pull-left = t 'views.conference.see_details'
           span.pull-right = icon 'arrow-circle-right'

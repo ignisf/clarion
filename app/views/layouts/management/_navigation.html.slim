@@ -5,36 +5,27 @@ nav.navbar.navbar-static-top.navbar-inverse role="navigation"
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      = link_to management_path, class: 'navbar-brand'
+
+      = link_to management_root_path, class: 'navbar-brand'
         | Clarion
 
     .navbar-collapse.collapse.navbar-inverse-collapse
-      - if user_signed_in?
+      - if current_conference?
         ul.nav.navbar-nav
-          li.dropdown class="#{'active' if current_page?(management_path) || current_page?(management_conferences_path)}"
-            a.dropdown-toggle href="#" data-toggle="dropdown"
+          li
+            = link_to [:management, current_conference], class: 'navbar-brand'
               => icon 'users', class: 'fa-fw'
-              span = Conference.model_name.human(count: 2).mb_chars.capitalize
-              span.caret<
-            ul.dropdown-menu role="menu"
-              - Conference.all.each do |conference|
-                li
-                  = link_to conference.title, management_conference_path(conference)
-          li class="#{'active' if controller_name == 'sessions'}"
-            = link_to management_users_path do
-              => icon 'user', User.model_name.human(count: 2).mb_chars.capitalize, class: 'fa-fw'
+              = current_conference.title
 
-          -# TODO Instead of this, provide a generic `yield :navigation`?
-          - if @conference.present? and @conference.persisted?
-            li class="#{'active' if controller_name == 'events'}"
-              = link_to management_conference_events_path(@conference) do
-                => icon 'file-text', Event.model_name.human(count: 2).mb_chars.capitalize, class: 'fa-fw'
-            li class="#{'active' if controller_name == 'sponsorship_offers'}"
-              = link_to '#' do
-                => icon 'money', t('activerecord.models.sponsorship_offer', count: 2).mb_chars.capitalize, class: 'fa-fw'
-            li class="#{'active' if controller_name == 'volunteerships'}"
-              = link_to '#' do
-                => icon 'hand-o-up', t('activerecord.models.volunteership', count: 2).mb_chars.capitalize, class: 'fa-fw'
+          li class="#{'active' if controller_name == 'events'}"
+            = link_to management_events_path do
+              => icon 'file-text', Event.model_name.human(count: 2).mb_chars.capitalize, class: 'fa-fw'
+          li class="#{'active' if controller_name == 'sponsorship_offers'}"
+            = link_to '#' do
+              => icon 'money', t('activerecord.models.sponsorship_offer', count: 2).mb_chars.capitalize, class: 'fa-fw'
+          li class="#{'active' if controller_name == 'volunteerships'}"
+            = link_to '#' do
+              => icon 'hand-o-up', t('activerecord.models.volunteership', count: 2).mb_chars.capitalize, class: 'fa-fw'
 
       ul.nav.navbar-nav.navbar-right
         li.dropdown
