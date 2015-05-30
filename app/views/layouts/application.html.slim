@@ -1,0 +1,21 @@
+doctype html
+
+html
+  head
+    meta charset="utf-8"
+    meta http-equiv="X-UA-Compatible" content="IE=edge"
+    meta name="viewport" content="width=device-width, initial-scale=1"
+    title
+      - if content_for? :title
+        => content_for :title
+        | | Clarion
+      - else
+        | Clarion
+
+    = stylesheet_link_tag "management/application"
+    = csrf_meta_tags
+  body
+    main
+      = render 'layouts/management/flash'
+      == yield
+    = javascript_include_tag "management/application"
