@@ -19,6 +19,8 @@
       - Edit profiles instead
 
     - Home-area user CRUD
+    - Controller before_action that checks for current_conference
+    - Devise view styling
 
 Notes:
   - .row > .col-lg-12 -> put that outside of the "yield"?
