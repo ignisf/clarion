@@ -7,6 +7,7 @@ module Management
     def toggle_admin
       @user = find_user
       @user.toggle_admin!
+      redirect_to :back
     end
 
     def show

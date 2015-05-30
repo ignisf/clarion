@@ -17,10 +17,11 @@
                 td= image_tag(user.profile_picture.thumb.url)
                 td= user.name
                 td.boolean-col
-                  - if user.admin?
-                    = icon 'check-square-o'
-                  - else
-                    = icon 'minus-square-o'
+                  = link_to toggle_admin_management_user_path(user), method: :put do
+                    - if user.admin?
+                      .btn.btn-primary= icon('circle-o')
+                    - else
+                      .btn.btn-success= icon('dot-circle-o')
 
                 td.actions
                   div.btn-group.btn-group-sm

@@ -10,7 +10,11 @@ Rails.application.routes.draw do
       resources :sponsorship_offers
       resource :call_for_participation, only: [:create, :destroy]
     end
-    resources :users
+    resources :users do
+      member do
+        put :toggle_admin
+      end
+    end
   end
 
   root 'management/conferences#index'
