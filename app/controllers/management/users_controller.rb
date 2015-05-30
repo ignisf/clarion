@@ -16,7 +16,7 @@ module Management
 
     def edit
       @user = find_user
-      @user.build_speaker_profile
+      @user.build_speaker_profile if @user.speaker_profile.blank?
     end
 
     def update

@@ -16,7 +16,13 @@
           hr
           .row
             .col-lg-12
+              - speaker_profile = @user.speaker_profile
+
               = f.simple_fields_for :speaker_profile do |ff|
+                - if speaker_profile.picture.present?
+                  .col-sm-offset-3.col-sm-9
+                    = image_tag speaker_profile.picture.medium.url, class: 'img-thumbnail'
+
                 = ff.input :picture, wrapper: :horizontal_file_input
 
                 -# Required
