@@ -10,9 +10,10 @@ module Management
     end
 
     def create
-      @conference = Conference.new conference_params
+      @conference = Conference.new(conference_params)
 
       if @conference.save
+        set_current_conference(@conference)
         redirect_to [:management, @conference]
       else
         render :new
@@ -20,7 +21,7 @@ module Management
     end
 
     def update
-      @conference.update conference_params
+      @conference.update(conference_params)
       @conference.save
       render :edit
     end
@@ -65,20 +66,11 @@ module Management
     end
 
     def conference_params
-      params.require(:conference).permit [:title,
-                                          :email,
-                                          :start_date,
-                                          :end_date,
-                                          :description,
-                                          tracks_attributes: [:id,
-                                                              :name,
-                                                              :color,
-                                                              :description,
-                                                              :_destroy],
-                                          halls_attributes: [:id,
-                                                  :name,
-                                                  :_destroy]
-                                         ]
+      params.require(:conference).permit(
+        :title, :email, :start_date, :end_date, :description,
+        tracks_attributes: [:id, :name, :color, :description, :_destroy],
+        halls_attributes: [:id, :name, :_destroy]
+      )
     end
   end
 end
