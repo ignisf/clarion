@@ -10,7 +10,7 @@ class PersonalProfile < ActiveRecord::Base
   validates :twitter, format: {with: /\A[a-z0-9_]{1,15}\z/i}, allow_blank: true
   validates :github, format: {with: /\A[a-z0-9][a-z0-9\-]*\z/i}, allow_blank: true
 
-  phony_normalize :mobile_phone, default_country_code: 'BG'
+  phony_normalize :mobile_phone, default_country_code: 'BG', add_plus: false
 
   mount_uploader :picture, PictureUploader
 
