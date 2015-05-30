@@ -12,7 +12,7 @@ en:
         email: Your e-mail address. Will be visible to the organizers only.
         password: Password with length between 8 and 128 symbols
         password_confirmation: Repeat the password
-        speaker_profile:
+        personal_profile:
           picture: Your photo
           organisation: Your organization
           public_email: E-mail address, visible to the visitors

@@ -106,7 +106,7 @@ bg:
         password: Парола
         password_confirmation: Отново паролата
         remember_me: Запомни ме
-      speaker_profile:
+      personal_profile:
         picture: Снимка
         first_name: Име
         last_name: Фамилия
@@ -135,7 +135,7 @@ bg:
               invalid: не е валиден e-mail адрес
             password_confirmation:
               confirmation: не съответства на паролата
-        speaker_profile:
+        personal_profile:
           attributes:
             twitter:
               invalid: може да съдържа максимум 15 символа, които могат да бъдат само букви, числа или долна черта

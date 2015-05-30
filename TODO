@@ -20,4 +20,4 @@
 Notes:
   - .row > .col-lg-12 -> put that outside of the "yield"?
   - human_attribute_name -> create a short alias?
-  - NullSpeakerProfile with placeholders?
+  - NullPersonalProfile with placeholders?

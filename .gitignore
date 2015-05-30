@@ -19,6 +19,6 @@
 /db/schema.rb
 /erd.pdf
 /public/uploads/tmp/*
-/public/uploads/speaker_profile/*
+/public/uploads/personal_profile/*
 .sass-cache/
 /coverage/

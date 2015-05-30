@@ -1,10 +1,10 @@
-- content_for(:title) { ":: #{t :edit_speaker_profile}" }
+- content_for(:title) { ":: #{t :edit_personal_profile}" }
 
 = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f|
   .form_inputs
-    h2.entry-title = t :speaker_profile
+    h2.entry-title = t :personal_profile
     = f.error_notification
-    = f.simple_fields_for :speaker_profile do |ff|
+    = f.simple_fields_for :personal_profile do |ff|
       = ff.input :picture, as: :image_preview, input_html: {preview_version: :thumb}, required: true
       = ff.input :first_name, autofocus: true
       = ff.input :last_name
@@ -12,7 +12,7 @@
       = ff.input :organisation
       = ff.input :github
       = ff.input :twitter
-      = ff.input :mobile_phone, input_html: {value: resource.speaker_profile.mobile_phone.try(:phony_formatted, format: :international)}
+      = ff.input :mobile_phone, input_html: {value: resource.personal_profile.mobile_phone.try(:phony_formatted, format: :international)}
       = ff.input :biography
 
   .form-inputs

@@ -1,7 +1,7 @@
 module Management
   class UsersController < ManagementController
     def index
-      @users = User.includes(:speaker_profile)
+      @users = User.includes(:personal_profile)
     end
 
     def toggle_admin
@@ -12,12 +12,12 @@ module Management
 
     def show
       @user    = find_user
-      @profile = @user.speaker_profile
+      @profile = @user.personal_profile
     end
 
     def edit
       @user = find_user
-      @user.build_speaker_profile if @user.speaker_profile.blank?
+      @user.personal_profile if @user.personal_profile.blank?
     end
 
     def update
@@ -46,7 +46,7 @@ module Management
     def user_params
       params.require(:user).permit(
         :email,
-        speaker_profile_attributes: [
+        personal_profile_attributes: [
           :picture,
           :first_name,
           :last_name,

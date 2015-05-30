@@ -1,4 +1,4 @@
-class SpeakerProfile < ActiveRecord::Base
+class PersonalProfile < ActiveRecord::Base
   belongs_to :user
 
   validates :first_name, presence: true
