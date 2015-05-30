@@ -1,7 +1,7 @@
 div id="cfp-status-#{conference.id}"
   - if conference.call_for_participation.in_progress?
-    = link_to management_conference_call_for_participation_path(conference), method: :delete, class: 'btn btn-sm btn-success cfp-toggle', remote: true
+    = link_to management_call_for_participation_path(conference), method: :delete, class: 'btn btn-sm btn-success cfp-toggle', remote: true
       = icon 'dot-circle-o', '', class: 'fa-fw'
   - else
-    = link_to management_conference_call_for_participation_path(conference), method: :post, class: 'btn btn-sm btn-warning cfp-toggle', remote: true
+    = link_to management_call_for_participation_path(conference), method: :post, class: 'btn btn-sm btn-warning cfp-toggle', remote: true
       = icon 'circle-o', class: 'fa-fw'

@@ -7,17 +7,21 @@ module Management
     private
 
     def current_conference?
-      session[:current_conference_id] and current_conference.present?
+      current_conference.present?
     end
     helper_method :current_conference?
 
     def current_conference
-      @current_conference ||= Conference.find(session[:current_conference_id])
+      @current_conference ||= (session[:current_conference_id] and Conference.find_by(id: session[:current_conference_id]))
     end
     helper_method :current_conference
 
     def set_current_conference(conference)
-      session[:current_conference_id] = conference.id
+      if conference.present?
+        session[:current_conference_id] = conference.id
+      else
+        session.delete(:current_conference_id)
+      end
     end
 
     def authorize_user!

@@ -1,8 +1,5 @@
 module Management
   class ConferencesController < ManagementController
-    before_action :assign_conference, only: [:edit, :update, :show, :destroy, :open_call_for_papers, :close_call_for_papers]
-    before_action :assign_conferences, only: [:index, :destroy, :open_call_for_papers, :close_call_for_papers]
-
     def new
       @conference = Conference.new
       @conference.tracks.build(name: 'Track 1')
@@ -21,48 +18,36 @@ module Management
     end
 
     def update
+      @conference = find_conference
       @conference.update(conference_params)
       @conference.save
       render :edit
     end
 
     def edit
+      @conference = find_conference
     end
 
     def index
+      @conferences = Conference.all.order(start_date: :desc)
     end
 
     def show
+      @conference = find_conference
     end
 
     def destroy
+      @conference = find_conference
       @conference.destroy
+      set_current_conference(nil)
 
-      render 'reload_table'
-    end
-
-    def open_call_for_papers
-      @conference.call_for_papers_open = true
-      @conference.save
-
-      render 'reload_table'
-    end
-
-    def close_call_for_papers
-      @conference.call_for_papers_open = false
-      @conference.save
-
-      render 'reload_table'
+      redirect_to management_root_path
     end
 
     private
 
-    def assign_conference
-      @conference = Conference.find params[:id]
-    end
-
-    def assign_conferences
-      @conferences = Conference.all.order(start_date: :desc)
+    def find_conference
+      Conference.find(params[:id])
     end
 
     def conference_params
