@@ -5,7 +5,7 @@
 
 - Admin:
     - # Create a conference, halls, tracks
-    - Starting a CFP
+    - # Starting a CFP
     - # conferences#show -> admin dashboard
     - proposals#index -> grouped by user
     - volunteers#index -> approved volunteers
