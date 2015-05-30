@@ -15,9 +15,11 @@
 
     - users:
       - # edit profile: image upload and stuff
-      - show profile
+      - # show profile
+      - Edit profiles instead
+
+    - Home-area user CRUD
 
 Notes:
   - .row > .col-lg-12 -> put that outside of the "yield"?
   - human_attribute_name -> create a short alias?
-  - NullPersonalProfile with placeholders?

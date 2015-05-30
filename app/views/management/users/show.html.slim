@@ -1,39 +1,39 @@
 - content_for :title
-  = @user.name
+  = @profile.name
 
 .row
   .speaker-profile
     .panel.panel-default
       .panel-heading
         h1.panel-title
-          = @user.name
+          = @profile.name
           = link_to icon(:edit), edit_management_user_path(@user), class: 'btn btn-xs btn-danger pull-right'
       .panel-body
         .center
-          = image_tag @user.personal_profile.picture.medium.url, class: "profile-image"
-          - if @user.personal_profile.organisation.present?
+          = image_tag @profile.picture.medium.url, class: "profile-image"
+          - if @profile.organisation.present?
             div
               => icon :briefcase
-              = @user.personal_profile.organisation
+              = @profile.organisation
           div.social
             = link_to "mailto://#{@user.email}"
               = icon :envelope
-            - if @user.personal_profile.github.present?
-              = link_to "https://github.com/#{@user.personal_profile.github}"
+            - if @profile.github.present?
+              = link_to "https://github.com/#{@profile.github}"
                 = icon :github
-            - if @user.personal_profile.twitter.present?
-              = link_to "https://twitter.com/#{@user.personal_profile.twitter}"
+            - if @profile.twitter.present?
+              = link_to "https://twitter.com/#{@profile.twitter}"
                 = icon :twitter
 
         hr
 
         h4 = PersonalProfile.human_attribute_name(:biography)
-        = simple_format @user.personal_profile.biography
+        = simple_format @profile.biography
 
         h4 = t :contacts
-        - if @user.personal_profile.twitter.present?
-          p #{icon :twitter} @#{@user.personal_profile.twitter}
-        - if @user.personal_profile.public_email.present?
-          p #{icon :envelope} #{@user.personal_profile.public_email} (#{t(:public)})
+        - if @profile.twitter.present?
+          p #{icon :twitter} @#{@profile.twitter}
+        - if @profile.public_email.present?
+          p #{icon :envelope} #{@profile.public_email} (#{t(:public)})
         p #{icon :envelope} #{@user.email} (#{t(:private)})
-        p #{glyph :phone} #{Phony.format(@user.personal_profile.mobile_phone, format: :international)}
+        p #{glyph :phone} #{Phony.format(@profile.mobile_phone, format: :international)}

@@ -12,10 +12,12 @@
               th = User.human_attribute_name :admin
               th.actions
           tbody
-            - @users.each do |user|
+            - @profiles.each do |profile|
+              - user = profile.user
+
               tr
-                td= image_tag(user.profile_picture.thumb.url)
-                td= user.name
+                td= image_tag(profile.picture.thumb.url)
+                td= profile.name
                 td.boolean-col
                   = link_to toggle_admin_management_user_path(user), method: :put do
                     - if user.admin?

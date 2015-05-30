@@ -1,7 +1,8 @@
+# TODO Needs to work with profiles, not with users
 module Management
   class UsersController < ManagementController
     def index
-      @users = User.includes(:personal_profile)
+      @profiles = current_conference.participant_profiles
     end
 
     def toggle_admin
@@ -12,12 +13,12 @@ module Management
 
     def show
       @user    = find_user
-      @profile = @user.personal_profile
+      @profile = @user.personal_profile(current_conference)
     end
 
     def edit
       @user = find_user
-      @user.personal_profile if @user.personal_profile.blank?
+      @profile = @user.personal_profile(current_conference)
     end
 
     def update

@@ -1,5 +1,6 @@
 class PersonalProfile < ActiveRecord::Base
   belongs_to :user
+  belongs_to :conference
 
   validates :first_name, presence: true
   validates :last_name, presence: true
