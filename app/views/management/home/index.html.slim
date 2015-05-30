@@ -1,10 +1,14 @@
 .row
-  .col-lg-12
-    .dropdown
-      a.dropdown-toggle href="#" data-toggle="dropdown"
-        => icon 'users', class: 'fa-fw'
-        span = Conference.model_name.human(count: 2).mb_chars.capitalize
-        span.caret<
-      ul.dropdown-menu role="menu"
-        - Conference.all.each do |conference|
-          li= link_to conference.title, management_set_conference_path(conference), method: :put
+  .col-lg-12.text-center
+    .btn-group-vertical
+      .btn-group
+        = link_to '#', class: 'btn btn-lg btn-primary dropdown-toggle', data: {toggle: 'dropdown'}
+          => icon 'users', class: 'fa-fw'
+          span = Conference.model_name.human(count: 2).mb_chars.capitalize
+          span.caret<
+        ul.dropdown-menu role="menu"
+          - Conference.all.each do |conference|
+            li= link_to conference.title, management_set_conference_path(conference), method: :put
+
+      = link_to new_management_conference_path, class: 'btn btn-lg btn-primary'
+          => icon 'plus', t('actions.create.button', model: Conference.model_name.human), class: 'fa-fw'
