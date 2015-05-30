@@ -2,12 +2,38 @@
   = @user.name
 
 .row
-  .col-lg-2
-    = image_tag(@user.profile_picture.medium.url)
+  .speaker-profile
+    .panel.panel-default
+      .panel-heading
+        h1.panel-title
+          = @user.name
+          = link_to icon(:edit), edit_management_user_path(@user), class: 'btn btn-xs btn-danger pull-right'
+      .panel-body
+        .center
+          = image_tag @user.speaker_profile.picture.medium.url, class: "profile-image"
+          - if @user.speaker_profile.organisation.present?
+            div
+              => icon :briefcase
+              = @user.speaker_profile.organisation
+          div.social
+            = link_to "mailto://#{@user.email}"
+              = icon :envelope
+            - if @user.speaker_profile.github.present?
+              = link_to "https://github.com/#{@user.speaker_profile.github}"
+                = icon :github
+            - if @user.speaker_profile.twitter.present?
+              = link_to "https://twitter.com/#{@user.speaker_profile.twitter}"
+                = icon :twitter
 
-  .col-lg-10
-    h1.page-header
-      = @user.name
+        hr
 
-    - if @profile.present?
-      p.biography= simple_format @profile.biography
+        h4 = SpeakerProfile.human_attribute_name(:biography)
+        = simple_format @user.speaker_profile.biography
+
+        h4 = t :contacts
+        - if @user.speaker_profile.twitter.present?
+          p #{icon :twitter} @#{@user.speaker_profile.twitter}
+        - if @user.speaker_profile.public_email.present?
+          p #{icon :envelope} #{@user.speaker_profile.public_email} (#{t(:public)})
+        p #{icon :envelope} #{@user.email} (#{t(:private)})
+        p #{glyph :phone} #{Phony.format(@user.speaker_profile.mobile_phone, format: :international)}
