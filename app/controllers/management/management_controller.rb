@@ -6,13 +6,27 @@ module Management
 
     private
 
+    def default_url_options(options = {})
+      { current_conference: current_conference.slug }.merge(options)
+    end
+
     def current_conference?
       current_conference.present?
     end
     helper_method :current_conference?
 
+    # TODO (2015-06-09) Fetch conferences by slug only
     def current_conference
-      @current_conference ||= (session[:current_conference_id] and Conference.find_by(id: session[:current_conference_id]))
+      @current_conference ||=
+        begin
+          # if params[:current_conference]
+          #   Conference.find_by_slug(params[:current_conference])
+          # end
+
+          if session[:current_conference_id]
+            Conference.find_by(id: session[:current_conference_id])
+          end
+        end
     end
     helper_method :current_conference
 

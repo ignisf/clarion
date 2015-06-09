@@ -28,6 +28,16 @@ class Conference < ActiveRecord::Base
     submissions.group_by { |s| s.confirmed_at.to_date }
   end
 
+  def slug
+    title.gsub(' ', '-')
+  end
+
+  # TODO (2015-06-09) Stupid and temporary, put slug in db
+  # TODO (2015-06-09) Also, doesn't work due to translations?
+  # def self.find_by_slug(slug)
+  #   find_by(title: slug.to_s.gsub('-', ' '))
+  # end
+
   private
 
   def start_date_is_before_end_date
