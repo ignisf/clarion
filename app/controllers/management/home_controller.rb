@@ -5,9 +5,7 @@ module Management
 
     def set_conference
       conference = Conference.find(params[:id])
-      set_current_conference(conference)
-
-      redirect_to [:management, conference]
+      redirect_to management_conference_path(conference, current_conference: conference.slug)
     end
   end
 end

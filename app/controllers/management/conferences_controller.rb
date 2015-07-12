@@ -10,8 +10,7 @@ module Management
       @conference = Conference.new(conference_params)
 
       if @conference.save
-        set_current_conference(@conference)
-        redirect_to [:management, @conference]
+        redirect_to management_conference_path(@conference, current_conference: @conference.slug)
       else
         render :new
       end
@@ -39,9 +38,8 @@ module Management
     def destroy
       @conference = find_conference
       @conference.destroy
-      set_current_conference(nil)
 
-      redirect_to management_root_path
+      redirect_to management_root_path(current_conference: nil)
     end
 
     private

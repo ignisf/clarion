@@ -16,6 +16,7 @@ class Conference < ActiveRecord::Base
 
   accepts_nested_attributes_for :tracks, :halls, reject_if: :all_blank, allow_destroy: true
 
+  before_create :slugify_title
   after_create :create_call_for_participation
 
   def submissions_grouped_by_day
@@ -26,6 +27,14 @@ class Conference < ActiveRecord::Base
   def submissions_grouped_by_confirmation_day
     submissions = events.approved.confirmed.group('date(events.confirmed_at)').select('events.confirmed_at, count(events.id) as number')
     submissions.group_by { |s| s.confirmed_at.to_date }
+  end
+
+  def self.find_by_slug(slug)
+    find_by(slug: slug)
+  end
+
+  def slugify_title
+    self.slug = title.gsub(/\s+/, '-')
   end
 
   private
