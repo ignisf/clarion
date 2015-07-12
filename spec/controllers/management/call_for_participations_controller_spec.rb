@@ -8,7 +8,7 @@ RSpec.describe Management::CallForParticipationsController, type: :controller do
   describe 'POST #create' do
     it 'opens the CFP of the specified conference' do
       expect do
-        post 'create', conference_id: conference.id, format: :js
+        post 'create', current_conference: conference.slug, format: :js
       end.to change { Conference.find(conference.id).call_for_participation.in_progress? }.from(false).to(true)
     end
   end
@@ -18,7 +18,7 @@ RSpec.describe Management::CallForParticipationsController, type: :controller do
       conference.call_for_participation.open!
 
       expect do
-        delete 'destroy', conference_id: conference.id, format: :js
+        delete 'destroy', current_conference: conference.slug, format: :js
       end.to change { Conference.find(conference.id).call_for_participation.in_progress? }.from(true).to(false)
     end
   end

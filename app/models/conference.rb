@@ -16,6 +16,7 @@ class Conference < ActiveRecord::Base
 
   accepts_nested_attributes_for :tracks, :halls, reject_if: :all_blank, allow_destroy: true
 
+  before_create :slugify_title
   after_create :create_call_for_participation
 
   def submissions_grouped_by_day
@@ -28,15 +29,13 @@ class Conference < ActiveRecord::Base
     submissions.group_by { |s| s.confirmed_at.to_date }
   end
 
-  def slug
-    title.gsub(' ', '-')
+  def self.find_by_slug(slug)
+    find_by(slug: slug)
   end
 
-  # TODO (2015-06-09) Stupid and temporary, put slug in db
-  # TODO (2015-06-09) Also, doesn't work due to translations?
-  # def self.find_by_slug(slug)
-  #   find_by(title: slug.to_s.gsub('-', ' '))
-  # end
+  def slugify_title
+    self.slug = title.gsub(/\s+/, '-')
+  end
 
   private
 
