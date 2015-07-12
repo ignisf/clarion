@@ -7,7 +7,7 @@ module Management
     private
 
     def default_url_options(options = {})
-      { current_conference: current_conference.slug }.merge(options)
+      { current_conference: current_conference.try(:slug) }.merge(options)
     end
 
     def current_conference?
