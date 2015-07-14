@@ -9,7 +9,7 @@
     - # conferences#show -> admin dashboard
     - proposals#index -> grouped by user
     - volunteers#index -> approved volunteers
-    - events#index -> approved events
+    - # events#index -> approved events
     - sponsorships#index -> generate token, links to send around
     - scheduling -> calendar with events
 
@@ -19,7 +19,7 @@
       - Edit profiles instead
 
     - Home-area user CRUD
-    - Controller before_action that checks for current_conference
+    - # Controller before_action that checks for current_conference
     - Devise view styling
 
 Notes:
