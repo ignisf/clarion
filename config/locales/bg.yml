@@ -24,6 +24,9 @@ bg:
     bg: БГ
     en: EN
   actions:
+    index:
+      button: Виж всички %{models}
+      title: Всички %{models}
     create:
       button: Създай %{model}
       title: Създаване на %{model}

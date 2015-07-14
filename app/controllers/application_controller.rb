@@ -1,4 +1,10 @@
 class ApplicationController < ActionController::Base
+  def require_current_conference
+    if not current_conference?
+      redirect_to '/', alert: 'No conference selected'
+    end
+  end
+
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception

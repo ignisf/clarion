@@ -1,1 +1,25 @@
-p Hello
+.row
+  .col-lg-12
+    .panel.panel-default
+      .panel-heading
+        h2= @event.title
+        br
+        h3= @event.subtitle
+
+        h4 #{Event.human_attribute_name :length}: #{@event.length}m, #{Event.human_attribute_name :language}: #{@event.language}
+
+      .panel-body
+        h3= Event.human_attribute_name :abstract
+        p= simple_format @event.abstract
+
+        h3= Event.human_attribute_name :description
+        p= simple_format @event.description
+
+        h3= Event.human_attribute_name :notes
+        p= simple_format @event.notes
+
+        h3 TODO Author?
+
+      .panel-footer
+        div.btn-group.btn-group-sm
+          = action_buttons(@event, [:index, :edit, :destroy])

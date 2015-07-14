@@ -1,1 +1,26 @@
-p Hello
+.row
+  .col-lg-12
+    .panel.panel-default
+      .panel-heading
+        h2.panel-title= Event.model_name.human(count: 2).mb_chars.capitalize
+
+      .panel-body
+        table.table.table-striped.table-hover.record-table
+          thead
+            tr
+              th = Event.human_attribute_name :title
+              th = Event.human_attribute_name :subtitle
+              th = Event.human_attribute_name :length
+              th = Event.human_attribute_name :language
+              th.actions
+          tbody
+            - @events.each do |event|
+              tr
+                td= event.title
+                td= event.subtitle
+                td #{event.length} minutes
+                td= event.language
+
+                td.actions
+                  div.btn-group.btn-group-sm
+                    = action_buttons(event, [:show, :edit, :destroy])
