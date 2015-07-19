@@ -2,6 +2,7 @@ module Management
   class ConferencesController < ManagementController
     def new
       @conference = Conference.new
+      @conference.event_types.build(name: 'Event type 1')
       @conference.tracks.build(name: 'Track 1')
       @conference.halls.build(name: 'Hall 1')
     end
