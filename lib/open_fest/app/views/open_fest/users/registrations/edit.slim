@@ -1,0 +1,31 @@
+- content_for(:title) { ":: #{t :edit_speaker_profile}" }
+
+= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f|
+  .form_inputs
+    h2.entry-title = t :speaker_profile
+    = f.error_notification
+    = f.simple_fields_for :speaker_profile do |ff|
+      = ff.input :picture, as: :image_preview, input_html: {preview_version: :thumb}, required: true
+      = ff.input :first_name, autofocus: true
+      = ff.input :last_name
+      = ff.input :public_email
+      = ff.input :organisation
+      = ff.input :github
+      = ff.input :twitter
+      = ff.input :mobile_phone, input_html: {value: resource.speaker_profile.mobile_phone.try(:phony_formatted, format: :international)}
+      = ff.input :biography
+
+  .form-inputs
+    h3.entry-title = t :login_data
+    = f.input :email, required: true
+
+    - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+      p
+        = t :expected_validation, email: resource.unconfirmed_email
+
+    = f.input :password, autocomplete: "off", hint: t(:pass_update_hint1), required: false
+    = f.input :password_confirmation, required: false
+    = f.input :current_password, hint: t(:pass_update_hint2), required: true
+
+  .form-actions
+    = f.button :submit, t(:update)
