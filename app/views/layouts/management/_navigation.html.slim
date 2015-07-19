@@ -26,6 +26,9 @@ nav.navbar.navbar-static-top.navbar-inverse role="navigation"
           li class="#{'active' if controller_name == 'volunteerships'}"
             = link_to '#' do
               => icon 'hand-o-up', t('activerecord.models.volunteership', count: 2).mb_chars.capitalize, class: 'fa-fw'
+          li class="#{'active' if controller_name == 'propositions'}"
+            = link_to [:management, current_conference, :propositions] do
+              => icon 'question', Proposition.model_name.human(count: 2).mb_chars.capitalize, class: 'fa-fw'
 
       ul.nav.navbar-nav.navbar-right
         li.dropdown

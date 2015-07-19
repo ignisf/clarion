@@ -76,6 +76,9 @@ bg:
         one: Уъркшоп
         other: Уъркшопи
       event:
+        one: Събитие
+        other: Събития
+      proposition:
         one: Предложение
         other: Предложения
       track:

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :conferences do
       resources :events
       resources :volunteers
+      resources :propositions
       resources :sponsorship_offers
       resource :call_for_participation, only: [:create, :destroy]
 

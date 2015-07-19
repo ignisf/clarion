@@ -3,7 +3,7 @@ module Management
     def index
       @conference = find_conference
       # TODO (2015-07-14) Scoped by conference? Why no conference_id
-      @events = Event.all
+      @events = Event.approved
     end
 
     def show
