@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  mount OpenFest::Engine, at: '/', constraints: {subdomain: 'cfp'}
+
+  devise_for :users, path: 'management'
 
   namespace :management do
     root to: 'home#index'

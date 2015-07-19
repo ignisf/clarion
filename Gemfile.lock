@@ -5,6 +5,12 @@ GIT
   specs:
     yaml_db (0.2.3)
 
+PATH
+  remote: lib/open_fest
+  specs:
+    open_fest (0.0.1)
+      rails (~> 4.2.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -360,6 +366,7 @@ DEPENDENCIES
   jquery-rails
   morrisjs-rails
   nested_form
+  open_fest!
   pg
   phony_rails
   pry-rails
