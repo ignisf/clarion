@@ -1,0 +1,3 @@
+[submodule "lib/open_fest/app/vendor/initfest"]
+	path = lib/open_fest/app/vendor/initfest
+	url = https://github.com/initLab/initfest.git
