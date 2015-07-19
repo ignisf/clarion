@@ -1,9 +1,3 @@
 class OpenFest::Users::SessionsController < Devise::SessionsController
-  # def new
-  #   super
-  # end
-
-  # def create
-  #   super
-  # end
+  layout 'open_fest/application'
 end

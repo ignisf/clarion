@@ -1,9 +1,3 @@
 class OpenFest::Users::PasswordsController < Devise::PasswordsController
-  # def new
-  #   super
-  # end
-
-  # def create
-  #   super
-  # end
+  layout 'open_fest/application'
 end
