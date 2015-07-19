@@ -10,6 +10,7 @@ PATH
   specs:
     open_fest (0.0.1)
       devise
+      font-awesome-sass
       rails (~> 4.2.3)
 
 GEM
