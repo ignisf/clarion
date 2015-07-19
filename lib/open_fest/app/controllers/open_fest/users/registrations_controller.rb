@@ -1,3 +1,3 @@
 class OpenFest::Users::RegistrationsController < Devise::RegistrationsController
-  layout 'open_fest/application'
+  include OpenFest::Users::DeviseController
 end

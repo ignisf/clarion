@@ -1,3 +1,3 @@
 class OpenFest::Users::SessionsController < Devise::SessionsController
-  layout 'open_fest/application'
+  include OpenFest::Users::DeviseController
 end

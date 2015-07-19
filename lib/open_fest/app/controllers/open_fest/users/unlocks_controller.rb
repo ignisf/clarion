@@ -1,3 +1,3 @@
 class OpenFest::Users::UnlocksController < Devise::UnlocksController
-  layout 'open_fest/application'
+  include OpenFest::Users::DeviseController
 end

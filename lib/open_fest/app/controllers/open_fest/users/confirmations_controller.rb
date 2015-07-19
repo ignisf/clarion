@@ -1,3 +1,3 @@
 class OpenFest::Users::ConfirmationsController < Devise::ConfirmationsController
-  layout 'open_fest/application'
+  include OpenFest::Users::DeviseController
 end

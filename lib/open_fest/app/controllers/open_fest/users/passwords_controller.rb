@@ -1,3 +1,3 @@
 class OpenFest::Users::PasswordsController < Devise::PasswordsController
-  layout 'open_fest/application'
+  include OpenFest::Users::DeviseController
 end
