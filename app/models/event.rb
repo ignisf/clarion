@@ -3,6 +3,7 @@ class Event < ActiveRecord::Base
 
   has_one :track, through: :proposition, source: :proposition_accepting, source_type: Track
   has_one :conference, through: :track
+  belongs_to :event_type
 
   validates :title, presence: true
   validates :length, presence: true, numericality: {only_integer: true, greater_than: 0}

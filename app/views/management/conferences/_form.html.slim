@@ -13,6 +13,12 @@
       hr
       .row
         .col-lg-12
+          h2 = EventType.model_name.human(count: 2).mb_chars.capitalize
+      .row
+        = render partial: 'form_event_types', locals: {form: f}
+      hr
+      .row
+        .col-lg-12
           h2 = Hall.model_name.human(count: 2).mb_chars.capitalize
       .row
         = render partial: 'form_halls', locals: {form: f}

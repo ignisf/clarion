@@ -1,0 +1,20 @@
+div#event_types
+  = form.simple_fields_for :event_types do |ff|
+    .col-lg-6
+      .panel.panel-default
+        .panel-heading
+          .panel-title
+            = EventType.model_name.human.mb_chars.capitalize
+            = ff.link_to_remove icon(:remove), class: ['btn', 'btn-danger', 'btn-xs', 'pull-right', ff.object.events.any? ? 'disabled' : nil]
+          span.clearfix
+        .panel-body
+          = ff.input :name
+          = ff.input :description
+.col-lg-6
+  .panel.panel-default
+    .panel-heading
+      .panel-title
+        = t 'actions.new.title_f', model: EventType.model_name.human
+    .panel-body
+      .form-group.text-center
+        = form.link_to_add t('actions.create.button', model: EventType.model_name.human), :event_types, data: {target: '#event_types'}, class: 'btn btn-success'

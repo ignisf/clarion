@@ -2,6 +2,7 @@ module Management
   class ConferencesController < ManagementController
     def new
       @conference = Conference.new
+      @conference.event_types.build(name: 'Event type 1')
       @conference.tracks.build(name: 'Track 1')
       @conference.halls.build(name: 'Hall 1')
     end
@@ -51,6 +52,7 @@ module Management
     def conference_params
       params.require(:conference).permit(
         :title, :email, :start_date, :end_date, :description,
+        event_types_attributes: [:id, :name, :description, :_destroy],
         tracks_attributes: [:id, :name, :color, :description, :_destroy],
         halls_attributes: [:id, :name, :_destroy]
       )

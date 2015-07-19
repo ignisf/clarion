@@ -63,6 +63,9 @@ bg:
       subject: 'Предложението ви за %{conference} за %{submission_type} „%{title}“ е одобрено'
   activerecord:
     models:
+      event_type:
+        one: вид събитие
+        other: видове събития
       hall:
         one: зала
         other: зали
@@ -133,6 +136,9 @@ bg:
         track_id: Поток от лекции
         agreement: Съгласен(на) съм
         user: Лектор
+      event_type:
+        name: Име
+        description: Описание
     errors:
       models:
         user:
