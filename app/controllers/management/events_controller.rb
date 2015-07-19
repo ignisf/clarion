@@ -2,23 +2,22 @@ module Management
   class EventsController < ManagementController
     def index
       @conference = find_conference
-      # TODO (2015-07-14) Scoped by conference? Why no conference_id
-      @events = Event.approved
+      @events = @conference.events.approved
     end
 
     def show
       @conference = find_conference
-      @event = Event.find(params[:id])
+      @event = @conference.events.find(params[:id])
     end
 
     def edit
       @conference = find_conference
-      @event = Event.find(params[:id])
+      @event = @conference.events.find(params[:id])
     end
 
     def update
       @conference = find_conference
-      @event = Event.find(params[:id])
+      @event = @conference.events.find(params[:id])
 
       if @event.update_attributes(event_params)
         flash[:notice] = 'Event was successfully updated.'
@@ -30,7 +29,7 @@ module Management
 
     def destroy
       @conference = find_conference
-      @event = Event.find(params[:id])
+      @event = @conference.events.find(params[:id])
       @event.destroy
 
       redirect_to action: :index
