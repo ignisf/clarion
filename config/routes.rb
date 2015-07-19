@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  mount OpenFest::Engine, at: '/', constraints: {subdomain: 'cfp'}
+  mount OpenFest::Engine, at: '/', constraints: {subdomain: 'cfp'}, conference_id: 1
 
   devise_for :users, path: 'management'
 
