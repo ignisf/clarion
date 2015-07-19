@@ -9,6 +9,7 @@ PATH
   remote: lib/open_fest
   specs:
     open_fest (0.0.1)
+      devise
       rails (~> 4.2.3)
 
 GEM
