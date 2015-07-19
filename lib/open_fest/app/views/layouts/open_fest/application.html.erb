@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>OpenFest</title>
-  <%= stylesheet_link_tag    "open_fest/application", media: "all" %>
-  <%= javascript_include_tag "open_fest/application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>
+      <% if content_for? :title %>
+        <%= yield :title %> |
+      <% end %>
+      <%= @current_conference.try :title %>
+    </title>
 
-<%= yield %>
+    <%= stylesheet_link_tag    "open_fest/application", media: "all" %>
+    <%= javascript_include_tag "open_fest/application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-</body>
+    <section class="content">
+      <%= yield %>
+    </section>
+  </body>
 </html>
