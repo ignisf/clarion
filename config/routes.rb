@@ -4,11 +4,7 @@ Rails.application.routes.draw do
   namespace :management do
     root to: 'home#index'
 
-    put '/set_conference/:id', to: 'home#set_conference', as: :set_conference
-
-    resources :conferences
-
-    scope ':current_conference' do
+    resources :conferences do
       resources :events
       resources :volunteers
       resources :sponsorship_offers

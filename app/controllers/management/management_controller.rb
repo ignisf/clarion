@@ -6,22 +6,17 @@ module Management
 
     private
 
-    def default_url_options(options = {})
-      { current_conference: current_conference.try(:slug) }.merge(options)
-    end
-
     def current_conference?
       current_conference.present?
     end
     helper_method :current_conference?
 
     def current_conference
-      @current_conference ||=
-        begin
-          if params[:current_conference]
-            Conference.find_by_slug(params[:current_conference])
-          end
-        end
+      if not @current_conference and params[:conference_id].present?
+        @current_conference = Conference.find(params[:conference_id])
+      end
+
+      @current_conference
     end
     helper_method :current_conference
 

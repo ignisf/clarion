@@ -8,7 +8,7 @@
           span.caret<
         ul.dropdown-menu role="menu"
           - Conference.all.each do |conference|
-            li= link_to conference.title, management_set_conference_path(conference), method: :put
+            li= link_to conference.title, [:management, conference]
 
       = link_to new_management_conference_path, class: 'btn btn-lg btn-primary'
           => icon 'plus', t('actions.create.button', model: Conference.model_name.human), class: 'fa-fw'

@@ -10,7 +10,7 @@ module Management
       @conference = Conference.new(conference_params)
 
       if @conference.save
-        redirect_to management_conference_path(@conference, current_conference: @conference.slug)
+        redirect_to [:management, @conference]
       else
         render :new
       end

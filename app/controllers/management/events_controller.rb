@@ -1,21 +1,23 @@
 module Management
   class EventsController < ManagementController
-    before_action :require_current_conference
-
     def index
+      @conference = find_conference
       # TODO (2015-07-14) Scoped by conference? Why no conference_id
       @events = Event.all
     end
 
     def show
+      @conference = find_conference
       @event = Event.find(params[:id])
     end
 
     def edit
+      @conference = find_conference
       @event = Event.find(params[:id])
     end
 
     def update
+      @conference = find_conference
       @event = Event.find(params[:id])
 
       if @event.update_attributes(event_params)
@@ -27,6 +29,7 @@ module Management
     end
 
     def destroy
+      @conference = find_conference
       @event = Event.find(params[:id])
       @event.destroy
 
@@ -34,6 +37,10 @@ module Management
     end
 
     private
+
+    def find_conference
+      Conference.find(params[:conference_id])
+    end
 
     def event_params
       params.require(:event).permit(

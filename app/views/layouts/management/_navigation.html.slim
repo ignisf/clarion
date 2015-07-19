@@ -18,7 +18,7 @@ nav.navbar.navbar-static-top.navbar-inverse role="navigation"
               = current_conference.title
 
           li class="#{'active' if controller_name == 'events'}"
-            = link_to management_events_path do
+            = link_to [:management, current_conference, :events] do
               => icon 'file-text', Event.model_name.human(count: 2).mb_chars.capitalize, class: 'fa-fw'
           li class="#{'active' if controller_name == 'sponsorship_offers'}"
             = link_to '#' do
