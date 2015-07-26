@@ -2,23 +2,28 @@
 module Management
   class UsersController < ManagementController
     def index
-      @profiles = current_conference.participant_profiles
+      @conference = find_conference
+      @profiles = @conference.participant_profiles
     end
 
     def toggle_admin
-      @user = find_user
+      @conference = find_conference
+      @user       = find_user
+
       @user.toggle_admin!
       redirect_to :back
     end
 
     def show
-      @user    = find_user
-      @profile = @user.personal_profile(current_conference)
+      @conference = find_conference
+      @user       = find_user
+      @profile    = @user.personal_profile(@conference)
     end
 
     def edit
-      @user = find_user
-      @profile = @user.personal_profile(current_conference)
+      @conference = find_conference
+      @user       = find_user
+      @profile    = @user.personal_profile(@conference)
     end
 
     def update
@@ -42,6 +47,10 @@ module Management
 
     def find_user
       User.find(params[:id])
+    end
+
+    def find_conference
+      Conference.find(params[:conference_id])
     end
 
     def user_params

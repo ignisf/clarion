@@ -27,9 +27,4 @@
 
                 td.actions
                   div.btn-group.btn-group-sm
-                    = link_to management_user_path(user), title: t('actions.view.button', model: User.model_name.human), class: 'btn btn-info'
-                      = icon :eye
-                    = link_to edit_management_user_path(user), title: t('actions.edit.button', model: User.model_name.human), class: 'btn btn-primary'
-                      = icon :edit
-                    = link_to management_user_path(user), title: t('actions.destroy.button', model: User.model_name.human), class: ['btn', 'btn-danger'], method: :delete, data: {confirm: t('actions.are_you_sure')}
-                      = icon :trash
+                    = action_buttons(@conference, user, [:show, :edit, :destroy])
