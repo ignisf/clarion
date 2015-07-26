@@ -18,7 +18,8 @@
         h3= Event.human_attribute_name :notes
         p= simple_format @event.notes
 
-        h3 TODO Author?
+        h3= Event.human_attribute_name :user
+        p= link_to @event.proposer_profile.name, [:management, @conference, @event.proposer]
 
       .panel-footer
         div.btn-group.btn-group-sm
