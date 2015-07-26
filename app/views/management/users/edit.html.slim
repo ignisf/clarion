@@ -18,11 +18,13 @@
           hr
           .row
             .col-lg-12
-              -# TODO we have many personal_profiles now
-              = f.simple_fields_for :personal_profile do |ff|
-                - if @profile.picture.present?
+              = f.simple_fields_for :personal_profiles do |ff|
+                = ff.object.inspect
+                - next if ff.object.conference != @conference
+
+                - if ff.object.picture.present?
                   .col-sm-offset-3.col-sm-9
-                    = image_tag @profile.picture.medium.url, class: 'img-thumbnail'
+                    = image_tag ff.object.picture.medium.url, class: 'img-thumbnail'
 
                 = ff.input :picture, wrapper: :horizontal_file_input
 

@@ -21,6 +21,8 @@ module Clarion
     config.i18n.available_locales = [:bg, :en]
     config.i18n.default_locale = :bg
 
+    config.active_record.raise_in_transactional_callbacks = true
+
     config.generators do |g|
       g.test_framework :rspec, fixtures: true,
                              view_specs: false,

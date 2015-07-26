@@ -18,19 +18,30 @@ module Management
       @conference = find_conference
       @user       = find_user
       @profile    = @user.personal_profile(@conference)
+
+      if not @profile
+        flash[:error] = "No profile, needs to be created"
+        redirect_to action: :edit
+      end
     end
 
     def edit
       @conference = find_conference
       @user       = find_user
       @profile    = @user.personal_profile(@conference)
+
+      # TODO (2015-07-26) Totally not working, can't create new profile properly
+      if not @profile
+        @profile = @user.clone_recent_profile(@conference)
+      end
     end
 
     def update
-      @user = find_user
+      @conference = find_conference
+      @user       = find_user
 
       if @user.update_attributes(user_params)
-        redirect_to [:management, @user]
+        redirect_to [:management, @conference, @user]
       else
         render action: 'edit'
       end
@@ -56,7 +67,7 @@ module Management
     def user_params
       params.require(:user).permit(
         :email,
-        personal_profile_attributes: [
+        personal_profiles_attributes: [
           :picture,
           :first_name,
           :last_name,

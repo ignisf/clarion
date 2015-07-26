@@ -17,11 +17,12 @@
           tbody
             - @events.each do |event|
               - proposer = event.proposer
+              - proposer_profile = event.proposer_profile
 
               tr
                 td= event.title
                 td= event.subtitle
-                td= link_to proposer.personal_profile(@conference).name, [:management, @conference, proposer]
+                td= link_to proposer_profile.name, [:management, @conference, proposer]
                 td #{event.length} minutes
                 td= event.language
 

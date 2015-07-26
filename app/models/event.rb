@@ -12,4 +12,8 @@ class Event < ActiveRecord::Base
   validates :agreement, acceptance: true
 
   scope :confirmed, -> { where.not confirmed_at: nil }
+
+  def proposer_profile
+    proposer.personal_profile(conference)
+  end
 end
