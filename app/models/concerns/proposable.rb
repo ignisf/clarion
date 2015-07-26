@@ -1,6 +1,10 @@
 module Proposable
   extend ActiveSupport::Concern
 
+  def proposer
+    proposition.proposer
+  end
+
   included do
     has_one :proposition, as: :proposable
 

@@ -14,13 +14,18 @@
               th = Event.human_attribute_name :language
               th.actions
           tbody
-            - @proposed_events.each do |event|
+            - @events_by_proposer.each do |proposer, events|
+              - profile = proposer.personal_profile(@conference)
               tr
-                td= event.title
-                td= event.subtitle
-                td #{event.length} minutes
-                td= event.language
+                th[colspan="5"]= link_to profile.name, [:management, @conference, proposer]
 
-                td.actions
-                  div.btn-group.btn-group-sm
-                    = action_buttons(@conference, event, [:show, :edit, :destroy])
+              - events.each do |event|
+                tr
+                  td= event.title
+                  td= event.subtitle
+                  td #{event.length} minutes
+                  td= event.language
+
+                  td.actions
+                    div.btn-group.btn-group-sm
+                      = action_buttons(@conference, event, [:show, :edit, :destroy])

@@ -10,14 +10,18 @@
             tr
               th = Event.human_attribute_name :title
               th = Event.human_attribute_name :subtitle
+              th = Event.human_attribute_name :user
               th = Event.human_attribute_name :length
               th = Event.human_attribute_name :language
               th.actions
           tbody
             - @events.each do |event|
+              - proposer = event.proposer
+
               tr
                 td= event.title
                 td= event.subtitle
+                td= link_to proposer.personal_profile(@conference).name, [:management, @conference, proposer]
                 td #{event.length} minutes
                 td= event.language
 

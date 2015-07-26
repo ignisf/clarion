@@ -1,9 +1,8 @@
 module Management
-  # TODO (2015-07-19) Group by user
   class PropositionsController < ManagementController
     def index
       @conference = find_conference
-      @proposed_events = Event.undecided
+      @events_by_proposer = @conference.events.undecided.group_by(&:proposer)
     end
 
     private

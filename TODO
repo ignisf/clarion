@@ -11,8 +11,8 @@
     - sponsorships#index -> generate token, links to send around
     - scheduling -> calendar with events
 
-    - proposals#index -> undecided events, grouped by user
-    - events#index -> approved events
+    - # proposals#index -> undecided events, grouped by user
+    - # events#index -> approved events
 
     - users:
       - # edit profile: image upload and stuff
