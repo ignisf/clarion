@@ -20,6 +20,9 @@ nav.navbar.navbar-static-top.navbar-inverse role="navigation"
           li class="#{'active' if controller_name == 'events'}"
             = link_to [:management, current_conference, :events] do
               => icon 'file-text', Event.model_name.human(count: 2).mb_chars.capitalize, class: 'fa-fw'
+          li class="#{'active' if controller_name == 'personal_profiles'}"
+            = link_to [:management, current_conference, :personal_profiles] do
+              => icon 'user', t('activerecord.models.personal_profile', count: 2).mb_chars.capitalize, class: 'fa-fw'
           li class="#{'active' if controller_name == 'sponsorship_offers'}"
             = link_to '#' do
               => icon 'money', t('activerecord.models.sponsorship_offer', count: 2).mb_chars.capitalize, class: 'fa-fw'

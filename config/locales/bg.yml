@@ -72,6 +72,9 @@ bg:
       user:
         one: Потребител
         other: Потребители
+      personal_profile:
+        one: Профил
+        other: Профили
       lecture:
         one: Лекция
         other: Лекции

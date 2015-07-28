@@ -19,7 +19,7 @@
                 td= image_tag(profile.picture.thumb.url)
                 td= profile.name
                 td.boolean-col
-                  = link_to toggle_admin_management_user_path(user), method: :put do
+                  = link_to [:toggle_admin, :management, @conference, profile], method: :put do
                     - if user.admin?
                       .btn.btn-primary= icon('circle-o')
                     - else
@@ -27,4 +27,4 @@
 
                 td.actions
                   div.btn-group.btn-group-sm
-                    = action_buttons(@conference, user, [:show, :edit, :destroy])
+                    = action_buttons(@conference, profile, [:show, :edit, :destroy])

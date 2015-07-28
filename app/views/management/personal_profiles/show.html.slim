@@ -7,7 +7,7 @@
       .panel-heading
         h1.panel-title
           = @profile.name
-          = link_to icon(:edit), [:edit, :management, @conference, @user], class: 'btn btn-xs btn-danger pull-right'
+          = link_to icon(:edit), [:edit, :management, @conference, @profile], class: 'btn btn-xs btn-danger pull-right'
       .panel-body
         .center
           = image_tag @profile.picture.medium.url, class: "profile-image"

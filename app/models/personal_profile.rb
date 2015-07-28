@@ -15,6 +15,8 @@ class PersonalProfile < ActiveRecord::Base
 
   mount_uploader :picture, PictureUploader
 
+  accepts_nested_attributes_for :user
+
   def twitter=(handle)
     write_attribute :twitter, handle.gsub(/\A@/,'') if handle
   end

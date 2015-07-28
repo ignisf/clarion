@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       resources :sponsorship_offers
       resource :call_for_participation, only: [:create, :destroy]
 
-      resources :users do
+      resources :personal_profiles do
         member do
           put :toggle_admin
         end

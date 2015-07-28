@@ -9,8 +9,6 @@ class User < ActiveRecord::Base
   has_many :workshops
   has_many :events
 
-  accepts_nested_attributes_for :personal_profiles
-
   default_scope { order id: :desc }
 
   def personal_profile(conference)
