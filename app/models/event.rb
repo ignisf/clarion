@@ -3,6 +3,12 @@ class Event < ActiveRecord::Base
 
   has_one :track, through: :proposition, source: :proposition_accepting, source_type: Track
   has_one :conference, through: :track
+
+  has_many :participations
+  has_many :pending_participations, ->() { pending }, class_name: 'Participation'
+  has_many :approved_participations, ->() { approved }, class_name: 'Participation'
+  has_many :participants, through: :approved_participations
+
   belongs_to :event_type
 
   validates :title, presence: true

@@ -10,10 +10,10 @@ class Conference < ActiveRecord::Base
 
   has_many :tracks
   has_many :halls
-  has_many :events, through: :tracks
   has_many :event_types
+  has_many :events, through: :tracks
   has_one :call_for_participation, dependent: :destroy
-  has_many :participant_profiles, class_name: 'PersonalProfile'
+  has_many :participants, class_name: 'User', through: :events
 
   accepts_nested_attributes_for :tracks, :halls, :event_types, reject_if: :all_blank, allow_destroy: true
 
