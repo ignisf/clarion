@@ -37,5 +37,5 @@
                   td
                   td.actions
                     div.btn-group.btn-group-sm
-                      -# TODO translation
-                      = link_to 'Създай профил', [:new, :management, @conference, :personal_profile, {user_id: user.id}]
+                      = link_to [:new, :management, @conference, :personal_profile, {user_id: user.id}] do
+                        => t('actions.create.title', model: User.model_name.human)
