@@ -1,9 +1,10 @@
 module Management
-  # TODO (2015-07-28) How to create a new profile for a particular profile if given a user? What would be the interface?
   class PersonalProfilesController < ManagementController
     def index
       @conference = find_conference
-      @profiles = @conference.participant_profiles
+
+      # TODO @conference.participants
+      @users = User.all
     end
 
     def toggle_admin
@@ -22,6 +23,25 @@ module Management
       if not @profile
         flash[:error] = "No profile, needs to be created"
         redirect_to action: :edit
+      end
+    end
+
+    def new
+      @conference = find_conference
+      @profile = @conference.participant_profiles.
+        build(user_id: params[:user_id])
+    end
+
+    def create
+      @conference = find_conference
+      @profile = PersonalProfile.new(profile_params)
+      @profile.conference = @conference
+
+      if @profile.save
+        flash[:notice] = 'Profile was successfully created.'
+        redirect_to action: :index
+      else
+        render action: :new
       end
     end
 
@@ -70,7 +90,7 @@ module Management
         :public_email,
         :github,
         :twitter,
-        user_attributes: [:id, :email]
+        :user_id
       )
     end
   end

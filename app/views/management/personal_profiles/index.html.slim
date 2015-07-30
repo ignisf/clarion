@@ -12,19 +12,30 @@
               th = User.human_attribute_name :admin
               th.actions
           tbody
-            - @profiles.each do |profile|
-              - user = profile.user
+            - @users.each do |user|
+              - profile = user.personal_profile(@conference)
 
-              tr
-                td= image_tag(profile.picture.thumb.url)
-                td= profile.name
-                td.boolean-col
-                  = link_to [:toggle_admin, :management, @conference, profile], method: :put do
-                    - if user.admin?
-                      .btn.btn-primary= icon('circle-o')
-                    - else
-                      .btn.btn-success= icon('dot-circle-o')
+              - if profile.present?
+                tr
+                  td= image_tag(profile.picture.thumb.url)
+                  td= profile.name
+                  td.boolean-col
+                    = link_to [:toggle_admin, :management, @conference, profile], method: :put do
+                      - if user.admin?
+                        .btn.btn-primary= icon('circle-o')
+                      - else
+                        .btn.btn-success= icon('dot-circle-o')
 
-                td.actions
-                  div.btn-group.btn-group-sm
-                    = action_buttons(@conference, profile, [:show, :edit, :destroy])
+                  td.actions
+                    div.btn-group.btn-group-sm
+                      = action_buttons(@conference, profile, [:show, :edit, :destroy])
+
+              - else
+                tr
+                  td= image_tag(PictureUploader.new.thumb.url)
+                  td= user.email
+                  td
+                  td.actions
+                    div.btn-group.btn-group-sm
+                      -# TODO translation
+                      = link_to 'Създай профил', [:new, :management, @conference, :personal_profile, {user_id: user.id}]

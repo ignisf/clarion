@@ -19,6 +19,10 @@ class Conference < ActiveRecord::Base
 
   after_create :create_call_for_participation
 
+  def participants
+    events.where(conference_id: id).map(&:user)
+  end
+
   def submissions_grouped_by_day
     submissions = events.group('date(events.created_at)').select('events.created_at, count(events.id) as number')
     submissions.group_by { |s| s.created_at.to_date }

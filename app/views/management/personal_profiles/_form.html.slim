@@ -1,0 +1,32 @@
+= simple_nested_form_for [:management, @conference, @profile], wrapper: :horizontal_form, html: { class: 'form-horizontal' } do |f|
+  = f.input :user_id, as: :hidden
+
+  .panel.panel-primary
+    .panel-heading
+      h1.panel-title
+        = t 'views.user.info'
+        = link_to icon(:eye), [:management, @conference, @profile], class: 'btn btn-xs btn-info pull-right'
+
+    .panel-body
+      .row
+        .col-lg-12
+          - if f.object.picture.present?
+            .col-sm-offset-3.col-sm-9
+              = image_tag f.object.picture.medium.url, class: 'img-thumbnail'
+
+          = f.input :picture, wrapper: :horizontal_file_input
+
+          -# Required
+          = f.input :first_name
+          = f.input :last_name
+          = f.input :mobile_phone
+          = f.input :biography
+
+          -# Optional
+          = f.input :organisation
+          = f.input :public_email
+          = f.input :github
+          = f.input :twitter
+
+    .panel-footer.text-right
+      = f.submit class: 'btn btn-primary'
