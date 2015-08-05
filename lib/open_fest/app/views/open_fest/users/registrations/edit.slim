@@ -1,6 +1,6 @@
 - content_for(:title) { t :edit_speaker_profile }
 
-= simple_form_for(resource, wrapper: :default, as: resource_name, url: open_fest.user_registration_path, html: { method: :put, multipart: true }) do |f|
+= simple_form_for(resource, wrapper: :default, as: :user, url: user_registration_path, html: { method: :put, multipart: true }) do |f|
   .form_inputs
     h2.entry-title = t :personal_profile
     = f.error_notification
