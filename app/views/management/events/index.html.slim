@@ -22,7 +22,12 @@
               tr
                 td= event.title
                 td= event.subtitle
-                td= link_to proposer_profile.name, [:management, @conference, proposer]
+                td
+                  - if proposer_profile
+                    = link_to proposer_profile.name, [:management, @conference, proposer_profile]
+                  - else
+                    | No profile for user #{proposer.email}
+
                 td #{event.length} minutes
                 td= event.language
 
