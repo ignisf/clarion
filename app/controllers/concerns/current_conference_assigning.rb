@@ -11,8 +11,12 @@ module CurrentConferenceAssigning
   end
 
   def current_conference
-    if not @current_conference and params[:conference_id].present?
-      @current_conference = Conference.find(params[:conference_id])
+    if not @current_conference
+      if @conference
+        @current_conference = @conference
+      elsif params[:conference_id].present?
+        @current_conference = Conference.find(params[:conference_id])
+      end
     end
 
     @current_conference
