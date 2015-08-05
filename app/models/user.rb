@@ -8,11 +8,26 @@ class User < ActiveRecord::Base
   has_many :lectures
   has_many :workshops
   has_many :events
+  has_one :personal_profile, Proc.new { |user, conference| user.personal_profiles }
 
   default_scope { order id: :desc }
 
-  def personal_profile(conference)
-    personal_profiles.find_by(conference_id: conference.id)
+  def duplicate_last_personal_profile(conference)
+    if personal_profiles.any?
+      new_personal_profile = personal_profiles.last.dup
+      new_personal_profile.conference = conference
+      new_personal_profile
+    end
+  end
+
+  def find_or_initialize_personal_profile(conference)
+    if personal_profile(conference).present?
+      personal_profile(conference)
+    elsif personal_profiles.any?
+      duplicate_last_personal_profile(conference)
+    else
+      personal_profiles.build(conference: conference)
+    end
   end
 
   def toggle_admin!

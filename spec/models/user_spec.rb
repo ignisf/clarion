@@ -28,4 +28,39 @@ RSpec.describe User do
     expect(user.personal_profile(old_conference)).to eq old_profile
     expect(user.personal_profile(new_conference)).to eq new_profile
   end
+
+  describe '#find_or_initialize_personal_profile' do
+    context 'when the user has a personal profile for the specified conference' do
+      it 'returns the existing personal profile' do
+        user = create :user
+        conference = create :conference
+        personal_profile = create :personal_profile, user: user, conference: conference
+
+        expect(user.find_or_initialize_personal_profile(conference)).to eq personal_profile
+      end
+    end
+
+    context 'when the user has a personal profile for a previous conference' do
+      it 'returns a duplicate of the old profile' do
+        user = create :user
+        old_conference = create :conference
+        conference = create :conference
+        personal_profile = create :personal_profile, user: user, conference: old_conference
+
+        expect(user.find_or_initialize_personal_profile(conference).public_email).to be_present
+        expect(user.find_or_initialize_personal_profile(conference).public_email).to eq personal_profile.public_email
+        expect(user.find_or_initialize_personal_profile(conference)).to be_new_record
+      end
+    end
+
+    context 'when the user has no personal profiles' do
+      it 'returns a new personal profile' do
+        user = create :user
+        conference = create :conference
+
+        expect(user.find_or_initialize_personal_profile(conference)).to be_new_record
+        expect(user.find_or_initialize_personal_profile(conference).conference).to eq conference
+      end
+    end
+  end
 end
