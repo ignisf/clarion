@@ -2,7 +2,7 @@
 
 h2.entry-title = t :resend_instructions_header
 
-= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
+= simple_form_for(resource, wrapper: :default, as: :user, url: user_confirmation_path) do |f|
   = f.error_notification
   = f.full_error :confirmation_token
 
