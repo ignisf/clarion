@@ -2,20 +2,21 @@ class OpenFest::Users::RegistrationsController < Devise::RegistrationsController
   include OpenFest::Users::DeviseController
 
   def edit
-    resource.find_or_initialize_personal_profile(current_conference)
+    @user = resource
   end
 
   def update
     @user = User.find(current_user.id)
 
-    successfully_updated = if needs_password?(@user, params)
-                             @user.update_with_password(devise_parameter_sanitizer.sanitize(:account_update))
-                           else
-                             # remove the virtual current_password attribute
-                             # update_without_password doesn't know how to ignore it
-                             params[:user].delete(:current_password)
-                             @user.update_without_password(devise_parameter_sanitizer.sanitize(:account_update))
-                           end
+    successfully_updated =
+      if needs_password?(@user, params)
+        @user.update_with_password(params_for_update)
+      else
+        # remove the virtual current_password attribute
+        # update_without_password doesn't know how to ignore it
+        params[:user].delete(:current_password)
+        @user.update_without_password(params_for_update)
+      end
 
     if successfully_updated
       set_flash_message :notice, :updated
@@ -28,6 +29,10 @@ class OpenFest::Users::RegistrationsController < Devise::RegistrationsController
   end
 
   private
+
+  def params_for_update
+    params.require(:user).permit(:email, :language, :password, :password_confirmation, :current_password)
+  end
 
   def needs_password?(user, params)
     user.email != params[:user][:email] ||
