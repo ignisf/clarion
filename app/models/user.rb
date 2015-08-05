@@ -8,7 +8,15 @@ class User < ActiveRecord::Base
   has_many :lectures
   has_many :workshops
   has_many :events
-  has_one :personal_profile, Proc.new { |user, conference| user.personal_profiles }
+
+  # TODO (2015-08-05) Copy previous profile
+  def build_personal_profile(conference, params)
+    personal_profiles.build({conference_id: conference.id}.merge(params))
+  end
+
+  def personal_profile(conference)
+    personal_profiles.find_by(conference_id: conference.id)
+  end
 
   default_scope { order id: :desc }
 

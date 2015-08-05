@@ -1,0 +1,19 @@
+= simple_form_for @profile, wrapper: :default, url: personal_profile_path do |f|
+  = f.error_notification
+
+  .form-inputs
+    = image_tag(@profile.picture.medium.url) if @profile.picture?
+    = f.input :picture, as: :file, required: true
+    = f.hidden_field :picture_cache
+
+    = f.input :first_name, autofocus: true
+    = f.input :last_name
+    = f.input :public_email
+    = f.input :organisation
+    = f.input :github
+    = f.input :twitter
+    = f.input :mobile_phone
+    = f.input :biography
+
+  .form-actions
+    = f.button :submit
