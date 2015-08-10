@@ -21,8 +21,6 @@
     = form.input :description
     = form.input :notes
 
-    -# TODO boolean hint CSS, missing divider
-    -# TODO error message?
-    = form.input :agreement, as: :boolean, wrapper_html: {class: 'input'}
+    = form.input :agreement, as: :boolean, wrapper: :default
 
     = form.button :submit
