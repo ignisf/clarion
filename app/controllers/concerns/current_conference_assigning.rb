@@ -12,7 +12,7 @@ module CurrentConferenceAssigning
 
   def current_conference
     if not @current_conference
-      if @conference
+      if @conference and not @conference.new_record?
         @current_conference = @conference
       elsif params[:conference_id].present?
         @current_conference = Conference.find(params[:conference_id])
