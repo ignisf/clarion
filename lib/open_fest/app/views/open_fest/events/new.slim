@@ -1,0 +1,23 @@
+= simple_form_for @event, wrapper: :default do |form|
+  p
+    = form.error_notification
+
+  .form-inputs
+    = form.input :event_type_id, as: :hidden
+    = form.input :title, autofocus: true
+    = form.input :subtitle
+
+    -# TODO tracks -> indirectly through proposition?
+    -# form.input :track_id, collection: current_conference.tracks.map { |track| [track.name, track.id, {title: track.description}] }, required: true
+
+    = form.input :length
+    = form.input :language, collection: I18n.available_locales, include_blank: false, default: I18n.locale
+    = form.input :abstract
+    = form.input :description
+    = form.input :notes
+
+    -# TODO boolean hint CSS, missing divider
+    -# TODO error message?
+    = form.input :agreement, as: :boolean, wrapper_html: {class: 'input'}
+
+    = form.button :submit
