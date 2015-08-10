@@ -13,7 +13,9 @@
     -# TODO tracks -> indirectly through proposition?
     -# form.input :track_id, collection: current_conference.tracks.map { |track| [track.name, track.id, {title: track.description}] }, required: true
 
+    -# TODO length is different for different types of events (translation problem)
     = form.input :length
+
     = form.input :language, collection: I18n.available_locales, include_blank: false, default: I18n.locale
     = form.input :abstract
     = form.input :description
