@@ -1,0 +1,26 @@
+= simple_form_for @event, wrapper: :default do |form|
+  p
+    = form.error_notification
+
+  h2= t('submit_event', event_type: @event_type.name)
+
+  .form-inputs
+    = form.input :event_type_id, as: :hidden
+
+    = form.input :title, autofocus: true
+    = form.input :subtitle
+
+    -# TODO tracks -> indirectly through proposition?
+    -# form.input :track_id, collection: current_conference.tracks.map { |track| [track.name, track.id, {title: track.description}] }, required: true
+
+    -# TODO length is different for different types of events (translation problem)
+    = form.input :length
+
+    = form.input :language, collection: I18n.available_locales, include_blank: false, default: I18n.locale
+    = form.input :abstract
+    = form.input :description
+    = form.input :notes
+
+    = form.input :agreement, as: :boolean, wrapper: :default
+
+    = form.button :submit

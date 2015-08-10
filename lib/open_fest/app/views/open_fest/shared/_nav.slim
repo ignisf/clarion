@@ -1,0 +1,31 @@
+nav
+  .content.cf
+    = link_to 'http://www.openfest.org', class: 'logo' do
+      = image_tag 'img/logo.png', alt: 'OpenFest'
+
+    div
+      ul.menu
+        li
+          a href=events_path = t('views.navigation.submit_event')
+        li
+          a href="#" = t('views.navigation.become_a_volunteer')
+        li
+          a href="#" = t('views.navigation.become_a_sponsor')
+
+        - unless user_signed_in?
+          == content_tag :li, class: [('current_page_item' if controller_name == 'sessions')] do
+            = link_to t(:login), new_user_session_path
+        - else
+          == content_tag :li, class: [('current_page_item' if controller_name == 'registrations')] do
+            = link_to t(:edit_speaker_profile), edit_user_registration_path
+          li
+            = link_to t(:logout), destroy_user_session_path, method: :delete
+        li
+          - if I18n.locale == :bg
+            = link_to url_for(request.query_parameters.merge(locale: 'en')), hreflang: 'en' do
+              img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAHzSURBVHjaYkxOP8IAB//+Mfz7w8Dwi4HhP5CcJb/n/7evb16/APL/gRFQDiAAw3JuAgAIBEDQ/iswEERjGzBQLEru97ll0g0+3HvqMn1SpqlqGsZMsZsIe0SICA5gt5a/AGIEarCPtFh+6N/ffwxA9OvP/7//QYwff/6fZahmePeB4dNHhi+fGb59Y4zyvHHmCEAAAW3YDzQYaJJ93a+vX79aVf58//69fvEPlpIfnz59+vDhw7t37968efP3b/SXL59OnjwIEEAsDP+YgY53b2b89++/awvLn98MDi2cVxl+/vl6mituCtBghi9f/v/48e/XL86krj9XzwEEEENy8g6gu22rfn78+NGs5Ofr16+ZC58+fvyYwX8rxOxXr169fPny+fPn1//93bJlBUAAsQADZMEBxj9/GBxb2P/9+S/R8u3vzxuyaX8ZHv3j8/YGms3w8ycQARmi2eE37t4ACCDGR4/uSkrKAS35B3TT////wADOgLOBIaXIyjBlwxKAAGKRXjCB0SOEaeu+/y9fMnz4AHQxCP348R/o+l+//sMZQBNLEvif3AcIIMZbty7Ly6t9ZmXl+fXj/38GoHH/UcGfP79//BBiYHjy9+8/oUkNAAHEwt1V/vI/KBY/QSISFqM/GBg+MzB8A6PfYC5EFiDAABqgW776MP0rAAAAAElFTkSuQmCC" title="English" alt="English"
+          - elsif I18n.locale == :en
+            = link_to url_for(request.query_parameters.merge(locale: 'bg')), hreflang: 'bg' do
+              img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAFgSURBVHjaYvz69SsDEvj37x+ERGbAwZ9//wACiAUoysXFBST///8P0QOm//+HU0jgxYsXAAHEAlP0H5nxHxtgZGQEWgIQQCx3Pt2RYZL5+/8vQobh/z8gBIN/MAhErEwst77dAgggRoZmhjKXskefH/359weIfv/7DUJ/f//6CyR//fr7C8j99QdEyvPKH5x0ECAAhWOQAgAMg7D+/8nWNVMQDwmCvWTessZJ9VWHCIns0yWxc/MF4FgMUgCAYRBmpf9/sDqY2yWEQBbEYcK0ZuKxIY0FGZ98Z/8KFlcAsTAcYZDX/M369tefv3/+/AGSIJf8+fMbxPgDYoC4QOP//JER+XPqIANAALH83M7ALPvn3z2gcSBTQK4AOwRKQhh/fjP8+cuo8reOgQEggFiA0cP0+w+DpCRQDijK8AekE+SuP38YICQQ/f0LQUDFAAHECIznf0iIAZWLJgUEAAEGADzQZYYqa4w6AAAAAElFTkSuQmCC" title="Български" alt="Български"
+          - else
+            = I18n.locale.inspect

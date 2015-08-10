@@ -1,0 +1,14 @@
+- content_for(:title) { ":: #{t :lostpass}" }
+
+h2.entry-title = t :lostpass
+
+= simple_form_for(resource, wrapper: :default, as: :user, url: user_password_path) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :email, required: true, autofocus: true, hint: false
+
+  .form-actions
+    = f.button :submit, t(:send_lostpass_instructions)
+
+== render 'devise/shared/links'

@@ -1,14 +1,15 @@
 FactoryGirl.define do
   factory :personal_profile do
-    association :user
-
-    first_name "Some"
-    last_name "Person"
-    picture File.open(Rails.root.join("spec/support/picture.jpg"))
-    mobile_phone "0883 123 456"
-    biography "Biography"
-    sequence(:public_email) { |n| "email#{n}@example.com" }
-    twitter "example"
-    github "example"
+    first_name 'Foo'
+    last_name 'Bar'
+    organisation 'foo inc.'
+    public_email 'foo@example.com'
+    picture { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec', 'support', 'picture.jpg')) }
+    mobile_phone '+359883444555'
+    biography 'Just a bio'
+    github 'foobar'
+    twitter 'foobar'
+    user
+    conference
   end
 end

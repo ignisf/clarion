@@ -1,6 +1,6 @@
 class PopulateEventTypeOfExistingEvents < ActiveRecord::Migration
   def up
-    event_ids = execute('SELECT id FROM events WHERE type NOT NULL;').map { |row| row['id'] };
+    event_ids = execute('SELECT id FROM events WHERE type IS NOT NULL;').map { |row| row['id'] };
 
     event_ids.each do |id|
       event_type_id = execute("SELECT ett.event_type_id FROM events JOIN event_type_translations AS ett ON events.type = ett.name WHERE events.id = #{id};").first['event_type_id']

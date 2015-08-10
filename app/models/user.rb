@@ -9,26 +9,18 @@ class User < ActiveRecord::Base
   has_many :workshops
   has_many :events
 
-  default_scope { order id: :desc }
+  # TODO (2015-08-05) Copy previous profile
+  def build_personal_profile(conference, params)
+    personal_profiles.build({conference_id: conference.id}.merge(params))
+  end
 
   def personal_profile(conference)
     personal_profiles.find_by(conference_id: conference.id)
   end
 
+  default_scope { order id: :desc }
+
   def toggle_admin!
     update admin: !admin
-  end
-
-  def clone_recent_profile(new_conference)
-    recent_profile = personal_profiles.order('created_at DESC').first
-
-    personal_profiles.build(conference: new_conference) do |new_profile|
-      if recent_profile.present?
-        new_profile.attributes = recent_profile.attributes.except(
-          "id", "created_at", "updated_at", "conference_id"
-        )
-        new_profile.remote_picture_url = recent_profile.picture.url
-      end
-    end
   end
 end

@@ -6,8 +6,11 @@ class CreateParticipationRecords < ActiveRecord::Migration
     event_to_speaker_profiles = execute 'SELECT * FROM events_speaker_profiles'
 
     event_to_speaker_profiles.each do |event_to_speaker_profile|
+      profile = PersonalProfile.find_by(id: event_to_speaker_profile['speaker_profile_id'])
+      next if not profile
+
       Participation.create! event_id: event_to_speaker_profile['event_id'],
-                            participant_id: PersonalProfile.find(event_to_speaker_profile['speaker_profile_id']).user_id,
+                            participant_id: profile.user_id,
                             approved: true
     end
   end
