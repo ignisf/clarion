@@ -28,10 +28,6 @@ gem 'phony_rails'
 gem 'carrierwave'
 gem 'rmagick'
 
-gem 'capistrano'
-gem 'capistrano-rails'
-gem 'capistrano-rvm'
-
 gem 'puma', group: :production
 
 gem 'globalize'
@@ -60,6 +56,11 @@ group :development do
   gem 'hirb'
   gem 'awesome_print'
   gem 'quiet_assets'
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano-rvm'
+  gem 'capistrano3-puma'
+  gem 'capistrano-git-submodule-strategy'
 end
 
 group :development, :test do
