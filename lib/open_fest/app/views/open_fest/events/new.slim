@@ -2,8 +2,11 @@
   p
     = form.error_notification
 
+  h2= t('submit_event', event_type: @event_type.name)
+
   .form-inputs
     = form.input :event_type_id, as: :hidden
+
     = form.input :title, autofocus: true
     = form.input :subtitle
 
