@@ -2,7 +2,7 @@ class Event < ActiveRecord::Base
   include Proposable
 
   has_one :track, through: :proposition, source: :proposition_accepting, source_type: Track
-  has_one :conference, through: :track
+  belongs_to :conference
 
   has_many :participations
   has_many :pending_participations, ->() { pending }, class_name: 'Participation'
