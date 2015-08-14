@@ -1,6 +1,4 @@
 class Track < ActiveRecord::Base
-  include PropositionAccepting
-
   belongs_to :conference
   has_many :events
 
