@@ -6,11 +6,11 @@ nav
     div
       ul.menu
         li
-          a href=events_path = t('views.navigation.submit_event')
-        li
-          a href="#" = t('views.navigation.become_a_volunteer')
-        li
-          a href="#" = t('views.navigation.become_a_sponsor')
+          = link_to t('views.navigation.submit_event'), events_path
+        / li
+        /   a href="#" = t('views.navigation.become_a_volunteer')
+        / li
+        /   a href="#" = t('views.navigation.become_a_sponsor')
 
         - unless user_signed_in?
           == content_tag :li, class: [('current_page_item' if controller_name == 'sessions')] do
