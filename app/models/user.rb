@@ -9,9 +9,11 @@ class User < ActiveRecord::Base
   has_many :workshops
   has_many :events
 
-  # TODO (2015-08-05) Copy previous profile
-  def build_personal_profile(conference, params)
-    personal_profiles.build({conference_id: conference.id}.merge(params))
+  def build_personal_profile(conference, params = {})
+    new_personal_profile = personal_profiles.last.dup || personal_profiles.build
+    new_personal_profile.conference = conference
+    new_personal_profile.assign_attributes params
+    new_personal_profile
   end
 
   def personal_profile(conference)
