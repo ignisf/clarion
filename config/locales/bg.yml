@@ -136,7 +136,7 @@ bg:
         abstract: Резюме
         description: Описание
         notes: Забележки
-        track_id: Поток от лекции
+        track: Поток от лекции
         agreement: Съгласен(на) съм
         user: Лектор
       event_type:
@@ -144,6 +144,10 @@ bg:
         description: Описание
     errors:
       models:
+        event:
+          attributes:
+            track:
+              must_be_a_valid_track: трябва да е някой от изброените потоци от лекции
         user:
           attributes:
             email:
