@@ -11,7 +11,7 @@ class Conference < ActiveRecord::Base
   has_many :tracks
   has_many :halls
   has_many :event_types
-  has_many :events, through: :tracks
+  has_many :events
   has_one :call_for_participation, dependent: :destroy
   has_many :participants, class_name: 'User', through: :events
 
