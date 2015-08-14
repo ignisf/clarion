@@ -14,7 +14,7 @@
     -# TODO length is different for different types of events (translation problem)
     = form.input :length
 
-    = form.input :language, as: :radio_buttons, collection: I18n.available_locales, include_blank: false, default: I18n.locale, wrapper: :default
+    = form.input :language, as: :radio_buttons, collection: locale_collection, include_blank: false, wrapper: :default, checked: current_user.language
     = form.input :abstract
     = form.input :description
     = form.input :notes
