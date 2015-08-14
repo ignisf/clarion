@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
-  mount OpenFest::Engine, at: '/', constraints: {subdomain: 'cfp'}, conference_id: 1
+  devise_for :users
+
+  scope module: :public, constraints: {subdomain: 'cfp'}, conference_id: 1 do
+    root to: 'events#index'
+    resource :personal_profile, path: 'profile'
+    resources :events
+  end
 
   namespace :management do
     root to: 'home#index'
-    devise_for :users
 
     resources :conferences do
       resources :events
