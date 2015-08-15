@@ -24,6 +24,9 @@ class ApplicationController < ActionController::Base
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
+    if user_signed_in? and current_user.language != I18n.locale
+      current_user.update(language: I18n.locale)
+    end
   end
 
   def set_view_paths
