@@ -1,85 +1,290 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  event_mailer:
-    acceptance_notification:
-      subject: 'Your submission for %{conference} for the %{submission_type} "%{title}" has been approved'
+  abstract: Abstract
+  actions:
+    are_you_sure: Are you sure?
+    create:
+      button: Create %{model}
+      title: 'Create a new #{model}'
+    destroy:
+      button: Destroy %{model}
+    edit:
+      button: Edit %{model}
+      title: Editing %{model}
+    index:
+      button: Browse %{models}
+      title: Browse %{models}
+    new:
+      title_f: New %{model}
+      title_m: New %{model}
+    view:
+      button: View %{model}
+      title: Viewing %{model}
   activerecord:
-    models:
-      user:
-        one: User
-        other: Users
-      lecture:
-        one: Lecture
-        other: Lectures
-      workshop:
-        one: Workshop
-        other: Workshops
-      track: track
-      event:
-        one: Suggestion
-        other: Suggestions
     attributes:
-      user:
+      conference:
+        description: Description
         email: E-mail
+        end_date: End date
+        host_name: Domain name
+        start_date: Start date
+        title: Title
+      event:
+        abstract: Abstract
+        agreement: I accept
+        description: Description
+        language: Language of the talk
+        length: Length
+        notes: Notes
+        subtitle: Sub-title
+        title: Title
+        track: Track
+        user: Speaker
+      event_type:
+        description: Description
+        name: Name
+      hall:
+        name: Name
+      personal_profile:
+        biography: Short bography
+        first_name: First name
+        github: Github account
+        last_name: Last name
+        mobile_phone: Mobile phone
+        organisation: Organization
+        picture: Photo
+        public_email: Public e-mail
+        twitter: Twitter account
+      track:
+        color: Color
+        description: Description
+        name: Name
+      user:
         current_password: Current password
+        email: E-mail
+        language: Language
         password: Password
         password_confirmation: Password confirmation
         remember_me: Remember me
-      personal_profile:
-        picture: Photo
-        first_name: First name
-        last_name: Last name
-        organisation: Organization
-        public_email: Public e-mail
-        mobile_phone: Mobile phone
-        biography: Short bography
-        github: Github account
-        twitter: Twitter account
-      event:
-        title: Title
-        subtitle: Sub-title
-        length: Length (should be between 40 and 45 minutes)
-        language: Language of the talk
-        abstract: Abstract (one paragraph)
-        description: Description (3-4 paragraphs)
-        notes: Notes
-        track: Track
-        agreement: I accept
-        user: Speaker
     errors:
       models:
+        event:
+          attributes:
+            track:
+              must_be_a_valid_track: must be one of the listed lecture tracks
+        personal_profile:
+          attributes:
+            github:
+              invalid: can contain only alphabet characters, digits or a dash and cannot start with a dash
+            twitter:
+              invalid: can contain a maximum of 15 symbols that need to be alphabet charachters, digits or an underscore
         user:
           attributes:
             email:
               invalid: is not a valid e-mail address
             password_confirmation:
               confirmation: does not match the password
-        personal_profile:
-          attributes:
-            twitter:
-              invalid: can contain a maximum of 15 symbols that need to be alphabet charachters, digits or an underscore
-            github:
-              invalid: can contain only alphabet characters, digits or a dash and cannot start with a dash
+    models:
+      conference:
+        one: conference
+        other: conferences
+      event:
+        one: Suggestion
+        other: Suggestions
+      event_type:
+        one: event type
+        other: event types
+      hall:
+        one: hall
+        other: halls
+      lecture:
+        one: Lecture
+        other: Lectures
+      personal_profile:
+        one: Profile
+        other: Profiles
+      proposition:
+        one: Proposition
+        other: Propositions
+      sponsorship_offer:
+        one: sponsor
+        other: sponsors
+      track:
+        one: track
+        other: tracks
+      user:
+        one: User
+        other: Users
+      volunteership:
+        one: volunteer
+        other: volunteers
+      workshop:
+        one: Workshop
+        other: Workshops
+  change_pass: Change password
+  click_to_unlock: Click the link below to unlock
+  confirm_by_clicking: You can confirm your account by clicking the link below
+  confirmations:
+    did_not_receive_confirmation_instructions: You have not received confirmation instructions?
+    resend: Send
+    resend_confirmation: Send confirmation E-mail
+  description: Description
+  did_not_get_confirmation: You did not receive confirmation instructions?
+  did_not_get_unlock: You did not receive unlock instructions?
+  do_not_want_pass_reset1: If you don't want to change your password, please delete this E-mail.
+  do_not_want_pass_reset2: Your password will not be change unless you click the link above and enter a new password.
+  edit: Edit
+  edit_speaker_profile: Edit profile
+  edit_talk: Edit talk
+  edit_title: 'track "%{track}", duration: %{len} min'
+  edit_workshop: Edit workshop
+  enter: Enter
   errors:
     messages:
-      improbable_phone: 'not a valid phone number'
+      improbable_phone: not a valid phone number
+  event_mailer:
+    acceptance_notification:
+      subject: Your submission for %{conference} for the %{submission_type} "%{title}" has been approved
+  event_states:
+    approved:
+      one: Approved
+      other: Approved
+    backup:
+      one: Backup
+      other: Backup
+    confirmed:
+      one: Confirmed
+      other: Confirmed
+    rejected:
+      one: Rejected
+      other: Rejected
+    undecided:
+      one: Undecided
+      other: Undecided
+  expected_validation: Awaiting confirmation of %{email}
+  hello: Hello, %{name}
+  home: Home
+  home_title: "%{conference} - call for participation"
+  lecture_was_successfully_confirmed: Your lecture was confirmed successfully
+  license_notice: Please keep in mind that the presentations will later be published under the CC-BY-ND (Creative Commons – Attribution – No derivatives) license.
+  locales:
+    bg: "Български"
+    en: English
+  login: Login
+  login_data: Account information
+  login_with: Log in with %{with}
+  logout: Log out
+  lostpass: Forgotten password?
+  meta_data: 'Language: %{language}, track: "%{track}", duration: %{length} m.'
+  my_talks: My lecture submissions
+  my_workshops: My workshop submissions
+  new_workshop_title: Submit a workshop
+  no_talks_submitted: You are yet to submit a lecture
+  no_workshops_submitted: You are yet to submit a workshop
+  of_motto: share the freedom
+  pass_update_hint1: Do not fill this in unless you want to change your password
+  pass_update_hint2: Fill this in if you'd like to change your password or E--mail address
+  passwords:
+    change_your_password: Change your password
+    confirm_your_new_password: Password confirmation
+    forgotten_password: Forgotten password
+    new_password: New password
+    send_instructions: Send instructions
+  please_fill_in_your_speaker_profile: Please fill in the data for your personal profile
+  registration: Registration
+  registrations:
+    account_cancelation: Account deletion
+    add_phone_number: Add a phone number
+    are_you_sure: Are you sure you want to delete your registration
+    cancel_my_account: Delete my account
+    edit_account: Edit account
+    leave_blank_if_you_do_not_want_to_change: leave blank if you don't want to change it
+    minimum_characters: at least %{minimum} symbols
+    sign_me_up: Sign me up
+    sign_up: Registration
+    unhappy: You are not happy?
+    update: Update
+    we_need_your_current_password: we need your current password in order to confirm the changes
+  resend_instructions_btn: Resend instructions
+  resend_instructions_header: Resend confirmation instructions
+  resend_unlock_instructions_title: Resend unlock instructions
+  send_lostpass_instructions: Resend lost password instructions
+  sessions:
+    remember_me: Remember me
+    sign_in: Sign in
+    sign_in_heading: Sign in
+    sign_in_with: Sign in with %{with}
+    sign_out: Sign out
+  simple_form:
+    error_notification:
+      default_message: 'Please see the errors below:'
+    hints:
+      conference:
+        description: Conference description
+        email: Orga team email
+        end_date: Last day of the conference
+        start_date: First day of the conference
+        title: Title of the conference
+        tracks:
+          color: Color
+          description: Short description
+          name: Track name
+      event:
+        abstract: An abstract of the event that will be published for the attendees to read (around 1 paragraph)
+        agreement: Indicate if you accept your workshop to be recorded and published under the CC-BY-ND (Creative Commons – Attribution – No Derivatives) license
+        description: Detailed description of the event (several paragraphs)
+        language: Language of the event
+        length: Length of the event
+        notes: Notes that you'd like the organisation team to read
+        subtitle: The subtitle of your event (if there is one)
+        title: The title of your event
+        track: The lecture track you think your event belongs
+      personal_profile:
+        biography: Describe yourself with a few sentences, writing about yourself in the third person :)
+        github: Your Github username
+        mobile_phone: A mobile phone that will be visible only by the organisation team
+        organisation: The organisation you represent
+        picture: Your photo
+        public_email: E-mail address that will be visible for the attendees
+        twitter: Your Twitter handle
+      user:
+        email: Your e-mail address. Will be visible to the organizers only.
+        password: Password with length between 8 and 128 symbols
+        password_confirmation: Repeat the password
+    'no': false
+    required:
+      mark: "*"
+      text: Required field
+    'yes': true
+  someone_requested_passreset: Someone requested to change the password of your account. The password can be changed by following the link below
+  speaker_profile: Speaker profile
+  submit_talk_header: Submit a new talk
+  suggestion_and_speaker_count: "%{suggestions} submissions by %{speakers} speakers"
+  talks: Talks
+  unlocks:
+    did_not_receive_unlock_instructions: DId not receive unlock instructions?
+    resend: Resend
+    resend_unlock_instructions: Resend unlock instructions
+  update: Update
+  views:
+    conference:
+      info: Conference details
+      see_details: See details
+    events:
+      edit_event: Editing %{event_type} %{title}
+      event_successfully_created: Your %{event_type} submission was successfully created
+      event_successfully_updated: Your %{event_type} submission was successfully updated
+      no_events: You are yet to submit an event
+      submit_event: Submit a %{event_type}
+    navigation:
+      my_submissions: My submissions
+    personal_profiles:
+      successfully_created: Your personal profile was successfully created
+      successfully_updated: Your personal profile was successfully updated
+    user:
+      info: User details
+    welcome:
+      submit_event: Submit %{event_type}
+  welcome: Welcome, %{name}
+  what_we_ask: 'We would like to receive your lecture and workshop submissions that belong to the following racks until 30.09.2015:'
+  workshop_was_successfully_confirmed: The workshop was successfully confirmed
+  workshops: Workshops

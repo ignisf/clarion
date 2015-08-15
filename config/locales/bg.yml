@@ -1,199 +1,290 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 bg:
-  locales:
-    bg: БГ
-    en: EN
+  abstract: "Резюме"
   actions:
-    index:
-      button: Виж всички %{models}
-      title: Всички %{models}
+    are_you_sure: "Сигурен ли си?"
     create:
-      button: Създай %{model}
-      title: Създаване на %{model}
+      button: "Създай %{model}"
+      title: "Създаване на %{model}"
     destroy:
-      button: Премахни %{model}
+      button: "Премахни %{model}"
     edit:
-      button: Редактирай %{model}
-      title: Редакция на %{model}
-    view:
-      button: Прегледай %{model}
-      title: Преглед на %{model}
-    are_you_sure: Сигурен ли си?
+      button: "Редактирай %{model}"
+      title: "Редакция на %{model}"
+    index:
+      button: "Виж всички %{models}"
+      title: "Всички %{models}"
     new:
-      title_f: Нова %{model}
-      title_m: Нов %{model}
-  event_states:
-    undecided:
-      one: 'Нерешено'
-      other: 'Нерешени'
-    approved:
-      one: 'Одобрено'
-      other: 'Одобрени'
-    rejected:
-      one: 'Отхвърлено'
-      other: 'Отхвърлени'
-    backup:
-      one: 'В резерв'
-      other: 'В резерв'
-    confirmed:
-      one: 'Потвърдено'
-      other: 'Потвърдени'
-  event_mailer:
-    acceptance_notification:
-      subject: 'Предложението ви за %{conference} за %{submission_type} „%{title}“ е одобрено'
+      title_f: "Нова %{model}"
+      title_m: "Нов %{model}"
+    view:
+      button: "Прегледай %{model}"
+      title: "Преглед на %{model}"
   activerecord:
-    models:
-      event_type:
-        one: вид събитие
-        other: видове събития
-      hall:
-        one: зала
-        other: зали
-      user:
-        one: Потребител
-        other: Потребители
-      personal_profile:
-        one: Профил
-        other: Профили
-      lecture:
-        one: Лекция
-        other: Лекции
-      workshop:
-        one: Уъркшоп
-        other: Уъркшопи
-      event:
-        one: Събитие
-        other: Събития
-      proposition:
-        one: Предложение
-        other: Предложения
-      track:
-        one: поток от лекции
-        other: потоци от лекции
-      conference:
-        one: конференция
-        other: конференции
-      sponsorship_offer:
-        one: спонсор
-        other: спонсори
-      volunteership:
-        one: доброволец
-        other: доброволци
     attributes:
-      hall:
-        name: Име
-      track:
-        name: Име
-        color: Цвят
-        description: Описание
       conference:
+        description: "Описание"
         email: E-mail
-        title: Заглавие
-        host_name: Домейн
-        start_date: Начална дата
-        end_date: Крайна дата
-        description: Описание
-      user:
-        email: E-mail
-        current_password: Текуща парола
-        password: Парола
-        password_confirmation: Отново паролата
-        remember_me: Запомни ме
-        language: Език
-      personal_profile:
-        picture: Снимка
-        first_name: Име
-        last_name: Фамилия
-        organisation: Организация
-        public_email: Публичен e-mail
-        mobile_phone: Мобилен телефон
-        biography: Биография
-        github: Github акаунт
-        twitter: Twitter акаунт
+        end_date: "Крайна дата"
+        host_name: "Домейн"
+        start_date: "Начална дата"
+        title: "Заглавие"
       event:
-        title: Заглавие
-        subtitle: Подзаглавие
-        length: Продължителност
-        language: Език
-        abstract: Резюме
-        description: Описание
-        notes: Забележки
-        track: Поток от лекции
-        agreement: Съгласен(на) съм
-        user: Лектор
+        abstract: "Резюме"
+        agreement: "Съгласен(на) съм"
+        description: "Описание"
+        language: "Език"
+        length: "Продължителност"
+        notes: "Забележки"
+        subtitle: "Подзаглавие"
+        title: "Заглавие"
+        track: "Поток от лекции"
+        user: "Лектор"
       event_type:
-        name: Име
-        description: Описание
+        description: "Описание"
+        name: "Име"
+      hall:
+        name: "Име"
+      personal_profile:
+        biography: "Биография"
+        first_name: "Име"
+        github: Github акаунт
+        last_name: "Фамилия"
+        mobile_phone: "Мобилен телефон"
+        organisation: "Организация"
+        picture: "Снимка"
+        public_email: "Публичен e-mail"
+        twitter: Twitter акаунт
+      track:
+        color: "Цвят"
+        description: "Описание"
+        name: "Име"
+      user:
+        current_password: "Текуща парола"
+        email: E-mail
+        language: "Език"
+        password: "Парола"
+        password_confirmation: "Отново паролата"
+        remember_me: "Запомни ме"
     errors:
       models:
         event:
           attributes:
             track:
-              must_be_a_valid_track: трябва да е някой от изброените потоци от лекции
+              must_be_a_valid_track: "трябва да е някой от изброените потоци от лекции"
+        personal_profile:
+          attributes:
+            github:
+              invalid: "може да съдържа само букви, числа и тирета и не може да започва с тире"
+            twitter:
+              invalid: "може да съдържа максимум 15 символа, които могат да бъдат само букви, числа или долна черта"
         user:
           attributes:
             email:
-              invalid: не е валиден e-mail адрес
+              invalid: "не е валиден e-mail адрес"
             password_confirmation:
-              confirmation: не съответства на паролата
-        personal_profile:
-          attributes:
-            twitter:
-              invalid: може да съдържа максимум 15 символа, които могат да бъдат само букви, числа или долна черта
-            github:
-              invalid: може да съдържа само букви, числа и тирета и не може да започва с тире
+              confirmation: "не съответства на паролата"
+    models:
+      conference:
+        one: "конференция"
+        other: "конференции"
+      event:
+        one: "Събитие"
+        other: "Събития"
+      event_type:
+        one: "вид събитие"
+        other: "видове събития"
+      hall:
+        one: "зала"
+        other: "зали"
+      lecture:
+        one: "Лекция"
+        other: "Лекции"
+      personal_profile:
+        one: "Профил"
+        other: "Профили"
+      proposition:
+        one: "Предложение"
+        other: "Предложения"
+      sponsorship_offer:
+        one: "спонсор"
+        other: "спонсори"
+      track:
+        one: "поток от лекции"
+        other: "потоци от лекции"
+      user:
+        one: "Потребител"
+        other: "Потребители"
+      volunteership:
+        one: "доброволец"
+        other: "доброволци"
+      workshop:
+        one: "Уъркшоп"
+        other: "Уъркшопи"
+  change_pass: "Промяна на парола"
+  click_to_unlock: "Кликнете линкът отдолу, за да го отключите:"
+  confirm_by_clicking: "Можете да потвърдите акаунта си, като кликнете на линка отдолу"
+  confirmations:
+    did_not_receive_confirmation_instructions: "Не сте получили инструкции за потвърждение?"
+    resend: "Изпрати"
+    resend_confirmation: "Изпращане на Email за потвърждение"
+  description: "Описание"
+  did_not_get_confirmation: "Не сте получили инструкции за потвърждение?"
+  did_not_get_unlock: "Не сте получили инструкции за отключване?"
+  do_not_want_pass_reset1: "Ако не желаете да смените паролата си, моля изтрийте това писмо."
+  do_not_want_pass_reset2: "Паролата Ви няма да бъде променена, докато не кликнете горния линк и не въведете нова парола."
+  edit: "Редактирай"
+  edit_speaker_profile: "Редакция на профил"
+  edit_talk: "Редакция на лекция"
+  edit_title: "поток: „%{track}“, продължителност: %{len} мин."
+  edit_workshop: "Редакция на уъркшоп"
+  enter: "Вход"
   errors:
     messages:
-      improbable_phone: 'не е валиден телефонен номер'
-  registrations:
-    sign_up: Регистрация
-    sign_me_up: Регистрирай ме
-    minimum_characters: "най-малко %{minimum} символа"
-    edit_account: Редакция на акаунт
-    leave_blank_if_you_do_not_want_to_change: оставете празно, ако не искате да я променяте
-    we_need_your_current_password: нуждаем се от сегашната Ви парола, за да потвърдим промените
-    update: Промени
-    account_cancelation: Изтриване на акаунт
-    unhappy: Не Сте щастливи?
-    cancel_my_account: Изтрий акаунта ми
-    are_you_sure: Сигурни ли Сте, че искате да изтриете регистрацията си?
-    add_phone_number: Добави телефонен номер
+      improbable_phone: "не е валиден телефонен номер"
+  event_mailer:
+    acceptance_notification:
+      subject: "Предложението ви за %{conference} за %{submission_type} „%{title}“ е одобрено"
+  event_states:
+    approved:
+      one: "Одобрено"
+      other: "Одобрени"
+    backup:
+      one: "В резерв"
+      other: "В резерв"
+    confirmed:
+      one: "Потвърдено"
+      other: "Потвърдени"
+    rejected:
+      one: "Отхвърлено"
+      other: "Отхвърлени"
+    undecided:
+      one: "Нерешено"
+      other: "Нерешени"
+  expected_validation: "Очаква се потвърждение на: %{email}"
+  hello: "Здравейте, %{name}"
+  home: "Начало"
+  home_title: "%{conference} - зов за лектори"
+  lecture_was_successfully_confirmed: "Лекцията беше потвърдена успешно"
+  license_notice: "Имайте предвид, че презентациите ви впоследствие ще бъдат публикувани с лиценз CC-BY-ND (Creative Commons – Attribution – No derivatives)."
+  locales:
+    bg: "Български"
+    en: English
+  login: "Вход"
+  login_data: "Данни за вход в системата"
+  login_with: "Влез с %{with}"
+  logout: "Изход"
+  lostpass: "Забравена парола?"
+  meta_data: "Език: %{language}, поток: „%{track}“, продължителност: %{length} мин."
+  my_talks: "Моите предложения за лекции"
+  my_workshops: "Моите предложения за уъркшопи"
+  new_workshop_title: "Предложи нов уъркшоп"
+  no_talks_submitted: "Все още не сте предложили лекция"
+  no_workshops_submitted: "Все още не сте предложили уъркшоп"
+  of_motto: "да споделим свободата"
+  pass_update_hint1: "Не попълвайте, ако не желаете да промените паролата си"
+  pass_update_hint2: "Попълнете, ако искате да промените паролата или e-mail адреса си."
   passwords:
-    forgotten_password: Забравена парола
-    send_instructions: Изпрати инструкции
-    change_your_password: Променете паролата си
-    new_password: Нова парола
-    confirm_your_new_password: Потвърждение на новата парола
+    change_your_password: "Променете паролата си"
+    confirm_your_new_password: "Потвърждение на новата парола"
+    forgotten_password: "Забравена парола"
+    new_password: "Нова парола"
+    send_instructions: "Изпрати инструкции"
+  please_fill_in_your_speaker_profile: "Моля, попълнете данните в лекторския си профил."
+  registration: "Регистрация"
+  registrations:
+    account_cancelation: "Изтриване на акаунт"
+    add_phone_number: "Добави телефонен номер"
+    are_you_sure: "Сигурни ли Сте, че искате да изтриете регистрацията си?"
+    cancel_my_account: "Изтрий акаунта ми"
+    edit_account: "Редакция на акаунт"
+    leave_blank_if_you_do_not_want_to_change: "оставете празно, ако не искате да я променяте"
+    minimum_characters: "най-малко %{minimum} символа"
+    sign_me_up: "Регистрирай ме"
+    sign_up: "Регистрация"
+    unhappy: "Не Сте щастливи?"
+    update: "Промени"
+    we_need_your_current_password: "нуждаем се от сегашната Ви парола, за да потвърдим промените"
+  resend_instructions_btn: "Изпрати отново инструкциите"
+  resend_instructions_header: "Повторно изпращане на инструкции за потвърждаване на акаунт"
+  resend_unlock_instructions_title: "Изпрати отново инструкции за отключване"
+  send_lostpass_instructions: "Изпрати ми инструкции за промяна на парола"
   sessions:
-    sign_in: Влез
-    sign_in_heading: Вход
-    remember_me: Запомни ме
+    remember_me: "Запомни ме"
+    sign_in: "Вход"
+    sign_in_heading: "Вход"
     sign_in_with: "Влез с %{provider}"
-  confirmations:
-    resend_confirmation: Изпращане на Email за потвърждение
-    resend: Изпрати
-    did_not_receive_confirmation_instructions: Не сте получили инструкции за потвърждение?
+    sign_out: "Изход"
+  simple_form:
+    error_notification:
+      default_message: "Моля, разгледайте посочените грешки във формуляра:"
+    hints:
+      conference:
+        description: "Описание на конференцията"
+        email: Email на организаторския екип
+        end_date: "Денят, в който конференцията приключва"
+        start_date: "Денят, в който конференцията започва"
+        title: "Заглавието на конференцията"
+        tracks:
+          color: "Цвят"
+          description: "Кратко описание"
+          name: "Име на потокът"
+      event:
+        abstract: "Резюме на събитието, което да може да бъде прочетено от посетителите (1 абзац)"
+        agreement: "Отбележете съгласни ли сте с това събитието Ви да бъде записано и публикувано под лиценз CC-BY-ND (Creative Commons – Attribution – No Derivatives)"
+        description: "Подробно описание на събитието (няколко абзаца)"
+        language: "Език, на който ще бъде водено събитието"
+        length: "Продължителността на събитието"
+        notes: "Забележки, които искате да споделите с организаторския екип"
+        subtitle: "Подзаглавието на събитието Ви (ако има такова)"
+        title: "Заглавието на събитието Ви"
+        track: "Потокът от лекции, в който искате да попадне събитието Ви"
+      personal_profile:
+        biography: "Опишете се с няколко изречения, говорейки за себе си в трето лице :)"
+        github: "Потребителското Ви име в Github"
+        mobile_phone: "Мобилен телефон, който ще бъде видим само за организаторите"
+        organisation: "Организацията, която представлявате"
+        picture: "Ваша снимка"
+        public_email: E-mail адрес, който ще бъде видим за посетителите
+        twitter: "Потребителското Ви име в Twitter"
+      user:
+        email: e-mail адресът Ви. Ще бъде видим само от организаторите
+        password: "Парола с дължина между 8 и 128 символа"
+        password_confirmation: "Отново въведената отгоре парола"
+    'no': "Не"
+    required:
+      mark: "*"
+      text: "Задължително поле"
+    'yes': "Да"
+  someone_requested_passreset: "Някой поиска линк за промяна на парола на акаунта Ви. Паролата може да бъде променена от линкът отдолу."
+  speaker_profile: "Лекторски профил"
+  submit_talk_header: "Предложи нова лекция"
+  suggestion_and_speaker_count: "%{suggestions} предложения от %{speakers} лектори"
+  talks: "Лекции"
   unlocks:
-    did_not_receive_unlock_instructions: Не сте получили инструкции за отключване?
-    resend_unlock_instructions: Изпращане на инструкции за отключване
-    resend: Изпрати
+    did_not_receive_unlock_instructions: "Не сте получили инструкции за отключване?"
+    resend: "Изпрати"
+    resend_unlock_instructions: "Изпращане на инструкции за отключване"
+  update: "Обнови"
+  views:
+    conference:
+      info: "Информация за конференция"
+      see_details: "Повече информация"
+    events:
+      edit_event: "Редактиране на %{event_type} %{title}"
+      event_successfully_created: "Предложението Ви за %{event_type} беше създадено успешно"
+      event_successfully_updated: "Предложението Ви за %{event_type} беше обновено успешно"
+      no_events: "Все още не сте предложили събитие"
+      submit_event: "Предлагане на %{event_type}"
+    navigation:
+      my_submissions: "Моите предложения"
+    personal_profiles:
+      successfully_created: "Профилът Ви беше създаден успешно"
+      successfully_updated: 
+    user:
+      info: "Информация за потребител"
+    welcome:
+      submit_event: "Предложи %{event_type}"
+  welcome: "Добре дошли, %{name}"
+  what_we_ask: "Бихме искали да получим предложенията Ви за лекции и уъркшопи, принадлежащи към следните категории до 30 септември 2015г.:"
+  workshop_was_successfully_confirmed: "Уъркшопът беше потвърден успешно"
+  workshops: "Уъркшопи"
