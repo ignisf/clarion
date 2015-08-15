@@ -23,7 +23,7 @@ h3.entry-title = t :login_data
 = simple_form_for(current_user, wrapper: :default, as: :user, url: registration_path(:user), html: { method: :put, multipart: true }) do |f|
   .form-inputs
     = f.input :email, required: true
-    = f.input :language, collection: I18n.available_locales, required: true
+    = f.input :language, as: :radio_buttons, collection: locale_collection, include_blank: false, wrapper: :default
 
     - if current_user.pending_reconfirmation?
       p
