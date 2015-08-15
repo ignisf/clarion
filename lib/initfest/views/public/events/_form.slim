@@ -1,0 +1,22 @@
+= simple_form_for @event, wrapper: :default do |form|
+  = form.input :event_type_id, as: :hidden, wrapper: false
+
+  p
+    = form.error_notification
+
+  .form-inputs
+    = form.input :title, autofocus: true
+    = form.input :subtitle
+    = form.association :track, wrapper: :default, collection: current_conference.tracks
+
+    -# TODO length is different for different types of events (translation problem)
+    = form.input :length
+
+    = form.input :language, as: :radio_buttons, collection: locale_collection, include_blank: false, wrapper: :default, checked: current_user.language
+    = form.input :abstract
+    = form.input :description
+    = form.input :notes
+
+    = form.input :agreement, as: :boolean, wrapper: :default
+
+    = form.button :submit

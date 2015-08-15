@@ -9,10 +9,16 @@ bg:
       submit_event: "Предложи %{event_type}"
     navigation:
       my_submissions: "Моите предложения"
+    events:
+      no_events: Все още не сте предложили събитие
+      event_successfully_created: "Предложението Ви за %{event_type} беше създадено успешно"
+      event_successfully_updated: "Предложението Ви за %{event_type} беше обновено успешно"
+      submit_event: "Предлагане на %{event_type}"
+      edit_event: "Редактиране на %{event_type} %{title}"
+
   home_title: "%{conference} - зов за лектори"
   what_we_ask: 'Бихме искали да получим предложенията Ви за лекции и уъркшопи, принадлежащи към следните категории до 30 септември 2015г.:'
   license_notice: 'Имайте предвид, че презентациите ви впоследствие ще бъдат публикувани с лиценз CC-BY-ND (Creative Commons – Attribution – No derivatives).'
-  submit_event: Предложи %{event_type}
   resend_instructions_header: Повторно изпращане на инструкции за потвърждаване на акаунт
   resend_instructions_btn: Изпрати отново инструкциите
 

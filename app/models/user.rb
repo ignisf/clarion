@@ -7,7 +7,8 @@ class User < ActiveRecord::Base
   has_many :personal_profiles, dependent: :destroy
   has_many :lectures
   has_many :workshops
-  has_many :events
+  has_many :propositions, foreign_key: :proposer_id
+  has_many :events, through: :propositions, source: :proposable, source_type: 'Event'
 
   def find_or_build_personal_profile(conference, params = {})
     current_profile = personal_profile(conference)

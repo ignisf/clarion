@@ -3,6 +3,11 @@ module Public
     before_filter :authenticate_user!
 
     def index
+      @events = Event.joins(:proposition, :participations).where('propositions.proposer_id = ? OR participations.participant_id = ?', current_user.id, current_user.id)
+    end
+
+    def edit
+      @event = current_user.events.find(params[:id])
     end
 
     def new
@@ -17,9 +22,21 @@ module Public
       @event.participations.build participant: current_user, approved: true
 
       if @event.save
+        flash[:notice] = I18n.t('views.events.event_successfully_created', event_type: @event.event_type.name.mb_chars.downcase)
         after_save_redirect
       else
         render action: :new
+      end
+    end
+
+    def update
+      @event = current_user.events.find(params[:id])
+
+      if @event.update(event_params)
+        flash[:notice] = I18n.t('views.events.event_successfully_updated', event_type: @event.event_type.name.mb_chars.downcase)
+        after_save_redirect
+      else
+        render action: :edit
       end
     end
 
@@ -35,7 +52,7 @@ module Public
 
     def after_save_redirect
       if current_user.personal_profile(current_conference).present?
-        redirect_to root_path
+        redirect_to events_path
       else
         redirect_to edit_personal_profile_path, alert: I18n.t(:please_fill_in_your_speaker_profile)
       end

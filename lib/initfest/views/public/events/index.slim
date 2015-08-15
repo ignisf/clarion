@@ -1,14 +1,11 @@
-h1.entry-title = t :home_title, conference: current_conference.title
+h1.entry-title = t 'views.navigation.my_submissions'
 
-= simple_format current_conference.description
-
-p = t :what_we_ask
-
-ul
-  = render partial: 'track', collection: current_conference.tracks
-
-p = t :license_notice
+ul.my_submissions
+  - if @events.any?
+    = render @events
+  - else
+    li = t 'views.events.no_events'
 
 - if current_conference.call_for_participation.in_progress?
   .centered.large
-    = render partial: 'event_type', collection: current_conference.event_types
+    = render partial: '/public/home/event_type', collection: current_conference.event_types
