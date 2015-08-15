@@ -17,7 +17,7 @@ module Public
       @event.participations.build participant: current_user, approved: true
 
       if @event.save
-        redirect_to action: :index
+        after_save_redirect
       else
         render action: :new
       end
@@ -31,6 +31,14 @@ module Public
         :abstract, :description, :notes, :agreement,
         :event_type_id
       )
+    end
+
+    def after_save_redirect
+      if current_user.personal_profile(current_conference).present?
+        redirect_to root_path
+      else
+        redirect_to new_personal_profile_path, alert: I18n.t(:please_fill_in_your_speaker_profile)
+      end
     end
   end
 end
