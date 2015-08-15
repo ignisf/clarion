@@ -2,9 +2,6 @@
 <html>
   <head>
     <title>
-      <% if content_for? :title %>
-        <%= yield :title %>
-      <% end %>
       <% if content_for?(:title) and current_conference? %>
         <%= yield :title %> | <%= current_conference.try :title %>
       <% elsif !content_for?(:title) and current_conference? %>
