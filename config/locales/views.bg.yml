@@ -7,6 +7,8 @@ bg:
       info: Информация за потребител
     welcome:
       submit_event: "Предложи %{event_type}"
+    navigation:
+      my_submissions: "Моите предложения"
   home_title: "%{conference} - зов за лектори"
   what_we_ask: 'Бихме искали да получим предложенията Ви за лекции и уъркшопи, принадлежащи към следните категории до 30 септември 2015г.:'
   license_notice: 'Имайте предвид, че презентациите ви впоследствие ще бъдат публикувани с лиценз CC-BY-ND (Creative Commons – Attribution – No derivatives).'
