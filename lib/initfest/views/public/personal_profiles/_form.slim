@@ -2,8 +2,9 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :picture, as: :file, required: true, wrapper: :default
-    = image_tag(@profile.picture.medium.url) if @profile.picture?
+    .input
+      = image_tag(@profile.picture.medium.url) if @profile.picture?
+      = f.input :picture, as: :file, required: true, wrapper: false
 
     = f.hidden_field :picture_cache, class: 'image_preview', wrapper: false
     = f.input :first_name, autofocus: true
