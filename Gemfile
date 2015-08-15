@@ -45,8 +45,6 @@ gem 'jquery-datatables-rails'
 gem 'morrisjs-rails'
 gem 'raphael-rails'
 
-gem 'open_fest', path: 'lib/open_fest'
-
 group :development do
   gem 'spring'
   gem 'spring-commands-rspec'
