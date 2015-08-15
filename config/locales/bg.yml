@@ -109,6 +109,7 @@ bg:
       conference:
         email: E-mail
         title: Заглавие
+        host_name: Домейн
         start_date: Начална дата
         end_date: Крайна дата
         description: Описание
