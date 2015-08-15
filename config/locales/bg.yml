@@ -119,6 +119,7 @@ bg:
         password: Парола
         password_confirmation: Отново паролата
         remember_me: Запомни ме
+        language: Език
       personal_profile:
         picture: Снимка
         first_name: Име

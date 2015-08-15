@@ -17,7 +17,7 @@ nav
             = link_to t(:login), new_user_session_path
         - else
           == content_tag :li, class: [('current_page_item' if controller_name == 'registrations')] do
-            = link_to t(:edit_speaker_profile), edit_user_registration_path
+            = link_to t(:edit_speaker_profile), edit_personal_profile_path
           li
             = link_to t(:logout), destroy_user_session_path, method: :delete
         li

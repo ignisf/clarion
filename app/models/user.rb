@@ -9,8 +9,18 @@ class User < ActiveRecord::Base
   has_many :workshops
   has_many :events
 
+  def find_or_build_personal_profile(conference, params = {})
+    current_profile = personal_profile(conference)
+    if current_profile.present?
+      current_profile.assign_attributes params
+      current_profile
+    else
+      build_personal_profile(conference, params)
+    end
+  end
+
   def build_personal_profile(conference, params = {})
-    new_personal_profile = personal_profiles.last.dup || personal_profiles.build
+    new_personal_profile = personal_profiles.last.try(:dup) || personal_profiles.build
     new_personal_profile.conference = conference
     new_personal_profile.assign_attributes params
     new_personal_profile

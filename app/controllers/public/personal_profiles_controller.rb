@@ -2,10 +2,6 @@ module Public
   class PersonalProfilesController < Public::ApplicationController
     before_filter :authenticate_user!
 
-    def new
-      @profile = current_user.build_personal_profile(current_conference)
-    end
-
     def create
       @profile = current_user.build_personal_profile(current_conference, profile_params)
 
@@ -18,7 +14,7 @@ module Public
     end
 
     def edit
-      @profile = current_user.personal_profile(current_conference)
+      @profile = current_user.find_or_build_personal_profile(current_conference)
     end
 
     def update

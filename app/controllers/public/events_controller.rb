@@ -37,7 +37,7 @@ module Public
       if current_user.personal_profile(current_conference).present?
         redirect_to root_path
       else
-        redirect_to new_personal_profile_path, alert: I18n.t(:please_fill_in_your_speaker_profile)
+        redirect_to edit_personal_profile_path, alert: I18n.t(:please_fill_in_your_speaker_profile)
       end
     end
   end

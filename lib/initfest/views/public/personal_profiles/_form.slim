@@ -17,3 +17,21 @@
 
   .form-actions
     = f.button :submit
+
+h3.entry-title = t :login_data
+
+= simple_form_for(current_user, wrapper: :default, as: :user, url: registration_path(:user), html: { method: :put, multipart: true }) do |f|
+  .form-inputs
+    = f.input :email, required: true
+    = f.input :language, collection: I18n.available_locales, required: true
+
+    - if current_user.pending_reconfirmation?
+      p
+        = t :expected_validation, email: current_user.unconfirmed_email
+
+    = f.input :password, autocomplete: "off", hint: t(:pass_update_hint1), required: false
+    = f.input :password_confirmation, required: false
+    = f.input :current_password, hint: t(:pass_update_hint2), required: true
+
+  .form-actions
+    = f.button :submit, t(:update)
