@@ -3,7 +3,7 @@ module Public
     before_filter :authenticate_user!
 
     def index
-      @events = Event.joins(:proposition, :participations).where('propositions.proposer_id = ? OR participations.participant_id = ?', current_user.id, current_user.id)
+      @events = Event.joins(:conference, :proposition, :participations).where(conference: current_conference).where('propositions.proposer_id = ? OR participations.participant_id = ?', current_user.id, current_user.id)
     end
 
     def edit
