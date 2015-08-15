@@ -1,5 +1,5 @@
-- content_for(:title) { ":: #{t :personal_profile}" }
+- content_for(:title) { PersonalProfile.model_name.human }
 
-h2.entry-title = t :personal_profile
+h2.entry-title = PersonalProfile.model_name.human
 
 = render 'form'
