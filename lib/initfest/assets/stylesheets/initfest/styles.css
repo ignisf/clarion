@@ -1,0 +1,827 @@
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Arimo'), url(http://fonts.gstatic.com/s/arimo/v8/an78_18DAUCSU6a4qacRuA.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Arimo'), url(http://fonts.gstatic.com/s/arimo/v8/4NN7UQ_VsRBn7NDD9HKUPw.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Arimo'), url(http://fonts.gstatic.com/s/arimo/v8/ye-fuRt_0mKrPeIp6Mwa8A.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Arimo'), url(http://fonts.gstatic.com/s/arimo/v8/VF6T-UwCT6WyIiUKP6AykQ.woff2) format('woff2');
+  unicode-range: U+0370-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Arimo'), url(http://fonts.gstatic.com/s/arimo/v8/eSHy7hCA8QR4qTF-59v60g.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+1EA0-1EF1, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Arimo'), url(http://fonts.gstatic.com/s/arimo/v8/V41d6938Z8eBLYL302F8Ig.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Arimo'), url(http://fonts.gstatic.com/s/arimo/v8/chnpHRvNNCWcZBKRQ4gVug.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Arimo Bold'), local('Arimo-Bold'), url(http://fonts.gstatic.com/s/arimo/v8/ar6XjGD_YvbpY9XD5YxKTBTbgVql8nDJpwnrE27mub0.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Arimo Bold'), local('Arimo-Bold'), url(http://fonts.gstatic.com/s/arimo/v8/XzFO_hPcAZmADxw_2htokBTbgVql8nDJpwnrE27mub0.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Arimo Bold'), local('Arimo-Bold'), url(http://fonts.gstatic.com/s/arimo/v8/Tq4Zh2K0uru54pu6hyua9BTbgVql8nDJpwnrE27mub0.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Arimo Bold'), local('Arimo-Bold'), url(http://fonts.gstatic.com/s/arimo/v8/gRIQMcBGUlcKSvTGaO9yHBTbgVql8nDJpwnrE27mub0.woff2) format('woff2');
+  unicode-range: U+0370-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Arimo Bold'), local('Arimo-Bold'), url(http://fonts.gstatic.com/s/arimo/v8/u0Tw4Txbkc9Av4uzN1j1aBTbgVql8nDJpwnrE27mub0.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+1EA0-1EF1, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Arimo Bold'), local('Arimo-Bold'), url(http://fonts.gstatic.com/s/arimo/v8/XCmwOdi6K62tkWaszbVGURTbgVql8nDJpwnrE27mub0.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Arimo Bold'), local('Arimo-Bold'), url(http://fonts.gstatic.com/s/arimo/v8/27rE5lMk9EHpLbxiIuGd0BTbgVql8nDJpwnrE27mub0.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Arimo';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Arimo Italic'), local('Arimo-Italic'), url(http://fonts.gstatic.com/s/arimo/v8/-lqiBwxkYHykb59Lvn7rk_Y6323mHUZFJMgTvxaG2iE.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Arimo';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Arimo Italic'), local('Arimo-Italic'), url(http://fonts.gstatic.com/s/arimo/v8/tvCMF1Qlf0MEvcc7JEzrhfY6323mHUZFJMgTvxaG2iE.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Arimo';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Arimo Italic'), local('Arimo-Italic'), url(http://fonts.gstatic.com/s/arimo/v8/aKQL0kir7sjNM0_YzHc9yvY6323mHUZFJMgTvxaG2iE.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Arimo';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Arimo Italic'), local('Arimo-Italic'), url(http://fonts.gstatic.com/s/arimo/v8/c6Ldt38oFMowvdIZIi9CaPY6323mHUZFJMgTvxaG2iE.woff2) format('woff2');
+  unicode-range: U+0370-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Arimo';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Arimo Italic'), local('Arimo-Italic'), url(http://fonts.gstatic.com/s/arimo/v8/Phj51JGRBuPcxq7i7-qcHPY6323mHUZFJMgTvxaG2iE.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+1EA0-1EF1, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Arimo';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Arimo Italic'), local('Arimo-Italic'), url(http://fonts.gstatic.com/s/arimo/v8/-CSRdP_Aes2aBSIDGwIm6vY6323mHUZFJMgTvxaG2iE.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Arimo';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Arimo Italic'), local('Arimo-Italic'), url(http://fonts.gstatic.com/s/arimo/v8/W9ndJDdcIndrj-dqFXLbVvY6323mHUZFJMgTvxaG2iE.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	font-family: 'Arimo', sans-serif;
+}
+@media all and (max-width: 400px) {
+	body {
+		font-size: 14px;
+	}
+}
+.content {
+	max-width: 960px;
+	margin: 0 auto;
+	position: relative;
+}
+p {
+	margin: 0 0 1em 0;
+	padding: 0;
+  line-height: 1.5em;
+  font-weight: 300;
+}
+h1.big {
+	font-size: 2.4em;
+	margin-top: 0;
+	margin-bottom: 0.6em;
+	padding-top: 0;
+}
+a {
+	color: #000;
+}
+a:hover {
+	color: #7789b5;
+}
+a img {
+	border: none;
+}
+h3 small {
+	font-size: 0.65em;
+}
+.tac {
+	text-align: center;
+}
+@media all and (max-width: 960px) {
+	.content {
+		padding: 0 1em;
+	}
+}
+.left { float: left; }
+.right { float: right; }
+.cf::after, .cf::before {
+	content: " ";
+	clear: both;
+	display: block;
+}
+
+/* Navigation */
+nav {
+	position: relative;
+	height: 84px;
+	background: url("../img/navbg.jpg") repeat-x;
+}
+nav ul {
+	float: right;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+nav ul li {
+	position: relative;
+}
+
+nav .menu > li {
+	float: left;
+	margin: 0;
+	padding: 0;
+}
+
+nav .menu > li {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	transition: border-top 200ms;
+	-webkit-transition: border-top 200ms;
+	border-top: 0 solid #FFF;
+}
+
+nav .menu > li:hover {
+	border-top: 0.4em solid #A8D6FF;
+}
+
+.menu li.fa::before {
+	display: block;
+	padding: 30px 4px 0 4px;
+}
+
+
+.menu li.fa a {
+	padding-top: 0;
+	position: absolute;
+	display: block;
+	top: 0;
+	left: 0;
+	height: 52px;
+	width: 10px;
+}
+
+nav ul a {
+	color: #000;
+	text-decoration: none;
+	display: block;
+	padding: 1.5em 0.4em;
+}
+
+nav ul .sub-menu {
+	display: none;
+	position: absolute;
+	background: #fff;
+	width: 200px;
+	left: 50%;
+	margin-left: -100px;
+	box-shadow: 0 3px 5px -3px #000
+}
+
+nav ul li:hover .sub-menu {
+	display: block;
+	position: absolute;
+}
+
+nav ul .sub-menu  li,
+nav ul .sub-menu  li a { display: block; width: 100%; }
+
+nav ul .sub-menu  li a { padding: 1em 0; text-align: center; }
+
+nav ul .sub-menu  li { border-bottom: 1px solid #ccc; }
+
+nav ul .separator {
+	display: block;
+	width: 0.05em;
+	background: #B7B7B7;
+	height: 2em;
+	margin: 1.1em 0.4em 0 0.4em;
+}
+nav .logo {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+nav .selected {
+	font-weight: bold;
+}
+@media all and (max-width: 840px) {
+	nav .logo {
+		display: none;
+	}
+	nav .logo img {
+		display: block;
+		max-height: 100%;
+	}
+	nav {
+		height: auto;
+		background: none;
+		padding: 0.4em 0;
+		border-bottom: 0.2em solid #d7ecff;
+	}
+	nav ul {
+		float: none;
+	}
+	nav ul a {
+		padding: 0.2em;
+	}
+	nav ul .separator {
+		display: block;
+		width: 0.05em;
+		background: #B7B7B7;
+		height: 1em;
+		margin: 0.2em 0.2em 0 0.2em;
+	}
+	nav ul a:hover {
+		border-top: 0 solid #A8D6FF;
+	}
+  nav .fa-twitter, nav .fa-facebook, nav .fa-rss {
+    display: none;
+  }
+}
+
+/* Banner */
+
+.banner {
+	height: 258px;
+	background: url("../img/banner.jpg") no-repeat;
+	background-size: cover;
+	padding: 0.2em 0 0 0;
+}
+.banner img {
+	display: block;
+	max-width: 100%;
+	height: 247px;
+	margin: 0 auto;
+}
+@media all and (max-width: 840px) {
+	.banner { display: none; }
+}
+
+/* Grid */
+.grid {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+}
+.grid::after {
+	content: " ";
+	clear: both;
+	display: block;
+}
+.grid .col2 {
+	width: 50%;
+	float: left;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.grid .col2+.col2, .grid .col3+.col3, .grid .col4+.col4 {
+	padding: 0 0 0 1em;
+}
+.grid .col3 {
+	width: 33%;
+	float: left;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.grid .col3:nth-child(3n + 1) {
+	clear: both;
+	padding: 0;
+}
+.grid .col4 {
+	width: 25%;
+	float: left;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.grid .col4:nth-child(4n + 1) {
+	clear: both;
+	padding: 0;
+}
+.grid .col-left {
+	width: 70%;
+	float: left;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 0 1.6em 0 0;
+}
+.grid .col-right {
+	width: 30%;
+	float: left;
+    margin-bottom: 2em;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.grid .col-right .content {
+    width: 100%;
+}
+
+@media all and (max-width: 600px) {
+	.grid .col2, .grid .col3, .grid .col4, .grid .col-left, .grid .col-right {
+		width: 100%;
+		float: none;
+		padding: 0 0 1em 0;
+	}
+	.grid .col2+.col2, .grid .col3+.col3, .grid .col4+.col4 {
+		padding: 0;
+	}
+}
+
+/* Separator */
+.separator {
+	width: 100%;
+	margin: 1.8em 0;
+	height: 0.1em;
+	background: #7789b5;
+}
+
+/* News */
+h4 {
+	margin: 1em 0 0 0;
+	padding: 0;
+	height: 70px;
+}
+
+p.info + p {
+	height: 240px;
+  overflow: hidden;
+}
+
+.entry-content {
+	 padding: 0 0 2em 0;
+}
+.info {
+	color: #8F8F8F;
+	font-size: 0.6em;
+	margin: 0 0 1em 0;
+}
+.button {
+	display: inline-block;
+	padding: 0.4em 0.6em;
+	border-radius: 0.4em;
+	background: #DEDEDE;
+	font-size: 0.8em;
+	margin: 1em 0 1em 0;
+	text-decoration: none;
+	border-bottom: 0.15em solid #999;
+}
+
+/* Footer */
+
+footer {
+	margin: -0.3em 0 0;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	background: #ddd;
+}
+
+footer h3 {
+  font-weight: bold;
+  font-size: 1em;
+}
+
+footer .content li {
+  list-style: none;
+  margin-bottom: 11px;
+}
+
+footer .content li a {
+  margin-left: 4px;
+  color: #000;
+  font-size: 16px;
+  text-decoration: underline;
+}
+
+#copyright {
+  width: 75%;
+  margin: 15px auto 0;
+  padding-top: 40px;
+  border-top: 1px solid #999;
+  text-align: center;
+  font-size: 16px;
+}
+
+/* Sub navigation */
+.subnav {
+	margin-top: 1.6em;
+	list-style: none;
+	padding-left: 0;
+}
+.subnav .menu {
+    margin-left: -2.2em;
+}
+.subnav li {
+	float: left;
+	padding: 0;
+	margin: 0 1em 0 0;
+    list-style: none outside;
+}
+.subnav li.selected {
+	font-weight: bold;
+}
+.subnav a {
+	text-decoration: none;
+}
+@media all and (max-width: 960px) {
+	.subnav {
+		padding: 0 1em;
+	}
+}
+
+/* Speaker */
+.speaker {
+	position: relative;
+	margin: 0 0 2em 0;
+}
+.speaker::after {
+	content: " ";
+	clear: both;
+	display: block;
+}
+.speaker > img {
+/*  width: 100px; */
+	float: left;
+	padding: 0.3em;
+	background: #FFF;
+	-moz-box-shadow:	0px 0px 1px 1px #999;
+	-webkit-box-shadow: 0px 0px 1px 1px #999;
+	box-shadow:			0px 0px 1px 1px #999;
+	margin: 0 1em 2em 0;
+}
+.speaker .icons {
+	text-align: center;
+	display: inline-block;
+	margin: 0 0 0 0.1em;
+}
+.speaker .icons a {
+	display: inline-block;
+	margin: 0 0.3em 0 0;
+}
+.speaker h3 {
+	margin: 0 0 0.4em 0;
+	padding: 0;
+}
+
+/* Sponsors */
+.sponsors-item {
+	padding: 0 0 2em 0;
+}
+.sponsors-item .col2 > img {
+	display: inline-block;
+	margin: 0 0 2em 0;
+}
+
+.sponsors-frontpage a {
+	display: inline-block;
+	padding: 0 2.2em 1em 0;
+}
+
+/* Plugins */
+.gmp_map_opts {
+	float: none !important;
+    margin-top: 2em !important;
+}
+
+
+/*********************************************
+ * GLOBAL STYLES (Small style changes)
+ *********************************************/
+
+h1 { font-size: 1.8em; }
+h2 { font-size: 1.8em; }
+h3 { font-size: 1.6em; }
+h4 { font-size: 1.4em; }
+h5 { font-size: 1.2em; }
+h6 { font-size: 1.0em; }
+
+h1, h2, h3, h4, h5, h6 { font-weight: normal; }
+
+a { color: #428bca; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+
+/*********************************************
+ * Navigation
+ *********************************************/
+
+nav .menu > li { margin: 1px 10px; }
+
+/*********************************************
+ * Tagline & Sponsors
+ *********************************************/
+
+.col2.tagline { width: 70%; }
+
+.col2.sponsors { width: 30%; }
+
+.separator { margin: 2.4em 0; height: 1px; background: #DBDBDB; }
+
+section.content.grid.homepage { margin-top: 2em; }
+
+a.footer { color: #333; }
+
+a.button { text-decoration: none; color: #333; }
+
+a.button:hover { opacity: 0.8; }
+
+/*********************************************
+ * Team members
+ *********************************************/
+
+.members {
+	margin: 0 0 2em 0;
+}
+.member {
+	margin: 0 0 1em 0;
+}
+.member a {
+	display: block;
+}
+.member a > img {
+  width: 100px;
+  max-width: 100%;
+	padding: 0.3em;
+	background: #FFF;
+	-moz-box-shadow:	0px 0px 1px 1px #999;
+	-webkit-box-shadow: 0px 0px 1px 1px #999;
+	box-shadow:			0px 0px 1px 1px #999;
+}
+.member span {
+	display: block;
+}
+
+.member .icons a {
+	display: inline-block;
+	margin: 0 0.3em 0 0;
+}
+
+/* from the old site */
+.program a:visited {
+    color:#004B91;
+}
+
+.program table {
+        width: 99%;
+}
+
+.program h2 {
+}
+
+.program table, .program td, .program tr, .program th {
+        border: 0;
+}
+.program table td.time {
+        width: 130px;
+		vertical-align: baseline;
+}
+.program table caption {
+        font-size: 120%;
+        font-weight: bold;
+}
+.program table td, .program table th {
+        padding: 1em 0;
+}
+/*********************************************
+ * Team members
+ *********************************************/
+.schedule {
+	width: 100%;
+	font-size: 0.8em;
+	margin: 0 0 3em 0;
+	clear: both;
+}
+.schedule-legend {
+	width: 300px;
+}
+.schedule th, .schedule td {
+	border-bottom: 1px solid #000;
+	border-right: 1px dotted #999;
+	padding: 0.6em 0.4em;
+	text-align: center;
+	vertical-align: middle;
+}
+.schedule-legend td {
+	padding: 0.4em;
+}
+.schedule a {
+	border-bottom: dotted 1px #000;
+	color: #000;
+}
+.schedule a:hover {
+	border-bottom: none;
+}
+.schedule tr td:first-child {
+	min-width: 82px;
+}
+.schedule-day {
+	font-weight: bold;
+}
+.schedule-empty {
+	background: #FFF;
+}
+.schedule-social {
+	background: #EDD7A7;
+}
+.schedule-technical {
+	background: #A4D183;
+}
+.schedule-workshop {
+	background: #E2E0E9;
+}
+.schedule-en::after {
+	content: " ";
+	background: url('../img/en_US.png');
+	width: 16px;
+	height: 11px;
+	display: block;
+	margin: 0.3em auto 0.3em auto;
+}
+.schedule-bg::after {
+	content: " ";
+	background: url('../img/bg_BG.png');
+	width: 16px;
+	height: 11px;
+	display: block;
+	margin: 0.3em auto 0.3em auto;
+}
+.schedule-civic {
+	background: #E8AAAB;
+}
+.schedule-advanced-technical {
+	background: #91C4DF;
+}
+.schedule-open-biz {
+	background: #DECDCB;
+}
+.schedule-misc {
+	background: #B0E9EC;
+}
+.schedule-open-art {
+	background: #ED9134;
+}
+.schedule-avatar {
+	float: left;
+	padding: 0.3em;
+	background: #FFF;
+	-moz-box-shadow:	0px 0px 1px 1px #999;
+	-webkit-box-shadow: 0px 0px 1px 1px #999;
+	box-shadow:			0px 0px 1px 1px #999;
+	margin: 0 1em 2em 0;
+}
+
+p img {
+	max-width: 100%;
+}
+
+.front-page-sponsors {
+	text-align: center;
+}
+.front-page-big-title h1 {
+	font-size: 1.4em;
+	text-align: center;
+}
+.content.front-page-big-title {
+	padding: 1em 0 0 0;
+}
+
+section.entry-meta {
+  font-size: 0.8em;
+  padding: 0 0 2em 0;
+  color: #999;
+}
+footer.entry-footer {
+  padding: 1em;
+  border-radius: 0.4em;
+  background: #F0F0F0;
+  font-size: 0.8em;
+}
+.alignright {
+  display: inline;
+  float: right;
+  margin-left: 1.625em;
+}

@@ -1,0 +1,8 @@
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+@import 'initfest/styles';
+@import 'initfest/forms';
+@import 'initfest/flash_messages';
+
+nav { background-image: image-url('initfest/navbg.jpg'); }

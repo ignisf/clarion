@@ -1,0 +1,14 @@
+h1.entry-title = t :home_title, conference: current_conference.title
+
+= simple_format current_conference.description
+
+p = t :what_we_ask
+
+ul
+  = render partial: 'track', collection: current_conference.tracks
+
+p = t :license_notice
+
+- if current_conference.call_for_participation.in_progress?
+  .centered.large
+    = render partial: 'event_type', collection: current_conference.event_types

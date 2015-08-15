@@ -1,4 +1,10 @@
 module ApplicationHelper
+  def locale_collection
+    I18n.available_locales.map do |locale|
+      [t("locales.#{locale}"), locale]
+    end
+  end
+
   def action_buttons(conference, record, actions = [:index, :show, :edit, :destroy])
     klass = record.class
     output = ''
