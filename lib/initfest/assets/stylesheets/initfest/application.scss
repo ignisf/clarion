@@ -29,3 +29,12 @@ footer {
 .my_submissions {
     font-size: 1.7em;
 }
+
+@media all and (max-width: 600px) {
+  .input label, .input input, .input span,  .input .hint, .help-block, .input .error {
+      float: none;
+      display: block;
+      margin: 0;
+  }
+
+}
