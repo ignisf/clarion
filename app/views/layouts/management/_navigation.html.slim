@@ -45,5 +45,5 @@ nav.navbar.navbar-static-top.navbar-inverse role="navigation"
                 = link_to t("locales.#{locale}"), "?locale=#{locale}"
         - if user_signed_in?
           li
-            = link_to destroy_management_user_session_path, method: :delete do
+            = link_to destroy_user_session_path, method: :delete do
               = icon 'sign-out', t('sessions.sign_out')
