@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: {registrations: 'registrations'}
+  devise_for :users, controllers: {registrations: 'registrations', confirmations: 'confirmations'}
 
   scope module: :public do
     root to: 'home#index'
