@@ -58,7 +58,6 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-rvm'
   gem 'capistrano3-puma'
-  gem 'capistrano-git-submodule-strategy'
 end
 
 group :development, :test do
