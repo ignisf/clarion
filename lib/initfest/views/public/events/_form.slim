@@ -7,7 +7,7 @@
   .form-inputs
     = form.input :title, autofocus: true
     = form.input :subtitle
-    = form.association :track, wrapper: :default, collection: current_conference.tracks
+    = form.association :track, wrapper: :default, collection: current_conference.tracks.map { |track| [track.name, track.id, {title: track.description}] }
 
     -# TODO length is different for different types of events (translation problem)
     = form.input :length
