@@ -18,7 +18,7 @@ module Public
     def create
       @event = Event.new event_params
       @event.conference = current_conference
-      @event.build_proposition proposer: current_user
+      @event.build_proposition proposer: current_user, status: :undecided
       @event.participations.build participant: current_user, approved: true
 
       if @event.save
