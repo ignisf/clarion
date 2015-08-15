@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  scope module: :public, constraints: {subdomain: 'cfp'}, conference_id: 1 do
+  scope module: :public do
     root to: 'home#index'
     resource :personal_profile, path: 'profile'
     resources :events

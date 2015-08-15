@@ -12,7 +12,6 @@ class ApplicationController < ActionController::Base
   #layout Proc.new { |controller| controller.request.host }
   layout 'public/application'
 
-
   def self.default_url_options(options={})
     if I18n.locale != I18n.default_locale
       options.merge({locale: I18n.locale})
