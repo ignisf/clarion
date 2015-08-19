@@ -1,5 +1,10 @@
 bg:
   abstract: "Резюме"
+  helpers:
+    submit:
+      event:
+        create: "Изпрати предложение"
+        update: "Обнови предложението"
   actions:
     are_you_sure: "Сигурен ли си?"
     create:
@@ -279,7 +284,7 @@ bg:
       my_submissions: "Моите предложения"
     personal_profiles:
       successfully_created: "Профилът Ви беше създаден успешно"
-      successfully_updated: 
+      successfully_updated: "Профилът Ви беше обновен успешно"
     user:
       info: "Информация за потребител"
     welcome:

@@ -1,5 +1,10 @@
 en:
   abstract: Abstract
+  helpers:
+    submit:
+      event:
+        create: "Send proposal"
+        update: "Update proposal"
   actions:
     are_you_sure: Are you sure?
     create:
