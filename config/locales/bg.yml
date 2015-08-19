@@ -3,7 +3,7 @@ bg:
   actions:
     are_you_sure: "Сигурен ли си?"
     create:
-      button: "Изпрати предложение"
+      button: "Създай %{model}"
       title: "Създаване на %{model}"
     destroy:
       button: "Премахни %{model}"
