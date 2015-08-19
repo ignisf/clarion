@@ -47,6 +47,8 @@ en:
       event_type:
         description: Description
         name: Name
+        minimum_length: Minimum length
+        maximum_length: Maximum length
       hall:
         name: Name
       personal_profile:
@@ -76,6 +78,8 @@ en:
           attributes:
             track:
               must_be_a_valid_track: must be one of the listed lecture tracks
+            length:
+              must_be_between: "must be between %{minimum} and %{maximum} minutes"
         personal_profile:
           attributes:
             github:
@@ -202,7 +206,7 @@ en:
     are_you_sure: Are you sure you want to delete your registration
     cancel_my_account: Delete my account
     edit_account: Edit account
-    leave_blank_if_you_do_not_want_to_change: leave blank if you don't want to change it
+    leave_blank_if_you_do_not_want_to_change: "leave blank if you don't want to change it"
     minimum_characters: at least %{minimum} symbols
     sign_me_up: Sign me up
     sign_up: Registration
@@ -237,8 +241,8 @@ en:
         abstract: An abstract of the event that will be published for the attendees to read (around 1 paragraph)
         agreement: Indicate if you accept your workshop to be recorded and published under the CC-BY-ND (Creative Commons – Attribution – No Derivatives) license
         description: Detailed description of the event (several paragraphs)
-        language: ""
-        length: Length of the event
+        language: "Language"
+        length: "Length of the event (in minutes). The length of a %{type} is between %{min} and %{max} minutes"
         notes: Notes that you'd like the organisation team to read
         subtitle: ""
         title: ""

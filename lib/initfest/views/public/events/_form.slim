@@ -8,10 +8,7 @@
     = form.input :title, autofocus: true
     = form.input :subtitle
     = form.association :track, wrapper: :default, collection: current_conference.tracks.map { |track| [track.name, track.id, {title: track.description}] }
-
-    -# TODO length is different for different types of events (translation problem)
-    = form.input :length
-
+    = form.input :length, hint: t('simple_form.hints.event.length', type: @event.event_type.name.mb_chars.downcase, min: @event.event_type.minimum_length, max: @event.event_type.maximum_length)
     = form.input :language, as: :radio_buttons, collection: locale_collection, include_blank: false, wrapper: :default, checked: current_user.language
     = form.input :abstract
     = form.input :description

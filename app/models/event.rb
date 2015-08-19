@@ -13,14 +13,15 @@ class Event < ActiveRecord::Base
 
   validates :conference, presence: true
   validates :title, presence: true
-  validates :length, presence: true, numericality: {only_integer: true, greater_than: 0}
   validates :abstract, presence: true
   validates :description, presence: true
   validates :agreement, acceptance: true
   validates :track, presence: true
   validate :track_belongs_to_the_selected_conference
   validates :language, inclusion: {in: I18n.available_locales.map(&:to_s)}, presence: true
-
+  validates :event_type, presence: true
+  validates :length, presence: true, numericality: {only_integer: true}
+  validate :length_is_within_the_permitted_interval
 
   scope :confirmed, -> { where.not confirmed_at: nil }
 
@@ -33,6 +34,12 @@ class Event < ActiveRecord::Base
   def track_belongs_to_the_selected_conference
     unless conference.present? and conference.tracks.include?(track)
       errors.add :track, :must_be_a_valid_track
+    end
+  end
+
+  def length_is_within_the_permitted_interval
+    unless length >= event_type.minimum_length and length <= event_type.maximum_length
+      errors.add :length, :must_be_between, minimum: event_type.minimum_length, maximum: event_type.maximum_length
     end
   end
 end

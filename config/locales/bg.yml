@@ -47,6 +47,8 @@ bg:
       event_type:
         description: "Описание"
         name: "Име"
+        minimum_length: Минимална продължителност
+        maximum_length: Максимална продължителност
       hall:
         name: "Име"
       personal_profile:
@@ -76,6 +78,8 @@ bg:
           attributes:
             track:
               must_be_a_valid_track: "трябва да е някой от изброените потоци от лекции"
+            length:
+              must_be_between: "трябва да е между %{minimum} и %{maximum} минути"
         personal_profile:
           attributes:
             github:
@@ -238,7 +242,7 @@ bg:
         agreement: "Отбележете съгласни ли сте с това събитието Ви да бъде записано и публикувано под лиценз CC-BY-ND (Creative Commons – Attribution – No Derivatives)"
         description: "Подробно описание на предложението (няколко абзаца)"
         language: ""
-        length: "Продължителността на събитието (в минути)"
+        length: "Продължителността на събитието (в минути). Продължителността на %{type} е между %{min} и %{max} минути, заедно с въпросите"
         notes: "Допълнителни бележки, които искате да споделите с организаторския екип"
         subtitle: ""
         title: ""

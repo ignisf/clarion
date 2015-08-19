@@ -52,7 +52,8 @@ module Management
     def conference_params
       params.require(:conference).permit(
         :title, :email, :start_date, :end_date, :description, :host_name,
-        event_types_attributes: [:id, :name, :description, :_destroy],
+        event_types_attributes: [:id, :name, :description, :maximum_length,
+                                 :minimum_length, :_destroy],
         tracks_attributes: [:id, :name, :color, :description, :_destroy],
         halls_attributes: [:id, :name, :_destroy]
       )
