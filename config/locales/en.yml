@@ -232,12 +232,12 @@ en:
         abstract: An abstract of the event that will be published for the attendees to read (around 1 paragraph)
         agreement: Indicate if you accept your workshop to be recorded and published under the CC-BY-ND (Creative Commons – Attribution – No Derivatives) license
         description: Detailed description of the event (several paragraphs)
-        language: Language of the event
+        language: ""
         length: Length of the event
         notes: Notes that you'd like the organisation team to read
-        subtitle: The subtitle of your event (if there is one)
-        title: The title of your event
-        track: The lecture track you think your event belongs
+        subtitle: ""
+        title: ""
+        track: The lecture track for your event
       personal_profile:
         biography: Describe yourself with a few sentences, writing about yourself in the third person :)
         github: Your Github username
