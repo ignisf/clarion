@@ -37,7 +37,7 @@ en:
         abstract: Abstract
         agreement: I accept
         description: Description
-        language: Language of the talk
+        language: Language
         length: Length
         notes: Notes
         subtitle: Sub-title
@@ -139,7 +139,7 @@ en:
   description: Description
   did_not_get_confirmation: You did not receive confirmation instructions?
   did_not_get_unlock: You did not receive unlock instructions?
-  do_not_want_pass_reset1: If you don't want to change your password, please delete this E-mail.
+  do_not_want_pass_reset1: "If you don't want to change your password, please delete this E-mail."
   do_not_want_pass_reset2: Your password will not be change unless you click the link above and enter a new password.
   edit: Edit
   edit_speaker_profile: Edit profile
@@ -176,7 +176,7 @@ en:
   lecture_was_successfully_confirmed: Your lecture was confirmed successfully
   license_notice: Please keep in mind that the presentations will later be published under the CC-BY-ND (Creative Commons – Attribution – No derivatives) license.
   locales:
-    bg: "Български"
+    bg: Bulgarian
     en: English
   login: Login
   login_data: Account information
@@ -191,7 +191,7 @@ en:
   no_workshops_submitted: You are yet to submit a workshop
   of_motto: share the freedom
   pass_update_hint1: Do not fill this in unless you want to change your password
-  pass_update_hint2: Fill this in if you'd like to change your password or E--mail address
+  pass_update_hint2: "Fill this in if you'd like to change your password or E-mail address"
   passwords:
     change_your_password: Change your password
     confirm_your_new_password: Password confirmation
@@ -241,9 +241,9 @@ en:
         abstract: An abstract of the event that will be published for the attendees to read (around 1 paragraph)
         agreement: Indicate if you accept your workshop to be recorded and published under the CC-BY-ND (Creative Commons – Attribution – No Derivatives) license
         description: Detailed description of the event (several paragraphs)
-        language: "Language"
+        language: "Language in which the event will be lead"
         length: "Length of the event (in minutes). The length of a %{type} is between %{min} and %{max} minutes"
-        notes: Notes that you'd like the organisation team to read
+        notes: "Notes that you'd like the organisation team to read"
         subtitle: ""
         title: ""
         track: The lecture track for your event
