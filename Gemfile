@@ -26,7 +26,7 @@ gem 'phony_rails'
 
 # Picture uploads
 gem 'carrierwave'
-gem 'rmagick'
+gem 'rmagick', github: "gemhome/rmagick"
 
 gem 'puma', group: :production
 

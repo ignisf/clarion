@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/gemhome/rmagick.git
+  revision: 37b268c8a5911ae2bc0be34cd01dbf3321669b73
+  specs:
+    rmagick (2.15.4)
+
+GIT
   remote: git://github.com/jetthoughts/yaml_db.git
   revision: fb4b6bd7e12de3cffa93e0a298a1e5253d7e92ba
   ref: fb4b6bd7e12de3cffa93e0a298a1e5253d7e92ba
@@ -250,7 +256,6 @@ GEM
     ref (2.0.0)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
-    rmagick (2.15.3)
     rspec (3.3.0)
       rspec-core (~> 3.3.0)
       rspec-expectations (~> 3.3.0)
@@ -373,7 +378,7 @@ DEPENDENCIES
   rails-erd
   rails-i18n
   raphael-rails
-  rmagick
+  rmagick!
   rspec-rails
   sass-rails
   simple_form
@@ -385,6 +390,3 @@ DEPENDENCIES
   therubyracer
   uglifier
   yaml_db!
-
-BUNDLED WITH
-   1.10.5
