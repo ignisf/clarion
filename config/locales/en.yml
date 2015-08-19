@@ -3,7 +3,7 @@ en:
   actions:
     are_you_sure: Are you sure?
     create:
-      button: Create %{model}
+      button: Send proposal
       title: 'Create a new #{model}'
     destroy:
       button: Destroy %{model}
