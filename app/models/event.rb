@@ -29,6 +29,10 @@ class Event < ActiveRecord::Base
     proposer.personal_profile(conference)
   end
 
+  def length
+    read_attribute(:length) || event_type.try(:minimum_length)
+  end
+
   private
 
   def track_belongs_to_the_selected_conference
