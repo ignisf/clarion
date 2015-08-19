@@ -21,7 +21,12 @@ class User < ActiveRecord::Base
   end
 
   def build_personal_profile(conference, params = {})
-    new_personal_profile = personal_profiles.last.try(:dup) || personal_profiles.build
+    if personal_profiles.last.present?
+      new_personal_profile = personal_profiles.last.try(:dup)
+      CopyCarrierwaveFile::CopyFileService.new(personal_profiles.last, new_personal_profile, :picture).set_file
+    else
+      new_personal_profile = personal_profiles.build
+    end
     new_personal_profile.conference = conference
     new_personal_profile.assign_attributes params
     new_personal_profile

@@ -100,6 +100,8 @@ GEM
       execjs
     coffee-script-source (1.9.1.1)
     colorize (0.7.7)
+    copy_carrierwave_file (1.1.0)
+      carrierwave (~> 0.9)
     countries (0.11.5)
       currencies (~> 0.4.2)
       i18n_data (~> 0.7.0)
@@ -356,6 +358,7 @@ DEPENDENCIES
   capybara
   carrierwave
   coffee-rails
+  copy_carrierwave_file
   devise
   devise-i18n
   factory_girl_rails
@@ -390,3 +393,6 @@ DEPENDENCIES
   therubyracer
   uglifier
   yaml_db!
+
+BUNDLED WITH
+   1.10.5

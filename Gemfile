@@ -45,6 +45,8 @@ gem 'jquery-datatables-rails'
 gem 'morrisjs-rails'
 gem 'raphael-rails'
 
+gem 'copy_carrierwave_file'
+
 group :development do
   gem 'spring'
   gem 'spring-commands-rspec'
