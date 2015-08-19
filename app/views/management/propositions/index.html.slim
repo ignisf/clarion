@@ -15,9 +15,9 @@
               th.actions
           tbody
             - @events_by_proposer.each do |proposer, events|
-              - profile = proposer.personal_profile(@conference)
+              - profile = proposer.find_or_build_personal_profile(@conference)
               tr
-                th[colspan="5"]= link_to profile.name, [:management, @conference, proposer]
+                th[colspan="5"]= profile.try(:name) || proposer.email
 
               - events.each do |event|
                 tr
