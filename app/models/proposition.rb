@@ -3,4 +3,10 @@ class Proposition < ActiveRecord::Base
   belongs_to :proposable, polymorphic: true
 
   enum status: [:undecided, :approved, :rejected, :backup]
+
+  delegate :proposable_title, :proposable_type, :proposable_description, to: :proposable
+
+  def send_creation_notification
+    PropositionMailer.new_proposition_notification(self).deliver_later
+  end
 end

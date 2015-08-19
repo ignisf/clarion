@@ -33,6 +33,24 @@ class Event < ActiveRecord::Base
     read_attribute(:length) || event_type.try(:minimum_length)
   end
 
+  def proposable_type
+    event_type.name
+  end
+
+  def proposable_description
+    {
+      proposer_email: proposer_email,
+      title: title,
+      subtitle: subtitle,
+      track: track.name,
+      length: "#{length} m",
+      language: language,
+      abstract: abstract,
+      description: description,
+      notes: notes
+    }
+  end
+
   private
 
   def track_belongs_to_the_selected_conference
