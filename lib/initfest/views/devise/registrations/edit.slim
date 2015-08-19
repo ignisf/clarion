@@ -1,12 +1,7 @@
-- content_for(:title) { t :edit_speaker_profile }
+- content_for(:title) { t :login_data }
 
 = simple_form_for(resource, wrapper: :default, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f|
   .form_inputs
-    / h2
-    /   - if current_user.personal_profile(current_conference).present?
-    /     = link_to t(:personal_profile), edit_personal_profile_path
-    /   - else
-    /     = link_to t(:personal_profile), new_personal_profile_path
 
   .form-inputs
     h3.entry-title = t :login_data
