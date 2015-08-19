@@ -177,7 +177,7 @@ bg:
   license_notice: "Имайте предвид, че презентациите ви впоследствие ще бъдат публикувани с лиценз CC-BY-ND (Creative Commons – Attribution – No derivatives)."
   locales:
     bg: "Български"
-    en: English
+    en: Английски
   login: "Вход"
   login_data: "Данни за вход в системата"
   login_with: "Влез с %{with}"
