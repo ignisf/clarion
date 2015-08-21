@@ -12,7 +12,7 @@ module Public
 
     def new
       event_type = current_conference.event_types.find(params[:type])
-      @event = Event.new event_type: event_type
+      @event = Event.new event_type: event_type, language: current_user.language
     end
 
     def create
