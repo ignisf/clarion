@@ -294,6 +294,6 @@ en:
     welcome:
       submit_event: Submit %{event_type}
   welcome: Welcome, %{name}
-  what_we_ask: 'We would like to receive your lecture and workshop submissions that belong to the following racks until 30.09.2015:'
+  what_we_ask: 'We would like to receive your lecture and workshop submissions that belong to the following tracks until 30.09.2015:'
   workshop_was_successfully_confirmed: The workshop was successfully confirmed
   workshops: Workshops
