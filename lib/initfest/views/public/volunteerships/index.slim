@@ -3,12 +3,4 @@
 h1 = VolunteerTeam.model_name.human(count: 2).mb_chars.capitalize
 
 .container.volunteer_teams
-  - @volunteer_teams.each do |vt|
-    .col-lg-3
-      h2 = vt.name
-      p
-        = vt.description
-        - if vt.include? current_user
-          = button_to t('views.volunteerships.withdraw_application'), volunteership_path(vt.volunteerships.where(volunteer: current_user).first), class: ['btn-link', 'btn-link-red'], method: :delete
-        - else
-          = button_to t('views.volunteerships.apply'), volunteer_team_volunteership_path(vt), class: ['btn-link']
+  = render partial: 'volunteer_team', collection: @volunteer_teams
