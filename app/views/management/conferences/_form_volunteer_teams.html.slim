@@ -1,0 +1,20 @@
+div#volunteer_teams
+  = form.simple_fields_for :volunteer_teams do |ff|
+    .col-lg-6
+      .panel.panel-default
+        .panel-heading
+          .panel-title
+            = VolunteerTeam.model_name.human.mb_chars.capitalize
+            = ff.link_to_remove icon(:remove), class: ['btn', 'btn-danger', 'btn-xs', 'pull-right']
+
+        .panel-body
+          = ff.input :name
+          = ff.input :color, as: :color
+          = ff.input :description, as: :text
+.col-lg-6
+  .panel.panel-default
+    .panel-heading
+      .panel-title
+        = t 'actions.new.title_m', model: VolunteerTeam.model_name.human
+    .panel-body.text-center
+      = form.link_to_add t('actions.create.button', model: VolunteerTeam.model_name.human), :volunteer_teams, data: {target: '#volunteer_teams'}, class: 'btn btn-success'

@@ -29,5 +29,11 @@
           h2 = Track.model_name.human(count: 2).mb_chars.capitalize
       .row
         = render partial: 'form_tracks', locals: {form: f}
+      hr
+      .row
+        .col-lg-12
+          h2 = VolunteerTeam.model_name.human(count: 2).mb_chars.capitalize
+      .row
+        = render partial: 'form_volunteer_teams', locals: {form: f}
     .panel-footer.text-right
       = f.submit class: 'btn btn-primary'

@@ -5,6 +5,7 @@ module Management
       @conference.event_types.build(name: 'Event type 1')
       @conference.tracks.build(name: 'Track 1')
       @conference.halls.build(name: 'Hall 1')
+      @conference.volunteer_teams.build(name: 'Volunteer Team 1')
     end
 
     def create
@@ -55,7 +56,8 @@ module Management
         event_types_attributes: [:id, :name, :description, :maximum_length,
                                  :minimum_length, :_destroy],
         tracks_attributes: [:id, :name, :color, :description, :_destroy],
-        halls_attributes: [:id, :name, :_destroy]
+        halls_attributes: [:id, :name, :_destroy],
+        volunteer_teams_attributes: [:id, :name, :description, :color, :_destroy]
       )
     end
   end

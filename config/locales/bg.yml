@@ -72,6 +72,10 @@ bg:
         password: "Парола"
         password_confirmation: "Отново паролата"
         remember_me: "Запомни ме"
+      volunteer_team:
+        name: Име
+        description: Описание
+        color: Цвят
     errors:
       models:
         event:
@@ -120,6 +124,9 @@ bg:
       track:
         one: "поток от лекции"
         other: "потоци от лекции"
+      volunteer_team:
+        one: "екип от доброволци"
+        other: "екипи от доброволци"
       user:
         one: "Потребител"
         other: "Потребители"
