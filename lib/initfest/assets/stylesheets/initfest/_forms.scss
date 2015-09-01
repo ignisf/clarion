@@ -140,3 +140,25 @@
     display: inline-block;
     margin: 20px;
 }
+
+.volunteer_teams {
+    @media (min-width: $screen-lg-min) {
+
+        .btn-link {
+            display: block;
+        }
+    }
+}
+
+.btn-link-red {
+    background: #833e23;
+    border-bottom: 0.2em solid #DC957A;
+}
+
+.btn-link-red:hover {
+    background: #512515;
+}
+
+.btn-link-red:active {
+    background: #D27A59;
+}

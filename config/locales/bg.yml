@@ -205,7 +205,7 @@ bg:
     forgotten_password: "Забравена парола"
     new_password: "Нова парола"
     send_instructions: "Изпрати инструкции"
-  please_fill_in_your_speaker_profile: "Моля, попълнете данните в лекторския си профил."
+  please_fill_in_your_speaker_profile: "Моля, попълнете данните в личния си профил."
   registration: "Регистрация"
   registrations:
     account_cancelation: "Изтриване на акаунт"
@@ -272,7 +272,7 @@ bg:
       text: "Задължително поле"
     'yes': "Да"
   someone_requested_passreset: "Някой поиска линк за промяна на парола на акаунта Ви. Паролата може да бъде променена от линкът отдолу."
-  speaker_profile: "Лекторски профил"
+  speaker_profile: "Личен профил"
   submit_talk_header: "Предложи нова лекция"
   suggestion_and_speaker_count: "%{suggestions} предложения от %{speakers} лектори"
   talks: "Лекции"
@@ -300,6 +300,12 @@ bg:
       info: "Информация за потребител"
     welcome:
       submit_event: "Предложи %{event_type}"
+    volunteerships:
+      apply: Кандидатствай
+      withdraw_application: Оттегли кандидатурата си
+      you_successfully_applied_for: "Успешно изпратихте кандидатура за екип „%{team}“"
+      error_occurred_while_applying: "Възникна грешка и кандидатурата Ви не беше изпратена"
+      you_successfully_retracted_your_application_for: "Успешно оттеглихте кандидатурата си за екип „%{team}“"
   welcome: "Добре дошли, %{name}"
   what_we_ask: "Бихме искали да получим предложенията Ви за лекции и уъркшопи, принадлежащи към следните категории до 30 септември 2015г.:"
   workshop_was_successfully_confirmed: "Уъркшопът беше потвърден успешно"

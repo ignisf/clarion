@@ -2,7 +2,7 @@ module Proposable
   extend ActiveSupport::Concern
 
   included do
-    has_one :proposition, as: :proposable
+    has_one :proposition, as: :proposable, dependent: :destroy
     has_one :proposer, through: :proposition
     delegate :email, to: :proposer, prefix: true
 
