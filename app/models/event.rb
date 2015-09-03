@@ -4,7 +4,7 @@ class Event < ActiveRecord::Base
   belongs_to :conference
   belongs_to :track
 
-  has_many :participations
+  has_many :participations, dependent: :destroy
   has_many :pending_participations, ->() { pending }, class_name: 'Participation'
   has_many :approved_participations, ->() { approved }, class_name: 'Participation'
   has_many :participants, through: :approved_participations
