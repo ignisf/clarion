@@ -299,6 +299,6 @@ en:
       you_successfully_applied_for: "You successfully applied for the %{team} team"
       error_occurred_while_applying: "There was an error and your application could not be sent"
   welcome: Welcome, %{name}
-  what_we_ask: 'We would like to receive your lecture and workshop submissions that belong to the following tracks until 30.09.2015:'
+  what_we_ask: 'We would like to receive your lecture and workshop submissions that belong to the following tracks until 04.10.2015:'
   workshop_was_successfully_confirmed: The workshop was successfully confirmed
   workshops: Workshops
