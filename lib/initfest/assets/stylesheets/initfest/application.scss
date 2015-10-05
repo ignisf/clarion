@@ -1,9 +1,15 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+@import 'bootstrap/variables';
+@import 'bootstrap/mixins';
+@import 'bootstrap/grid';
+@import 'bootstrap/utilities';
+
 @import 'initfest/styles';
 @import 'initfest/forms';
 @import 'initfest/flash_messages';
+
 
 nav { background-image: image-url('initfest/navbg.jpg'); }
 

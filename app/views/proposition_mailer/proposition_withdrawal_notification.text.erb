@@ -1,0 +1,8 @@
+Здравейте,
+
+Беше оттеглено следното предложение за <%= @proposition.proposable_type %>:
+
+<% @proposition.proposable_description.each do |key, value| %>
+<%= @proposition.proposable.class.human_attribute_name(key) %>: <%= value %>
+
+<% end %>

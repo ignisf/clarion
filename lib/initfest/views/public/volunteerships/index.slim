@@ -1,0 +1,6 @@
+- content_for(:title) { VolunteerTeam.model_name.human(count: 2).mb_chars.capitalize.to_s }
+
+h1 = VolunteerTeam.model_name.human(count: 2).mb_chars.capitalize
+
+.container.volunteer_teams
+  = render partial: 'volunteer_team', collection: @volunteer_teams

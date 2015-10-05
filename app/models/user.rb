@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_many :workshops
   has_many :propositions, foreign_key: :proposer_id
   has_many :events, through: :propositions, source: :proposable, source_type: 'Event'
+  has_many :volunteerships, foreign_key: :volunteer_id
 
   def find_or_build_personal_profile(conference, params = {})
     current_profile = personal_profile(conference)

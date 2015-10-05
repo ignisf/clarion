@@ -5,6 +5,10 @@ Rails.application.routes.draw do
     root to: 'home#index'
     resource :personal_profile, path: 'profile'
     resources :events
+    resources :volunteerships, only: [:index, :destroy]
+    resources :volunteer_teams, only: [] do
+      resource :volunteership, only: :create
+    end
   end
 
   namespace :management do
