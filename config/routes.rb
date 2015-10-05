@@ -11,6 +11,12 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :api do
+    resources :conferences, only: [] do
+      resources :events, only: :index
+    end
+  end
+
   namespace :management do
     root to: 'home#index'
 
