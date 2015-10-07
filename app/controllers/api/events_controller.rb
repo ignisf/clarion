@@ -1,14 +1,8 @@
 class Api::EventsController < Api::ApplicationController
+  include ::CurrentConferenceAssigning
+  before_filter :require_current_conference!
+
   def index
-    @conference = find_conference
-    @events = @conference.events.includes(:track, :event_type)
-
-    render json: @events, include: [:track, :event_type]
-  end
-
-  private
-
-  def find_conference
-    Conference.find params[:conference_id]
+    @events = current_conference.events.includes(:participations)
   end
 end
