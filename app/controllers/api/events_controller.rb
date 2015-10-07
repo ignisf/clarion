@@ -5,4 +5,9 @@ class Api::EventsController < Api::ApplicationController
   def index
     @events = current_conference.events.includes(:participations)
   end
+
+  def halfnarp_friendly
+    @events = current_conference.events.includes(:track, :event_type)
+    render json: @events, include: [:track, :event_type]
+  end
 end
