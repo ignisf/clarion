@@ -159,6 +159,9 @@ GEM
       i18n
       term-ansicolor (>= 1.3.2)
       terminal-table (>= 1.5.1)
+    jbuilder (2.3.2)
+      activesupport (>= 3.0.0, < 5)
+      multi_json (~> 1.2)
     jquery-datatables-rails (3.3.0)
       actionpack (>= 3.1)
       jquery-rails
@@ -184,6 +187,7 @@ GEM
     minitest (5.8.1)
     morrisjs-rails (0.5.1)
       railties (> 3.1, < 5)
+    multi_json (1.11.2)
     nenv (0.2.0)
     nested_form (0.3.2)
     net-scp (1.2.1)
@@ -362,6 +366,7 @@ DEPENDENCIES
   guard-rspec
   hirb
   i18n-tasks
+  jbuilder
   jquery-datatables-rails
   jquery-rails
   morrisjs-rails

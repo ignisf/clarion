@@ -47,6 +47,8 @@ gem 'raphael-rails'
 
 gem 'copy_carrierwave_file'
 
+gem 'jbuilder'
+
 group :development do
   gem 'spring'
   gem 'spring-commands-rspec'
