@@ -3,6 +3,7 @@ class Event < ActiveRecord::Base
 
   belongs_to :conference
   belongs_to :track
+  has_one :slot
 
   has_many :participations, dependent: :destroy
   has_many :pending_participations, ->() { pending }, class_name: 'Participation'
