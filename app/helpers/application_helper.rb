@@ -5,6 +5,34 @@ module ApplicationHelper
     end
   end
 
+  def proposition_status_class(status)
+    {
+      "undecided" => "default",
+      "approved" => "info",
+      "rejected" => "danger",
+      "backup" => "warning"
+    }.with_indifferent_access[status]
+  end
+
+  def proposition_status_glyph(status)
+    {
+      "undecided" => "question",
+      "approved" => "thumbs-up",
+      "rejected" => "thumbs-down",
+      "backup" => "refresh"
+    }.with_indifferent_access[status]
+  end
+
+  def proposition_status_icon(status)
+    icon(proposition_status_glyph(status))
+  end
+
+  def proposition_status(record)
+    klass = record.class
+    output = ''
+
+  end
+
   def action_buttons(conference, record, actions = [:index, :show, :edit, :destroy])
     klass = record.class
     output = ''
@@ -34,7 +62,7 @@ module ApplicationHelper
     output += link_to(icon(:trash), [:management, conference, record], {
       method: :delete,
       data: {confirm: t('actions.are_you_sure')},
-      title: t('actions.edit.button', model: klass.model_name.human),
+      title: t('actions.destroy.button', model: klass.model_name.human),
       class: 'btn btn-danger'
     })
     end

@@ -26,6 +26,8 @@ class Event < ActiveRecord::Base
 
   scope :confirmed, -> { where.not confirmed_at: nil }
 
+  delegate :status, to: :proposition
+
   def proposer_profile
     proposer.personal_profile(conference)
   end

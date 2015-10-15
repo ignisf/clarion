@@ -2,3 +2,8 @@ en:
   are_you_sure: Are you sure?
   view: View
   home: Home
+  status:
+    undecided: Undecided
+    approved: Approved
+    rejected: Rejected
+    backup: Back-up

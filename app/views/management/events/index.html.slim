@@ -1,36 +1,18 @@
 .row
-  .col-lg-12
-    .panel.panel-default
-      .panel-heading
-        h2.panel-title= Event.model_name.human(count: 2).mb_chars.capitalize
-
-      .panel-body
-        table.table.table-striped.table-hover.record-table
-          thead
-            tr
-              th = Event.human_attribute_name :title
-              th = Event.human_attribute_name :subtitle
-              th = Event.human_attribute_name :user
-              th = Event.human_attribute_name :length
-              th = Event.human_attribute_name :language
-              th.actions
-          tbody
-            - @events.each do |event|
-              - proposer = event.proposer
-              - proposer_profile = event.proposer_profile
-
-              tr
-                td= event.title
-                td= event.subtitle
-                td
-                  - if proposer_profile
-                    = link_to proposer_profile.name, [:management, @conference, proposer_profile]
-                  - else
-                    | No profile for user #{proposer.email}
-
-                td #{event.length} minutes
-                td= event.language
-
-                td.actions
-                  div.btn-group.btn-group-sm
-                    = action_buttons(@conference, event, [:show, :edit, :destroy])
+  h1.page-header
+    = Event.model_name.human(count: 2).mb_chars.titleize
+.row
+  .panel.panel-default
+    table.table
+      thead
+        tr
+          th = Event.human_attribute_name(:title)
+          th = Event.human_attribute_name(:user)
+          th = Event.human_attribute_name(:language)
+          th = Track.model_name.human
+          th = Event.human_attribute_name(:type)
+          th.action
+            = Event.human_attribute_name(:status)
+          th.actions
+      tbody
+        = render partial: 'event', collection: @events

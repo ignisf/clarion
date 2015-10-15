@@ -2,7 +2,7 @@ module Management
   class EventsController < ManagementController
     def index
       @conference = find_conference
-      @events = @conference.events.approved
+      @events = @conference.events.order(:title)
     end
 
     def show
