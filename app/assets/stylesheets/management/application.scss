@@ -14,3 +14,9 @@
 @import "forms";
 @import "record_tables";
 @import "dashboard";
+
+.heading-actions {
+    & > div {
+        display: inline-block;
+    }
+}

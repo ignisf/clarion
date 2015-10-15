@@ -8,3 +8,5 @@ bg:
     approved: Одобрен
     rejected: Отхвърлен
     backup: Резерва
+  events:
+    metadata: "%{type} на %{language} с продължителност %{length} минути"

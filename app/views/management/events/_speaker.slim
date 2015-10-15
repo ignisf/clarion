@@ -1,0 +1,37 @@
+- personal_profile = speaker.personal_profile(@conference) || PersonalProfile.new
+.row
+  .speaker-profile
+    .panel.panel-default
+      .panel-heading
+        h1.panel-title
+          = personal_profile.name
+          / = link_to icon(:edit), [:edit, :management, @conference, personal_profile], class: 'btn btn-xs btn-danger pull-right'
+      .panel-body
+        .center
+          = image_tag personal_profile.picture.medium.url, class: "profile-image"
+          - if personal_profile.organisation.present?
+            div
+              => icon :briefcase
+              = personal_profile.organisation
+          div.social
+            = link_to "mailto://#{speaker.email}"
+              = icon :envelope
+            - if personal_profile.github.present?
+              = link_to "https://github.com/#{personal_profile.github}"
+                = icon :github
+            - if personal_profile.twitter.present?
+              = link_to "https://twitter.com/#{personal_profile.twitter}"
+                = icon :twitter
+
+        hr
+
+        h4 = PersonalProfile.human_attribute_name(:biography)
+        = simple_format personal_profile.biography
+
+        h4 = t :contacts
+        - if personal_profile.twitter.present?
+          p #{icon :twitter} @#{personal_profile.twitter}
+        - if personal_profile.public_email.present?
+          p #{icon :envelope} #{personal_profile.public_email} (#{t(:public)})
+        p #{icon :envelope} #{speaker.email} (#{t(:private)})
+        / p #{glyph :phone} #{Phony.format(personal_profile.mobile_phone, format: :international)}
