@@ -2,7 +2,7 @@ module Management
   class EventsController < ManagementController
     def index
       @conference = find_conference
-      @events = @conference.events.order(:title)
+      @events = @conference.events.order(:title).includes(:proposition, :proposer, :track, :event_type)
     end
 
     def show
