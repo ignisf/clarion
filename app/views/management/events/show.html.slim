@@ -20,7 +20,6 @@
       div.btn-group.btn-group-sm
         = action_buttons(@conference, @event, [:index, :edit])
 
-
   h3 = Event.human_attribute_name :abstract
   p = simple_format @event.abstract
 
@@ -31,16 +30,4 @@
     p = simple_format @event.notes
 .row
   .col-lg-12
-    .panel.panel-default
-      .panel-heading
-        h2
-          = @event.title
-          small<
-            = @event.subtitle
-
-          = Event.human_attribute_name :user
-          = render partial: 'speaker', collection: @event.participants
-
-      .panel-footer
-        div.btn-group.btn-group-sm
-          = action_buttons(@conference, @event, [:index, :edit])
+    = render partial: 'speaker', collection: @event.participants
