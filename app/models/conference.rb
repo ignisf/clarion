@@ -15,7 +15,7 @@ class Conference < ActiveRecord::Base
   has_many :volunteer_teams
   has_one :call_for_participation, dependent: :destroy
   has_many :participants, class_name: 'User', through: :events
-  has_many :slots, through: :events
+  has_many :slots, through: :halls
 
   accepts_nested_attributes_for :tracks, :halls, :event_types, :volunteer_teams,
                                 reject_if: :all_blank, allow_destroy: true
