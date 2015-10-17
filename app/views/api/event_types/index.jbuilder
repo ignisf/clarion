@@ -1,13 +1,14 @@
-json.array! @event_types do |event_type|
-  json.extract! event_type, :id
-  json.name do
-    event_type.translations.each do |translation|
-      json.set! translation.locale, translation.name
+@event_types.each do |event_type|
+  json.set! event_type.id do
+    json.name do
+      event_type.translations.each do |translation|
+        json.set! translation.locale, translation.name
+      end
     end
-  end
-  json.description do
-    event_type.translations.each do |translation|
-      json.set! translation.locale, translation.description
+    json.description do
+      event_type.translations.each do |translation|
+        json.set! translation.locale, translation.description
+      end
     end
   end
 end

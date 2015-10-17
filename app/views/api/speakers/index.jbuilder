@@ -1,4 +1,6 @@
-json.array! @speakers do |speaker|
-  json.extract! speaker, :user_id, :twitter, :github, :biography, :public_email, :organisation, :last_name, :first_name
-  json.picture speaker.picture.serializable_hash
+@speakers.each do |speaker|
+  json.set! speaker.id do
+    json.extract! speaker, :twitter, :github, :biography, :public_email, :organisation, :last_name, :first_name
+    json.picture speaker.picture.serializable_hash
+  end
 end

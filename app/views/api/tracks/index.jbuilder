@@ -1,13 +1,14 @@
-json.array! @tracks do |track|
-  json.extract! track, :id
-  json.name do
-    track.translations.each do |translation|
-      json.set! translation.locale, translation.name
+@tracks.each do |track|
+  json.set! track.id do
+    json.name do
+      track.translations.each do |translation|
+        json.set! translation.locale, translation.name
+      end
     end
-  end
-  json.description do
-    track.translations.each do |translation|
-      json.set! translation.locale, translation.description
+    json.description do
+      track.translations.each do |translation|
+        json.set! translation.locale, translation.description
+      end
     end
   end
 end
