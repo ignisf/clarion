@@ -3,6 +3,6 @@ class Api::SpeakersController < Api::ApplicationController
   before_filter :require_current_conference!
 
   def index
-    @speakers = PersonalProfile.joins(user: [:events]).where(conference: current_conference)
+    @speakers = PersonalProfile.joins(user: [{events: [:slot] }]).where(conference: current_conference).uniq
   end
 end
