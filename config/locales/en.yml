@@ -282,6 +282,8 @@ en:
       edit_event: Editing %{event_type} %{title}
       event_successfully_created: Your %{event_type} submission was successfully created
       event_successfully_updated: Your %{event_type} submission was successfully updated
+      successfully_confirmed: Your %{event_type} submission was successfully confirmed
+      error_on_confirmation: There was an error during the confirmation of your %{event_type} submission
       no_events: You are yet to submit an event
       submit_event: Submit a %{event_type}
     navigation:

@@ -289,6 +289,8 @@ bg:
       edit_event: "Редактиране на %{event_type} %{title}"
       event_successfully_created: "Предложението Ви за %{event_type} беше създадено успешно"
       event_successfully_updated: "Предложението Ви за %{event_type} беше обновено успешно"
+      successfully_confirmed: "Предложението Ви за %{event_type} беше потвърдено успешно"
+      error_on_confirmation: "Възникна грешка при потвърждението на предложението Ви за %{event_type}"
       no_events: "Все още не сте предложили събитие"
       submit_event: "Предлагане на %{event_type}"
     navigation:

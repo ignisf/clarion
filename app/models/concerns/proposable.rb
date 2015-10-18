@@ -5,10 +5,11 @@ module Proposable
     has_one :proposition, as: :proposable, dependent: :destroy
     has_one :proposer, through: :proposition
     delegate :email, to: :proposer, prefix: true
-    scope :confirmed, -> { joins(:proposition).where.not(propositions: {confirmed_at: nil}) }
+    delegate :confirm!, to: :proposition
+    scope :confirmed, -> { where.not(propositions: {confirmed_at: nil}) }
 
     Proposition.defined_enums["status"].keys.each do |status|
-      scope status.to_sym, -> { joins(:proposition).where(propositions: {status: Proposition.defined_enums["status"][status]}) }
+      scope status.to_sym, -> { where(propositions: {status: Proposition.defined_enums["status"][status]}) }
     end
   end
 

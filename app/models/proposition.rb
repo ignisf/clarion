@@ -7,6 +7,10 @@ class Proposition < ActiveRecord::Base
   after_create :send_creation_notification
   before_destroy :send_withdrawal_notification
 
+  def confirm!
+    update(confirmed_at: Time.now)
+  end
+
   def send_creation_notification
     PropositionMailer.new_proposition_notification(self).deliver_later
   end

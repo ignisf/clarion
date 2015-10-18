@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'home#index'
     resource :personal_profile, path: 'profile'
-    resources :events
+    resources :events do
+      member do
+        get :confirm
+      end
+    end
     resources :volunteerships, only: [:index, :destroy]
     resources :volunteer_teams, only: [] do
       resource :volunteership, only: :create

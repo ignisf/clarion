@@ -40,6 +40,18 @@ module Public
       end
     end
 
+    def confirm
+      @event = current_user.events.approved.find(params[:id])
+
+      if @event.confirm!
+        flash[:notice] = I18n.t('views.events.successfully_confirmed', event_type: @event.event_type.name.mb_chars.downcase)
+      else
+        flash[:alert] = I18n.t('views.events.error_on_confirmation', event_type: @event.event_type.name.mb_chars.downcase)
+      end
+
+      after_save_redirect
+    end
+
     private
 
     def event_params
