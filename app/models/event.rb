@@ -24,8 +24,6 @@ class Event < ActiveRecord::Base
   validates :length, presence: true, numericality: {only_integer: true}
   validate :length_is_within_the_permitted_interval
 
-  scope :confirmed, -> { where.not confirmed_at: nil }
-
   delegate :status, to: :proposition
 
   def proposer_profile

@@ -32,7 +32,7 @@ class Conference < ActiveRecord::Base
   end
 
   def submissions_grouped_by_confirmation_day
-    submissions = events.approved.confirmed.group('date(events.confirmed_at)').select('date(events.confirmed_at) as confirmed_at, count(events.id) as number')
+    submissions = events.approved.confirmed.group('date(propositions.confirmed_at)').select('date(propositions.confirmed_at) as confirmed_at, count(events.id) as number')
     submissions.group_by { |s| s.confirmed_at.to_date }
   end
 
