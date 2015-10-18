@@ -56,7 +56,7 @@ module Management
         event_types_attributes: [:id, :name, :description, :maximum_length,
                                  :minimum_length, :_destroy],
         tracks_attributes: [:id, :name, :color, :css_class, :description,
-                            :css_style, :_destroy],
+                            :css_style, :foreground_color, :_destroy],
         halls_attributes: [:id, :name, :_destroy],
         volunteer_teams_attributes: [:id, :name, :description, :color, :_destroy]
       )
