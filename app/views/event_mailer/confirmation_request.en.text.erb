@@ -7,7 +7,7 @@ It has not been scheduled yet.
 <% end %>
 
 Please confirm your participation as soon as you can by following the following link:
-<%= confirm_event_url @event, host: Event.last.conference.host_name, protocol: 'https' %>
+<%= confirm_event_url @event, host: @event.conference.host_name, protocol: 'https' %>
 
 Please respond to this email in case you have any questions.
 

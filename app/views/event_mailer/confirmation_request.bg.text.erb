@@ -7,7 +7,7 @@
 <% end %>
 
 Моля, потвърдете участието си възможно най-скоро като кликнете на следния линк:
-<%= confirm_event_url @event, host: Event.last.conference.host_name, protocol: 'https' %>
+<%= confirm_event_url @event, host: @event.conference.host_name, protocol: 'https' %>
 
 Отговорете на този email, ако възникнат някакви въпроси.
 
