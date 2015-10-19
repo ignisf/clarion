@@ -1,0 +1,15 @@
+Здравейте,
+
+Радваме се да Ви съобщим, че предложението Ви за участие в <%= @event.conference.title %> с <%= @event.event_type.name.mb_chars.downcase %> на тема „<%= @event.title %>“ беше одобрено. <% if @event.slot.present? -%>
+Ще се проведе на <%= I18n.l @event.slot.starts_at, format: :long %> часа.
+<% else %>
+Все още не са избрани час и дата за провеждането му.
+<% end %>
+
+Моля, потвърдете участието си възможно най-скоро като кликнете на следния линк:
+<%= confirm_event_url @event, host: Event.last.conference.host_name, protocol: 'https' %>
+
+Отговорете на този email, ако възникнат някакви въпроси.
+
+Поздрави,
+Екипът на <%= @event.conference.title %>

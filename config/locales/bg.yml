@@ -159,7 +159,7 @@ bg:
       improbable_phone: "не е валиден телефонен номер"
   event_mailer:
     acceptance_notification:
-      subject: "Предложението ви за %{conference} за %{submission_type} „%{title}“ е одобрено"
+      subject: "Предложението Ви за провеждане на %{submission_type} „%{title}“ на %{conference} е одобрено"
   event_states:
     approved:
       one: "Одобрено"

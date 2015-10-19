@@ -1,0 +1,15 @@
+Hello,
+
+We are happy to notify you that your request for participation in <%= @event.conference.title %> with the <%= @event.event_type.name.downcase %> titled "<%= @event.title %>" was approved. <% if @event.slot.present? -%>
+It has been scheduled for <%= I18n.l @event.slot.starts_at, format: :long %>.
+<% else %>
+It has not been scheduled yet.
+<% end %>
+
+Please confirm your participation as soon as you can by following the following link:
+<%= confirm_event_url @event, host: Event.last.conference.host_name, protocol: 'https' %>
+
+Please respond to this email in case you have any questions.
+
+Regards,
+The <%= @event.conference.title %> Team
