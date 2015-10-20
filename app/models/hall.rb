@@ -3,4 +3,6 @@ class Hall < ActiveRecord::Base
   has_many :slots, dependent: :destroy
 
   validates :name, presence: true
+
+  translates :name
 end
