@@ -5,6 +5,9 @@ en:
       event:
         create: "Send proposal"
         update: "Update proposal"
+      volunteer:
+        create: "Send application"
+        update: "Update application"
   actions:
     are_you_sure: Are you sure?
     create:
@@ -61,6 +64,17 @@ en:
         picture: Photo
         public_email: Public e-mail
         twitter: Twitter account
+      volunteer:
+        language: Language
+        picture: Picture
+        name: Name
+        email: E-mail
+        phone: Phone
+        tshirt_size: T-shirt size
+        tshirt_cut: T-shirt cut
+        food_preferences: Food preference
+        previous_experience: Previous experience
+        notes: Notes
       track:
         color: Color
         description: Description
@@ -92,6 +106,10 @@ en:
               invalid: is not a valid e-mail address
             password_confirmation:
               confirmation: does not match the password
+        volunteer:
+          attributes:
+            picture:
+              invalid_content_type: "invalid picture format"
     models:
       conference:
         one: conference
@@ -123,7 +141,7 @@ en:
       user:
         one: User
         other: Users
-      volunteership:
+      volunteer:
         one: volunteer
         other: volunteers
       workshop:
@@ -153,6 +171,9 @@ en:
   event_mailer:
     acceptance_notification:
       subject: Your submission for %{conference} for the %{submission_type} "%{title}" has been approved
+  volunteer_mailer:
+    success_notification:
+      subject: "Your application for volunteership on %{conference_name} was received"
   event_states:
     approved:
       one: Approved
@@ -226,6 +247,22 @@ en:
   simple_form:
     error_notification:
       default_message: 'Please see the errors below:'
+    options:
+      volunteer:
+        tshirt_size:
+          s: S
+          m: M
+          l: L
+          xl: XL
+          xxl: XXL
+          xxxl: XXXL
+        tshirt_cut:
+          unisex: Unisex
+          female: Female
+        food_preferences:
+          none: Nothing specific
+          vegetarian: Vegetarian
+          vegan: Vegan
     hints:
       conference:
         description: Conference description
@@ -255,6 +292,11 @@ en:
         picture: Your photo
         public_email: E-mail address that will be visible for the attendees
         twitter: Your Twitter handle
+      volunteer:
+        email: "Your E-mail address. It will be visible only to the organizsers"
+        phone: "Your mobile phone. It will be visible only to the organizsers"
+        picture: "A picture of you in jpeg, png or gif format"
+        volunteer_teams: "The volunteer teams you'd like to be part of. You can find a description of each team <a href=\"/volunteer_teams\" target=\"_blank\">here</a>"
       user:
         email: Your e-mail address. Will be visible to the organizers only.
         password: Password with length between 8 and 128 symbols
@@ -295,11 +337,15 @@ en:
       info: User details
     welcome:
       submit_event: Submit %{event_type}
-    volunteerships:
-      apply: Apply
+    volunteers:
+      new_volunteer_title: Apply for a volunteer
+      edit_volunteer_title: "Volunteership application of %{name}"
+      apply: Apply for a volunteer
       withdraw_application: Withraw your application
-      you_successfully_applied_for: "You successfully applied for the %{team} team"
+      successful_application: "Your application was successfully submitted"
+      successful_application_edit: "Your application was successfully updated"
       error_occurred_while_applying: "There was an error and your application could not be sent"
+      you_successfully_retracted_your_application_for: "Your application was successfully retracted"
   welcome: Welcome, %{name}
   what_we_ask: 'We would like to receive your lecture and workshop submissions that belong to the following tracks until 04.10.2015:'
   workshop_was_successfully_confirmed: The workshop was successfully confirmed

@@ -74,6 +74,7 @@ bg:
         food_preferences: Предпочитана храна
         previous_experience: Предишен опит
         notes: Бележки
+        language: Език
       track:
         color: "Цвят"
         description: "Описание"
