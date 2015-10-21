@@ -75,6 +75,7 @@ bg:
         previous_experience: Предишен опит
         notes: Бележки
         language: Език
+        volunteer_teams: Екипи доброволци
       track:
         color: "Цвят"
         description: "Описание"
