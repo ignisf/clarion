@@ -10,10 +10,7 @@ Rails.application.routes.draw do
       end
     end
     resources :volunteers
-    resources :volunteerships, only: [:index, :destroy]
-    resources :volunteer_teams, only: [] do
-      resource :volunteership, only: :create
-    end
+    resources :volunteer_teams, only: [:index]
   end
 
   namespace :api do
