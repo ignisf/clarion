@@ -28,6 +28,9 @@ gem 'phony_rails'
 gem 'carrierwave'
 gem 'rmagick', github: "gemhome/rmagick"
 
+gem "refile", require: ['refile/rails', 'refile/simple_form']
+gem "refile-mini_magick"
+
 gem 'puma', group: :production
 
 gem 'globalize'
