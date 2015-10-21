@@ -6,7 +6,7 @@ en:
         create: "Send proposal"
         update: "Update proposal"
       volunteer:
-        create: "Send application"
+        create: "Submit application"
         update: "Update application"
   actions:
     are_you_sure: Are you sure?
