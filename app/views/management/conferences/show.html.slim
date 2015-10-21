@@ -31,9 +31,9 @@
             = icon 'thumbs-down', '', class: 'fa-5x'
           .col-xs-9.text-right
             .huge
-              = @conference.events.rejected.count
+              = @conference.events.joins(:proposition).rejected.count
             div
-              = t 'event_states.rejected', count: @conference.events.rejected.count
+              = t 'event_states.rejected', count: @conference.events.joins(:proposition).rejected.count
       = link_to [:management, @conference, :events, {status: :rejected}]
         .panel-footer.text-danger
           span.pull-left = t 'views.conference.see_details'
@@ -48,9 +48,9 @@
             = icon 'thumbs-up', class: 'fa-5x'
           .col-xs-9.text-right
             .huge
-              = @conference.events.approved.count
+              = @conference.events.joins(:proposition).approved.count
             div
-              = t 'event_states.approved', count: @conference.events.approved.count
+              = t 'event_states.approved', count: @conference.events.joins(:proposition).approved.count
       = link_to [:management, @conference, :events, {status: :approved}]
         .panel-footer.text-info
           span.pull-left = t 'views.conference.see_details'
@@ -64,9 +64,9 @@
             = icon 'check', '', class: 'fa-5x'
           .col-xs-9.text-right
             .huge
-              = @conference.events.approved.confirmed.count
+              = @conference.events.joins(:proposition).approved.confirmed.count
             div
-              = t 'event_states.confirmed', count: @conference.events.approved.confirmed.count
+              = t 'event_states.confirmed', count: @conference.events.joins(:proposition).approved.confirmed.count
       = link_to [:management, @conference, :events, {status: :approved, confirmed: true}]
         .panel-footer.text-success
           span.pull-left = t 'views.conference.see_details'
