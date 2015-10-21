@@ -9,6 +9,7 @@ Rails.application.routes.draw do
         get :confirm
       end
     end
+    resources :volunteers
     resources :volunteerships, only: [:index, :destroy]
     resources :volunteer_teams, only: [] do
       resource :volunteership, only: :create

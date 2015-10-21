@@ -1,0 +1,21 @@
+- form_url = @volunteer.new_record? ? volunteers_path : volunteer_path(@volunteer.unique_id)
+
+= simple_form_for @volunteer, wrapper: :default, url: form_url do |f|
+  = f.error_notification
+
+  .form-inputs
+    .input
+      = attachment_image_tag(@volunteer, :picture, :fill, 150, 150) if @volunteer.picture.present?
+      = f.input :picture, as: :attachment, direct: true, wrapper: false
+    = f.input :name, autofocus: true
+    = f.input :email
+    = f.input :phone, input_html: {value: @volunteer.phone.try(:phony_formatted, format: :international)}
+    = f.association :volunteer_teams, as: :check_boxes, wrapper: :default
+    = f.input :language, as: :radio_buttons, collection: locale_collection, include_blank: false, wrapper: :default, checked: (@volunteer.language.presence || I18n.locale)
+    = f.input :tshirt_size, collection: Volunteer::TSHIRT_SIZES, as: :radio_buttons, wrapper: :default, checked: (@volunteer.tshirt_size.presence || :m)
+    = f.input :tshirt_cut, collection: Volunteer::TSHIRT_CUTS, as: :radio_buttons, wrapper: :default, checked: (@volunteer.tshirt_cut.presence || :unisex)
+    = f.input :food_preferences, collection: Volunteer::FOOD_PREFERENCES, as: :radio_buttons, wrapper: :default, checked: (@volunteer.food_preferences.presence || :none)
+    = f.input :previous_experience
+    = f.input :notes
+  .form-actions
+    = f.button :submit

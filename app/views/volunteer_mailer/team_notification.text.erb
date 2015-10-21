@@ -1,0 +1,22 @@
+Здравейте,
+
+<%= @volunteer.name %> <<%= @volunteer.email %>> изпрати кандидатура за доброволец.
+
+Екипи: <%= @volunteer.volunteer_teams.map(&:name).join(', ') %>
+
+Снимка: <%= attachment_url(@volunteer, :picture, host: "https://#{@volunteer.conference.host_name}/") %>
+Език: <%= @volunteer.language %>
+Телефон: <%= @volunteer.phone %>
+Размер на тениска: <%= @volunteer.tshirt_size %>
+Кройка на тениска: <%= @volunteer.tshirt_cut %>
+Предпочитания за храна: <%= @volunteer.food_preferences %>
+<% if @volunteer.previous_experience.present? -%>
+
+Предходен опит:
+<%= @volunteer.previous_experience %>
+<% end -%>
+<% if @volunteer.notes.present? -%>
+
+Бележки:
+<%= @volunteer.notes %>
+<% end -%>

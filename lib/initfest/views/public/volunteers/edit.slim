@@ -1,0 +1,5 @@
+- content_for(:title) { t 'views.volunteers.edit_volunteer_title', name: @volunteer.name }
+
+h1 = t 'views.volunteers.edit_volunteer_title', name: @volunteer.name
+
+= render 'form'

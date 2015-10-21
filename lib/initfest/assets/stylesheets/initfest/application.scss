@@ -36,15 +36,49 @@ footer {
     font-size: 1.7em;
 }
 
-@media all and (max-width: 600px) {
-  .input label, .input input, .input span,  .input .hint, .help-block, .input .error {
-      float: none;
-      display: block;
-      margin: 0;
-  }
-
-}
-
 strong {
     font-weight: 600;
+}
+
+span.radio {
+    label {
+        width: auto;
+    }
+}
+
+span.radio + span.radio {
+    label {
+        padding-left: 15px;
+    }
+}
+
+label.check_boxes {
+    height: 3em;
+}
+
+@media all and (max-width: 600px) {
+    .input label, .input input, .input span,  .input .hint, .help-block, .input .error {
+        float: none;
+        display: block;
+        margin: 0;
+    }
+
+    span.radio, span.checkbox {
+        padding-top: 0.4em;
+
+        label {
+            display: inline;
+            padding-left: 0;
+            input {
+                display: inline-block;
+                margin-right: 0.5em;
+            }
+        }
+    }
+
+    span.radio + span.radio {
+        label {
+            padding-left: 0;
+        }
+    }
 }

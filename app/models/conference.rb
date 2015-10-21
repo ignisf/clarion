@@ -13,6 +13,7 @@ class Conference < ActiveRecord::Base
   has_many :event_types
   has_many :events
   has_many :volunteer_teams
+  has_many :volunteers
   has_one :call_for_participation, dependent: :destroy
   has_many :participants, class_name: 'User', through: :events
   has_many :slots, through: :halls

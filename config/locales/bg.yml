@@ -5,6 +5,9 @@ bg:
       event:
         create: "Изпрати предложение"
         update: "Обнови предложението"
+      volunteer:
+        create: "Изпрати кандидатура"
+        update: "Обнови кандидатурата"
   actions:
     are_you_sure: "Сигурен ли си?"
     create:
@@ -61,6 +64,16 @@ bg:
         picture: "Снимка"
         public_email: "Публичен e-mail"
         twitter: Twitter акаунт
+      volunteer:
+        picture: Снимка
+        name: Име
+        email: E-mail
+        phone: Телефон
+        tshirt_size: Размер тениска
+        tshirt_cut: Кройка на тениска
+        food_preferences: Предпочитана храна
+        previous_experience: Предишен опит
+        notes: Бележки
       track:
         color: "Цвят"
         description: "Описание"
@@ -96,6 +109,10 @@ bg:
               invalid: "не е валиден e-mail адрес"
             password_confirmation:
               confirmation: "не съответства на паролата"
+        volunteer:
+          attributes:
+            picture:
+              invalid_content_type: "невалиден формат на снимката"
     models:
       conference:
         one: "конференция"
@@ -130,7 +147,7 @@ bg:
       user:
         one: "Потребител"
         other: "Потребители"
-      volunteership:
+      volunteer:
         one: "доброволец"
         other: "доброволци"
       workshop:
@@ -160,6 +177,9 @@ bg:
   event_mailer:
     acceptance_notification:
       subject: "Предложението Ви за провеждане на %{submission_type} „%{title}“ на %{conference} е одобрено"
+  volunteer_mailer:
+    success_notification:
+      subject: "Кандидатурата Ви за доброволец за %{conference_name} беше получена"
   event_states:
     approved:
       one: "Одобрено"
@@ -233,6 +253,22 @@ bg:
   simple_form:
     error_notification:
       default_message: "Моля, разгледайте посочените грешки във формуляра:"
+    options:
+      volunteer:
+        tshirt_size:
+          s: S
+          m: M
+          l: L
+          xl: XL
+          xxl: XXL
+          xxxl: XXXL
+        tshirt_cut:
+          unisex: Унисекс
+          female: Дамска
+        food_preferences:
+          none: Нищо специфично
+          vegetarian: Вегетарианец
+          vegan: Веган
     hints:
       conference:
         description: "Описание на конференцията"
@@ -262,6 +298,11 @@ bg:
         picture: "Ваша снимка"
         public_email: E-mail адрес, който ще бъде видим за посетителите
         twitter: "Потребителското Ви име в Twitter"
+      volunteer:
+        email: "Е-mail адресът Ви, който ще бъде видим само от организаторите"
+        phone: "Мобилният Ви телефон, който ще бъде видим само за организаторите"
+        picture: "Ваша снимка в jpeg, png или gif формат"
+        volunteer_teams: "Доброволческите екипи, от които искате да сте част. Подробни описания на екипите можете да намерите <a href=\"/volunteer_teams\" target=\"_blank\">тук</a>"
       user:
         email: e-mail адресът Ви. Ще бъде видим само от организаторите
         password: "Парола с дължина между 8 и 128 символа"
@@ -302,12 +343,15 @@ bg:
       info: "Информация за потребител"
     welcome:
       submit_event: "Предложи %{event_type}"
-    volunteerships:
-      apply: Кандидатствай
+    volunteers:
+      new_volunteer_title: Кандидатствай за доброволец
+      edit_volunteer_title: "Кандидатура за доброволец на %{name}"
+      apply: Кандидатствай за доброволец
       withdraw_application: Оттегли кандидатурата си
-      you_successfully_applied_for: "Успешно изпратихте кандидатура за екип „%{team}“"
+      successful_application: "Успешно изпратихте кандидатурата си"
+      successful_application_edit: "Успешно редактирахте кандидатурата си"
       error_occurred_while_applying: "Възникна грешка и кандидатурата Ви не беше изпратена"
-      you_successfully_retracted_your_application_for: "Успешно оттеглихте кандидатурата си за екип „%{team}“"
+      you_successfully_retracted_your_application_for: "Успешно оттеглихте кандидатурата си“"
   welcome: "Добре дошли, %{name}"
   what_we_ask: "Бихме искали да получим предложенията Ви за лекции и уъркшопи, принадлежащи към следните категории до 4 октомври 2015г.:"
   workshop_was_successfully_confirmed: "Уъркшопът беше потвърден успешно"
