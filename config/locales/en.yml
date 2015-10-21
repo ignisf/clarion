@@ -138,6 +138,9 @@ en:
       track:
         one: track
         other: tracks
+      volunteer_team:
+        one: "volunteer team"
+        other: "volunteer teams"
       user:
         one: User
         other: Users
