@@ -296,7 +296,7 @@ en:
         email: "Your E-mail address. It will be visible only to the organizsers"
         phone: "Your mobile phone. It will be visible only to the organizsers"
         picture: "A picture of you in jpeg, png or gif format"
-        volunteer_teams: "The volunteer teams you'd like to be part of. You can find a description of each team <a href=\"/volunteer_teams\" target=\"_blank\">here</a>"
+        volunteer_teams: "The volunteer teams you'd like to be part of. You can find a description of each team <a href=\"/volunteer_teams?locale=en\" target=\"_blank\">here</a>"
       user:
         email: Your e-mail address. Will be visible to the organizers only.
         password: Password with length between 8 and 128 symbols
