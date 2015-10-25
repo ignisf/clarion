@@ -19,7 +19,7 @@ class Volunteer < ActiveRecord::Base
   has_and_belongs_to_many :volunteer_teams
 
   before_create :assign_unique_id
-  after_create :send_notification_to_organizers
+  #after_create :send_notification_to_organizers
   after_create :send_notification_to_volunteer
 
   private
