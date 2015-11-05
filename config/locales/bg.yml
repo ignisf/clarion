@@ -179,6 +179,8 @@ bg:
   event_mailer:
     acceptance_notification:
       subject: "Предложението Ви за провеждане на %{submission_type} „%{title}“ на %{conference} е одобрено"
+    rejection_notification:
+      subject: "Предложението Ви за %{submission_type} „%{title}“ на %{conference} не е одобрено"
   volunteer_mailer:
     success_notification:
       subject: "Кандидатурата Ви за доброволец за %{conference_name} беше получена"
