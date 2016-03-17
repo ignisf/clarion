@@ -63,7 +63,7 @@ group :development do
   gem 'quiet_assets'
   gem 'capistrano'
   gem 'capistrano-rails'
-  gem 'capistrano-rvm'
+  # gem 'capistrano-rvm'
   gem 'capistrano3-puma'
 end
 
