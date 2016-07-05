@@ -52,7 +52,7 @@ module Management
 
     def conference_params
       params.require(:conference).permit(
-        :title, :email, :start_date, :end_date, :description, :host_name,
+        :title, :email, :start_date, :end_date, :description, :host_name, :planned_cfp_end_date,
         event_types_attributes: [:id, :name, :description, :maximum_length,
                                  :minimum_length, :_destroy],
         tracks_attributes: [:id, :name, :color, :css_class, :description,

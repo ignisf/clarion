@@ -2,9 +2,11 @@ class Conference < ActiveRecord::Base
   validates :title, presence: true, uniqueness: true
   validates :email, presence: true, format: {with: /\A[^@]+@[^@]+\z/}
   validates :description, presence: true
+  validates :planned_cfp_end_date, presence: true
   validates :start_date, presence: true
   validates :end_date, presence: true
   validate :start_date_is_before_end_date
+  validate :planned_cfp_end_date_is_before_start_date
 
   translates :title, :description
 
@@ -38,6 +40,12 @@ class Conference < ActiveRecord::Base
   end
 
   private
+
+  def planned_cfp_end_date_is_before_start_date
+    if planned_cfp_end_date.present? and start_date.present? and planned_cfp_end_date > start_date
+      errors.add(:planned_cfp_end_date, :cannot_be_after_start_date)
+    end
+  end
 
   def start_date_is_before_end_date
     if start_date.present? and end_date.present? and start_date > end_date
