@@ -1,4 +1,8 @@
 bg:
+  management:
+    conferences:
+      show:
+        cfp_status: 'Състояние на CFP:'
   abstract: "Резюме"
   helpers:
     submit:

@@ -5,13 +5,14 @@
     h1.page-header
       = @conference.title
       .pull-right
-        = t '.cfp_status'
-        - if @conference.call_for_participation.in_progress?
-          = link_to management_conference_call_for_participation_path(@conference), method: :delete, class: 'btn btn-sm btn-success cfp-toggle'
-            = icon 'dot-circle-o', '', class: 'fa-fw'
-        - else
-          = link_to management_conference_call_for_participation_path(@conference), method: :post, class: 'btn btn-sm btn-warning cfp-toggle'
-            = icon 'circle-o', class: 'fa-fw'
+        .small
+          => t '.cfp_status'
+          - if @conference.call_for_participation.in_progress?
+            = link_to management_conference_call_for_participation_path(@conference), method: :delete, class: 'btn btn-sm btn-success cfp-toggle'
+              = icon 'dot-circle-o', '', class: 'fa-fw'
+          - else
+            = link_to management_conference_call_for_participation_path(@conference), method: :post, class: 'btn btn-sm btn-warning cfp-toggle'
+              = icon 'circle-o', class: 'fa-fw'
 .row
   .col-lg-3.col-md-6
     .panel.panel-primary
