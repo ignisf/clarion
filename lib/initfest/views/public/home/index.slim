@@ -2,7 +2,7 @@ h1.entry-title = t :home_title, conference: current_conference.title
 
 = simple_format current_conference.description
 
-p = t :what_we_ask
+p = t :what_we_ask, date: l(current_conference.planned_cfp_end_date)
 
 ul
   = render partial: 'track', collection: current_conference.tracks
