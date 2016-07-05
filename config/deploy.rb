@@ -48,12 +48,12 @@ set :nginx_server_name, 'cfp.openfest.org'
 
 namespace :deploy do
 
-  desc 'Restart application'
-  task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
-      execute '/home/barf/restart-clarion-production-server'
+  after :restart, :clear_cache do
+    on roles(:web), in: :groups, limit: 3, wait: 10 do
+      # Here we can do anything such as:
+      # within release_path do
+      #   execute :rake, 'cache:clear'
+      # end
     end
   end
-
-  after :publishing, :restart
 end
