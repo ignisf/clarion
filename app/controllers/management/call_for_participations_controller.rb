@@ -2,12 +2,12 @@ module Management
   class CallForParticipationsController < ManagementController
     def create
       current_conference.call_for_participation.open!
-      render :redraw
+      redirect_to :back
     end
 
     def destroy
       current_conference.call_for_participation.close!
-      render :redraw
+      redirect_to :back
     end
   end
 end
