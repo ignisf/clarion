@@ -354,6 +354,6 @@ en:
       error_occurred_while_applying: "There was an error and your application could not be sent"
       you_successfully_retracted_your_application_for: "Your application was successfully retracted"
   welcome: Welcome, %{name}
-  what_we_ask: 'We would like to receive your lecture and workshop submissions that belong to the following tracks until 04.10.2015:'
+  what_we_ask: 'We would like to receive your lecture and workshop submissions that belong to the following tracks until %{date}:'
   workshop_was_successfully_confirmed: The workshop was successfully confirmed
   workshops: Workshops
