@@ -112,6 +112,9 @@ en:
             picture:
               invalid_content_type: "invalid picture format"
     models:
+      volunteership:
+        one: volunteership
+        other: volunteerships
       conference:
         one: conference
         other: conferences

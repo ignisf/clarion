@@ -116,6 +116,9 @@ bg:
             picture:
               invalid_content_type: "невалиден формат на снимката"
     models:
+      volunteership:
+        one: доброволец
+        other: доброволци
       conference:
         one: "конференция"
         other: "конференции"
