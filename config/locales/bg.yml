@@ -120,6 +120,8 @@ bg:
           attributes:
             picture:
               invalid_content_type: "невалиден формат на снимката"
+            volunteer_teams:
+              invalid_volunteer_team: "невалиден екип от доброволци"
     models:
       volunteership:
         one: доброволец

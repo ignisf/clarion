@@ -12,6 +12,7 @@ class Volunteer < ActiveRecord::Base
   validates :email, format: {with: /\A[^@]+@[^@]+\z/}, presence: true
   validates :phone, presence: true, format: {with: /\A[+\- \(\)0-9]+\z/}
   validates :volunteer_teams, presence: true
+  validate :volunteer_teams_belong_to_conference
 
   phony_normalize :phone, default_country_code: 'BG'
 
@@ -34,5 +35,12 @@ class Volunteer < ActiveRecord::Base
 
   def send_notification_to_volunteer
     VolunteerMailer.volunteer_notification(self).deliver_later
+  end
+
+  def volunteer_teams_belong_to_conference
+    conference_volunteer_teams = conference.volunteer_teams
+    unless volunteer_teams.all? { |team| conference_volunteer_teams.include? team }
+      errors.add :volunteer_teams, :invalid_volunteer_team
+    end
   end
 end

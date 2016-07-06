@@ -10,7 +10,7 @@
     = f.input :name, autofocus: true
     = f.input :email
     = f.input :phone, input_html: {value: @volunteer.phone.try(:phony_formatted, format: :international)}
-    = f.association :volunteer_teams, as: :check_boxes, wrapper: :default
+    = f.association :volunteer_teams, as: :check_boxes, wrapper: :default, collection: current_conference.volunteer_teams
     = f.input :language, as: :radio_buttons, collection: locale_collection, include_blank: false, wrapper: :default, checked: (@volunteer.language.presence || I18n.locale)
     = f.input :tshirt_size, collection: Volunteer::TSHIRT_SIZES, as: :radio_buttons, wrapper: :default, checked: (@volunteer.tshirt_size.presence || :m)
     = f.input :tshirt_cut, collection: Volunteer::TSHIRT_CUTS, as: :radio_buttons, wrapper: :default, checked: (@volunteer.tshirt_cut.presence || :unisex)
