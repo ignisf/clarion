@@ -3,7 +3,7 @@ class Api::EventsController < Api::ApplicationController
   before_filter :require_current_conference!
 
   def index
-    @events = current_conference.events.includes(:participations)
+    @events = current_conference.events.approved.joins(:proposition).includes(:participations)
   end
 
   def halfnarp_friendly

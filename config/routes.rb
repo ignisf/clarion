@@ -15,12 +15,12 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :conferences, only: [] do
-      # resources :events, only: :index do
-      #   collection do
-      #     get :halfnarp_friendly
-      #   end
-      # end
-      # resources :speakers, only: :index
+      resources :events, only: :index do
+        # collection do
+        #   get :halfnarp_friendly
+        # end
+      end
+      resources :speakers, only: :index
       resources :tracks, only: :index
       resources :event_types, only: :index
       resources :halls, only: :index
