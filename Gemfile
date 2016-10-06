@@ -26,7 +26,7 @@ gem 'phony_rails'
 
 # Picture uploads
 gem 'carrierwave'
-gem 'rmagick', github: "gemhome/rmagick"
+gem 'rmagick'
 
 gem "refile", require: ['refile/rails', 'refile/simple_form']
 gem "refile-mini_magick"
