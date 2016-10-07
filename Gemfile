@@ -52,6 +52,8 @@ gem 'copy_carrierwave_file'
 
 gem 'jbuilder'
 
+gem 'search_object'
+
 group :development do
   gem 'spring'
   gem 'spring-commands-rspec'
