@@ -1,3 +1,6 @@
+- content_for :title
+  = Event.model_name.human(count: 2).mb_chars.capitalize
+
 .row
   h1.page-header
     = Event.model_name.human(count: 2).mb_chars.titleize

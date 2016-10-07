@@ -1,16 +1,43 @@
 tr
-  td = conference.title
-  td.hidden-xs.hidden-sm = l conference.start_date.to_date, format: :long
-  td.hidden-xs.hidden-sm = l conference.end_date.to_date, format: :long
-  td.action
-    = render partial: 'management/call_for_participations/status', locals: {conference: conference}
+  td
+    .conference-title
+      = conference.title
+    .conference-actions
+      .visible-xs.dropdown
+        .button.btn.btn-primary.dropdown-toggle type="button" data-toggle="dropdown"
+          = icon 'ellipsis-v'
+        ul.dropdown-menu.dropdown-menu-right
+          li
+            = link_to management_conference_path(conference)
+              = icon 'line-chart', t('actions.view.button', model: Conference.model_name.human)
+          li
+            = link_to [:management, conference, :events] do
+              => icon 'file-text', Event.model_name.human(count: 2).mb_chars.capitalize
+          li
+            = link_to [:management, conference, :volunteers] do
+              => icon 'hand-stop-o', t('activerecord.models.volunteer', count: 2).mb_chars.capitalize
+          li
+            = link_to [:management, conference, :personal_profiles] do
+              => icon 'user', t('activerecord.models.personal_profile', count: 2).mb_chars.capitalize
+          li.divider
+            li
+              = link_to edit_management_conference_path(conference)
+                = icon :edit, t('actions.edit.button', model: Conference.model_name.human)
+            li
+              = link_to management_conference_path(conference), class: [conference.events.any? ? 'disabled' : nil], method: :delete, data: {confirm: t('actions.are_you_sure')}
+                = icon :trash, t('actions.destroy.button', model: Conference.model_name.human)
 
-  td = conference.events.count
-  td.actions
-    div.btn-group.btn-group-sm
-      = link_to management_conference_path(conference), title: t('actions.view.button', model: Conference.model_name.human), class: 'btn btn-info'
-        = icon :eye
-      = link_to edit_management_conference_path(conference), title: t('actions.edit.button', model: Conference.model_name.human), class: 'btn btn-primary'
-        = icon :edit
-      = link_to management_conference_path(conference), title: t('actions.destroy.button', model: Conference.model_name.human), class: ['btn', 'btn-danger', conference.events.any? ? 'disabled' : nil], method: :delete, data: {confirm: t('actions.are_you_sure')}
-        = icon :trash
+      .hidden-xs.btn-group
+        = link_to management_conference_path(conference), class: 'btn btn-success'
+          = icon 'line-chart', t('actions.view.button', model: Conference.model_name.human)
+        = link_to [:management, conference, :events], class: 'btn btn-success' do
+          => icon 'file-text', Event.model_name.human(count: 2).mb_chars.capitalize
+        = link_to [:management, conference, :volunteers], class: 'btn btn-success' do
+          => icon 'hand-stop-o', t('activerecord.models.volunteer', count: 2).mb_chars.capitalize
+        = link_to [:management, conference, :personal_profiles], class: 'btn btn-success' do
+          => icon 'user', t('activerecord.models.personal_profile', count: 2).mb_chars.capitalize
+      .hidden-xs.btn-group<
+        = link_to edit_management_conference_path(conference), title: t('actions.edit.button', model: Conference.model_name.human), class: 'btn btn-warning'
+          = icon :edit
+        = link_to management_conference_path(conference), title: t('actions.destroy.button', model: Conference.model_name.human), class: ['btn', 'btn-danger', conference.events.any? ? 'disabled' : nil], method: :delete, data: {confirm: t('actions.are_you_sure')}
+          = icon :trash

@@ -21,3 +21,13 @@ th.action, td.action {
         .fa-minus-square-o { color: $color-failure; }
     }
 }
+
+.conference-title {
+    display: inline-block;
+    @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $btn-border-radius-base);
+}
+
+.conference-actions {
+    float: right;
+    text-align: right;
+}

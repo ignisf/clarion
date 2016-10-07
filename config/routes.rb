@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   end
 
   namespace :management do
-    root to: 'home#index'
+    root to: 'conferences#index'
 
     resources :conferences do
       resources :events
