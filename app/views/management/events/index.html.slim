@@ -74,9 +74,12 @@
         thead
           tr
             th = Event.model_name.human.mb_chars.titleize
-            th = Event.human_attribute_name(:user)
+            th.visible-md.visible-lg.visible-xl = Event.human_attribute_name(:participants)
             th.action
               = Event.human_attribute_name(:status)
             th.actions
         tbody
           = render(partial: 'event', collection: @events) || render(partial: 'no_records')
+      .panel-footer.text-right
+        = link_to management_conference_events_path(current_conference, filters: @filters, format: 'csv'), class: 'btn btn-info'
+          = icon :download, t('.export')

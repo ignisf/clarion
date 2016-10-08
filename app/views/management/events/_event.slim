@@ -6,6 +6,8 @@ tr
       - if event.subtitle.present?
         dt = Event.human_attribute_name :subtitle
         dd = event.subtitle
+      dt.visible-sm.visible-xs = Event.human_attribute_name :participants
+      dd.visible-sm.visible-xs = participant_names_or_emails(event).join(', ')
       dt = EventType.model_name.human.mb_chars.titleize
       dd = event.event_type.name
       dt = Event.human_attribute_name :track
@@ -13,7 +15,7 @@ tr
       dt = Event.human_attribute_name :language
       dd = t("locales.#{event.language}")
 
-  td
+  td.visible-md.visible-lg.visible-xl
     = participant_names_or_emails(event).join(', ')
   td.action
     .dropdown
