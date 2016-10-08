@@ -1,17 +1,20 @@
 tr
   td
-    = event.title
-    - if event.subtitle.present?
-      br
-        span.small = event.subtitle
+    dl.dl-horizontal
+      dt = Event.human_attribute_name :title
+      dd = event.title
+      - if event.subtitle.present?
+        dt = Event.human_attribute_name :subtitle
+        dd = event.subtitle
+      dt = EventType.model_name.human.mb_chars.titleize
+      dd = event.event_type.name
+      dt = Event.human_attribute_name :track
+      dd = event.track.name
+      dt = Event.human_attribute_name :language
+      dd = t("locales.#{event.language}")
+
   td
     = participant_names_or_emails(event).join(', ')
-  td
-    = t("locales.#{event.language}")
-  td
-    = event.track.name
-  td
-    = event.event_type.name
   td.action
     .dropdown
       button class="btn btn-sm dropdown-toggle btn-#{proposition_status_class(event.status)}" type="button" data-toggle="dropdown" title="#{t "status.#{event.status}"}"

@@ -3,6 +3,11 @@ bg:
     conferences:
       show:
         cfp_status: 'Състояние на CFP:'
+    events:
+      index:
+        all: "Всички"
+      no_records:
+        no_records_found: 'Не бяха открити записи, които да отговарят на изискванията'
   abstract: "Резюме"
   helpers:
     submit:
@@ -33,6 +38,13 @@ bg:
       title: "Преглед на %{model}"
   activerecord:
     attributes:
+      proposition:
+        status: Състояние
+        statuses:
+          undecided: Неопределено
+          approved: Одобрено
+          rejected: Отхвърлено
+          backup: Резерва
       conference:
         description: "Описание"
         email: E-mail

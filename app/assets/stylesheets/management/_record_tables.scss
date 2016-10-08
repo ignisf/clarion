@@ -31,3 +31,9 @@ th.action, td.action {
     float: right;
     text-align: right;
 }
+
+@media (min-width: $screen-md-min) {
+    #filters {
+        display: block !important;
+    }
+}

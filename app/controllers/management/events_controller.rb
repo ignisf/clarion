@@ -2,7 +2,9 @@ module Management
   class EventsController < ManagementController
     def index
       @conference = find_conference
-      @events = @conference.events.order(:title).includes(:proposition, :proposer, :track, :event_type)
+      @filters = params[:filters] || {}
+      @events = EventSearch.new(scope: Event.where(conference: @conference).eager_load(:proposition, :proposer, :track, :event_type), filters: params[:filters]).results
+      # @events = @conference.events.order(:title).includes(:proposition, :proposer, :track, :event_type)
     end
 
     def show

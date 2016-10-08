@@ -1,21 +1,82 @@
 - content_for :title
   = Event.model_name.human(count: 2).mb_chars.capitalize
+/.row
+/  ul.nav.nav-tabs
+/    = content_tag :li, role: "presentation", class: params[:event_type_id].blank? ? 'active' : nil
+/      = link_to management_conference_events_path(current_conference)
+/        = t '.all'
+/    - current_conference.event_types.each do |event_type|
+/      = content_tag :li, role: "presentation", class: params[:event_type_id].to_i == event_type.id ? 'active' : nil
+/        = link_to management_conference_events_path(current_conference, event_type_id: event_type.id)
+/          = event_type.name
+/
 
 .row
-  h1.page-header
-    = Event.model_name.human(count: 2).mb_chars.titleize
+  .col-lg-12
+    h1.page-header
+      = Event.model_name.human(count: 2).mb_chars.titleize
+.row.visible-sm
+  .col-xs-12
+    = link_to t('.filters'), '#filters', aria_expanded: true, aria_controls: 'filters', data: {toggle: 'collapse'}, role: 'button', class: 'btn btn-info'
 .row
-  .panel.panel-default
-    table.table
-      thead
-        tr
-          th = Event.human_attribute_name(:title)
-          th = Event.human_attribute_name(:user)
-          th = Event.human_attribute_name(:language)
-          th = Track.model_name.human
-          th = Event.human_attribute_name(:type)
-          th.action
-            = Event.human_attribute_name(:status)
-          th.actions
-      tbody
-        = render partial: 'event', collection: @events
+  .col-md-2.collapse#filters
+    .panel.panel-default
+      .panel-heading
+        = EventType.model_name.human.mb_chars.titleize
+      .panel-body
+        ul.nav.nav-pills.nav-stacked
+          = content_tag :li, role: "presentation", class: @filters[:event_type_id].blank? ? 'active' : nil
+            = link_to management_conference_events_path(current_conference, filters: @filters.except(:event_type_id))
+              = t '.all'
+          - current_conference.event_types.each do |event_type|
+            = content_tag :li, role: "presentation", class: @filters[:event_type_id].to_i == event_type.id ? 'active' : nil
+              = link_to management_conference_events_path(current_conference, filters: @filters.merge({event_type_id: event_type.id}))
+                = event_type.name
+    .panel.panel-default
+      .panel-heading
+        = Event.human_attribute_name(:track)
+      .panel-body
+        ul.nav.nav-pills.nav-stacked
+          = content_tag :li, role: "presentation", class: @filters[:track].blank? ? 'active' : nil
+            = link_to management_conference_events_path(current_conference, filters: @filters.except(:track))
+              = t '.all'
+          - current_conference.tracks.each do |track|
+            = content_tag :li, role: "presentation", class: @filters[:track] == track.id.to_s ? 'active' : nil
+              = link_to management_conference_events_path(current_conference, filters: @filters.merge({track: track.id}))
+                = track.name
+    .panel.panel-default
+      .panel-heading
+        = Event.human_attribute_name(:language)
+      .panel-body
+        ul.nav.nav-pills.nav-stacked
+          = content_tag :li, role: "presentation", class: @filters[:language].blank? ? 'active' : nil
+            = link_to management_conference_events_path(current_conference, filters: @filters.except(:language))
+              = t '.all'
+          - I18n.available_locales.map(&:to_s).each do |language|
+            = content_tag :li, role: "presentation", class: @filters[:language] == language ? 'active' : nil
+              = link_to management_conference_events_path(current_conference, filters: @filters.merge({language: language}))
+                = t("locales.#{language}")
+    .panel.panel-default
+      .panel-heading
+        = Proposition.human_attribute_name(:status)
+      .panel-body
+        ul.nav.nav-pills.nav-stacked
+          = content_tag :li, role: "presentation", class: @filters[:status].blank? ? 'active' : nil
+            = link_to management_conference_events_path(current_conference, filters: @filters.except(:status))
+              = t '.all'
+          - Proposition.statuses.each do |status_name, status_id|
+            = content_tag :li, role: "presentation", class: @filters[:status] == status_id.to_s ? 'active' : nil
+              = link_to management_conference_events_path(current_conference, filters: @filters.merge({status: status_id}))
+                = t "activerecord.attributes.proposition.statuses.#{status_name}"
+  .col-md-10
+    .panel.panel-default
+      table.table.table-striped.table-hover
+        thead
+          tr
+            th = Event.model_name.human.mb_chars.titleize
+            th = Event.human_attribute_name(:user)
+            th.action
+              = Event.human_attribute_name(:status)
+            th.actions
+        tbody
+          = render(partial: 'event', collection: @events) || render(partial: 'no_records')
