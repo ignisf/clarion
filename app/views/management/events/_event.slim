@@ -1,4 +1,4 @@
-tr
+= content_tag :tr, class: event.all_participants_have_profiles? ? nil : 'warning'
   td
     dl.dl-horizontal
       dt = Event.human_attribute_name :title
@@ -7,7 +7,7 @@ tr
         dt = Event.human_attribute_name :subtitle
         dd = event.subtitle
       dt.visible-sm.visible-xs = Event.human_attribute_name :participants
-      dd.visible-sm.visible-xs = participant_names_or_emails(event).join(', ')
+      dd.visible-sm.visible-xs = links_to_event_participants_for(event)
       dt = EventType.model_name.human.mb_chars.titleize
       dd = event.event_type.name
       dt = Event.human_attribute_name :track
@@ -16,7 +16,7 @@ tr
       dd = t("locales.#{event.language}")
 
   td.visible-md.visible-lg.visible-xl
-    = participant_names_or_emails(event).join(', ')
+    = links_to_event_participants_for(event)
   td.action
     .dropdown
       button class="btn btn-sm dropdown-toggle btn-#{proposition_status_class(event.status)}" type="button" data-toggle="dropdown" title="#{t "status.#{event.status}"}"

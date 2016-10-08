@@ -26,6 +26,12 @@ class Event < ActiveRecord::Base
 
   delegate :status, to: :proposition
 
+  def all_participants_have_profiles?
+    participants.all? do |participant|
+      participant.personal_profile(conference).present?
+    end
+  end
+
   def proposer_profile
     proposer.personal_profile(conference)
   end

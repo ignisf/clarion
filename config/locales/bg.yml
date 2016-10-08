@@ -6,6 +6,8 @@ bg:
     events:
       index:
         all: "Всички"
+      event:
+        create_profile: "Създай профил"
       no_records:
         no_records_found: 'Не бяха открити записи, които да отговарят на изискванията'
   abstract: "Резюме"

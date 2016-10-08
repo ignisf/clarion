@@ -18,16 +18,13 @@ class Conference < ActiveRecord::Base
   has_many :volunteers
   has_one :call_for_participation, dependent: :destroy
   has_many :participants, class_name: 'User', through: :events
+  has_many :participant_profiles, class_name: 'PersonalProfile'
   has_many :slots, through: :halls
 
   accepts_nested_attributes_for :tracks, :halls, :event_types, :volunteer_teams,
                                 reject_if: :all_blank, allow_destroy: true
 
   after_create :create_call_for_participation
-
-  def participants
-    events.where(conference_id: id).map(&:user)
-  end
 
   def submissions_grouped_by_day
     submissions = events.group('date(events.created_at)').select('date(events.created_at) as created_at, count(events.id) as number')
