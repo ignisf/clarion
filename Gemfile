@@ -67,6 +67,8 @@ group :development do
   gem 'capistrano-rails'
   # gem 'capistrano-rvm'
   gem 'capistrano3-puma'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :development, :test do
