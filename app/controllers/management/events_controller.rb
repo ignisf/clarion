@@ -21,9 +21,9 @@ module Management
       @conference = find_conference
       @event = @conference.events.find(params[:id])
 
-      if @event.update_attributes(event_params)
+      if @event.update(event_params)
         flash[:notice] = 'Event was successfully updated.'
-        redirect_to [:management, @event]
+        redirect_to [:management, @conference, @event]
       else
         render action: 'edit'
       end
@@ -45,14 +45,22 @@ module Management
 
     def event_params
       params.require(:event).permit(
-        :title,
-        :subtitle,
-        :length,
-        :language,
-        :abstract,
-        :description,
-        :notes
-      )
+                                    :title,
+                                    :subtitle,
+                                    :length,
+                                    :language,
+                                    :abstract,
+                                    :description,
+                                    :notes,
+                                    :track_id,
+                                    :event_type_id,
+                                    participations_attributes: [
+                                                                :id,
+                                                                :participant_id,
+                                                                :approved,
+                                                                :_destroy
+                                                               ]
+                                   )
     end
   end
 end

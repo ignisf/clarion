@@ -49,6 +49,9 @@ bg:
       title: "Преглед на %{model}"
   activerecord:
     attributes:
+      participation:
+        participant: Участник
+        approved: Потвърдено от участника
       proposition:
         status: Състояние
         statuses:
@@ -149,6 +152,9 @@ bg:
             volunteer_teams:
               invalid_volunteer_team: "невалиден екип от доброволци"
     models:
+      participation:
+        one: Участие
+        other: Участия
       volunteership:
         one: доброволец
         other: доброволци

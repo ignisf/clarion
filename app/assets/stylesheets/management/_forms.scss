@@ -21,3 +21,10 @@ select.date, select.datetime, select.time {
         height: 180px;
     }
 }
+
+.form-horizontal {
+    div.boolean {
+        padding: 10px;
+        @extend .col-sm-offset-3;
+    }
+}
