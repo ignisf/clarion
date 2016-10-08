@@ -7,5 +7,6 @@ class EventSearch
   option(:event_type_id) { |scope, value| scope.where event_type_id: value }
   option(:status)        { |scope, value| scope.joins(:proposition).where(propositions: {status: value}) }
 
-  sort_by :title
+  sort_by 'title'
+  config[:defaults]['sort'] = "#{config[:sort_attributes].first} asc"
 end
