@@ -1,26 +1,76 @@
 - personal_profile = speaker.personal_profile(@conference) || speaker.personal_profiles.last
 
-- if personal_profile.present?
-  .speaker-profile
-    .panel.panel-default
-      .panel-heading
-        h1.panel-title
-          = personal_profile.name
-          = link_to icon(:edit), [:edit, :management, @conference, personal_profile], class: 'btn btn-xs btn-danger pull-right'
-      .panel-body
-        .center
-          = image_tag personal_profile.picture.medium.url, class: "profile-image"
-        hr
-        - if personal_profile.organisation.present?
-          p #{icon :briefcase} @#{personal_profile.organisation}
+.panel.panel-default
+  .panel-body
+    .media
+      .media-left.hidden-sm.hidden-xs
+          - if personal_profile.present?
+            = image_tag personal_profile.picture.medium.url, class: "profile-image"
+          - else
+            = icon :user, class: 'fa-5x'
+      .media-body
+        .text-center.visible-sm.visible-xs
+          - if personal_profile.present?
+            = image_tag personal_profile.picture.medium.url, class: "profile-image img-thumbnail"
+          - else
+            = icon :user, class: 'fa-5x'
+        - if personal_profile.present?
+          h4.media-heading
+            = personal_profile.name
+            - unless personal_profile.conference == @conference
+              small<
+                | (
+                = t('.profile_from', conference: personal_profile.conference.title)
+                | )
+          hr
+          h4 = PersonalProfile.human_attribute_name(:biography)
+          = simple_format personal_profile.biography
 
-        h4 = PersonalProfile.human_attribute_name(:biography)
-        = simple_format personal_profile.biography
+          h4 = t '.contacts'
+          - if personal_profile.organisation.present?
+            p #{icon :briefcase} @#{personal_profile.organisation}
+          - if personal_profile.twitter.present?
+            p #{icon :twitter} @#{personal_profile.twitter}
+          - if personal_profile.public_email.present?
+            p #{icon :envelope} #{personal_profile.public_email} (#{t(:public)})
+          p #{icon :envelope} #{speaker.email} (#{t(:private)})
+          p #{glyph :phone} #{Phony.format(personal_profile.mobile_phone, format: :international)}
+        - else
+          h4.media-heading
+            = speaker.email
+          hr
+          p
+            = t('.no_profile')
+            =< link_to icon(:plus, t('.create_profile')), new_management_conference_personal_profile_path(conference_id: @conference.id, user_id: speaker.id), class: ['btn', 'btn-primary', 'btn-xs']
 
-        h4 = t :contacts
-        - if personal_profile.twitter.present?
-          p #{icon :twitter} @#{personal_profile.twitter}
-        - if personal_profile.public_email.present?
-          p #{icon :envelope} #{personal_profile.public_email} (#{t(:public)})
-        p #{icon :envelope} #{speaker.email} (#{t(:private)})
-        p #{glyph :phone} #{Phony.format(personal_profile.mobile_phone, format: :international)}
+        h4 = t '.previous_event_propositions'
+        table.table.table-striped.table-hover.record-table
+          thead
+            tr
+              th
+                = Event.human_attribute_name :title
+              th
+                = Event.human_attribute_name :conference
+              th
+                = Event.human_attribute_name :status
+              th
+
+          tbody
+            - speaker.events_participated_in.each do |event|
+              tr
+                td = event.title
+                td = event.conference.title
+                td
+                  span class="label label-lg label-#{proposition_status_class(@event.status)}"
+                    = icon(proposition_status_glyph(@event.status), t("activerecord.attributes.proposition.statuses.#{@event.status}"))
+
+                td.actions
+                  .btn-group.btn-group-sm
+                    = action_buttons event.conference, event, [:show]
+
+
+  - if personal_profile.present?
+    .panel-footer
+      .text-right
+        .btn-group.btn-group-sm
+          = action_buttons @conference, personal_profile, [:show, :edit]

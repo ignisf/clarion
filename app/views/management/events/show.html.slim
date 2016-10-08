@@ -1,33 +1,38 @@
-.row
-  h1.page-header
-    = @event.title
-    small<
-      = @event.subtitle
-  h4
-    = t 'events.metadata', type: @event.event_type.name, language: t("locales.#{@event.language}").mb_chars.downcase, length: @event.length
-    .pull-right.heading-actions
-      .dropdown>
-        button class="btn btn-sm dropdown-toggle btn-#{proposition_status_class(@event.status)}" type="button" data-toggle="dropdown" title="#{t "status.#{@event.status}"}"
-          = icon(proposition_status_glyph(@event.status))
-          span.caret<
-        ul.dropdown-menu
-          - Proposition.statuses.each do |(status, _)|
-            - next if status == @event.status
-            li
-              = link_to [:management, @conference, @event.proposition, proposition: {status: status}], method: :patch do
-                = proposition_status_icon(status)
-                =< t "status.#{status}"
-      div.btn-group.btn-group-sm
-        = action_buttons(@conference, @event, [:index, :edit])
+- content_for :title
+  = t('.review', event_type: @event.event_type.name.mb_chars.downcase, event_title: @event.title)
 
-  h3 = Event.human_attribute_name :abstract
-  p = simple_format @event.abstract
-
-  h3 = Event.human_attribute_name :description
-  p = simple_format @event.description
-  - if @event.notes.present?
-    h3 = Event.human_attribute_name :notes
-    p = simple_format @event.notes
 .row
-  .col-lg-12
+  .col-xs-12
+    h1.page-header
+      = @event.title
+      small<
+        = @event.subtitle
+    h4
+      = t 'events.metadata', type: @event.event_type.name, language: t("locales.#{@event.language}").mb_chars.downcase, length: @event.length
+      .pull-right.heading-actions
+        .dropdown>
+          button class="btn btn-sm dropdown-toggle btn-#{proposition_status_class(@event.status)}" type="button" data-toggle="dropdown" title="#{t "status.#{@event.status}"}"
+            = icon(proposition_status_glyph(@event.status))
+            span.caret<
+          ul.dropdown-menu
+            - Proposition.statuses.each do |(status, _)|
+              - next if status == @event.status
+              li
+                = link_to [:management, @conference, @event.proposition, proposition: {status: status}], method: :patch do
+                  = proposition_status_icon(status)
+                  =< t "status.#{status}"
+        div.btn-group.btn-group-sm
+          = action_buttons(@conference, @event, [:index, :edit])
+.row
+  .col-xs-12
+    h3 = Event.human_attribute_name :abstract
+    p = simple_format @event.abstract
+
+    h3 = Event.human_attribute_name :description
+    p = simple_format @event.description
+    - if @event.notes.present?
+      h3 = Event.human_attribute_name :notes
+      p = simple_format @event.notes
+  .col-xs-12
+    h3 = Event.human_attribute_name :participants
     = render partial: 'speaker', collection: @event.participants
