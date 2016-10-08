@@ -37,12 +37,12 @@
         = Event.human_attribute_name(:track)
       .panel-body
         ul.nav.nav-pills.nav-stacked
-          = content_tag :li, role: "presentation", class: @filters[:track].blank? ? 'active' : nil
-            = link_to management_conference_events_path(current_conference, filters: @filters.except(:track))
+          = content_tag :li, role: "presentation", class: @filters[:track_id].blank? ? 'active' : nil
+            = link_to management_conference_events_path(current_conference, filters: @filters.except(:track_id))
               = t '.all'
           - current_conference.tracks.each do |track|
-            = content_tag :li, role: "presentation", class: @filters[:track] == track.id.to_s ? 'active' : nil
-              = link_to management_conference_events_path(current_conference, filters: @filters.merge({track: track.id}))
+            = content_tag :li, role: "presentation", class: @filters[:track_id] == track.id.to_s ? 'active' : nil
+              = link_to management_conference_events_path(current_conference, filters: @filters.merge({track_id: track.id}))
                 = track.name
     .panel.panel-default
       .panel-heading
