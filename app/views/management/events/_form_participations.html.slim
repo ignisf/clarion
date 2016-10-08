@@ -14,7 +14,7 @@
   .panel.panel-default
     .panel-heading
       .panel-title
-        = t 'actions.new.title_f', model: Participation.model_name.human
+        = t 'actions.new.title_c', model: Participation.model_name.human.mb_chars.downcase
     .panel-body
       .form-group.text-center
         = form.link_to_add t('actions.create.button', model: Participation.model_name.human), :participations, data: {target: '#participations'}, class: 'btn btn-success'

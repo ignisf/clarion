@@ -46,6 +46,7 @@ bg:
     new:
       title_f: "Нова %{model}"
       title_m: "Нов %{model}"
+      title_c: "Ново %{model}"
     view:
       button: "Прегледай %{model}"
       title: "Преглед на %{model}"
