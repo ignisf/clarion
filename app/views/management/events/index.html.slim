@@ -1,15 +1,5 @@
 - content_for :title
   = Event.model_name.human(count: 2).mb_chars.capitalize
-/.row
-/  ul.nav.nav-tabs
-/    = content_tag :li, role: "presentation", class: params[:event_type_id].blank? ? 'active' : nil
-/      = link_to management_conference_events_path(current_conference)
-/        = t '.all'
-/    - current_conference.event_types.each do |event_type|
-/      = content_tag :li, role: "presentation", class: params[:event_type_id].to_i == event_type.id ? 'active' : nil
-/        = link_to management_conference_events_path(current_conference, event_type_id: event_type.id)
-/          = event_type.name
-/
 
 .row
   .col-lg-12
