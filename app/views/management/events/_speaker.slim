@@ -43,30 +43,31 @@
             = t('.no_profile')
             =< link_to icon(:plus, t('.create_profile')), new_management_conference_personal_profile_path(conference_id: @conference.id, user_id: speaker.id), class: ['btn', 'btn-primary', 'btn-xs']
 
-        h4 = t '.previous_event_propositions'
-        table.table.table-striped.table-hover.record-table
-          thead
-            tr
-              th
-                = Event.human_attribute_name :title
-              th
-                = Event.human_attribute_name :conference
-              th
-                = Event.human_attribute_name :status
-              th
-
-          tbody
-            - speaker.events_participated_in.each do |event|
+        - if speaker.events_participated_in.where.not(id: @event.id).any?
+          h4 = t '.previous_event_propositions'
+          table.table.table-striped.table-hover.record-table
+            thead
               tr
-                td = event.title
-                td = event.conference.title
-                td
-                  span class="label label-lg label-#{proposition_status_class(@event.status)}"
-                    = icon(proposition_status_glyph(@event.status), t("activerecord.attributes.proposition.statuses.#{@event.status}"))
+                th
+                  = Event.human_attribute_name :title
+                th
+                  = Event.human_attribute_name :conference
+                th
+                  = Event.human_attribute_name :status
+                th
 
-                td.actions
-                  .btn-group.btn-group-sm
-                    = action_buttons event.conference, event, [:show]
+            tbody
+              - speaker.events_participated_in.where.not(id: @event.id).order(created_at: :desc).each do |event|
+                tr
+                  td = event.title
+                  td = event.conference.title
+                  td
+                    span class="label label-lg label-#{proposition_status_class(event.status)}"
+                      = icon(proposition_status_glyph(event.status), t("activerecord.attributes.proposition.statuses.#{@event.status}"))
+
+                  td.actions
+                    .btn-group.btn-group-sm
+                      = action_buttons event.conference, event, [:show]
 
 
   - if personal_profile.present?
