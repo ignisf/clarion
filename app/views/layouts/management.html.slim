@@ -8,6 +8,9 @@ html
     title
       - if content_for? :title
         => content_for :title
+        - if current_conference.present?
+          | |
+          =<> current_conference.title
         | | Clarion
       - else
         | Clarion
