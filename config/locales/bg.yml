@@ -5,6 +5,8 @@ bg:
         summary: 'Обобщение'
         cfp_status: 'Състояние на CFP:'
     events:
+      edit:
+        edit: "Редакция на %{event_type} „%{event_title}“"
       speaker:
         no_profile: 'Този потребител няма въведени профили в системата.'
         profile_from: "профил от %{conference}"
