@@ -8,7 +8,7 @@
             = ff.link_to_remove icon(:remove), class: ['btn', 'btn-danger', 'btn-xs', 'pull-right']
           span.clearfix
         .panel-body
-          = ff.association :participant, label_method: :email
+          = ff.association :participant, collection: User.unscoped.order(email: :asc), label_method: :email
           = ff.input :approved, default: true
 .col-lg-6
   .panel.panel-default
