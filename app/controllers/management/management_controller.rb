@@ -1,3 +1,4 @@
+require 'csv'
 module Management
   class ManagementController < ::ApplicationController
     before_action :authenticate_user!, :authorize_user!

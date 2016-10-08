@@ -1,0 +1,5 @@
+<%- csv_headers = %w{id title subtitle type track language paticipants status} -%>
+<%= CSV.generate_line(csv_headers).html_safe -%>
+<%- @events.each do |event| -%>
+  <%= CSV.generate_line([event.id, event.title, event.subtitle, event.event_type.name, event.track.name, event.language, participant_names_or_emails(event).join(', '), event.status]).html_safe -%>
+<%- end -%>
