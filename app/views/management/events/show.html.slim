@@ -6,7 +6,7 @@
   h4
     = t 'events.metadata', type: @event.event_type.name, language: t("locales.#{@event.language}").mb_chars.downcase, length: @event.length
     .pull-right.heading-actions
-      .dropdown
+      .dropdown>
         button class="btn btn-sm dropdown-toggle btn-#{proposition_status_class(@event.status)}" type="button" data-toggle="dropdown" title="#{t "status.#{@event.status}"}"
           = icon(proposition_status_glyph(@event.status))
           span.caret<

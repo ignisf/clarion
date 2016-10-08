@@ -27,12 +27,6 @@ module ApplicationHelper
     icon(proposition_status_glyph(status))
   end
 
-  def proposition_status(record)
-    klass = record.class
-    output = ''
-
-  end
-
   def action_buttons(conference, record, actions = [:index, :show, :edit, :destroy])
     klass = record.class
     output = ''
@@ -54,7 +48,7 @@ module ApplicationHelper
     if actions.include? :edit
     output += link_to(icon(:edit), [:edit, :management, conference, record], {
       title: t('actions.edit.button', model: klass.model_name.human),
-      class: 'btn btn-primary'
+      class: 'btn btn-warning'
     })
     end
 
