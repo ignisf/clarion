@@ -1,0 +1,20 @@
+#participations
+  = form.simple_fields_for :participations do |ff|
+    .col-lg-6
+      .panel.panel-default
+        .panel-heading
+          .panel-title
+            = Participation.model_name.human.mb_chars.capitalize
+            = ff.link_to_remove icon(:remove), class: ['btn', 'btn-danger', 'btn-xs', 'pull-right']
+          span.clearfix
+        .panel-body
+          = ff.association :participant, label_method: :email
+          = ff.input :approved, default: true
+.col-lg-6
+  .panel.panel-default
+    .panel-heading
+      .panel-title
+        = t 'actions.new.title_f', model: Participation.model_name.human
+    .panel-body
+      .form-group.text-center
+        = form.link_to_add t('actions.create.button', model: Participation.model_name.human), :participations, data: {target: '#participations'}, class: 'btn btn-success'
