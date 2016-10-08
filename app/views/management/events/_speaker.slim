@@ -63,7 +63,7 @@
                   td = event.conference.title
                   td
                     span class="label label-lg label-#{proposition_status_class(event.status)}"
-                      = icon(proposition_status_glyph(event.status), t("activerecord.attributes.proposition.statuses.#{@event.status}"))
+                      = icon(proposition_status_glyph(event.status), t("activerecord.attributes.proposition.statuses.#{event.status}"))
 
                   td.actions
                     .btn-group.btn-group-sm
