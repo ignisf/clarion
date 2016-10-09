@@ -22,7 +22,7 @@
         tbody
           - @users.each do |user|
             - profile = user.personal_profile(@conference)
-            tr
+            = content_tag :tr, class: profile.present? ? nil : 'warning'
               td
                 .media
                   .media-left

@@ -2,7 +2,7 @@ bg:
   management:
     personal_profiles:
       index:
-        no_profile: 'Този потребител няма въведени профили в системата.'
+        no_profile: 'Този потребител няма въведен профил за текущата конференция.'
         total: "%{current} от общо %{total}"
     conferences:
       show:
