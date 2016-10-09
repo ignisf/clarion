@@ -50,6 +50,9 @@
                   - if profile.present?
                     = action_buttons(@conference, profile, [:show, :edit, :destroy])
                   - else
+                    - if user.personal_profiles.any?
+                      = link_to [:management, @conference, :personal_profiles, {personal_profile: {user_id: user.id}}], class: ['btn', 'btn-primary'], title: t('actions.clone.title', model: PersonalProfile.model_name.human), method: :post do
+                        => icon('clone')
                     = link_to [:new, :management, @conference, :personal_profile, {user_id: user.id}], class: ['btn', 'btn-primary'], title: t('actions.create.title', model: PersonalProfile.model_name.human) do
                       => icon('user-plus')
       .panel-footer.text-right

@@ -39,6 +39,9 @@ bg:
         update: "Обнови кандидатурата"
   actions:
     are_you_sure: "Сигурен ли си?"
+    clone:
+      button: "Клонирай %{model}"
+      title: "Клониране на съществуващ %{model}"
     create:
       button: "Създай %{model}"
       title: "Създаване на %{model}"
