@@ -55,5 +55,5 @@
                 div.btn-group.btn-group-sm
                   = action_buttons(current_conference, volunteer, [:show, :edit])
       .panel-footer.text-right
-        = link_to management_conference_volunteers_path(current_conference, format: 'csv'), class: 'btn btn-info'
+        = link_to management_conference_volunteers_path(current_conference, format: 'csv', filters: @filters), class: 'btn btn-info'
           = icon :download, t('.export')
