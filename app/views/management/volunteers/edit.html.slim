@@ -1,0 +1,12 @@
+- content_for :title
+  => t 'actions.edit.title', model: Volunteer.model_name.human
+  = @volunteer.name
+
+.row
+  .col-xs-12
+    h1.page-header
+      = @volunteer.name
+
+.row
+  .col-lg-12
+    = render 'form'

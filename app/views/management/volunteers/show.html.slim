@@ -1,0 +1,50 @@
+- content_for :title
+  = @volunteer.name
+
+.row
+  .col-lg-12
+    h1.page-header
+      = Volunteer.model_name.human.mb_chars.titleize
+
+.panel.panel-default
+  .panel-body
+    .media
+      .media-left.hidden-sm.hidden-xs
+        - if @volunteer.picture.present?
+          = attachment_image_tag(@volunteer, :picture, :fill, 150, 150)
+        - else
+          = image_tag(PictureUploader.new.medium.url)
+
+      .media-body
+        .text-center.visible-sm.visible-xs
+          - if @volunteer.picture.present?
+            = attachment_image_tag(@volunteer, :picture, :fill, 150, 150)
+          - else
+            = image_tag(PictureUploader.new.medium.url)
+        h4.media-heading
+          = @volunteer.name
+          hr
+        h4 = Volunteer.human_attribute_name(:volunteer_teams)
+        = @volunteer.volunteer_teams.map(&:name).join(', ')
+        - if @volunteer.previous_experience.present?
+          h4 = Volunteer.human_attribute_name(:previous_experience)
+          = simple_format @volunteer.previous_experience
+        - if @volunteer.notes.present?
+          h4 = Volunteer.human_attribute_name(:notes)
+          = simple_format @volunteer.notes
+        h4 = t '.other_info'
+        = icon(:language, t("locales.#{@volunteer.language}"))
+        br
+        = icon(:envelope, @volunteer.email)
+        br
+        = icon(:phone, @volunteer.phone.try(:phony_formatted, format: :international))
+        br
+        | 👕
+        =< t("simple_form.options.volunteer.tshirt_cut.#{@volunteer.tshirt_cut}")
+        =< t("simple_form.options.volunteer.tshirt_size.#{@volunteer.tshirt_size}")
+        br
+        = icon(:cutlery, t("simple_form.options.volunteer.food_preferences.#{@volunteer.food_preferences}"))
+  .panel-footer
+    .text-right
+      .btn-group.btn-group-sm
+        = action_buttons current_conference, @volunteer, [:edit, :destroy]

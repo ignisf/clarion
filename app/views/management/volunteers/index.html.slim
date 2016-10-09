@@ -1,0 +1,58 @@
+- content_for :title
+  = Conference.human_attribute_name(:volunteers).mb_chars.capitalize
+
+.row
+  .col-lg-12
+    h1.page-header
+      = Volunteer.model_name.human(count: 2).mb_chars.capitalize
+      small<
+        | (
+        = t '.total', current: @volunteers.count, total: current_conference.volunteers.count
+        =< Volunteer.model_name.human(count: current_conference.volunteers.count).mb_chars.downcase
+        | )
+
+.row
+  .col-md-2.collapse#filters
+    .panel.panel-default
+      .panel-heading
+        = VolunteerTeam.model_name.human.mb_chars.capitalize
+      .panel-body
+        ul.nav.nav-pills.nav-stacked
+          = content_tag :li, role: "presentation", class: @filters[:volunteer_team_id].blank? ? 'active' : nil
+            = link_to management_conference_volunteers_path(current_conference, filters: @filters.except(:volunteer_team_id))
+              = t '.all'
+          - current_conference.volunteer_teams.each do |volunteer_team|
+            = content_tag :li, role: "presentation", class: @filters[:volunteer_team_id] == volunteer_team.id.to_s ? 'active' : nil
+              = link_to management_conference_volunteers_path(current_conference, filters: @filters.merge({volunteer_team_id: volunteer_team.id}))
+                = volunteer_team.name
+  .col-md-10
+    .panel.panel-default
+      table.table.table-striped.table-hover.record-table#conferences
+        thead
+          tr
+            th = t '.profile'
+            th = Volunteer.human_attribute_name :volunteer_teams
+            th.actions
+        tbody
+          - @volunteers.each do |volunteer|
+            tr
+              td
+                .media
+                  .media-left
+                    - if volunteer.picture.present?
+                      = attachment_image_tag(volunteer, :picture, :fill, 50, 50)
+                    - else
+                      = image_tag(PictureUploader.new.thumb.url)
+                  .media-body
+                    h4.media-heading
+                      = volunteer.name
+                    p
+                      = icon(:envelope, volunteer.email)
+              td
+                = volunteer.volunteer_teams.map(&:name).join(', ')
+              td.actions
+                div.btn-group.btn-group-sm
+                  = action_buttons(current_conference, volunteer, [:show, :edit])
+      .panel-footer.text-right
+        = link_to management_conference_volunteers_path(current_conference, format: 'csv'), class: 'btn btn-info'
+          = icon :download, t('.export')
