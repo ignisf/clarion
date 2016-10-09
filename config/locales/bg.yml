@@ -4,6 +4,8 @@ bg:
       index:
         no_profile: 'Този потребител няма въведен профил за текущата конференция.'
         total: "%{current} от общо %{total}"
+      create:
+        successfully_created: "Профилът беше създаден успешно."
     conferences:
       show:
         summary: 'Обобщение'

@@ -26,18 +26,18 @@ module Management
 
     def new
       @conference = find_conference
-      @profile = @conference.participant_profiles.
-        build(user_id: params[:user_id])
+      @user = User.find params[:user_id]
+      @profile = @user.build_personal_profile(@conference)
     end
 
     def create
       @conference = find_conference
-      @profile = PersonalProfile.new(profile_params)
-      @profile.conference = @conference
+      @user = User.find(profile_params[:user_id])
+      @profile = @user.build_personal_profile(@conference, profile_params)
 
       if @profile.save
-        flash[:notice] = 'Profile was successfully created.'
-        redirect_to action: :index
+        flash[:notice] = t('.successfully_created')
+        redirect_to management_conference_personal_profile_path(@profile, conference_id: @conference.id)
       else
         render action: :new
       end
