@@ -1,5 +1,9 @@
 bg:
   management:
+    personal_profiles:
+      index:
+        no_profile: 'Този потребител няма въведени профили в системата.'
+        total: "%{current} от общо %{total}"
     conferences:
       show:
         summary: 'Обобщение'
@@ -64,6 +68,7 @@ bg:
           rejected: Отхвърлено
           backup: Резерва
       conference:
+        participants: "Участници"
         description: "Описание"
         email: E-mail
         end_date: "Крайна дата"

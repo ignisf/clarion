@@ -1,0 +1,18 @@
+<%- csv_headers = %w{id private_email public_email first_name last_name organisation picture mobile_phone biography github twitter language} -%>
+<%= CSV.generate_line(csv_headers).html_safe -%>
+<%- @users.each do |user| -%>
+  <%- profile = user.personal_profile(@conference) -%>
+  <%= CSV.generate_line([user.id,
+                         user.email,
+                         profile.try(:public_email),
+                         profile.try(:first_name),
+                         profile.try(:last_name),
+                         profile.try(:organisation),
+                         profile.try(:picture).try(:thumb).try(:url),
+                         profile.try(:mobile_phone),
+                         profile.try(:biography),
+                         profile.try(:github),
+                         profile.try(:twitter),
+                         user.language
+  ]).html_safe -%>
+<%- end -%>

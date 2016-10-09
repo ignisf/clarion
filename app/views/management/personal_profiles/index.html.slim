@@ -1,41 +1,57 @@
+- content_for :title
+  = Conference.human_attribute_name(:participants).mb_chars.capitalize
+
+.row
+  .col-lg-12
+    h1.page-header
+      = Conference.human_attribute_name(:participants).mb_chars.capitalize
+      small<
+        | (
+        = t '.total', current: @users.count, total: current_conference.participants.count
+        =< User.model_name.human(count: current_conference.participants.count).mb_chars.downcase
+        | )
+
 .row
   .col-lg-12
     .panel.panel-default
-      .panel-heading
-        h2.panel-title= User.model_name.human(count: 2).mb_chars.capitalize
-      .panel-body
-        table.table.table-striped.table-hover.record-table#conferences
-          thead
+      table.table.table-striped.table-hover.record-table#profiles
+        thead
+          tr
+            th = PersonalProfile.model_name.human
+            th.actions
+        tbody
+          - @users.each do |user|
+            - profile = user.personal_profile(@conference)
             tr
-              th = User.human_attribute_name :picture
-              th = User.human_attribute_name :title
-              th = User.human_attribute_name :admin
-              th.actions
-          tbody
-            - @users.each do |user|
-              - profile = user.personal_profile(@conference)
+              td
+                .media
+                  .media-left
+                    - if profile.present?
+                      = image_tag(profile.picture.thumb.url)
+                    - else
+                      = image_tag(PictureUploader.new.thumb.url)
 
-              - if profile.present?
-                tr
-                  td= image_tag(profile.picture.thumb.url)
-                  td= profile.name
-                  td.boolean-col
-                    = link_to [:toggle_admin, :management, @conference, profile], method: :put do
-                      - if user.admin?
-                        .btn.btn-primary= icon('circle-o')
+                  .media-body
+                    h4.media-heading
+                      - if profile.try(:name).present?
+                        = profile.name
                       - else
-                        .btn.btn-success= icon('dot-circle-o')
-
-                  td.actions
-                    div.btn-group.btn-group-sm
-                      = action_buttons(@conference, profile, [:show, :edit, :destroy])
-
-              - else
-                tr
-                  td= image_tag(PictureUploader.new.thumb.url)
-                  td= user.email
-                  td
-                  td.actions
-                    div.btn-group.btn-group-sm
-                      = link_to [:new, :management, @conference, :personal_profile, {user_id: user.id}] do
-                        => t('actions.create.title', model: User.model_name.human)
+                        = user.email
+                    p
+                      - if profile.present?
+                        - if profile.public_email.present?
+                          = icon :envelope, "#{profile.public_email} (#{PersonalProfile.human_attribute_name(:public_email).mb_chars.downcase})"
+                          br
+                        = icon :envelope, "#{user.email} (#{User.human_attribute_name(:email).mb_chars.downcase})"
+                      - else
+                        = t '.no_profile'
+              td.actions
+                div.btn-group.btn-group-sm
+                  - if profile.present?
+                    = action_buttons(@conference, profile, [:show, :edit, :destroy])
+                  - else
+                    = link_to [:new, :management, @conference, :personal_profile, {user_id: user.id}], class: ['btn', 'btn-primary'], title: t('actions.create.title', model: PersonalProfile.model_name.human) do
+                      => icon('user-plus')
+      .panel-footer.text-right
+        = link_to management_conference_personal_profiles_path(current_conference, format: 'csv'), class: 'btn btn-info'
+          = icon :download, t('.export')

@@ -2,9 +2,7 @@ module Management
   class PersonalProfilesController < ManagementController
     def index
       @conference = find_conference
-
-      # TODO @conference.participants
-      @users = User.all
+      @users = current_conference.participants
     end
 
     def toggle_admin
