@@ -6,6 +6,9 @@ bg:
         total: "%{current} от общо %{total}"
       create:
         successfully_created: "Профилът беше създаден успешно."
+      show:
+        contacts: "Данни за контакт"
+        event_propositions: "Предложения за събития"
     conferences:
       show:
         summary: 'Обобщение'

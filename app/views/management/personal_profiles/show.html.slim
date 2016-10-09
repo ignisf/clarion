@@ -2,38 +2,62 @@
   = @profile.name
 
 .row
-  .speaker-profile
-    .panel.panel-default
-      .panel-heading
-        h1.panel-title
-          = @profile.name
-          = link_to icon(:edit), [:edit, :management, @conference, @profile], class: 'btn btn-xs btn-danger pull-right'
-      .panel-body
-        .center
+  .col-lg-12
+    h1.page-header
+      = PersonalProfile.model_name.human.mb_chars.capitalize
+
+.panel.panel-default
+  .panel-body
+    .media
+      .media-left.hidden-sm.hidden-xs
           = image_tag @profile.picture.medium.url, class: "profile-image"
-          - if @profile.organisation.present?
-            div
-              => icon :briefcase
-              = @profile.organisation
-          div.social
-            = link_to "mailto://#{@user.email}"
-              = icon :envelope
-            - if @profile.github.present?
-              = link_to "https://github.com/#{@profile.github}"
-                = icon :github
-            - if @profile.twitter.present?
-              = link_to "https://twitter.com/#{@profile.twitter}"
-                = icon :twitter
-
-        hr
-
+      .media-body
+        .text-center.visible-sm.visible-xs
+          = image_tag @profile.picture.medium.url, class: "profile-image img-thumbnail"
+        h4.media-heading
+          = @profile.name
+          hr
         h4 = PersonalProfile.human_attribute_name(:biography)
         = simple_format @profile.biography
-
-        h4 = t :contacts
+        h4 = t '.contacts'
+        - if @profile.organisation.present?
+          p = icon :briefcase, @profile.organisation
         - if @profile.twitter.present?
-          p #{icon :twitter} @#{@profile.twitter}
+          p = icon :twitter, "@#{@profile.twitter}"
+        - if @profile.github.present?
+          p = icon :github, @profile.github
         - if @profile.public_email.present?
-          p #{icon :envelope} #{@profile.public_email} (#{t(:public)})
-        p #{icon :envelope} #{@user.email} (#{t(:private)})
-        p #{glyph :phone} #{Phony.format(@profile.mobile_phone, format: :international)}
+          p = icon :envelope, "#{@profile.public_email} (#{PersonalProfile.human_attribute_name(:public_email).mb_chars.downcase})"
+        p = icon :envelope, "#{@user.email} (#{User.human_attribute_name(:email).mb_chars.downcase})"
+
+        - if @user.events_participated_in.any?
+          h4 = t '.event_propositions'
+          table.table.table-striped.table-hover.record-table
+            thead
+              tr
+                th
+                  = Event.human_attribute_name :title
+                th
+                  = Event.human_attribute_name :conference
+                th
+                  = Event.human_attribute_name :status
+                th
+
+            tbody
+              - @user.events_participated_in.order(created_at: :desc).each do |event|
+                tr
+                  td = event.title
+                  td = event.conference.title
+                  td
+                    span class="label label-lg label-#{proposition_status_class(event.status)}"
+                      = icon(proposition_status_glyph(event.status), t("activerecord.attributes.proposition.statuses.#{event.status}"))
+
+                  td.actions
+                    .btn-group.btn-group-sm
+                      = action_buttons event.conference, event, [:show]
+
+
+  .panel-footer
+    .text-right
+      .btn-group.btn-group-sm
+        = action_buttons @conference, @profile, [:edit, :destroy]

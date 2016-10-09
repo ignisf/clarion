@@ -41,7 +41,7 @@
           hr
           p
             = t('.no_profile')
-            =< link_to icon(:plus, t('.create_profile')), new_management_conference_personal_profile_path(conference_id: @conference.id, user_id: speaker.id), class: ['btn', 'btn-primary', 'btn-xs']
+            =< link_to icon('user-plus', t('.create_profile')), new_management_conference_personal_profile_path(conference_id: @conference.id, user_id: speaker.id), class: ['btn', 'btn-primary', 'btn-xs']
 
         - if speaker.events_participated_in.where.not(id: @event.id).any?
           h4 = t '.previous_event_propositions'
@@ -74,4 +74,10 @@
     .panel-footer
       .text-right
         .btn-group.btn-group-sm
-          = action_buttons @conference, personal_profile, [:show, :edit]
+          - if personal_profile.conference == @conference
+            = action_buttons @conference, personal_profile, [:show, :edit]
+          - else
+            = link_to [:management, @conference, :personal_profiles, {personal_profile: {user_id: speaker.id}}], class: ['btn', 'btn-primary'], title: t('actions.clone.title', model: PersonalProfile.model_name.human), method: :post do
+              => icon('clone')
+            = link_to [:new, :management, @conference, :personal_profile, {user_id: speaker.id}], class: ['btn', 'btn-primary'], title: t('actions.create.title', model: PersonalProfile.model_name.human) do
+              => icon('user-plus')
