@@ -1,7 +1,6 @@
 class VolunteerTeam < ActiveRecord::Base
   belongs_to :conference
-  has_many :volunteerships
-  has_many :volunteers, through: :volunteerships
+  has_and_belongs_to_many :volunteers
 
   validates :name, presence: true
   validates :color, presence: true, format: {with: /\A#?[a-f0-9]{6}\z/i}
