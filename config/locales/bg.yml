@@ -17,6 +17,7 @@ bg:
         review: "Преглед на %{event_type} „%{event_title}“"
       index:
         all: "Всички"
+        total: "%{current} от общо %{total}"
       event:
         create_profile: "Създай профил"
       no_records:

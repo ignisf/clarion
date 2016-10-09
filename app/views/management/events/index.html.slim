@@ -5,6 +5,11 @@
   .col-lg-12
     h1.page-header
       = Event.model_name.human(count: 2).mb_chars.titleize
+      small<
+        | (
+        = t '.total', current: @events.count, total: current_conference.events.count
+        =< Event.model_name.human(count: current_conference.events.count)
+        | )
 .row.visible-sm
   .col-xs-12
     = link_to t('.filters'), '#filters', aria_expanded: true, aria_controls: 'filters', data: {toggle: 'collapse'}, role: 'button', class: 'btn btn-info'
