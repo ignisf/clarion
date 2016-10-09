@@ -11,7 +11,7 @@
         | )
 
 .row
-  .col-md-2.collapse#filters
+  .col-md-3.collapse#filters
     .panel.panel-default
       .panel-heading
         = VolunteerTeam.model_name.human.mb_chars.capitalize
@@ -24,7 +24,8 @@
             = content_tag :li, role: "presentation", class: @filters[:volunteer_team_id] == volunteer_team.id.to_s ? 'active' : nil
               = link_to management_conference_volunteers_path(current_conference, filters: @filters.merge({volunteer_team_id: volunteer_team.id}))
                 = volunteer_team.name
-  .col-md-10
+                span.badge.pull-right = volunteer_team.volunteers.count
+  .col-md-9
     .panel.panel-default
       table.table.table-striped.table-hover.record-table#conferences
         thead
