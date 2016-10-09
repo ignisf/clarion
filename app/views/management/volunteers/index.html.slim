@@ -20,6 +20,7 @@
           = content_tag :li, role: "presentation", class: @filters[:volunteer_team_id].blank? ? 'active' : nil
             = link_to management_conference_volunteers_path(current_conference, filters: @filters.except(:volunteer_team_id))
               = t '.all'
+              span.badge.pull-right = current_conference.volunteers.count
           - current_conference.volunteer_teams.each do |volunteer_team|
             = content_tag :li, role: "presentation", class: @filters[:volunteer_team_id] == volunteer_team.id.to_s ? 'active' : nil
               = link_to management_conference_volunteers_path(current_conference, filters: @filters.merge({volunteer_team_id: volunteer_team.id}))

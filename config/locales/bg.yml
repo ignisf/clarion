@@ -2,6 +2,7 @@ bg:
   management:
     volunteers:
       index:
+        all: Всички
         profile: Профил
         total: "%{current} от общо %{total}"
     personal_profiles:
