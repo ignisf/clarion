@@ -14,11 +14,14 @@ module EventsHelper
     end.join(', ').html_safe
   end
 
-  def participant_names_or_emails(event)
+  def participant_names_with_emails(event)
     event.participants.map do |participant|
-      participant.try(:personal_profile, current_conference).try(:name) ||
-        participant.personal_profiles.last.try(:name) ||
+      if participant.personal_profile(event.conference).present?
+        profile = participant.personal_profile(event.conference)
+        "#{profile.name} <#{participant.email}>"
+      else
         participant.email
+      end
     end
   end
 end
