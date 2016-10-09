@@ -17,7 +17,7 @@ class Conference < ActiveRecord::Base
   has_many :volunteer_teams
   has_many :volunteers
   has_one :call_for_participation, dependent: :destroy
-  has_many :participants, class_name: 'User', through: :events
+  has_many :participants, -> { uniq }, class_name: 'User', through: :events
   has_many :participant_profiles, class_name: 'PersonalProfile'
   has_many :slots, through: :halls
 
