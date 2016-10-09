@@ -1,6 +1,5 @@
 - content_for :title
-  = Conference.human_attribute_name(:volunteers).mb_chars.capitalize
-
+  = Volunteer.model_name.human(count: 2).mb_chars.capitalize
 .row
   .col-lg-12
     h1.page-header

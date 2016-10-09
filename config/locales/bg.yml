@@ -1,5 +1,9 @@
 bg:
   management:
+    volunteers:
+      index:
+        profile: Профил
+        total: "%{current} от общо %{total}"
     personal_profiles:
       index:
         no_profile: 'Този потребител няма въведен профил за текущата конференция.'
