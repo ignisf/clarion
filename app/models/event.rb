@@ -60,6 +60,14 @@ class Event < ActiveRecord::Base
     }
   end
 
+  def per_cent_of_votes
+    if conference.has_vote_results? and conference.number_of_ballots_cast > 0
+      Rational(number_of_votes * 100, conference.number_of_ballots_cast)
+    else
+      Float::NAN
+    end
+  end
+
   private
 
   def track_belongs_to_the_selected_conference

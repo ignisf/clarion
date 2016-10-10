@@ -36,6 +36,14 @@ class Conference < ActiveRecord::Base
     submissions.group_by { |s| s.confirmed_at.to_date }
   end
 
+  def update_vote_data!
+    ConferenceVoteSummary.new(conference: self).save
+  end
+
+  def has_vote_results?
+    vote_data_updated_at.present?
+  end
+
   private
 
   def planned_cfp_end_date_is_before_start_date
@@ -47,6 +55,52 @@ class Conference < ActiveRecord::Base
   def start_date_is_before_end_date
     if start_date.present? and end_date.present? and start_date > end_date
       errors.add(:end_date, :cannot_be_before_start_date)
+    end
+  end
+
+  class ConferenceVoteSummary
+    include ActiveModel::Model
+
+    attr_accessor :conference
+
+    def number_of_ballots
+      @number_of_ballots ||= remote_summary_data['number_of_ballots']
+    end
+
+    def ranking
+      @ranking ||= remote_summary_data['ranking'].map { |ranking_entry| EventRanking.new ranking_entry }
+    end
+
+    def save
+      conference.transaction do
+        conference.update number_of_ballots_cast: number_of_ballots
+        ranking.all?(&:save) or raise ActiveRecord::Rollback
+        conference.touch :vote_data_updated_at
+        conference.save or raise ActiveRecord::Rollback
+      end
+    end
+
+    private
+
+    def conn
+      @conn ||= Faraday.new(url: conference.vote_data_endpoint + '/summary.json',
+                                  headers: {'Content-Type' => 'application/json'})
+    end
+
+    def remote_summary_data
+      @remote_summary_data ||= JSON.parse(conn.get do |request|
+                                            request.body = {summary: {talk_ids: Conference.last.events.pluck(:id)}}.to_json
+                                          end.body)
+    end
+
+    class EventRanking
+      include ActiveModel::Model
+
+      attr_accessor :talk_id, :votes, :place
+
+      def save
+        Event.find(talk_id).update(number_of_votes: votes, rank: place)
+      end
     end
   end
 end

@@ -54,7 +54,7 @@ gem 'jbuilder'
 
 gem 'search_object'
 
-gem 'her'
+gem 'faraday'
 
 group :development do
   gem 'spring'

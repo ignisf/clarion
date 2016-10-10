@@ -33,6 +33,11 @@ Rails.application.routes.draw do
     root to: 'conferences#index'
 
     resources :conferences do
+      member do
+        patch :update_vote_data
+        get :vote_results
+      end
+
       resources :events
       resources :volunteers
       resources :propositions

@@ -44,6 +44,26 @@ module Management
       redirect_to management_root_path(current_conference: nil)
     end
 
+    def update_vote_data
+      @conference = find_conference
+
+      begin
+        if @conference.update_vote_data!
+          flash[:notice] = t '.vote_data_successfully_updated'
+        else
+          flash[:alert] = t '.error_during_vote_data_save'
+        end
+      rescue StandardError => e
+        flash[:alert] = t '.error_during_connection_with_voting_endpoint', error: e.message
+      end
+
+      redirect_to :back
+    end
+
+    def vote_results
+      @conference = find_conference
+    end
+
     private
 
     def find_conference
@@ -52,7 +72,8 @@ module Management
 
     def conference_params
       params.require(:conference).permit(
-        :title, :email, :start_date, :end_date, :description, :host_name, :planned_cfp_end_date,
+        :title, :email, :start_date, :end_date, :description, :host_name,
+        :planned_cfp_end_date, :vote_data_endpoint,
         event_types_attributes: [:id, :name, :description, :maximum_length,
                                  :minimum_length, :_destroy],
         tracks_attributes: [:id, :name, :color, :css_class, :description,

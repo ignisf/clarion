@@ -150,11 +150,6 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
-    her (0.8.2)
-      activemodel (>= 3.0.0, <= 6.0.0)
-      activesupport (>= 3.0.0, <= 6.0.0)
-      faraday (>= 0.8, < 1.0)
-      multi_json (~> 1.7)
     highline (1.7.8)
     hirb (0.7.3)
     http-cookie (1.0.3)
@@ -404,10 +399,10 @@ DEPENDENCIES
   devise-i18n
   factory_girl_rails
   faker
+  faraday
   font-awesome-sass
   globalize
   guard-rspec
-  her
   hirb
   i18n-tasks
   jbuilder

@@ -1,0 +1,51 @@
+- content_for :title
+  = t '.vote_results'
+
+.row
+  .col-lg-12
+    h1.page-header
+      = t '.vote_results'
+      - if @conference.vote_data_updated_at.present?
+        small<
+          = t '.vote_data_updated_at', updated_at: l(@conference.vote_data_updated_at, format: :long)
+- if @conference.vote_data_endpoint.present?
+  .row
+    .col-lg-12
+      .panel.panel-default
+        table.table.table-striped.table-hover.record-table
+          - if @conference.vote_data_updated_at.present?
+            thead
+              tr
+                th.text-right = t('.rank')
+                th.text-right = t('.percent')
+                th = Event.model_name.human.mb_chars.capitalize
+                th
+          tbody
+            - if @conference.vote_data_updated_at.present?
+              - current_conference.events.order(rank: :asc).group_by(&:rank).each do |rank, events|
+                - events.each.with_index do |event, index|
+                  tr
+                    - if index == 0
+                      td.text-right rowspan="#{events.count}"
+                        .large
+                          span.label.label-info = event.rank
+                      td.text-right rowspan="#{events.count}"
+                        span title="#{t('.vote_ratio', votes: event.number_of_votes, total_votes: @conference.number_of_ballots_cast)}"
+                          = number_to_percentage(event.per_cent_of_votes, strip_insignificant_zeros: true, precision: 2)
+                    td = event.title
+                    td.actions = action_buttons(@conference, event, [:show])
+            - else
+              tr
+                td.text-center colspan="20"
+                  p.large
+                    = t '.vote_data_never_updated'
+                  p
+                    =< link_to update_vote_data_management_conference_path, method: :patch, class: ['btn', 'btn-primary'] do
+                      = icon :refresh, t('.fetch_vote_results')
+        - if @conference.vote_data_updated_at.present?
+          .panel-footer.text-right
+            .btn-group
+              = link_to management_conference_path, class: ['btn', 'btn-info'] do
+                = icon :users, t('.back_to', conference: @conference.title)
+              = link_to update_vote_data_management_conference_path, method: :patch, class: ['btn', 'btn-primary'] do
+                = icon :refresh, t('.fetch_vote_results')

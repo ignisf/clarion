@@ -15,9 +15,31 @@ bg:
         contacts: "Данни за контакт"
         event_propositions: "Предложения за събития"
     conferences:
+      update_vote_data:
+        vote_data_successfully_updated: "Резултатите от гласуването бяха обновени успешно"
+        error_during_vote_data_save: "Възникна грешка при запазването на резултатите от гласуването"
+        error_during_connection_with_voting_endpoint: "Възникна грешка при опит за изтегляне на резултатите от гласуването: %{error}"
+      vote_results:
+        back_to: "Обратно към %{conference}"
+        vote_results: "Резултати от гласуването"
+        vote_data_never_updated: "Резулатите от гласуването не са изтеглени"
+        voting_results: "Резултати от гласуването"
+        vote_data_updated_at: "последно обновяване %{updated_at}"
+        vote_ratio: "%{votes} от общо %{total_votes} гласа"
+        fetch_vote_results: "Изтегли резултатите от гласуването"
+        percent: "%"
+        rank: "Позиция"
       show:
+        full_vote_results: "Пълни резултати от гласуването"
+        vote_data_never_updated: "Резулатите от гласуването не са изтеглени"
+        voting_results: "Резултати от гласуването"
+        vote_data_updated_at: "последно обновяване %{updated_at}"
+        vote_ratio: "%{votes} от общо %{total_votes} гласа"
         summary: 'Обобщение'
         cfp_status: 'Състояние на CFP:'
+        fetch_vote_results: "Изтегли резултатите от гласуването"
+        percent: "%"
+        rank: "Позиция"
     events:
       edit:
         edit: "Редакция на %{event_type} „%{event_title}“"
