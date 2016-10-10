@@ -44,6 +44,10 @@ class Conference < ActiveRecord::Base
     vote_data_updated_at.present?
   end
 
+  def has_voting_endpoint?
+    vote_data_endpoint.present?
+  end
+
   private
 
   def planned_cfp_end_date_is_before_start_date
@@ -82,13 +86,13 @@ class Conference < ActiveRecord::Base
 
     private
 
-    def conn
-      @conn ||= Faraday.new(url: conference.vote_data_endpoint + '/summary.json',
+    def connection
+      @connection ||= Faraday.new(url: conference.vote_data_endpoint + '/summary.json',
                                   headers: {'Content-Type' => 'application/json'})
     end
 
     def remote_summary_data
-      @remote_summary_data ||= JSON.parse(conn.get do |request|
+      @remote_summary_data ||= JSON.parse(connection.get do |request|
                                             request.body = {summary: {talk_ids: Conference.last.events.pluck(:id)}}.to_json
                                           end.body)
     end

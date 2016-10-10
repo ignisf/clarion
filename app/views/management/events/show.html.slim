@@ -7,24 +7,27 @@
       = @event.title
       small<
         = @event.subtitle
+.row
+  .col-md-9
     h4
       = t 'events.metadata', type: @event.event_type.name, language: t("locales.#{@event.language}").mb_chars.downcase, length: @event.length
-      .pull-right.heading-actions
-        .dropdown>
-          button class="btn btn-sm dropdown-toggle btn-#{proposition_status_class(@event.status)}" type="button" data-toggle="dropdown" title="#{t "status.#{@event.status}"}"
-            = icon(proposition_status_glyph(@event.status))
-            span.caret<
-          ul.dropdown-menu
-            - Proposition.statuses.each do |(status, _)|
-              - next if status == @event.status
-              li
-                = link_to [:management, @conference, @event.proposition, proposition: {status: status}], method: :patch do
-                  = proposition_status_icon(status)
-                  =< t "status.#{status}"
-        div.btn-group.btn-group-sm
-          = action_buttons(@conference, @event, [:index, :edit])
+  .col-md-3.text-right
+    .heading-actions
+      .dropdown>
+        button class="btn btn-sm dropdown-toggle btn-#{proposition_status_class(@event.status)}" type="button" data-toggle="dropdown" title="#{t "status.#{@event.status}"}"
+          = icon(proposition_status_glyph(@event.status))
+          span.caret<
+        ul.dropdown-menu
+          - Proposition.statuses.each do |(status, _)|
+            - next if status == @event.status
+            li
+              = link_to [:management, @conference, @event.proposition, proposition: {status: status}], method: :patch do
+                = proposition_status_icon(status)
+                =< t "status.#{status}"
+      div.btn-group.btn-group-sm
+        = action_buttons(@conference, @event, [:index, :edit])
 .row
-  .col-xs-12
+  = content_tag :div, class: @conference.has_vote_results? || @conference.has_voting_endpoint? ? 'col-md-9' : 'col-xs-12'
     h3 = Event.human_attribute_name :abstract
     p = simple_format @event.abstract
 
@@ -33,6 +36,31 @@
     - if @event.notes.present?
       h3 = Event.human_attribute_name :notes
       p = simple_format @event.notes
+  - if @conference.has_vote_results? or @conference.has_voting_endpoint?
+    .col-md-3
+      .panel.panel-info.panel-rank
+        .panel-heading
+          = t '.rank'
+        - if @conference.has_vote_results?
+          .panel-body
+            .row
+              .col-xs-3
+                .huge
+                  .label.label-info
+                    = @event.rank
+              .col-xs-9.text-right
+                .huge
+                  = number_to_percentage(@event.per_cent_of_votes, strip_insignificant_zeros: true, precision: 2)
+                = t('management.conferences.vote_results.vote_ratio', votes: @event.number_of_votes, total_votes: @conference.number_of_ballots_cast)
+        - else
+          .panel-body.text-center
+            = t 'management.conferences.vote_results.vote_data_never_updated'
+
+        = link_to update_vote_data_management_conference_path(@conference), method: :patch do
+          .panel-footer.text-primary.text-right
+             = icon :refresh, t('management.conferences.vote_results.fetch_vote_results')
+
+.row
   .col-xs-12
     h3 = Event.human_attribute_name :participants
     = render partial: 'speaker', collection: @event.participants

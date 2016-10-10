@@ -50,6 +50,7 @@ bg:
         previous_event_propositions: 'Предишни предложения за събития'
         contacts: "Информация за контакт"
       show:
+        rank: "Класиране"
         review: "Преглед на %{event_type} „%{event_title}“"
       index:
         all: "Всички"

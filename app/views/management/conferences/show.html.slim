@@ -92,11 +92,11 @@
       h2
         => t '.voting_results'
         small
-          - if @conference.vote_data_updated_at.present?
+          - if @conference.has_vote_results?
             = t '.vote_data_updated_at', updated_at: l(@conference.vote_data_updated_at, format: :long)
       .panel.panel-default
         table.table.table-striped.table-hover.record-table
-          - if @conference.vote_data_updated_at.present?
+          - if @conference.has_vote_results?
             thead
               tr
                 th.text-right = t('.rank')
@@ -104,7 +104,7 @@
                 th = Event.model_name.human.mb_chars.capitalize
                 th
           tbody
-            - if @conference.vote_data_updated_at.present?
+            - if @conference.has_vote_results?
               - current_conference.events.order(rank: :asc).group_by(&:rank).to_a[0..9].each do |rank, events|
                 - events.each.with_index do |event, index|
                   tr
@@ -125,7 +125,7 @@
                   p
                     =< link_to update_vote_data_management_conference_path, method: :patch, class: ['btn', 'btn-primary'] do
                       = icon :refresh, t('.fetch_vote_results')
-        - if @conference.vote_data_updated_at.present?
+        - if @conference.has_vote_results?
           .panel-footer.text-right
             .btn-group
               = link_to vote_results_management_conference_path, class: ['btn', 'btn-info'] do
