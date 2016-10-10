@@ -54,6 +54,8 @@ gem 'jbuilder'
 
 gem 'search_object'
 
+gem 'her'
+
 group :development do
   gem 'spring'
   gem 'spring-commands-rspec'
