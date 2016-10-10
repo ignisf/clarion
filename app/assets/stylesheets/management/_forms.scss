@@ -28,3 +28,7 @@ select.date, select.datetime, select.time {
         @extend .col-sm-offset-3;
     }
 }
+
+.alert-error {
+    @extend .alert-danger;
+}

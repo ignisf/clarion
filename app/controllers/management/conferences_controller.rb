@@ -49,15 +49,15 @@ module Management
 
       begin
         if @conference.update_vote_data!
-          flash[:notice] = t '.vote_data_successfully_updated'
+          flash[:notice] = t('.vote_data_successfully_updated')
         else
-          flash[:alert] = t '.error_during_vote_data_save'
+          flash[:alert] = t('.error_during_vote_data_save')
         end
+        redirect_to :back
       rescue StandardError => e
-        flash[:alert] = t '.error_during_connection_with_voting_endpoint', error: e.message
+        flash[:alert] = t('.error_during_connection_with_voting_endpoint', error: e.message)
+        render :vote_results
       end
-
-      redirect_to :back
     end
 
     def vote_results
