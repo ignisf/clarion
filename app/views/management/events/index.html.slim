@@ -14,7 +14,7 @@
   .col-xs-12
     = link_to t('.filters'), '#filters', aria_expanded: true, aria_controls: 'filters', data: {toggle: 'collapse'}, role: 'button', class: 'btn btn-info'
 .row
-  .col-md-2.collapse#filters
+  .col-md-3.collapse#filters
     .panel.panel-default
       .panel-heading
         = EventType.model_name.human.mb_chars.titleize
@@ -23,10 +23,12 @@
           = content_tag :li, role: "presentation", class: @filters[:event_type_id].blank? ? 'active' : nil
             = link_to management_conference_events_path(current_conference, filters: @filters.except(:event_type_id))
               = t '.all'
+              span.badge.pull-right = current_conference.events.count
           - current_conference.event_types.each do |event_type|
             = content_tag :li, role: "presentation", class: @filters[:event_type_id].to_i == event_type.id ? 'active' : nil
               = link_to management_conference_events_path(current_conference, filters: @filters.merge({event_type_id: event_type.id}))
                 = event_type.name
+                span.badge.pull-right = current_conference.events.where(event_type: event_type).count
     .panel.panel-default
       .panel-heading
         = Event.human_attribute_name(:track)
@@ -35,10 +37,12 @@
           = content_tag :li, role: "presentation", class: @filters[:track_id].blank? ? 'active' : nil
             = link_to management_conference_events_path(current_conference, filters: @filters.except(:track_id))
               = t '.all'
+              span.badge.pull-right = current_conference.events.count
           - current_conference.tracks.each do |track|
             = content_tag :li, role: "presentation", class: @filters[:track_id] == track.id.to_s ? 'active' : nil
               = link_to management_conference_events_path(current_conference, filters: @filters.merge({track_id: track.id}))
                 = track.name
+                span.badge.pull-right = current_conference.events.where(track: track).count
     .panel.panel-default
       .panel-heading
         = Event.human_attribute_name(:language)
@@ -47,10 +51,12 @@
           = content_tag :li, role: "presentation", class: @filters[:language].blank? ? 'active' : nil
             = link_to management_conference_events_path(current_conference, filters: @filters.except(:language))
               = t '.all'
+              span.badge.pull-right = current_conference.events.count
           - I18n.available_locales.map(&:to_s).each do |language|
             = content_tag :li, role: "presentation", class: @filters[:language] == language ? 'active' : nil
               = link_to management_conference_events_path(current_conference, filters: @filters.merge({language: language}))
                 = t("locales.#{language}")
+                span.badge.pull-right = current_conference.events.where(language: language).count
     .panel.panel-default
       .panel-heading
         = Proposition.human_attribute_name(:status)
@@ -59,11 +65,13 @@
           = content_tag :li, role: "presentation", class: @filters[:status].blank? ? 'active' : nil
             = link_to management_conference_events_path(current_conference, filters: @filters.except(:status))
               = t '.all'
+              span.badge.pull-right = current_conference.events.count
           - Proposition.statuses.each do |status_name, status_id|
             = content_tag :li, role: "presentation", class: @filters[:status] == status_id.to_s ? 'active' : nil
               = link_to management_conference_events_path(current_conference, filters: @filters.merge({status: status_id}))
                 = t "activerecord.attributes.proposition.statuses.#{status_name}"
-  .col-md-10
+                span.badge.pull-right = current_conference.events.joins(:proposition).where(propositions: {status: status_id}).count
+  .col-md-9
     .panel.panel-default
       table.table.table-striped.table-hover.record-table
         thead
