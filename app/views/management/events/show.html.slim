@@ -41,7 +41,7 @@
       .panel.panel-info.panel-rank
         .panel-heading
           = t '.rank'
-        - if @conference.has_vote_results?
+        - if @event.ranked?
           .panel-body
             .row
               .col-xs-3

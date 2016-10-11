@@ -26,12 +26,19 @@
                 - events.each.with_index do |event, index|
                   tr
                     - if index == 0
-                      td.text-right rowspan="#{events.count}"
-                        .large
-                          span.label.label-info = event.rank
-                      td.text-right rowspan="#{events.count}"
-                        span title="#{t('.vote_ratio', votes: event.number_of_votes, total_votes: @conference.number_of_ballots_cast)}"
-                          = number_to_percentage(event.per_cent_of_votes, strip_insignificant_zeros: true, precision: 2)
+                      - if event.ranked?
+                        td.text-right rowspan="#{events.count}"
+                          .large
+                            span.label.label-info = event.rank
+                        td.text-right rowspan="#{events.count}"
+                          span title="#{t('.vote_ratio', votes: event.number_of_votes, total_votes: @conference.number_of_ballots_cast)}"
+                            = number_to_percentage(event.per_cent_of_votes, strip_insignificant_zeros: true, precision: 2)
+                      - else
+                        td.text-right rowspan="#{events.count}"
+                          .large
+                            span.label.label-danger &times;
+                        td.text-right rowspan="#{events.count}"
+                          = t('.unranked')
                     td = event.title
                     td.actions = action_buttons(@conference, event, [:show])
             - else

@@ -29,6 +29,7 @@ bg:
         fetch_vote_results: "Изтегли резултатите от гласуването"
         percent: "%"
         rank: "Позиция"
+        unranked: "Няма данни"
       show:
         full_vote_results: "Пълни резултати от гласуването"
         vote_data_never_updated: "Резулатите от гласуването не са изтеглени"

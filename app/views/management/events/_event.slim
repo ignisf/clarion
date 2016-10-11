@@ -14,6 +14,14 @@
       dd = event.track.name
       dt = Event.human_attribute_name :language
       dd = t("locales.#{event.language}")
+      - if event.ranked?
+        dt = Event.human_attribute_name :rank
+        dd title="#{t('management.conferences.vote_results.vote_ratio', votes: event.number_of_votes, total_votes: @conference.number_of_ballots_cast)}"
+          .label.label-info
+            = event.rank
+          =< number_to_percentage(event.per_cent_of_votes, strip_insignificant_zeros: true, precision: 2)
+
+
 
   td.visible-md.visible-lg.visible-xl
     = links_to_event_participants_for(event)

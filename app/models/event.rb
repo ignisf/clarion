@@ -12,6 +12,8 @@ class Event < ActiveRecord::Base
 
   belongs_to :event_type
 
+  scope :ranked, -> { where.not(ranked: nil).where.not(votes: nil) }
+
   validates :conference, presence: true
   validates :title, presence: true
   validates :abstract, presence: true
@@ -58,6 +60,10 @@ class Event < ActiveRecord::Base
       description: description,
       notes: notes
     }
+  end
+
+  def ranked?
+    conference.has_vote_results? and rank.present? and number_of_votes.present?
   end
 
   def per_cent_of_votes

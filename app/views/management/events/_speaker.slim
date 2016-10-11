@@ -63,7 +63,7 @@
                 tr
                   td = event.title
                   td.text-center
-                    - if event.conference.has_vote_results?
+                    - if event.ranked?
                         .large
                           .label.label-info = event.rank
                   td = event.conference.title
