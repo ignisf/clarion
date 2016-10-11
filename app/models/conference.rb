@@ -93,7 +93,7 @@ class Conference < ActiveRecord::Base
 
     def remote_summary_data
       @remote_summary_data ||= JSON.parse(connection.get do |request|
-                                            request.body = {summary: {talk_ids: Conference.last.events.pluck(:id)}}.to_json
+                                            request.body = {summary: {talk_ids: conference.events.pluck(:id)}}.to_json
                                           end.body)
     end
 
