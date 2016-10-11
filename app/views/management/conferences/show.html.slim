@@ -6,14 +6,18 @@
     h1.page-header
       = @conference.title
       .pull-right
-        .small
-          => t '.cfp_status'
+        .btn-group.btn-group-sm<
           - if @conference.call_for_participation.in_progress?
-            = link_to management_conference_call_for_participation_path(@conference), method: :delete, class: 'btn btn-sm btn-success cfp-toggle'
-              = icon 'dot-circle-o', '', class: 'fa-fw'
+            = link_to management_conference_call_for_participation_path(@conference), method: :delete, class: 'btn btn-success'
+              = icon 'dot-circle-o', t('.cfp_status'), class: 'fa-fw'
           - else
-            = link_to management_conference_call_for_participation_path(@conference), method: :post, class: 'btn btn-sm btn-warning cfp-toggle'
-              = icon 'circle-o', class: 'fa-fw'
+            = link_to management_conference_call_for_participation_path(@conference), method: :post, class: 'btn btn-primary'
+              = icon 'circle-o', t('.cfp_status'), class: 'fa-fw'
+          = link_to edit_management_conference_path(@conference), title: t('actions.edit.button', model: Conference.model_name.human), class: 'btn btn-warning'
+            = icon :edit
+          = link_to management_conference_path(@conference), title: t('actions.destroy.button', model: Conference.model_name.human), class: ['btn', 'btn-danger', @conference.events.any? ? 'disabled' : nil], method: :delete, data: {confirm: t('actions.are_you_sure')}
+            = icon :trash
+
 .row
   .col-lg-3.col-md-6
     .panel.panel-primary

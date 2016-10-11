@@ -36,7 +36,7 @@ bg:
         vote_data_updated_at: "последно обновяване %{updated_at}"
         vote_ratio: "%{votes} от общо %{total_votes} гласа"
         summary: 'Обобщение'
-        cfp_status: 'Състояние на CFP:'
+        cfp_status: 'Състояние на CFP'
         fetch_vote_results: "Изтегли резултатите от гласуването"
         percent: "%"
         rank: "Позиция"
