@@ -124,6 +124,7 @@ bg:
         subtitle: "Подзаглавие"
         title: "Заглавие"
         track: "Поток от лекции"
+        rank: "Класиране"
         user: "Лектор"
         participants: "Участници"
       event_type:

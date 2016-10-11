@@ -37,6 +37,8 @@
               tr
                 th
                   = Event.human_attribute_name :title
+                th.text-center
+                  = Event.human_attribute_name :rank
                 th
                   = Event.human_attribute_name :conference
                 th
@@ -47,6 +49,10 @@
               - @user.events_participated_in.order(created_at: :desc).each do |event|
                 tr
                   td = event.title
+                  td.text-center
+                    - if event.conference.has_vote_results?
+                      .large
+                        .label.label-info = event.rank
                   td = event.conference.title
                   td
                     span class="label label-lg label-#{proposition_status_class(event.status)}"
