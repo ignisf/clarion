@@ -48,7 +48,7 @@
               = @conference.events.joins(:proposition).rejected.count
             div
               = t 'event_states.rejected', count: @conference.events.joins(:proposition).rejected.count
-      = link_to [:management, @conference, :events, {status: :rejected}]
+      = link_to management_conference_events_path(@conference, filters: {status: 2})
         .panel-footer.text-danger
           span.pull-left = t 'views.conference.see_details'
           span.pull-right = icon 'arrow-circle-right'
@@ -65,7 +65,7 @@
               = @conference.events.joins(:proposition).approved.count
             div
               = t 'event_states.approved', count: @conference.events.joins(:proposition).approved.count
-      = link_to [:management, @conference, :events, {status: :approved}]
+      = link_to management_conference_events_path(@conference, filters: {status: 1})
         .panel-footer.text-info
           span.pull-left = t 'views.conference.see_details'
           span.pull-right = icon 'arrow-circle-right'
@@ -81,7 +81,7 @@
               = @conference.events.joins(:proposition).approved.confirmed.count
             div
               = t 'event_states.confirmed', count: @conference.events.joins(:proposition).approved.confirmed.count
-      = link_to [:management, @conference, :events, {status: :approved, confirmed: true}]
+      = link_to '#'
         .panel-footer.text-success
           span.pull-left = t 'views.conference.see_details'
           span.pull-right = icon 'arrow-circle-right'
