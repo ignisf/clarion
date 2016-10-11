@@ -41,7 +41,7 @@ class Conference < ActiveRecord::Base
   end
 
   def has_vote_results?
-    vote_data_updated_at.present?
+    vote_data_updated_at.present? and number_of_ballots_cast > 0
   end
 
   def has_voting_endpoint?
@@ -77,7 +77,7 @@ class Conference < ActiveRecord::Base
 
     def save
       conference.transaction do
-        conference.update number_of_ballots_cast: number_of_ballots
+        conference.number_of_ballots_cast = number_of_ballots
         ranking.all?(&:save) or raise ActiveRecord::Rollback
         conference.touch :vote_data_updated_at
         conference.save or raise ActiveRecord::Rollback
