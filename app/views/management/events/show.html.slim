@@ -110,5 +110,7 @@
       - if @conference.has_vote_results?
         .panel-footer.text-right
           .btn-group
+            = link_to conflicts_management_conference_event_path(@event, conference_id: @conference.id), class: ['btn', 'btn-info'] do
+              = icon :percent, t('.conflicts')
             = link_to update_vote_data_management_conference_path(@conference), method: :patch, class: ['btn', 'btn-primary'] do
               = icon :refresh, t('management.conferences.vote_results.fetch_vote_results')

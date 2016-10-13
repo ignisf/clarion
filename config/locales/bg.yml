@@ -42,6 +42,11 @@ bg:
         percent: "%"
         rank: "Позиция"
     events:
+      conflicts:
+        conflicts: "Конфликти"
+        conflicts_of: "Конфликти на „%{event}“"
+        percent: "Процент"
+        hint_html: "Следващата таблица илюстрира какъв процент от посетителите, изявили интерес да присъстват на <strong>„%{event}“</strong>, биха желали да присъстват на всяко от посочените събития."
       edit:
         edit: "Редакция на %{event_type} „%{event_title}“"
       speaker:

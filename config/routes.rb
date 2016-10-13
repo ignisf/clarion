@@ -38,7 +38,11 @@ Rails.application.routes.draw do
         get :vote_results
       end
 
-      resources :events
+      resources :events do
+        member do
+          get :conflicts
+        end
+      end
       resources :volunteers
       resources :propositions
       resources :sponsorship_offers

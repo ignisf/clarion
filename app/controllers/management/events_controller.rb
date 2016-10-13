@@ -29,6 +29,12 @@ module Management
       end
     end
 
+    def conflicts
+      @conference = find_conference
+      @event = @conference.events.find(params[:id])
+      @conflicts = @event.conflict_counts
+    end
+
     def destroy
       @conference = find_conference
       @event = @conference.events.find(params[:id])

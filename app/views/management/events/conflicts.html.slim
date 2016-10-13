@@ -1,0 +1,50 @@
+- content_for :title
+  = t '.conflicts_of', event: @event.title
+
+.row
+  .col-lg-12
+    h1.page-header
+      = t '.conflicts'
+      - if @conference.has_vote_results?
+        small<
+          = t 'management.conferences.vote_results.vote_data_updated_at', updated_at: l(@conference.vote_data_updated_at, format: :long)
+- if @conference.vote_data_endpoint.present?
+  .row
+    .col-lg-12
+      p.lead
+        = t '.hint_html', event: @event.title
+      .panel.panel-default
+        table.table.table-striped.table-hover.record-table
+          - if @conference.has_vote_results?
+            thead
+              tr
+                th.text-right = t('.percent')
+                th = Event.model_name.human.mb_chars.capitalize
+                th
+          tbody
+            - if @conference.has_vote_results?
+              - @conflicts.each do |conflict_count|
+                - conflict_percent = Rational(conflict_count.number_of_conflicts, @conference.number_of_ballots_cast)
+                tr
+                  td.text-right
+                    .large
+                      span.label.label-success data-conflicts="#{conflict_count.number_of_conflicts}" data-most-conflicts="#{@conference.most_conflicts}" data-least-conflicts="#{@conference.least_conflicts}"
+                        = number_to_percentage(conflict_percent * 100, strip_insignificant_zeros: true, precision: 2)
+                  td
+                    h4 = conflict_count.right.title
+                    h5  = conflict_count.right.subtitle
+                    = links_to_event_participants_for(conflict_count.right)
+
+                  td.actions
+                    = action_buttons @conference, conflict_count.right, [:show]
+            - else
+              tr
+                td colspan="20"
+                  = t 'management.conferences.vote_results.vote_data_never_updated'
+                  = icon :refresh, t('management.conferences.vote_results.fetch_vote_results')
+        - if @conference.has_vote_results?
+          .panel-footer.text-right
+            .btn-group
+              = action_buttons @conference, @event, [:show, :index]
+              = link_to update_vote_data_management_conference_path(@conference), method: :patch, class: ['btn', 'btn-primary'] do
+                = icon :refresh, t('management.conferences.vote_results.fetch_vote_results')
