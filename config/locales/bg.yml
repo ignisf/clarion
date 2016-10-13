@@ -51,7 +51,7 @@ bg:
         previous_event_propositions: 'Предишни предложения за събития'
         contacts: "Информация за контакт"
       show:
-        between_approved_events: "Между одобрени събития"
+        between_approved_events: "Между настоящото и одобрените събития"
         no_approved_events: "Няма достатъчно одобрени събития"
         rank: "Класиране"
         review: "Преглед на %{event_type} „%{event_title}“"
