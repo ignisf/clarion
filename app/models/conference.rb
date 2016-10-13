@@ -14,6 +14,9 @@ class Conference < ActiveRecord::Base
   has_many :halls
   has_many :event_types
   has_many :events
+  has_many :approved_events,
+    -> { joins(:proposition).where(propositions: {status: Proposition.statuses[:approved]}) }, class_name: 'Event'
+  has_many :conflict_counts, through: :events
   has_many :volunteer_teams
   has_many :volunteers
   has_one :call_for_participation, dependent: :destroy
@@ -48,6 +51,28 @@ class Conference < ActiveRecord::Base
     vote_data_endpoint.present?
   end
 
+  def update_conflict_data!
+    update_vote_data! or raise ActiveRecord::Rollback
+    events.all? { |event| event.update_conflict_data(false) } or raise ActiveRecord::Rollback
+  end
+
+  def most_conflicts
+    conflict_counts.order(number_of_conflicts: :desc).first.try(:number_of_conflicts) || 0
+  end
+
+  def least_conflicts
+    conflict_counts.unscoped.order(number_of_conflicts: :asc).first.try(:number_of_conflicts) || 0
+  end
+
+  def most_conflicts_between_approved_events
+    conflict_counts.unscoped.where(left: approved_events, right: approved_events).order(number_of_conflicts: :desc).first.try(:number_of_conflicts) || 0
+  end
+
+  def least_conflicts_between_approved_events
+    conflict_counts.unscoped.where(left: approved_events, right: approved_events).order(number_of_conflicts: :asc).first.try(:number_of_conflicts) || 0
+  end
+
+
   private
 
   def planned_cfp_end_date_is_before_start_date
@@ -75,9 +100,14 @@ class Conference < ActiveRecord::Base
       @ranking ||= remote_summary_data['ranking'].map { |ranking_entry| EventRanking.new ranking_entry }
     end
 
+    def conflicts
+      @conflicts ||= remote_summary_data['conflicts'].map { |conflicts_entry| ConflictsForEvent.new conflicts_entry }
+    end
+
     def save
       conference.transaction do
         conference.number_of_ballots_cast = number_of_ballots
+        conflicts.all?(&:save) or raise ActiveRecord::Rollback
         ranking.all?(&:save) or raise ActiveRecord::Rollback
         conference.touch :vote_data_updated_at
         conference.save or raise ActiveRecord::Rollback
@@ -97,13 +127,28 @@ class Conference < ActiveRecord::Base
                                           end.body)
     end
 
+    class ConflictsForEvent
+      include ActiveModel::Model
+
+      attr_accessor :talk_id, :conflicts
+
+      def save
+        @event = Event.find(talk_id)
+        @event.conflict_counts.destroy_all or raise ActiveRecord::Rollback
+        conflicts.all? do |right_event_id, number_of_conflicts|
+          ConflictCount.create left_id: talk_id, right_id: right_event_id, number_of_conflicts: number_of_conflicts
+        end or raise ActiveRecord::Rollback
+      end
+    end
+
+
     class EventRanking
       include ActiveModel::Model
 
       attr_accessor :talk_id, :votes, :place
 
       def save
-        Event.find(talk_id).update(number_of_votes: votes, rank: place)
+        Event.where(id: talk_id).update_all(number_of_votes: votes, rank: place)
       end
     end
   end

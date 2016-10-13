@@ -4,4 +4,5 @@
 //= require bootstrap-sprockets
 //= require raphael
 //= require morris
+//= require chroma-js/chroma
 //= require_directory .

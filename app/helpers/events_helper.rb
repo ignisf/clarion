@@ -9,7 +9,7 @@ module EventsHelper
         link_to icon('user-plus', participant.email),
           new_management_conference_personal_profile_path(conference_id: event.conference.id,
                                                           user_id: participant.id),
-          title: t('.create_profile'), class: 'bg-danger'
+          title: t('management.events.event.create_profile'), class: 'bg-danger'
       end
     end.join(', ').html_safe
   end

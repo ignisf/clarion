@@ -9,6 +9,7 @@ class Event < ActiveRecord::Base
   has_many :pending_participations, ->() { pending }, class_name: 'Participation'
   has_many :approved_participations, ->() { approved }, class_name: 'Participation'
   has_many :participants, through: :approved_participations
+  has_many :conflict_counts, -> { order(number_of_conflicts: :desc) }, foreign_key: :left_id
 
   belongs_to :event_type
 
