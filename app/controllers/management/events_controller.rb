@@ -3,7 +3,7 @@ module Management
     def index
       @conference = find_conference
       @filters = params[:filters] || {}
-      @events = EventSearch.new(scope: Event.where(conference: @conference).eager_load(:proposition, :proposer, :track, :event_type), filters: params[:filters]).results
+      @events = EventSearch.new(scope: Event.where(conference: @conference).eager_load(:participants_with_personal_profiles, :proposition, :proposer, :track, :event_type).preload(:conference), filters: params[:filters]).results
       # @events = @conference.events.order(:title).includes(:proposition, :proposer, :track, :event_type)
     end
 
