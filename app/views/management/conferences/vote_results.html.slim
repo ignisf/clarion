@@ -33,7 +33,7 @@
                           span title="#{t('.vote_ratio', votes: event.number_of_votes, total_votes: @conference.number_of_ballots_cast)}"
                             = number_to_percentage(event.per_cent_of_votes, strip_insignificant_zeros: true, precision: 2)
                       - else
-                        td.text-right rowspan="#{events.count}"
+                        td.text-center rowspan="#{events.count}"
                           .large
                             span.label.label-danger &times;
                           = t('.unranked')
