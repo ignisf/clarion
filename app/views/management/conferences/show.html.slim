@@ -104,8 +104,8 @@
             thead
               tr
                 th.text-right = t('.rank')
-                th.text-right = t('.percent')
                 th = Event.model_name.human.mb_chars.capitalize
+                th = Event.human_attribute_name :status
                 th
           tbody
             - if @conference.has_vote_results?
@@ -114,10 +114,9 @@
                   tr
                     - if index == 0
                       - if event.ranked?
-                        td.text-right rowspan="#{events.count}"
+                        td.text-center rowspan="#{events.count}"
                           .large
                             span.label.label-info = event.rank
-                        td.text-right rowspan="#{events.count}"
                           span title="#{t('.vote_ratio', votes: event.number_of_votes, total_votes: @conference.number_of_ballots_cast)}"
                             = number_to_percentage(event.per_cent_of_votes, strip_insignificant_zeros: true, precision: 2)
                       - else
@@ -126,7 +125,13 @@
                             span.label.label-danger &times;
                         td.text-right rowspan="#{events.count}"
                           = t('.unranked')
-                    td = event.title
+                    td
+                      h4 = event.title
+                      h5 = event.subtitle
+                      = links_to_event_participants_for(event)
+                    td
+                      span class="label label-lg label-#{proposition_status_class(event.status)}"
+                        = icon(proposition_status_glyph(event.status), t("activerecord.attributes.proposition.statuses.#{event.status}"))
                     td.actions = action_buttons(@conference, event, [:show])
             - else
               tr
