@@ -7,7 +7,7 @@ module Public
     end
 
     def edit
-      @event = current_user.events.find(params[:id])
+      @event = Event.joins(:participations).find_by(id: params[:id], participations: {participant_id: current_user.id})
     end
 
     def new
@@ -30,7 +30,7 @@ module Public
     end
 
     def update
-      @event = current_user.events.find(params[:id])
+      @event = Event.joins(:participations).find_by(id: params[:id], participations: {participant_id: current_user.id})
 
       if @event.update(event_params)
         flash[:notice] = I18n.t('views.events.event_successfully_updated', event_type: @event.event_type.name.mb_chars.downcase)
