@@ -15,6 +15,7 @@ class Event < ActiveRecord::Base
   belongs_to :event_type
 
   scope :ranked, -> { where.not(ranked: nil).where.not(votes: nil) }
+  scope :approved, -> { where(propositions: {status: Proposition.statuses[:approved]})}
 
   validates :conference, presence: true
   validates :title, presence: true

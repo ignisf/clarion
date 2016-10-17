@@ -14,8 +14,7 @@ class Conference < ActiveRecord::Base
   has_many :halls
   has_many :event_types
   has_many :events
-  has_many :approved_events,
-    -> { joins(:proposition).where(propositions: {status: Proposition.statuses[:approved]}) }, class_name: 'Event'
+  has_many :approved_events, -> { joins(:proposition).approved }, class_name: 'Event'
   has_many :conflict_counts, through: :events
   has_many :volunteer_teams
   has_many :volunteers
