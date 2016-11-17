@@ -1,5 +1,6 @@
 class Api::SpeakersController < Api::ApplicationController
   include ::CurrentConferenceAssigning
+  include ::PublicApiExposing
   before_filter :require_current_conference!
 
   def index
