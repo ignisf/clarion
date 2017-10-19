@@ -81,7 +81,7 @@
               = @conference.events.joins(:proposition).approved.confirmed.count
             div
               = t 'event_states.confirmed', count: @conference.events.joins(:proposition).approved.confirmed.count
-      = link_to '#'
+      = link_to management_conference_events_path(@conference, filters: {confirmed: true})
         .panel-footer.text-success
           span.pull-left = t 'views.conference.see_details'
           span.pull-right = icon 'arrow-circle-right'

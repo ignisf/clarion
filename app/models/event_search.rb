@@ -6,6 +6,8 @@ class EventSearch
   option(:track_id)      { |scope, value| scope.where track_id: value }
   option(:event_type_id) { |scope, value| scope.where event_type_id: value }
   option(:status)        { |scope, value| scope.joins(:proposition).where(propositions: {status: value}) }
+  option(:confirmed)     { |scope, value| scope.joins(:proposition).where(status: :approved).where.not(confirmed_at: nil) }
+  option(:not_confirmed) { |scope, value| scope.joins(:proposition).where(status: :approved, confirmed_at: nil) }
 
   sort_by 'title'
   config[:defaults]['sort'] = "#{config[:sort_attributes].first} asc"
