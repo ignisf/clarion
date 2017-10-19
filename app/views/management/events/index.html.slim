@@ -71,6 +71,24 @@
               = link_to management_conference_events_path(current_conference, filters: @filters.merge({status: status_id}))
                 = t "activerecord.attributes.proposition.statuses.#{status_name}"
                 span.badge.pull-right = current_conference.events.joins(:proposition).where(propositions: {status: status_id}).count
+    .panel.panel-default
+      .panel-heading
+        = Proposition.human_attribute_name(:confirmed)
+      .panel-body
+        ul.nav.nav-pills.nav-stacked
+          = content_tag :li, role: "presentation", class: @filters[:confirmed].blank? && @filters[:not_confirmed].blank? ? 'active' : nil
+            = link_to management_conference_events_path(current_conference, filters: @filters.except(:confirmed, :not_confirmed))
+              = t '.all'
+              span.badge.pull-right = current_conference.events.count
+          = content_tag :li, role: "presentation", class: @filters[:confirmed].present? ? 'active' : nil
+            = link_to management_conference_events_path(current_conference, filters: @filters.except(:not_confirmed).merge({confirmed: true}))
+              = t "activerecord.attributes.proposition.confirmation.confirmed"
+              span.badge.pull-right = current_conference.events.joins(:proposition).approved.where.not(propositions: {confirmed_at: nil}).count
+          = content_tag :li, role: "presentation", class: @filters[:not_confirmed].present? ? 'active' : nil
+            = link_to management_conference_events_path(current_conference, filters: @filters.except(:confirmed).merge({not_confirmed: true}))
+              = t "activerecord.attributes.proposition.confirmation.not_confirmed"
+              span.badge.pull-right = current_conference.events.joins(:proposition).approved.where(propositions: {confirmed_at: nil}).count
+
   .col-md-9
     .panel.panel-default
       table.table.table-striped.table-hover.record-table
