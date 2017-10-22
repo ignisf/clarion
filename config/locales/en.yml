@@ -1,9 +1,11 @@
 en:
   public:
-    event_feedbacks:
+    event_feedbacks: &feedbacks_en
       new:
         feedback_for: Rating '%{title}'
         submit: Submit
+        success: The feedback was submitted successfully
+    conference_feedbacks: *feedbacks_en
   abstract: Abstract
   helpers:
     submit:

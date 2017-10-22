@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     root to: 'home#index'
     resource :personal_profile, path: 'profile'
     resources :events do
-      resources :feedbacks, controller: 'event_feedbacks', only: [:new, :create]
+      resources :feedback, controller: 'event_feedbacks', only: [:new, :create]
       resource :feedback_qr_code, controller: 'event_feedback_qrcodes', only: :show
       member do
         get :confirm
@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     end
     resources :volunteers
     resources :volunteer_teams, only: [:index]
+    resources :feedback, as: 'conference_feedbacks', controller: 'conference_feedbacks', only: [:new, :create]
   end
 
   namespace :api do

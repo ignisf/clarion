@@ -1,9 +1,11 @@
 bg:
   public:
-    event_feedbacks:
+    event_feedbacks: &feedbacks_bg
       new:
         feedback_for: Оценяване на „%{title}“
         submit: Изпрати
+        success: Оценката беше изпратена успешно
+    conference_feedbacks: *feedbacks_bg
   management:
     volunteers:
       index:

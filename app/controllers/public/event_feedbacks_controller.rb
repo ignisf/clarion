@@ -5,8 +5,11 @@ class Public::EventFeedbacksController < Public::ApplicationController
 
   def create
     @feedback = approved_events.find(params[:event_id]).feedbacks.build(feedback_params)
+    @feedback.ip_address = request.remote_ip
+    @feedback.session_id = session.id
 
     if @feedback.save
+      flash[:notice] = I18n.t('public.event_feedbacks.new.success')
       redirect_to root_path
     else
       render :new, status: :unprocessable_entity
