@@ -1,4 +1,20 @@
 bg:
+  public:
+    event_feedbacks:
+      new: &new_feedbacks_bg
+        feedback_for: Оценяване на „%{title}“
+        submit: Изпрати
+        success: Оценката беше изпратена успешно
+    conference_feedbacks:
+      new: *new_feedbacks_bg
+      index:
+        feedback_for_the_conference: Оценяване на конференцията
+        general_feedback_for: Оценете цялостно %{title}
+        change_general_feedback_for: Преоценете цялостно %{title}
+        feedback_for: Оценете „%{title}“
+        change_feedback_for: Преоценете „%{title}“
+        by: от %{authors}
+        feedback_incentive: Бихме били благодарни, ако споделите с нас мнението си за конференцията и събитията в нея.
   management:
     volunteers:
       index:
@@ -103,6 +119,10 @@ bg:
       title: "Преглед на %{model}"
   activerecord:
     attributes:
+      feedback:
+        author_email:  E-mail
+        rating: Оценка
+        comment: Коментар
       participation:
         participant: Участник
         approved: Потвърдено от участника
@@ -208,6 +228,9 @@ bg:
             volunteer_teams:
               invalid_volunteer_team: "невалиден екип от доброволци"
     models:
+      feedback:
+        one: Оценка
+        other: Оценки
       participation:
         one: Участие
         other: Участия
@@ -372,6 +395,10 @@ bg:
           vegetarian: Вегетарианец
           vegan: Веган
     hints:
+      feedback:
+        author_email: Адресът на електронната ви поща, ако счетете за нужно
+        rating: Посочете оценката си
+        comment: Тук може да изразите по-подробно мнението си
       conference:
         description: "Описание на конференцията"
         email: Email на организаторския екип

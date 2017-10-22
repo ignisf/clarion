@@ -5,12 +5,15 @@ Rails.application.routes.draw do
     root to: 'home#index'
     resource :personal_profile, path: 'profile'
     resources :events do
+      resources :feedback, controller: 'event_feedbacks', only: [:new, :create]
+      resource :feedback_qr_code, controller: 'event_feedback_qrcodes', only: :show
       member do
         get :confirm
       end
     end
     resources :volunteers
     resources :volunteer_teams, only: [:index]
+    resources :feedback, as: 'conference_feedbacks', controller: 'conference_feedbacks', only: [:new, :create, :index]
   end
 
   namespace :api do

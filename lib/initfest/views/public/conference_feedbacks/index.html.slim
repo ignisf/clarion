@@ -1,0 +1,25 @@
+- content_for(:title) { t('.feedback_for_the_conference') }
+
+h1.entry-title = t('.feedback_for_the_conference')
+
+p = t('.feedback_incentive')
+
+ul
+  - if @conference.feedbacks.where(session_id: session.id).exists?
+    li = link_to t('.change_general_feedback_for', title: @conference.title), new_conference_feedback_path
+  - else
+    li = link_to t('.general_feedback_for', title: @conference.title), new_conference_feedback_path
+
+ul
+  - @unrated_events.each do |event|
+    li
+      = link_to t('.feedback_for', title: event.title), new_event_feedback_path(event_id: event.id)
+      - if participant_names(event).any?
+        =< t('.by', authors: participant_names(event).join(', '))
+
+ul
+  - @rated_events.each do |event|
+    li
+      = link_to t('.change_feedback_for', title: event.title), new_event_feedback_path(event_id: event.id)
+      - if participant_names(event).any?
+        =< t('.by', authors: participant_names(event).join(', '))

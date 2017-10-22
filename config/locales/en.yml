@@ -1,4 +1,20 @@
 en:
+  public:
+    event_feedbacks:
+      new: &new_feedbacks_en
+        feedback_for: Rating '%{title}'
+        submit: Submit
+        success: The feedback was submitted successfully
+    conference_feedbacks:
+      new: *new_feedbacks_en
+      index:
+        feedback_for_the_conference: Feedback for the conference
+        general_feedback_for: Submit general feedback for "%{title}"
+        change_general_feedback_for: Resubmit general feedback for "%{title}"
+        feedback_for: Submit feedback for "%{title}"
+        change_feedback_for: Resubmit feedback for "%{title}"
+        by: by %{authors}
+        feedback_incentive: We would be happy to receive your feedback about the conference and its events.
   abstract: Abstract
   helpers:
     submit:
@@ -29,6 +45,10 @@ en:
       title: Viewing %{model}
   activerecord:
     attributes:
+      feedback:
+        author_email:  E-mail
+        rating: Rating
+        comment: Comment
       conference:
         description: Description
         email: E-mail
@@ -271,6 +291,10 @@ en:
           vegetarian: Vegetarian
           vegan: Vegan
     hints:
+      feedback:
+        author_email: "Your E-mail address if you'd like to share it with us"
+        rating: Select your rating for the event
+        comment: Express your opinion in greater detail here
       conference:
         description: Conference description
         email: Orga team email

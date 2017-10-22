@@ -32,7 +32,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/uploads', 'tmp/pids',
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
 # Default value for keep_releases is 5
-# set :keep_releases, 5
+set :keep_releases, 10
 
 set :rvm_ruby_version, '2.2.2'
 
