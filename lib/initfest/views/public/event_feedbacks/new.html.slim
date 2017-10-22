@@ -2,7 +2,7 @@
 
 h1.entry-title = t('.feedback_for', title: @feedback.feedback_receiving.title)
 
-= simple_form_for @feedback, wrapper: :default, url: event_feedbacks_path do |f|
+= simple_form_for @feedback, wrapper: :default, url: event_feedback_index_path, method: :post do |f|
   = f.error_notification
 
   .form-inputs

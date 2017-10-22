@@ -1,16 +1,20 @@
 class Public::EventFeedbacksController < Public::ApplicationController
   def new
-    @feedback = approved_events.find(params[:event_id]).feedbacks.build
+    if event.feedbacks.where(session_id: session.id).exists?
+      @feedback = event.feedbacks.where(session_id: session.id).order(updated_at: :asc).last
+    else
+      @feedback = event.feedbacks.build
+    end
   end
 
   def create
-    @feedback = approved_events.find(params[:event_id]).feedbacks.build(feedback_params)
+    @feedback = event.feedbacks.build(feedback_params)
     @feedback.ip_address = request.remote_ip
     @feedback.session_id = session.id
 
     if @feedback.save
       flash[:notice] = I18n.t('public.event_feedbacks.new.success')
-      redirect_to root_path
+      redirect_to conference_feedbacks_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -20,6 +24,10 @@ class Public::EventFeedbacksController < Public::ApplicationController
 
   def feedback_params
     params.require(:feedback).permit(:author_email, :rating, :comment)
+  end
+
+  def event
+    approved_events.find(params[:event_id])
   end
 
   def approved_events

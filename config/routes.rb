@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     end
     resources :volunteers
     resources :volunteer_teams, only: [:index]
-    resources :feedback, as: 'conference_feedbacks', controller: 'conference_feedbacks', only: [:new, :create]
+    resources :feedback, as: 'conference_feedbacks', controller: 'conference_feedbacks', only: [:new, :create, :index]
   end
 
   namespace :api do

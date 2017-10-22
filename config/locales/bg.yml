@@ -1,11 +1,20 @@
 bg:
   public:
-    event_feedbacks: &feedbacks_bg
-      new:
+    event_feedbacks:
+      new: &new_feedbacks_bg
         feedback_for: Оценяване на „%{title}“
         submit: Изпрати
         success: Оценката беше изпратена успешно
-    conference_feedbacks: *feedbacks_bg
+    conference_feedbacks:
+      new: *new_feedbacks_bg
+      index:
+        feedback_for_the_conference: Оценяване на конференцията
+        general_feedback_for: Оценете цялостно %{title}
+        change_general_feedback_for: Преоценете цялостно %{title}
+        feedback_for: Оценете „%{title}“
+        change_feedback_for: Преоценете „%{title}“
+        by: от %{authors}
+        feedback_incentive: Бихме били благодарни, ако споделите с нас мнението си за конференцията и събитията в нея.
   management:
     volunteers:
       index:

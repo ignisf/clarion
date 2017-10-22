@@ -23,4 +23,15 @@ module EventsHelper
       end
     end
   end
+
+  def participant_names(event)
+    event.participants.map do |participant|
+      if participant.personal_profile(event.conference).present?
+        profile = participant.personal_profile(event.conference)
+        "#{profile.name}"
+      else
+        nil
+      end
+    end.compact
+  end
 end

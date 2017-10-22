@@ -1,11 +1,20 @@
 en:
   public:
-    event_feedbacks: &feedbacks_en
-      new:
+    event_feedbacks:
+      new: &new_feedbacks_en
         feedback_for: Rating '%{title}'
         submit: Submit
         success: The feedback was submitted successfully
-    conference_feedbacks: *feedbacks_en
+    conference_feedbacks:
+      new: *new_feedbacks_en
+      index:
+        feedback_for_the_conference: Feedback for the conference
+        general_feedback_for: Submit general feedback for "%{title}"
+        change_general_feedback_for: Resubmit general feedback for "%{title}"
+        feedback_for: Submit feedback for "%{title}"
+        change_feedback_for: Resubmit feedback for "%{title}"
+        by: by %{authors}
+        feedback_incentive: We would be happy to receive your feedback about the conference and its events.
   abstract: Abstract
   helpers:
     submit:
