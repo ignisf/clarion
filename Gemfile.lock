@@ -225,7 +225,7 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
-    puma (3.6.0)
+    puma (3.10.0)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.6.4)
@@ -436,4 +436,4 @@ DEPENDENCIES
   yaml_db
 
 BUNDLED WITH
-   1.13.2
+   1.15.4
