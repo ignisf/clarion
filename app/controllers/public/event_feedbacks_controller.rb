@@ -4,6 +4,7 @@ class Public::EventFeedbacksController < Public::ApplicationController
       @feedback = event.feedbacks.where(session_id: session.id).order(updated_at: :asc).last
     else
       @feedback = event.feedbacks.build
+      @feedback.author_email = Feedback.where(session_id: session.id).order(updated_at: :asc).last.try(:author_email)
     end
   end
 

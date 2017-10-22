@@ -18,6 +18,7 @@ class Public::ConferenceFeedbacksController < Public::ApplicationController
       @feedback = current_conference.feedbacks.where(session_id: session.id).order(updated_at: :asc).last
     else
       @feedback = current_conference.feedbacks.build
+      @feedback.author_email = Feedback.where(session_id: session.id).order(updated_at: :asc).last.try(:author_email)
     end
   end
 
