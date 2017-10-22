@@ -10,5 +10,6 @@
     json.track_id event.track_id
     json.participant_user_ids event.participations.map(&:participant_id)
     json.feedback_url new_event_feedback_url(event_id: event.id)
+    json.feedback_qr_code_url event_feedback_qr_code_url(event_id: event.id, format: :svg)
   end
 end

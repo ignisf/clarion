@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resource :personal_profile, path: 'profile'
     resources :events do
       resources :feedbacks, controller: 'event_feedbacks', only: [:new, :create]
+      resource :feedback_qr_code, controller: 'event_feedback_qrcodes', only: :show
       member do
         get :confirm
       end

@@ -56,6 +56,8 @@ gem 'search_object'
 
 gem 'faraday'
 
+gem 'rqrcode'
+
 group :development do
   gem 'spring'
   gem 'spring-commands-rspec'
