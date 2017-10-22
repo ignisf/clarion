@@ -11,6 +11,7 @@ class Event < ActiveRecord::Base
   has_many :participants, through: :approved_participations
   has_many :participants_with_personal_profiles, through: :approved_participations, source: :participant_with_personal_profile
   has_many :conflict_counts, -> { order(number_of_conflicts: :desc) }, foreign_key: :left_id
+  has_many :feedbacks, as: :feedback_receiving, dependent: :destroy
 
   belongs_to :event_type
 

@@ -1,4 +1,9 @@
 bg:
+  public:
+    event_feedbacks:
+      new:
+        feedback_for: Оценяване на „%{title}“
+        submit: Изпрати
   management:
     volunteers:
       index:
@@ -103,6 +108,10 @@ bg:
       title: "Преглед на %{model}"
   activerecord:
     attributes:
+      feedback:
+        author_email:  E-mail
+        rating: Оценка
+        comment: Коментар
       participation:
         participant: Участник
         approved: Потвърдено от участника
@@ -208,6 +217,9 @@ bg:
             volunteer_teams:
               invalid_volunteer_team: "невалиден екип от доброволци"
     models:
+      feedback:
+        one: Оценка
+        other: Оценки
       participation:
         one: Участие
         other: Участия
@@ -372,6 +384,10 @@ bg:
           vegetarian: Вегетарианец
           vegan: Веган
     hints:
+      feedback:
+        author_email: Адресът на електронната ви поща, ако счетете за нужно
+        rating: Посочете оценката си
+        comment: Тук може да изразите по-подробно мнението си
       conference:
         description: "Описание на конференцията"
         email: Email на организаторския екип

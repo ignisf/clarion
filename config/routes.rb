@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     root to: 'home#index'
     resource :personal_profile, path: 'profile'
     resources :events do
+      resources :feedbacks, controller: 'event_feedbacks', only: [:new, :create]
       member do
         get :confirm
       end

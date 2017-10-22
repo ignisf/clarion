@@ -1,0 +1,14 @@
+- content_for(:title) { t('.feedback_for', title: @feedback.feedback_receiving.title) }
+
+h1.entry-title = t('.feedback_for', title: @feedback.feedback_receiving.title)
+
+= simple_form_for @feedback, wrapper: :default, url: event_feedbacks_path do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :author_email, autofocus: true
+    = f.input :rating, collection: [2, 3, 4, 5, 6], as: :radio_buttons, include_blank: false, wrapper: :default
+    = f.input :comment
+
+  .form-actions
+    = f.button :submit, t('.submit')

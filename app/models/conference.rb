@@ -22,6 +22,7 @@ class Conference < ActiveRecord::Base
   has_many :participants, -> { uniq }, class_name: 'User', through: :events
   has_many :participant_profiles, class_name: 'PersonalProfile'
   has_many :slots, through: :halls
+  has_many :feedbacks, as: :feedback_receiving, dependent: :destroy
 
   accepts_nested_attributes_for :tracks, :halls, :event_types, :volunteer_teams,
                                 reject_if: :all_blank, allow_destroy: true

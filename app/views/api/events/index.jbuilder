@@ -9,5 +9,6 @@
     json.event_type_id event.event_type_id
     json.track_id event.track_id
     json.participant_user_ids event.participations.map(&:participant_id)
+    json.feedback_url new_event_feedback_url(event_id: event.id)
   end
 end
