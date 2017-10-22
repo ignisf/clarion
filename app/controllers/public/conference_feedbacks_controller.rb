@@ -3,7 +3,7 @@ class Public::ConferenceFeedbacksController < Public::ApplicationController
     @conference = current_conference
     @unrated_events = @conference.events
                         .joins(:proposition).approved
-                        .joins('LEFT JOIN feedbacks ON feedbacks.feedback_receiving_id = events.id AND feedbacks.feedback_receiving_type = "Event"')
+                        .joins('LEFT JOIN feedbacks ON feedbacks.feedback_receiving_id = events.id AND feedbacks.feedback_receiving_type = \'Event\'')
                         .where('feedbacks.session_id != ? OR feedbacks.id IS NULL', session.id)
 
     @rated_events = @conference.events
