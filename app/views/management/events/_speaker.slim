@@ -32,8 +32,8 @@
           - if personal_profile.twitter.present?
             p #{icon :twitter} @#{personal_profile.twitter}
           - if personal_profile.public_email.present?
-            p #{icon :envelope} #{personal_profile.public_email} (#{t(:public)})
-          p #{icon :envelope} #{speaker.email} (#{t(:private)})
+            p #{icon :envelope} #{personal_profile.public_email} (#{PersonalProfile.human_attribute_name(:public_email).mb_chars.downcase})
+          p #{icon :envelope} #{speaker.email} (#{PersonalProfile.human_attribute_name(:email).mb_chars.downcase})
           p #{glyph :phone} #{Phony.format(personal_profile.mobile_phone, format: :international)}
         - else
           h4.media-heading
