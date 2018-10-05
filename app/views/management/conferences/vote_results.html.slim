@@ -60,3 +60,5 @@
                 = icon :users, t('.back_to', conference: @conference.title)
               = link_to update_vote_data_management_conference_path, method: :patch, class: ['btn', 'btn-primary'] do
                 = icon :refresh, t('.fetch_vote_results')
+              = link_to management_conference_events_path(current_conference, format: 'csv'), class: 'btn btn-info'
+                = icon :download, t('.export')

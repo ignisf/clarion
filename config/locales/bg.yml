@@ -42,10 +42,11 @@ bg:
         voting_results: "Резултати от гласуването"
         vote_data_updated_at: "последно обновяване %{updated_at}"
         vote_ratio: "%{votes} от общо %{total_votes} гласа"
-        fetch_vote_results: "Изтегли резултатите от гласуването"
+        fetch_vote_results: "Обнови резултатите от гласуването"
         percent: "%"
         rank: "Позиция"
         unranked: "Няма данни"
+        export: Експорт
       show:
         full_vote_results: "Пълни резултати от гласуването"
         vote_data_never_updated: "Резулатите от гласуването не са изтеглени"
@@ -54,7 +55,7 @@ bg:
         vote_ratio: "%{votes} от общо %{total_votes} гласа"
         summary: 'Обобщение'
         cfp_status: 'Състояние на CFP'
-        fetch_vote_results: "Изтегли резултатите от гласуването"
+        fetch_vote_results: "Обнови резултатите от гласуването"
         percent: "%"
         rank: "Позиция"
     events:
