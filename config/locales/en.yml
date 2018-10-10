@@ -198,6 +198,8 @@ en:
   event_mailer:
     acceptance_notification:
       subject: Your submission for %{conference} for the %{submission_type} "%{title}" has been approved
+    rejection_notification:
+      subject: "Your submission for %{conference} for the %{submission_type} \"%{title}\" has not been approved"
   volunteer_mailer:
     success_notification:
       subject: "Your application for volunteership on %{conference_name} was received"
