@@ -19,7 +19,7 @@ class Event < ActiveRecord::Base
   scope :approved, -> { where(propositions: {status: Proposition.statuses[:approved]})}
 
   validates :conference, presence: true
-  validates :title, presence: true
+  validates :title, presence: true, length: { maximum: 65 }
   validates :abstract, presence: true
   validates :description, presence: true
   validates :agreement, acceptance: true
