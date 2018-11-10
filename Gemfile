@@ -26,7 +26,8 @@ gem 'phony_rails'
 
 # Picture uploads
 gem 'carrierwave'
-gem 'rmagick'
+#gem 'rmagick'
+gem "mini_magick"
 
 gem "refile", require: ['refile/rails', 'refile/simple_form']
 gem "refile-mini_magick"
@@ -85,6 +86,8 @@ group :development, :test do
   gem 'byebug'
   gem 'simplecov'
   gem 'i18n-tasks'
+
+  gem 'delorean'
 end
 
 group :test do

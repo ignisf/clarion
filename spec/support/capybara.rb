@@ -10,6 +10,8 @@ RSpec.configure do |config|
 end
 
 RSpec.configure do |config|
+  config.include FeatureHelpers, type: :feature
+
   config.alias_example_group_to :feature, capybara_feature: true, type: :feature
   config.alias_example_group_to :xfeature, capybara_feature: true, type: :feature, skip: "Temporarily disabled with xfeature"
   config.alias_example_group_to :ffeature, capybara_feature: true, type: :feature, focus: true

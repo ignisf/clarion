@@ -6,4 +6,5 @@ class EventType < ActiveRecord::Base
 
   validates :name, presence: true, uniqueness: {scope: :conference, message: :must_be_unique_for_the_conference}
   validates :description, presence: true
+  validates :minimum_length, :maximum_length, presence: true
 end
