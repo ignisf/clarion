@@ -18,6 +18,7 @@ Rails.application.configure do
 
   # Use localhost for default host
   config.action_mailer.default_url_options = {host: 'localhost:3000'}
+  config.action_mailer.default_options = {from: 'no-reply@example.com'}
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

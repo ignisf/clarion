@@ -64,7 +64,7 @@ group :development do
   gem 'guard-rspec' # Continuous testing with Guard
   gem 'rails-erd'
   gem 'pry-rails'
-  gem 'hirb'
+  # gem 'hirb'
   gem 'awesome_print'
   gem 'quiet_assets'
   gem 'capistrano'
@@ -80,6 +80,13 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'capybara'
+  gem 'selenium-webdriver'
+
+  gem 'byebug'
   gem 'simplecov'
   gem 'i18n-tasks'
+end
+
+group :test do
+  gem 'database_cleaner'
 end
