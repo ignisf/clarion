@@ -32,6 +32,6 @@ class Public::EventFeedbacksController < Public::ApplicationController
   end
 
   def approved_events
-    current_conference.events.joins(:proposition).approved
+    current_conference.events_of_all_editions.joins(:proposition).approved
   end
 end

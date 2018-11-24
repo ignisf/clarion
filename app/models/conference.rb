@@ -23,6 +23,8 @@ class Conference < ActiveRecord::Base
   has_many :participant_profiles, class_name: 'PersonalProfile'
   has_many :slots, through: :halls
   has_many :feedbacks, as: :feedback_receiving, dependent: :destroy
+  has_many :editions, primary_key: :host_name, foreign_key: :host_name, class_name: 'Conference'
+  has_many :events_of_all_editions, through: :editions, source: :events
 
   accepts_nested_attributes_for :tracks, :halls, :event_types, :volunteer_teams,
                                 reject_if: :all_blank, allow_destroy: true
