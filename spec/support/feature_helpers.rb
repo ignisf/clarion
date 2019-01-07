@@ -111,6 +111,16 @@ module FeatureHelpers
     click_on I18n.t('helpers.submit.create', model: PersonalProfile.model_name.human)
   end
 
+  def fill_in_volunteer_profile
+    attach_file Volunteer.human_attribute_name(:picture), Rails.root.join('spec', 'support', 'picture.jpg')
+    fill_in Volunteer.human_attribute_name(:name), with: 'Foo'
+    fill_in Volunteer.human_attribute_name(:email), with: 'foo@example.com'
+    fill_in Volunteer.human_attribute_name(:phone), with: '+359666666'
+    check VolunteerTeam.first.name
+
+    click_on I18n.t('helpers.submit.volunteer.create')
+  end
+
   def verify_the_event_is_submitted
     sign_in_as_admin
     click_on I18n.t('actions.view.button', model: Conference.model_name.human), match: :first
