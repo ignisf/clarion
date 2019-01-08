@@ -123,8 +123,12 @@ module FeatureHelpers
 
   def verify_the_event_is_submitted
     sign_in_as_admin
-    click_on I18n.t('actions.view.button', model: Conference.model_name.human), match: :first
+    click_on_first_conference_in_management_root
     click_on Event.model_name.human(count: 2).mb_chars.capitalize
     expect(page).to have_content 'This is just a sample title of an event'
+  end
+
+  def click_on_first_conference_in_management_root
+    click_on I18n.t('actions.view.button', model: Conference.model_name.human), match: :first
   end
 end
