@@ -46,4 +46,43 @@ feature 'Conference management' do
     visit management_root_path
     expect(page).to_not have_content 'FooConf'
   end
+
+  scenario 'Reviewing an event' do
+    sign_in_as_admin
+    create_new_conference
+    submit_an_event_proposition(true)
+    visit management_root_path
+    click_on_first_conference_in_management_root
+    click_on I18n.t('activerecord.models.event', count: 2).capitalize
+    click_on I18n.t('actions.view.button', model: Event.model_name.human)
+    expect(page).to have_content('This is just a sample title of an event')
+  end
+
+  scenario 'Editing an event' do
+    sign_in_as_admin
+    create_new_conference
+    submit_an_event_proposition(true)
+    visit management_root_path
+    click_on_first_conference_in_management_root
+    click_on I18n.t('activerecord.models.event', count: 2).capitalize
+    expect(page).to have_content('This is just a sample title of an event')
+    click_on I18n.t('actions.edit.button', model: Event.model_name.human)
+    fill_in Event.human_attribute_name(:title), with: 'This is just a sample edited title of an event'
+    click_on I18n.t('helpers.submit.event.update')
+    expect(page).to have_content I18n.t('management.events.update.event_successfully_updated')
+    expect(page).to have_content 'This is just a sample edited title of an event'
+  end
+
+  scenario 'Creating a profile for a submitter' do
+    sign_in_as_admin
+    create_new_conference
+    submit_an_event_proposition(true)
+    visit management_root_path
+    click_on_first_conference_in_management_root
+    click_on I18n.t('activerecord.models.personal_profile', count: 2).capitalize
+    click_on I18n.t('actions.create.title', model: PersonalProfile.model_name.human)
+    fill_in_personal_profile
+    expect(page).to have_content I18n.t('management.personal_profiles.create.successfully_created')
+    expect(page).to have_content 'Foo Bar'
+  end
 end
