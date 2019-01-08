@@ -113,7 +113,7 @@ module FeatureHelpers
 
   def fill_in_volunteer_profile
     attach_file Volunteer.human_attribute_name(:picture), Rails.root.join('spec', 'support', 'picture.jpg')
-    fill_in Volunteer.human_attribute_name(:name), with: 'Foo'
+    fill_in Volunteer.human_attribute_name(:name), with: 'Volunteer Foo'
     fill_in Volunteer.human_attribute_name(:email), with: 'foo@example.com'
     fill_in Volunteer.human_attribute_name(:phone), with: '+359666666'
     check VolunteerTeam.first.name
