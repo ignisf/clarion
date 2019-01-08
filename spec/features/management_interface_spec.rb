@@ -36,7 +36,7 @@ feature 'Conference management' do
 
   scenario 'Deleting a newly created conference', js: true do
     sign_in_as_admin
-    create_new_conference
+    create_new_conference(host_name: '127.0.0.1')
     click_on 'Clarion'
     expect(page).to have_content 'FooConf'
     click_on_first_conference_in_management_root
