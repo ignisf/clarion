@@ -22,7 +22,7 @@ module Management
       @event = @conference.events.find(params[:id])
 
       if @event.update(event_params)
-        flash[:notice] = 'Event was successfully updated.'
+        flash[:notice] = t('.event_successfully_updated')
         redirect_to [:management, @conference, @event]
       else
         render action: 'edit'
