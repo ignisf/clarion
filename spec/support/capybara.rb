@@ -2,12 +2,13 @@ Capybara.default_max_wait_time = 5
 Capybara.asset_host = 'http://localhost:3000'
 
 Capybara.server = :puma, { Silent: true }
+Capybara.javascript_driver = :selenium_chrome_headless
 
-RSpec.configure do |config|
-  # config.before(:each, type: :feature, js: true) do
-  #   driven_by :selenium, using: :headless_chrome, screen_size: [1920, 1080]
-  # end
-end
+# RSpec.configure do |config|
+#   config.before(:each, type: :feature, js: true) do
+#     driven_by :selenium, using: :headless_chrome, screen_size: [1920, 1080]
+#   end
+# end
 
 RSpec.configure do |config|
   config.include FeatureHelpers, type: :feature
