@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock '3.6.1'
+lock '3.11.0'
 
 set :application, 'clarion'
 set :repo_url, 'https://github.com/ignisf/clarion.git'
