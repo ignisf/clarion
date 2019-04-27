@@ -121,7 +121,7 @@ feature 'Conference management' do
       sign_out
 
       visit root_path
-      click_on I18n.t('views.welcome.submit_event', event_type: Conference.first.event_types.first.name.try(:mb_chars).try(:downcase))
+      click_on I18n.t('views.welcome.submit_event', event_type: Conference.first.event_types.first.name.downcase)
       click_on I18n.t(:registration)
 
       register_a_new_user(false)
@@ -137,7 +137,7 @@ feature 'Conference management' do
     sign_out
 
     visit root_path
-    click_on I18n.t('views.welcome.submit_event', event_type: Conference.first.event_types.first.name.try(:mb_chars).try(:downcase))
+    click_on I18n.t('views.welcome.submit_event', event_type: Conference.first.event_types.first.name.downcase)
 
     sign_in_as_an_existing_user(false)
 

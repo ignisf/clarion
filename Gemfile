@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 4.2.11'
 
-gem 'sqlite3'
+gem 'sqlite3', '~> 1.3.6'
 gem 'pg'
 
 gem 'sass-rails'
@@ -22,6 +22,7 @@ gem 'devise-i18n'
 gem 'simple_form'
 
 # Phone validation
+gem 'phony', '~> 2.15.11'
 gem 'phony_rails'
 
 # Picture uploads
@@ -34,7 +35,7 @@ gem "refile-mini_magick"
 
 gem 'puma', group: :production
 
-gem 'globalize'
+gem 'globalize', '~> 5.0.1'
 
 gem 'yaml_db'
 
@@ -42,7 +43,7 @@ gem 'bootstrap-sass'
 gem 'bootstrap-sass-extras'
 gem 'bootswatch-rails'
 gem 'autoprefixer-rails'
-gem 'font-awesome-sass'
+gem 'font-awesome-sass', '~> 4.6.2'
 
 gem 'nested_form'
 gem 'jquery-datatables-rails'

@@ -17,17 +17,17 @@ module FeatureHelpers
     fill_in Conference.human_attribute_name(:title), with: title
     fill_in Conference.human_attribute_name(:email), with: 'foo@example.com'
     fill_in Conference.human_attribute_name(:host_name), with: host_name
-    select planned_cfp_end_date.year, from: 'conference[planned_cfp_end_date(1i)]'
+    select planned_cfp_end_date.year.to_s, from: 'conference[planned_cfp_end_date(1i)]'
     select I18n.t('date.month_names')[planned_cfp_end_date.month], from: 'conference[planned_cfp_end_date(2i)]'
-    select planned_cfp_end_date.day, from: 'conference[planned_cfp_end_date(3i)]'
+    select planned_cfp_end_date.day.to_s, from: 'conference[planned_cfp_end_date(3i)]'
 
-    select start_date.year, from: 'conference[start_date(1i)]'
+    select start_date.year.to_s, from: 'conference[start_date(1i)]'
     select I18n.t('date.month_names')[start_date.month], from: 'conference[start_date(2i)]'
-    select start_date.day, from: 'conference[start_date(3i)]'
+    select start_date.day.to_s, from: 'conference[start_date(3i)]'
 
-    select end_date.year, from: 'conference[end_date(1i)]'
+    select end_date.year.to_s, from: 'conference[end_date(1i)]'
     select I18n.t('date.month_names')[end_date.month], from: 'conference[end_date(2i)]'
-    select end_date.day, from: 'conference[end_date(3i)]'
+    select end_date.day.to_s, from: 'conference[end_date(3i)]'
 
     within '.form-group.conference_description' do
       fill_in Conference.human_attribute_name(:description), with: 'Lorem'
@@ -88,7 +88,7 @@ module FeatureHelpers
   def submit_an_event_proposition(visit_event_submission_path = true)
     if visit_event_submission_path
       visit root_path
-      click_on I18n.t('views.welcome.submit_event', event_type: Conference.first.event_types.first.name.try(:mb_chars).try(:downcase))
+      click_on I18n.t('views.welcome.submit_event', event_type: Conference.first.event_types.first.name.downcase)
     end
 
     fill_in Event.human_attribute_name(:title), with: 'This is just a sample title of an event'
@@ -124,7 +124,7 @@ module FeatureHelpers
   def verify_the_event_is_submitted
     sign_in_as_admin
     click_on_first_conference_in_management_root
-    click_on Event.model_name.human(count: 2).mb_chars.capitalize
+    click_on Event.model_name.human(count: 2).capitalize
     expect(page).to have_content 'This is just a sample title of an event'
   end
 
