@@ -1,6 +1,6 @@
 module Public
   class EventsController < Public::ApplicationController
-    before_filter :authenticate_user!
+    before_action :authenticate_user!
 
     def index
       @events = Event.joins(:conference, :proposition, :participations).where(conference: current_conference).where('propositions.proposer_id = ? OR participations.participant_id = ?', current_user.id, current_user.id)

@@ -1,6 +1,6 @@
 module Public
   class VolunteershipsController < Public::ApplicationController
-    before_filter :authenticate_user!, only: [:create, :destroy]
+    before_action :authenticate_user!, only: [:create, :destroy]
 
     def index
       @volunteer_teams = current_conference.volunteer_teams
