@@ -10,7 +10,7 @@ module Management
       @user       = find_profile.user
 
       @user.toggle_admin!
-      redirect_to :back
+      redirect_back fallback_location: {action: :show}
     end
 
     def show

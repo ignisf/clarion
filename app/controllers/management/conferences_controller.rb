@@ -53,7 +53,7 @@ module Management
         else
           flash[:alert] = t('.error_during_vote_data_save')
         end
-        redirect_to :back
+        redirect_back fallback_location: [:management, @conference]
       rescue StandardError => e
         flash[:alert] = t('.error_during_connection_with_voting_endpoint', error: e.message)
         render :vote_results

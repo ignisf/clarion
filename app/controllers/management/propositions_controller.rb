@@ -10,7 +10,7 @@ module Management
 
       @proposition.update(proposition_params)
 
-      redirect_to :back
+      redirect_back fallback_location: [:management, current_conference, @proposition]
     end
 
     private
