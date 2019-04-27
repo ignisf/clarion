@@ -1,11 +1,11 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :event do
     title { |n| "Event #{n}" }
     length { 60 }
     abstract { 'foo' }
     description { 'foo' }
     conference
-    language :bg
+    language { :bg }
     after(:build) do |event, evaluator|
       evaluator.conference.tracks << create(:track)
       event.track = evaluator.conference.tracks.first

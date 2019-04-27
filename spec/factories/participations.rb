@@ -1,7 +1,7 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :participation do
     association :participant, factory: :user
     event
-    approved false
+    approved { false }
   end
 end
