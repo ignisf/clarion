@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 5.0.1'
 
-gem 'sqlite3'
+gem 'sqlite3', '~> 1.3.6'
 gem 'pg'
 
 gem 'sass-rails'
@@ -30,7 +30,7 @@ gem 'carrierwave'
 #gem 'rmagick'
 gem "mini_magick"
 
-gem "refile", require: ['refile/rails', 'refile/simple_form']
+gem "refile", github: 'refile/refile', require: ['refile/rails', 'refile/simple_form']
 gem "image_processing"
 
 gem 'puma', group: :production
