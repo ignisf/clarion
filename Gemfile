@@ -35,7 +35,7 @@ gem "image_processing"
 
 gem 'puma', group: :production
 
-gem 'globalize', '~> 5.1.0'
+gem 'globalize', '~> 5.2.0'
 
 gem 'yaml_db'
 

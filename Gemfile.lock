@@ -145,9 +145,9 @@ GEM
     formatador (0.2.5)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    globalize (5.1.0)
-      activemodel (>= 4.2, < 5.2)
-      activerecord (>= 4.2, < 5.2)
+    globalize (5.2.0)
+      activemodel (>= 4.2, < 5.3)
+      activerecord (>= 4.2, < 5.3)
       request_store (~> 1.0)
     guard (2.15.0)
       formatador (>= 0.2.4)
@@ -423,7 +423,7 @@ DEPENDENCIES
   faker
   faraday
   font-awesome-sass (~> 4.6.2)
-  globalize (~> 5.1.0)
+  globalize (~> 5.2.0)
   guard-rspec
   i18n-tasks
   image_processing
