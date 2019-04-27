@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 4.2.11'
+gem 'rails', '~> 5.0.1'
 
-gem 'sqlite3', '~> 1.3.6'
-gem 'pg', '~> 0.15'
+gem 'sqlite3'
+gem 'pg'
 
 gem 'sass-rails'
 
@@ -31,11 +31,11 @@ gem 'carrierwave'
 gem "mini_magick"
 
 gem "refile", require: ['refile/rails', 'refile/simple_form']
-gem "refile-mini_magick"
+gem "image_processing"
 
 gem 'puma', group: :production
 
-gem 'globalize', '~> 5.0.1'
+gem 'globalize', '~> 5.1.0'
 
 gem 'yaml_db'
 
@@ -68,7 +68,6 @@ group :development do
   gem 'pry-rails'
   # gem 'hirb'
   gem 'awesome_print'
-  gem 'quiet_assets'
   gem 'capistrano'
   gem 'capistrano-rails'
   # gem 'capistrano-rvm'
