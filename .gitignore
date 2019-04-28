@@ -22,3 +22,4 @@
 /public/uploads/personal_profile/*
 .sass-cache/
 /coverage/
+/db/structure.sql

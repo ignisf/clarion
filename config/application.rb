@@ -9,7 +9,7 @@ Bundler.require(*Rails.groups)
 module Clarion
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 5.1
+    config.load_defaults 5.2
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
@@ -25,6 +25,7 @@ module Clarion
     config.i18n.available_locales = [:bg, :en]
     config.i18n.default_locale = :bg
 
+    config.active_record.schema_format = :sql
 
     config.generators do |g|
       g.test_framework :rspec, fixtures: true,
