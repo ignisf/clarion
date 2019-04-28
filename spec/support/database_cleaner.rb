@@ -15,7 +15,7 @@ RSpec.configure do |config|
       MSG
     end
 
-    DatabaseCleaner.clean_with(:truncation)
+    DatabaseCleaner.clean_with(:truncation, except: %w[participants])
   end
 
   config.before(:each) do
@@ -32,7 +32,7 @@ RSpec.configure do |config|
       # under test that does *not* share a database connection with the
       # specs, so use truncation strategy.
 
-      DatabaseCleaner.strategy = :truncation
+      DatabaseCleaner.strategy = :truncation, {except: %w[participants]}
     end
   end
 
