@@ -34,7 +34,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push("log", "tmp/uploads", "tmp/pids",
 # Default value for keep_releases is 5
 set :keep_releases, 10
 
-set :rvm_ruby_version, "2.2.2"
+set :rvm_ruby_version, "2.6.3"
 
 set :puma_bind, ["tcp://127.0.0.1:9087"]
 set :puma_init_active_record, true
