@@ -18,11 +18,11 @@ class Conference < ActiveRecord::Base
   has_many :conflict_counts, through: :events
   has_many :volunteer_teams
   has_many :volunteers
-  has_one :call_for_participation, dependent: :destroy
+  has_one :call_for_participation
   has_many :participants, -> { distinct }, class_name: 'User', through: :events
   has_many :participant_profiles, class_name: 'PersonalProfile'
   has_many :slots, through: :halls
-  has_many :feedbacks, as: :feedback_receiving, dependent: :destroy
+  has_many :feedbacks, as: :feedback_receiving
   has_many :editions, primary_key: :host_name, foreign_key: :host_name, class_name: 'Conference'
   has_many :events_of_all_editions, through: :editions, source: :events
 
