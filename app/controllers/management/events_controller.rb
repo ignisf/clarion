@@ -2,7 +2,7 @@ module Management
   class EventsController < ManagementController
     def index
       @conference = find_conference
-      @filters = params[:filters] || {}
+      @filters = filter_params || {}
       @events = EventSearch.new(scope: Event.where(conference: @conference).eager_load(:participants_with_personal_profiles, :proposition, :proposer, :track, :event_type).preload(:conference), filters: params[:filters]).results
       # @events = @conference.events.order(:title).includes(:proposition, :proposer, :track, :event_type)
     end
@@ -47,6 +47,17 @@ module Management
 
     def find_conference
       Conference.find(params[:conference_id])
+    end
+
+    def filter_params
+      params.fetch(:filters, {}).permit(
+        :event_type_id,
+        :track_id,
+        :language,
+        :status,
+        :confirmed,
+        :not_confirmed,
+      )
     end
 
     def event_params
