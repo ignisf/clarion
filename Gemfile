@@ -71,7 +71,7 @@ group :development do
   gem "awesome_print"
   gem "capistrano"
   gem "capistrano-rails"
-  # gem 'capistrano-rvm'
+  gem 'capistrano-rvm'
   gem "capistrano3-puma"
   gem "better_errors"
   gem "binding_of_caller"
