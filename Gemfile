@@ -89,6 +89,8 @@ group :development, :test do
   gem 'i18n-tasks'
 
   gem 'delorean'
+
+  gem 'standard'
 end
 
 group :test do
