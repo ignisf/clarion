@@ -33,7 +33,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[4.2]
       t.string  :first_name,   null: false
       t.string  :last_name,    null: false
       t.string  :organisation
-      t.boolean :hide_email,   null: false, default: true
+      t.boolean :hide_email, null: false, default: true
       t.string  :photo_url
       t.string  :mobile_phone, null: false
       t.text    :biography

@@ -1,19 +1,19 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: {registrations: 'registrations', confirmations: 'confirmations'}
+  devise_for :users, controllers: {registrations: "registrations", confirmations: "confirmations"}
 
   scope module: :public do
-    root to: 'home#index'
-    resource :personal_profile, path: 'profile'
+    root to: "home#index"
+    resource :personal_profile, path: "profile"
     resources :events do
-      resources :feedback, controller: 'event_feedbacks', only: [:new, :create]
-      resource :feedback_qr_code, controller: 'event_feedback_qrcodes', only: :show
+      resources :feedback, controller: "event_feedbacks", only: [:new, :create]
+      resource :feedback_qr_code, controller: "event_feedback_qrcodes", only: :show
       member do
         get :confirm
       end
     end
     resources :volunteers
     resources :volunteer_teams, only: [:index]
-    resources :feedback, as: 'conference_feedbacks', controller: 'conference_feedbacks', only: [:new, :create, :index]
+    resources :feedback, as: "conference_feedbacks", controller: "conference_feedbacks", only: [:new, :create, :index]
   end
 
   namespace :api do
@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   end
 
   namespace :management do
-    root to: 'conferences#index'
+    root to: "conferences#index"
 
     resources :conferences do
       member do

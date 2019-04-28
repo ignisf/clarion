@@ -6,7 +6,7 @@ module Public
       @profile = current_user.build_personal_profile(current_conference, profile_params)
 
       if @profile.save
-        flash[:notice] = t('views.personal_profiles.successfully_created')
+        flash[:notice] = t("views.personal_profiles.successfully_created")
         redirect_to root_path
       else
         render action: :new
@@ -21,10 +21,10 @@ module Public
       @profile = current_user.personal_profile(current_conference)
 
       if @profile.update_attributes(profile_params)
-        flash[:notice] = t('views.personal_profiles.successfully_updated')
+        flash[:notice] = t("views.personal_profiles.successfully_updated")
         redirect_to root_path
       else
-        render action: 'edit'
+        render action: "edit"
       end
     end
 

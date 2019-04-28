@@ -26,12 +26,13 @@ module Management
     end
 
     private
+
     def volunteer_params
       params.require(:volunteer).permit(:name, :picture, :email, :phone,
-                                        :tshirt_size, :tshirt_cut,
-                                        :food_preferences, :previous_experience,
-                                        :notes, :language,
-                                        volunteer_team_ids: [])
+        :tshirt_size, :tshirt_cut,
+        :food_preferences, :previous_experience,
+        :notes, :language,
+        volunteer_team_ids: [])
     end
   end
 end

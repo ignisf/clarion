@@ -2,8 +2,8 @@ FactoryBot.define do
   factory :event do
     title { |n| "Event #{n}" }
     length { 60 }
-    abstract { 'foo' }
-    description { 'foo' }
+    abstract { "foo" }
+    description { "foo" }
     conference
     language { :bg }
     after(:build) do |event, evaluator|

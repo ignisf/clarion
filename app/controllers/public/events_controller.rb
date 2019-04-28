@@ -3,7 +3,7 @@ module Public
     before_action :authenticate_user!
 
     def index
-      @events = Event.joins(:conference, :proposition, :participations).where(conference: current_conference).where('propositions.proposer_id = ? OR participations.participant_id = ?', current_user.id, current_user.id)
+      @events = Event.joins(:conference, :proposition, :participations).where(conference: current_conference).where("propositions.proposer_id = ? OR participations.participant_id = ?", current_user.id, current_user.id)
     end
 
     def edit
@@ -22,7 +22,7 @@ module Public
       @event.participations.build participant: current_user, approved: true
 
       if @event.save
-        flash[:notice] = I18n.t('views.events.event_successfully_created', event_type: @event.event_type.name.mb_chars.downcase)
+        flash[:notice] = I18n.t("views.events.event_successfully_created", event_type: @event.event_type.name.mb_chars.downcase)
         after_save_redirect
       else
         render action: :new
@@ -33,7 +33,7 @@ module Public
       @event = Event.joins(:participations).find_by(id: params[:id], participations: {participant_id: current_user.id})
 
       if @event.update(event_params)
-        flash[:notice] = I18n.t('views.events.event_successfully_updated', event_type: @event.event_type.name.mb_chars.downcase)
+        flash[:notice] = I18n.t("views.events.event_successfully_updated", event_type: @event.event_type.name.mb_chars.downcase)
         after_save_redirect
       else
         render action: :edit
@@ -44,9 +44,9 @@ module Public
       @event = current_user.events.approved.find(params[:id])
 
       if @event.confirm!
-        flash[:notice] = I18n.t('views.events.successfully_confirmed', event_type: @event.event_type.name.mb_chars.downcase)
+        flash[:notice] = I18n.t("views.events.successfully_confirmed", event_type: @event.event_type.name.mb_chars.downcase)
       else
-        flash[:alert] = I18n.t('views.events.error_on_confirmation', event_type: @event.event_type.name.mb_chars.downcase)
+        flash[:alert] = I18n.t("views.events.error_on_confirmation", event_type: @event.event_type.name.mb_chars.downcase)
       end
 
       after_save_redirect

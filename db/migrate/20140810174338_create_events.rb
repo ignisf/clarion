@@ -5,7 +5,7 @@ class CreateEvents < ActiveRecord::Migration[4.2]
       t.string :subtitle
       t.string :type
       t.integer :length, null: false, default: 45
-      t.string :language, null: false, default: 'bg_BG'
+      t.string :language, null: false, default: "bg_BG"
       t.integer :state
       t.text :abstract, null: false
       t.text :description, null: false

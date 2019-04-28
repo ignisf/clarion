@@ -11,7 +11,7 @@ module Public
     def create
       @volunteer = current_conference.volunteers.build volunteer_params
       if @volunteer.save
-        flash[:notice] = I18n.t('views.volunteers.successful_application')
+        flash[:notice] = I18n.t("views.volunteers.successful_application")
         redirect_to edit_volunteer_path(@volunteer.unique_id)
       else
         render :new, status: :unprocessable_entity
@@ -21,7 +21,7 @@ module Public
     def update
       @volunteer = current_conference.volunteers.find_by! unique_id: params[:id]
       if @volunteer.update volunteer_params
-        flash[:notice] = I18n.t('views.volunteers.successful_application_edit')
+        flash[:notice] = I18n.t("views.volunteers.successful_application_edit")
         redirect_to edit_volunteer_path(@volunteer.unique_id)
       else
         render :edit, status: :unprocessable_entity

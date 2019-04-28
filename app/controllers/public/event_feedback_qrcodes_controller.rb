@@ -5,7 +5,7 @@ class Public::EventFeedbackQrcodesController < Public::ApplicationController
 
     respond_to do |format|
       format.svg do
-        render(inline: @qr.as_svg(shape_rendering: 'crispEdges', module_size: 11, fill: 'ffffff', offset: 10),
+        render(inline: @qr.as_svg(shape_rendering: "crispEdges", module_size: 11, fill: "ffffff", offset: 10),
                filename: "feedback_qr_code_#{event.id}.svg")
       end
     end

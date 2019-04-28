@@ -9,10 +9,10 @@ class ApplicationController < ActionController::Base
   before_action :set_view_paths
 
   # TODO: make this get the domain from the database
-  #layout Proc.new { |controller| controller.request.host }
-  layout 'public/application'
+  # layout Proc.new { |controller| controller.request.host }
+  layout "public/application"
 
-  def self.default_url_options(options={})
+  def self.default_url_options(options = {})
     if I18n.locale != I18n.default_locale
       options.merge({locale: I18n.locale})
     else
@@ -24,17 +24,16 @@ class ApplicationController < ActionController::Base
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
-    if user_signed_in? and current_user.language != I18n.locale
+    if user_signed_in? && (current_user.language != I18n.locale)
       current_user.update(language: I18n.locale)
     end
   end
 
   def set_view_paths
     # TODO: make this get the domain from the database
-    prepend_view_path 'lib/initfest/views' if request.host =~ /openfest/
-    prepend_view_path 'lib/initfest/views' if request.host =~ /example/
-    prepend_view_path 'lib/initfest/views' if request.host =~ /127\.0\.0/
-
+    prepend_view_path "lib/initfest/views" if request.host =~ /openfest/
+    prepend_view_path "lib/initfest/views" if request.host =~ /example/
+    prepend_view_path "lib/initfest/views" if request.host =~ /127\.0\.0/
   end
 
   protected

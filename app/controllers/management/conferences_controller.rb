@@ -2,10 +2,10 @@ module Management
   class ConferencesController < ManagementController
     def new
       @conference = Conference.new
-      @conference.event_types.build(name: 'Event type 1')
-      @conference.tracks.build(name: 'Track 1')
-      @conference.halls.build(name: 'Hall 1')
-      @conference.volunteer_teams.build(name: 'Volunteer Team 1')
+      @conference.event_types.build(name: "Event type 1")
+      @conference.tracks.build(name: "Track 1")
+      @conference.halls.build(name: "Hall 1")
+      @conference.volunteer_teams.build(name: "Volunteer Team 1")
     end
 
     def create
@@ -49,13 +49,13 @@ module Management
 
       begin
         if @conference.update_vote_data!
-          flash[:notice] = t('.vote_data_successfully_updated')
+          flash[:notice] = t(".vote_data_successfully_updated")
         else
-          flash[:alert] = t('.error_during_vote_data_save')
+          flash[:alert] = t(".error_during_vote_data_save")
         end
         redirect_back fallback_location: [:management, @conference]
-      rescue StandardError => e
-        flash[:alert] = t('.error_during_connection_with_voting_endpoint', error: e.message)
+      rescue => e
+        flash[:alert] = t(".error_during_connection_with_voting_endpoint", error: e.message)
         render :vote_results
       end
     end
@@ -75,9 +75,9 @@ module Management
         :title, :email, :start_date, :end_date, :description, :host_name,
         :planned_cfp_end_date, :vote_data_endpoint,
         event_types_attributes: [:id, :name, :description, :maximum_length,
-                                 :minimum_length, :_destroy],
+                                 :minimum_length, :_destroy,],
         tracks_attributes: [:id, :name, :color, :css_class, :description,
-                            :css_style, :foreground_color, :_destroy],
+                            :css_style, :foreground_color, :_destroy,],
         halls_attributes: [:id, :name, :_destroy],
         volunteer_teams_attributes: [:id, :name, :description, :color, :_destroy]
       )

@@ -11,14 +11,14 @@ class PersonalProfile < ActiveRecord::Base
   validates :twitter, format: {with: /\A[a-z0-9_]{1,15}\z/i}, allow_blank: true
   validates :github, format: {with: /\A[a-z0-9][a-z0-9\-]*\z/i}, allow_blank: true
 
-  phony_normalize :mobile_phone, default_country_code: 'BG', add_plus: false
+  phony_normalize :mobile_phone, default_country_code: "BG", add_plus: false
 
   mount_uploader :picture, PictureUploader
 
   accepts_nested_attributes_for :user
 
   def twitter=(handle)
-    write_attribute :twitter, handle.gsub(/\A@/,'') if handle
+    write_attribute :twitter, handle.gsub(/\A@/, "") if handle
   end
 
   def name

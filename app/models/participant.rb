@@ -3,7 +3,7 @@ class Participant < ActiveRecord::Base
   self.primary_key = :participant_id
 
   def twitter=(handle)
-    write_attribute :twitter, handle.gsub(/\A@/,'') if handle
+    write_attribute :twitter, handle.gsub(/\A@/, "") if handle
   end
 
   def name

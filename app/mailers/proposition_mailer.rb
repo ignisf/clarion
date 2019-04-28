@@ -1,4 +1,3 @@
-# coding: utf-8
 class PropositionMailer < ActionMailer::Base
   def new_proposition_notification(proposition)
     @proposition = proposition

@@ -11,8 +11,8 @@ module CurrentConferenceAssigning
   end
 
   def current_conference
-    if not @current_conference
-      if @conference and not @conference.new_record?
+    unless @current_conference
+      if @conference && !@conference.new_record?
         @current_conference = @conference
       elsif params[:conference_id].present?
         @current_conference = Conference.find(params[:conference_id])
@@ -23,8 +23,8 @@ module CurrentConferenceAssigning
   end
 
   def require_current_conference!
-    if not current_conference?
-      raise ActionController::RoutingError.new('Not Found')
+    unless current_conference?
+      raise ActionController::RoutingError.new("Not Found")
     end
   end
 end

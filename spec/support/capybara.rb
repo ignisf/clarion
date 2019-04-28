@@ -1,7 +1,7 @@
 Capybara.default_max_wait_time = 5
-Capybara.asset_host = 'http://localhost:3000'
+Capybara.asset_host = "http://localhost:3000"
 
-Capybara.server = :puma, { Silent: true }
+Capybara.server = :puma, {Silent: true}
 Capybara.javascript_driver = :selenium_chrome_headless
 
 # RSpec.configure do |config|

@@ -2,15 +2,14 @@ class Public::ConferenceFeedbacksController < Public::ApplicationController
   def index
     @conference = current_conference
     @unrated_events = @conference.events
-                        .joins(:proposition).approved
-                        .joins('LEFT JOIN feedbacks ON feedbacks.feedback_receiving_id = events.id AND feedbacks.feedback_receiving_type = \'Event\'')
-                        .where('feedbacks.session_id != ? OR feedbacks.id IS NULL', session.id).distinct
+      .joins(:proposition).approved
+      .joins("LEFT JOIN feedbacks ON feedbacks.feedback_receiving_id = events.id AND feedbacks.feedback_receiving_type = 'Event'")
+      .where("feedbacks.session_id != ? OR feedbacks.id IS NULL", session.id).distinct
 
     @rated_events = @conference.events
-                      .joins(:proposition).approved
-                      .joins(:feedbacks)
-                      .where(feedbacks: {session_id: session.id}).distinct
-
+      .joins(:proposition).approved
+      .joins(:feedbacks)
+      .where(feedbacks: {session_id: session.id}).distinct
   end
 
   def new
@@ -28,7 +27,7 @@ class Public::ConferenceFeedbacksController < Public::ApplicationController
     @feedback.session_id = session.id
 
     if @feedback.save
-      flash[:notice] = I18n.t('public.conference_feedbacks.new.success')
+      flash[:notice] = I18n.t("public.conference_feedbacks.new.success")
       redirect_to conference_feedbacks_path
     else
       render :new, status: :unprocessable_entity

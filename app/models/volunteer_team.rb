@@ -13,7 +13,7 @@ class VolunteerTeam < ActiveRecord::Base
   end
 
   def color=(hex_triplet)
-    write_attribute :color, hex_triplet.gsub(/\A#/,'') if hex_triplet
+    write_attribute :color, hex_triplet.gsub(/\A#/, "") if hex_triplet
   end
 
   def color

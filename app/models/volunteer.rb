@@ -14,7 +14,7 @@ class Volunteer < ActiveRecord::Base
   validates :volunteer_teams, presence: true
   validate :volunteer_teams_belong_to_conference
 
-  phony_normalize :phone, default_country_code: 'BG'
+  phony_normalize :phone, default_country_code: "BG"
 
   belongs_to :conference
   has_and_belongs_to_many :volunteer_teams

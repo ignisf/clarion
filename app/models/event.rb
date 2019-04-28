@@ -6,8 +6,8 @@ class Event < ActiveRecord::Base
   has_one :slot
 
   has_many :participations, dependent: :destroy
-  has_many :pending_participations, ->() { pending }, class_name: 'Participation'
-  has_many :approved_participations, ->() { approved }, class_name: 'Participation'
+  has_many :pending_participations, -> { pending }, class_name: "Participation"
+  has_many :approved_participations, -> { approved }, class_name: "Participation"
   has_many :participants, through: :approved_participations
   has_many :participants_with_personal_profiles, through: :approved_participations, source: :participant_with_personal_profile
   has_many :conflict_counts, -> { order(number_of_conflicts: :desc) }, foreign_key: :left_id
@@ -19,7 +19,7 @@ class Event < ActiveRecord::Base
   scope :approved, -> { where(propositions: {status: Proposition.statuses[:approved]})}
 
   validates :conference, presence: true
-  validates :title, presence: true, length: { maximum: 65 }
+  validates :title, presence: true, length: {maximum: 65}
   validates :abstract, presence: true
   validates :description, presence: true
   validates :agreement, acceptance: true
@@ -61,16 +61,16 @@ class Event < ActiveRecord::Base
       language: language,
       abstract: abstract,
       description: description,
-      notes: notes
+      notes: notes,
     }
   end
 
   def ranked?
-    conference.has_vote_results? and rank.present? and number_of_votes.present?
+    conference.has_vote_results? && rank.present? && number_of_votes.present?
   end
 
   def per_cent_of_votes
-    if conference.has_vote_results? and conference.number_of_ballots_cast > 0
+    if conference.has_vote_results? && (conference.number_of_ballots_cast > 0)
       Rational(number_of_votes * 100, conference.number_of_ballots_cast)
     else
       Float::NAN
@@ -80,20 +80,20 @@ class Event < ActiveRecord::Base
   private
 
   def event_type_belongs_to_the_selected_conference
-    unless conference.present? and conference.event_types.include?(event_type)
+    unless conference.present? && conference.event_types.include?(event_type)
       errors.add :event_type, :must_be_a_valid_event_type
     end
   end
 
   def track_belongs_to_the_selected_conference
-    unless conference.present? and conference.tracks.include?(track)
+    unless conference.present? && conference.tracks.include?(track)
       errors.add :track, :must_be_a_valid_track
     end
   end
 
   def length_is_within_the_permitted_interval
     if event_type.present?
-      unless length >= event_type.minimum_length and length <= event_type.maximum_length
+      unless (length >= event_type.minimum_length) && (length <= event_type.maximum_length)
         errors.add :length, :must_be_between, minimum: event_type.minimum_length, maximum: event_type.maximum_length
       end
     end

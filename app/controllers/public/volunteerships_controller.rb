@@ -12,9 +12,9 @@ module Public
       @volunteership.build_proposition proposer: current_user, status: :undecided
 
       if @volunteership.save
-        flash[:notice] = I18n.t('views.volunteerships.you_successfully_applied_for', team: @volunteership.volunteer_team.name)
+        flash[:notice] = I18n.t("views.volunteerships.you_successfully_applied_for", team: @volunteership.volunteer_team.name)
       else
-        flash[:error] = I18n.t('views.volunteerships.an error_occurred_while_applying')
+        flash[:error] = I18n.t("views.volunteerships.an error_occurred_while_applying")
       end
 
       after_save_redirect
@@ -24,7 +24,7 @@ module Public
       @volunteership = current_user.volunteerships.find params[:id]
 
       if @volunteership.destroy
-        flash[:notice] = I18n.t('views.volunteerships.you_successfully_retracted_your_application_for', team: @volunteership.volunteer_team.name)
+        flash[:notice] = I18n.t("views.volunteerships.you_successfully_retracted_your_application_for", team: @volunteership.volunteer_team.name)
       end
 
       redirect_to volunteerships_path

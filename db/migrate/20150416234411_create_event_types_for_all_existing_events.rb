@@ -9,10 +9,10 @@ class CreateEventTypesForAllExistingEvents < ActiveRecord::Migration[4.2]
                            GROUP BY type_name, tracks.conference_id;'
 
     event_types.each do |type|
-      event_type = EventType.create! conference_id: type['conference_id'], created_at: type['created_at'], updated_at: type['created_at']
+      event_type = EventType.create! conference_id: type["conference_id"], created_at: type["created_at"], updated_at: type["created_at"]
 
       execute "INSERT INTO event_type_translations (event_type_id, locale, created_at, updated_at, name, description)
-               VALUES (#{event_type.id}, 'en', '#{event_type.created_at}', '#{event_type.created_at}', '#{type['type_name']}', 'None');"
+               VALUES (#{event_type.id}, 'en', '#{event_type.created_at}', '#{event_type.created_at}', '#{type["type_name"]}', 'None');"
     end
   end
 

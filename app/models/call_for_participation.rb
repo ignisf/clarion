@@ -2,7 +2,7 @@ class CallForParticipation < ActiveRecord::Base
   belongs_to :conference
 
   def open!
-    self.opens_at = Time.now unless self.opens_at.present?
+    self.opens_at = Time.now unless opens_at.present?
     self.closes_at = nil
     save
   end
@@ -13,14 +13,14 @@ class CallForParticipation < ActiveRecord::Base
   end
 
   def open?
-    self.opens_at.present? and self.opens_at < Time.now
+    opens_at.present? && (opens_at < Time.now)
   end
 
   def closed?
-    self.closes_at.present? and self.closes_at < Time.now
+    closes_at.present? && (closes_at < Time.now)
   end
 
   def in_progress?
-    open? and not closed?
+    open? && !closed?
   end
 end

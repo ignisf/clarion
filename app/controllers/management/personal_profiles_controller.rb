@@ -18,7 +18,7 @@ module Management
       @profile    = find_profile
       @user       = @profile.user
 
-      if not @profile
+      unless @profile
         flash[:error] = "No profile, needs to be created"
         redirect_to action: :edit
       end
@@ -36,7 +36,7 @@ module Management
       @profile = @user.build_personal_profile(@conference, profile_params)
 
       if @profile.save
-        flash[:notice] = t('.successfully_created')
+        flash[:notice] = t(".successfully_created")
         redirect_to management_conference_personal_profile_path(@profile, conference_id: @conference.id)
       else
         render action: :new
@@ -56,7 +56,7 @@ module Management
       if @profile.update_attributes(profile_params)
         redirect_to [:management, @conference, @profile]
       else
-        render action: 'edit'
+        render action: "edit"
       end
     end
 

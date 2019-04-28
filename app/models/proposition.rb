@@ -1,5 +1,5 @@
 class Proposition < ActiveRecord::Base
-  belongs_to :proposer, class_name: 'User'
+  belongs_to :proposer, class_name: "User"
   belongs_to :proposable, polymorphic: true, dependent: :destroy
   enum status: [:undecided, :approved, :rejected, :backup]
   delegate :proposable_title, :proposable_type, :proposable_description, to: :proposable

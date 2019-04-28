@@ -7,7 +7,7 @@ task :backup, [:destination] => :environment do |t, args|
   silent = Rake.application.options.silent
   puts "Backing up '#{conf[:database]}' into: #{args.destination}" unless silent
   if system(cmd)
-    puts 'Backup completed.' unless silent
+    puts "Backup completed." unless silent
   else
     puts "Backup failed!\nCommand exit status: #{$?}\nCommand was: #{cmd}"
   end

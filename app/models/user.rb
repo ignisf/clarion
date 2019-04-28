@@ -2,13 +2,13 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
-         :recoverable, :rememberable, :trackable, :validatable
+    :recoverable, :rememberable, :trackable, :validatable
 
   has_many :personal_profiles, dependent: :destroy
   has_many :lectures
   has_many :workshops
   has_many :propositions, foreign_key: :proposer_id
-  has_many :events, through: :propositions, source: :proposable, source_type: 'Event'
+  has_many :events, through: :propositions, source: :proposable, source_type: "Event"
   has_many :participations, foreign_key: :participant_id
   has_many :events_participated_in, through: :participations, source: :event
   has_many :volunteerships, foreign_key: :volunteer_id

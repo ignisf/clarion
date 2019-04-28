@@ -9,6 +9,6 @@ class EventSearch
   option(:confirmed)     { |scope, value| scope.joins(:proposition).approved.where.not(propositions: {confirmed_at: nil}) }
   option(:not_confirmed) { |scope, value| scope.joins(:proposition).approved.where(propositions: {confirmed_at: nil}) }
 
-  sort_by 'title'
-  config[:defaults]['sort'] = "#{config[:sort_attributes].first} asc"
+  sort_by "title"
+  config[:defaults]["sort"] = "#{config[:sort_attributes].first} asc"
 end

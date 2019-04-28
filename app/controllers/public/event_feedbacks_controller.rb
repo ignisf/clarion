@@ -14,7 +14,7 @@ class Public::EventFeedbacksController < Public::ApplicationController
     @feedback.session_id = session.id
 
     if @feedback.save
-      flash[:notice] = I18n.t('public.event_feedbacks.new.success')
+      flash[:notice] = I18n.t("public.event_feedbacks.new.success")
       redirect_to conference_feedbacks_path
     else
       render :new, status: :unprocessable_entity
