@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe CallForParticipation, type: :model do
-  let(:cfp) { build :call_for_participation }
+  let(:conference) { create :conference }
+  subject(:cfp) { build :call_for_participation, conference_id: conference.id }
 
   it 'belongs to a conference' do
     conference = create :conference

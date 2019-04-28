@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :conference do
     sequence(:title) { |n| "Conference-#{n}" }
-    email
+    email { 'foo@example.com' }
     description { 'MyText' }
     start_date { '2014-07-29 21:29:13' }
     end_date { '2014-07-31 21:29:13' }
