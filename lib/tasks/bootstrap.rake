@@ -5,7 +5,7 @@ require "securerandom"
 namespace :bootstrap do
   desc "Copy over initial db config"
   task :db_config do
-    example_config_file = File.join(Rails.root, "config", "database.yml.example")
+    example_config_file = File.join(Rails.root, "config", "database.yml.postgres")
     new_config_file = File.join(Rails.root, "config", "database.yml")
     FileUtils.cp example_config_file, new_config_file
   end
