@@ -1,4 +1,4 @@
-class CreateEventsToSpeakersJoinTable < ActiveRecord::Migration
+class CreateEventsToSpeakersJoinTable < ActiveRecord::Migration[4.2]
   def up
     create_join_table :events, :speaker_profiles
     Event.all.each do |event|

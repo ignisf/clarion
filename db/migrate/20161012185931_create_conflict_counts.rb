@@ -1,4 +1,4 @@
-class CreateConflictCounts < ActiveRecord::Migration
+class CreateConflictCounts < ActiveRecord::Migration[4.2]
   def change
     create_table :conflict_counts do |t|
       t.references :left, index: true

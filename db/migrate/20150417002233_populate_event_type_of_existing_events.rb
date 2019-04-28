@@ -1,4 +1,4 @@
-class PopulateEventTypeOfExistingEvents < ActiveRecord::Migration
+class PopulateEventTypeOfExistingEvents < ActiveRecord::Migration[4.2]
   def up
     event_ids = execute('SELECT id FROM events WHERE type IS NOT NULL;').map { |row| row['id'] };
 

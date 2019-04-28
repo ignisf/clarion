@@ -1,4 +1,4 @@
-class CreateVolunteerships < ActiveRecord::Migration
+class CreateVolunteerships < ActiveRecord::Migration[4.2]
   def change
     create_table :volunteerships do |t|
       t.references :volunteer_team, index: true, foreign_key: true

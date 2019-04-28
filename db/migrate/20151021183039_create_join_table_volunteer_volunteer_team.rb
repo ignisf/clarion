@@ -1,4 +1,4 @@
-class CreateJoinTableVolunteerVolunteerTeam < ActiveRecord::Migration
+class CreateJoinTableVolunteerVolunteerTeam < ActiveRecord::Migration[4.2]
   def change
     create_join_table :volunteers, :volunteer_teams do |t|
       t.index [:volunteer_id, :volunteer_team_id], name: 'volunteer_id_volunteer_team_id'

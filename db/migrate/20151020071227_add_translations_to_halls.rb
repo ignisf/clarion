@@ -1,4 +1,4 @@
-class AddTranslationsToHalls < ActiveRecord::Migration
+class AddTranslationsToHalls < ActiveRecord::Migration[4.2]
   def self.up
     Hall.create_translation_table!({
       :name => :string

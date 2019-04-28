@@ -6,7 +6,7 @@ class Proposition < ActiveRecord::Base
   belongs_to :proposable, polymorphic: true
 end
 
-class AddTrackIdToEvents < ActiveRecord::Migration
+class AddTrackIdToEvents < ActiveRecord::Migration[4.2]
   def up
     add_reference :events, :track, index: true, foreign_key: true
 

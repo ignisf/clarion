@@ -1,4 +1,4 @@
-class CreatePropositions < ActiveRecord::Migration
+class CreatePropositions < ActiveRecord::Migration[4.2]
   def change
     create_table :propositions do |t|
       t.references :proposer, index: true

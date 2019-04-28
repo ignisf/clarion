@@ -1,7 +1,7 @@
 class Participation   < ActiveRecord::Base; end
 class PersonalProfile < ActiveRecord::Base; end
 
-class CreateParticipationRecords < ActiveRecord::Migration
+class CreateParticipationRecords < ActiveRecord::Migration[4.2]
   def up
     event_to_speaker_profiles = execute 'SELECT * FROM events_speaker_profiles'
 

@@ -1,4 +1,4 @@
-class RemoveUnneededColumnsFromEvents < ActiveRecord::Migration
+class RemoveUnneededColumnsFromEvents < ActiveRecord::Migration[4.2]
   def change
     remove_index :events, name: :index_events_on_track_id, column: :track_id
     remove_index :events, name: :index_events_on_type, column: :type

@@ -1,4 +1,4 @@
-class AddTranslationTablesToConferences < ActiveRecord::Migration
+class AddTranslationTablesToConferences < ActiveRecord::Migration[4.2]
   def up
     Conference.create_translation_table!({
                                      :title => :string,

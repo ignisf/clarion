@@ -10,7 +10,7 @@ end
 class Track < ActiveRecord::Base
 end
 
-class AddConferenceIdToEvents < ActiveRecord::Migration
+class AddConferenceIdToEvents < ActiveRecord::Migration[4.2]
   def up
     add_reference :events, :conference, index: true, foreign_key: true
 

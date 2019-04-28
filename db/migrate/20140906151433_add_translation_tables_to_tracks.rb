@@ -1,4 +1,4 @@
-class AddTranslationTablesToTracks < ActiveRecord::Migration
+class AddTranslationTablesToTracks < ActiveRecord::Migration[4.2]
   def up
     Track.create_translation_table!({
                                       name: :string,

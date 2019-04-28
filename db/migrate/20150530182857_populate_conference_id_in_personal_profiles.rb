@@ -4,7 +4,7 @@ end
 class PersonalProfile < ActiveRecord::Base
 end
 
-class PopulateConferenceIdInPersonalProfiles < ActiveRecord::Migration
+class PopulateConferenceIdInPersonalProfiles < ActiveRecord::Migration[4.2]
   def change
     conference = Conference.first
 

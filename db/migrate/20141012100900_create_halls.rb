@@ -1,4 +1,4 @@
-class CreateHalls < ActiveRecord::Migration
+class CreateHalls < ActiveRecord::Migration[4.2]
   def change
     create_table :halls do |t|
       t.references :conference, index: true

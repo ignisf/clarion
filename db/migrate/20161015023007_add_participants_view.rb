@@ -13,7 +13,7 @@ LEFT JOIN "personal_profiles"  ON "personal_profiles"."conference_id" = "events"
                               AND "personal_profiles"."user_id" = "users"."id";
 EOS
 
-class AddParticipantsView < ActiveRecord::Migration
+class AddParticipantsView < ActiveRecord::Migration[4.2]
   def up
     execute PARTICIPANTS_SQL
   end

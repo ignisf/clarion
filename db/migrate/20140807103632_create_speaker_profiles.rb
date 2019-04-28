@@ -1,4 +1,4 @@
-class CreateSpeakerProfiles < ActiveRecord::Migration
+class CreateSpeakerProfiles < ActiveRecord::Migration[4.2]
   def change
     create_table :speaker_profiles do |t|
       t.string :first_name

@@ -1,7 +1,7 @@
 class EventType < ActiveRecord::Base
 end
 
-class SetMinimalAndMaximalTimesForAllEventTypes < ActiveRecord::Migration
+class SetMinimalAndMaximalTimesForAllEventTypes < ActiveRecord::Migration[4.2]
   def up
     EventType.where(minimum_length: nil).update_all(minimum_length: 0)
     EventType.where(maximum_length: nil).update_all(maximum_length: 240)

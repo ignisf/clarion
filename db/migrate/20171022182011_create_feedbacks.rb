@@ -1,4 +1,4 @@
-class CreateFeedbacks < ActiveRecord::Migration
+class CreateFeedbacks < ActiveRecord::Migration[4.2]
   def change
     create_table :feedbacks do |t|
       t.references :feedback_receiving, index: {name: :feedbacks_polymorphic_index}, polymorphic: true, null: false

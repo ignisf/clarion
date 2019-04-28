@@ -1,4 +1,4 @@
-class CreatePropositionsForExistingEvents < ActiveRecord::Migration
+class CreatePropositionsForExistingEvents < ActiveRecord::Migration[4.2]
   def up
     events = execute 'SELECT * FROM events'
 
