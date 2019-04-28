@@ -1,3 +1,5 @@
+require_relative 'feature_helpers'
+
 Capybara.default_max_wait_time = 5
 Capybara.asset_host = "http://localhost:3000"
 
