@@ -65,6 +65,7 @@ module ApplicationHelper
   end
 
   def rating_label_color(rating)
+    return nil if rating.nil?
     case rating.round
     when (0...3) then 'primary'
     when 3       then 'danger'
@@ -75,6 +76,7 @@ module ApplicationHelper
   end
 
   def human_rating(rating)
+    return nil if rating.nil?
     case rating.round
     when (0...3) then t('ratings.poor')
     when 3       then t('ratings.average')
