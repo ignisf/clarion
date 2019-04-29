@@ -63,4 +63,24 @@ module ApplicationHelper
 
     output.html_safe
   end
+
+  def rating_label_color(rating)
+    case rating.round
+    when (0...3) then 'danger'
+    when 3       then 'warning'
+    when 4       then 'info'
+    when 5       then 'primary'
+    when 6       then 'success'
+    end
+  end
+
+  def human_rating(rating)
+    case rating.round
+    when (0...3) then t('ratings.poor')
+    when 3       then t('ratings.average')
+    when 4       then t('ratings.good')
+    when 5       then t('ratings.very_good')
+    when 6       then t('ratings.excellent')
+    end
+  end
 end

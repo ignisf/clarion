@@ -158,6 +158,7 @@ bg:
         rank: "Класиране"
         user: "Лектор"
         participants: "Участници"
+        feedbacks: "Обратна връзка"
       event_type:
         description: "Описание"
         name: "Име"

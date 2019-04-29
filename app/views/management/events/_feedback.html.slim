@@ -1,0 +1,12 @@
+tr
+  td.text-center
+    .huge
+      .label.label-info
+        = feedback.rating
+  td
+    blockquote
+      = simple_format feedback.comment
+      - if feedback.author_email.present?
+        footer = feedback.author_email
+      - else
+        footer = t(".anonymous")

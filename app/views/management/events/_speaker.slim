@@ -51,6 +51,8 @@
                 th
                   = Event.human_attribute_name :title
                 th.text-center
+                  = t '.rating'
+                th.text-center
                   = Event.human_attribute_name :rank
                 th
                   = Event.human_attribute_name :conference
@@ -62,6 +64,11 @@
               - speaker.events_participated_in.where.not(id: @event.id).order(created_at: :desc).each do |event|
                 tr
                   td = event.title
+                  td.text-center
+                    - if event.rated?
+                      .large
+                        .label class="label-#{rating_label_color(event.average_rating)}"
+                          = number_with_precision event.average_rating, precision: 2, strip_insignificant_zeros: true
                   td.text-center
                     - if event.ranked?
                         .large

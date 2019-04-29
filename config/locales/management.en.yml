@@ -7,3 +7,13 @@ en:
     approved: Approved
     rejected: Rejected
     backup: Back-up
+  management:
+    events:
+      show:
+        average_grade: Average grade
+        total_feedback_grades:
+          one: out of %{total_grades} grade
+          other: out of %{total_grades} grades
+        no_feedback_received: No feedback received (yet)
+        no_comments_received: No comments received (yet)
+        comments: Comments

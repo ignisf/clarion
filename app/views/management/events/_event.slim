@@ -20,9 +20,12 @@
           .label.label-info
             = event.rank
           =< number_to_percentage(event.per_cent_of_votes, strip_insignificant_zeros: true, precision: 2)
-
-
-
+      - if event.rated?
+        dt = t(".average_rating")
+        dd
+            => human_rating(event.average_rating)
+            .badge class="badge-#{rating_label_color(event.average_rating)}"
+              = number_with_precision event.average_rating, precision: 2, strip_insignificant_zeros: true
   td.visible-md.visible-lg.visible-xl
     = links_to_event_participants_for(event)
   td.action

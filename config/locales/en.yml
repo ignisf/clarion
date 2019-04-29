@@ -67,6 +67,7 @@ en:
         title: Title
         track: Track
         user: Speaker
+        feedbacks: Feedback
       event_type:
         description: Description
         name: Name
