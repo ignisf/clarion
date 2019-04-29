@@ -5,65 +5,75 @@
   .col-lg-12
     h1.page-header
       = PersonalProfile.model_name.human.mb_chars.capitalize
+.row
+  .col-sm-5.col-md-4
+    .panel.panel-default
+      .panel-image
+        = image_tag @profile.picture.url
+      .panel-body
 
-.panel.panel-default
-  .panel-body
-    .media
-      .media-left.hidden-sm.hidden-xs
-          = image_tag @profile.picture.medium.url, class: "profile-image"
-      .media-body
-        .text-center.visible-sm.visible-xs
-          = image_tag @profile.picture.medium.url, class: "profile-image img-thumbnail"
-        h4.media-heading
-          = @profile.name
-          hr
-        h4 = PersonalProfile.human_attribute_name(:biography)
-        = simple_format @profile.biography
-        h4 = t '.contacts'
+        .media
+          .media-body
+            h4.media-heading
+              = @profile.name
+            hr
+            = simple_format @profile.biography
+      ul.list-group
         - if @profile.organisation.present?
-          p = icon :briefcase, @profile.organisation
+          li.list-group-item
+            h5.list-group-item-heading = PersonalProfile.human_attribute_name :organisation
+            p.list-group-item-text = @profile.organisation
         - if @profile.twitter.present?
-          p = icon :twitter, "@#{@profile.twitter}"
+          li.list-group-item
+            h5.list-group-item-heading = PersonalProfile.human_attribute_name :twitter
+            p.list-group-item-text
+              = link_to "@#{@profile.twitter}", "https://twitter.com/#{@profile.twitter}", target: '_blank'
         - if @profile.github.present?
-          p = icon :github, @profile.github
+          li.list-group-item
+            h5.list-group-item-heading = PersonalProfile.human_attribute_name :github
+            p.list-group-item-text
+              = link_to @profile.github, "https://github.com/#{@profile.github}", target: '_blank'
         - if @profile.public_email.present?
-          p = icon :envelope, "#{@profile.public_email} (#{PersonalProfile.human_attribute_name(:public_email).mb_chars.downcase})"
-        p = icon :envelope, "#{@user.email} (#{User.human_attribute_name(:email).mb_chars.downcase})"
-
-        - if @user.events_participated_in.any?
-          h4 = t '.event_propositions'
+          li.list-group-item
+            h5.list-group-item-heading = PersonalProfile.human_attribute_name :public_email
+            p.list-group-item-text = @profile.public_email
+        li.list-group-item
+          h5.list-group-item-heading = t '.private_email'
+          p.list-group-item-text = @user.email
+      .panel-footer
+        .text-right
+          .btn-group.btn-group-sm
+            = action_buttons @conference, @profile, [:edit, :destroy]
+  .col-sm-7.col-md-8
+    h2 = t '.talk_history'
+    .panel.panel-default
+      - if @user.events_participated_in.any?
           table.table.table-striped.table-hover.record-table
             thead
               tr
                 th
                   = Event.human_attribute_name :title
-                th.text-center
+                th.text-center.hidden-md.hidden-sm.hidden-xs
                   = Event.human_attribute_name :rank
-                th
+                th.hidden-md.hidden-sm.hidden-xs
                   = Event.human_attribute_name :conference
-                th
+                th.hidden-md.hidden-sm.hidden-xs
                   = Event.human_attribute_name :status
                 th
-
             tbody
               - @user.events_participated_in.order(created_at: :desc).each do |event|
                 tr
                   td = event.title
-                  td.text-center
+                  td.text-center.hidden-md.hidden-sm.hidden-xs
                     - if event.ranked?
                       .large
                         .label.label-info = event.rank
-                  td = event.conference.title
-                  td
+                  td.hidden-md.hidden-sm.hidden-xs
+                    = event.conference.title
+                  td.hidden-md.hidden-sm.hidden-xs
                     span class="label label-lg label-#{proposition_status_class(event.status)}"
                       = icon(proposition_status_glyph(event.status), t("activerecord.attributes.proposition.statuses.#{event.status}"))
 
                   td.actions
                     .btn-group.btn-group-sm
                       = action_buttons event.conference, event, [:show]
-
-
-  .panel-footer
-    .text-right
-      .btn-group.btn-group-sm
-        = action_buttons @conference, @profile, [:edit, :destroy]
