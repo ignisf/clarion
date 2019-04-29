@@ -9,9 +9,21 @@ class User < ActiveRecord::Base
   has_many :workshops
   has_many :propositions, foreign_key: :proposer_id
   has_many :events, through: :propositions, source: :proposable, source_type: "Event"
+  has_many :feedbacks, through: :events
+  has_many :feedbacks_with_comment, -> { where.not(comment: [nil, '']) }, through: :events
+
   has_many :participations, foreign_key: :participant_id
   has_many :events_participated_in, through: :participations, source: :event
   has_many :volunteerships, foreign_key: :volunteer_id
+
+  include FeedbackReceiving
+
+  def average_rating
+    return nil unless rated?
+    ratings_per_event = feedbacks.group(:feedback_receiving_type,
+                                        :feedback_receiving_id).average(:rating).values
+    BigDecimal(ratings_per_event.reduce(&:+)) / BigDecimal(ratings_per_event.size)
+  end
 
   def find_or_build_personal_profile(conference, params = {})
     current_profile = personal_profile(conference)

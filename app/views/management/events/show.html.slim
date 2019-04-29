@@ -76,7 +76,7 @@
             - if @event.feedbacks_with_comment.size > 0
               table.table.table-striped
                 tbody
-                  = render partial: 'feedback', collection: @event.feedbacks.where.not(comment: [nil, ''])
+                  = render partial: '/management/shared/feedback', collection: @event.feedbacks_with_comment
             - else
               .panel-body
                 = t ('.no_comments_received')

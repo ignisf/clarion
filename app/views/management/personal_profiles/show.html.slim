@@ -45,14 +45,40 @@
           .btn-group.btn-group-sm
             = action_buttons @conference, @profile, [:edit, :destroy]
   .col-sm-7.col-md-8
+    .row
+      .col-md-6
+        .panel.panel-info
+          .panel-heading
+            .row
+              .col-xs-3
+                = icon 'files-o', '', class: 'fa-5x'
+              .col-xs-9.text-right
+                .huge
+                  = @user.events_participated_in.size
+                div
+                  = Event.model_name.human(count: @user.events_participated_in.size)
+      .col-md-6
+        .panel class="panel-#{rating_label_color(@user.average_rating || 5)}" title=human_rating(@user.average_rating)
+          .panel-heading
+            .row
+              .col-xs-3
+                = icon 'star', '', class: 'fa-5x'
+              .col-xs-9.text-right
+                .huge
+                  = number_with_precision(@user.average_rating, precision: 2, strip_insignificant_zeros: true) || '–'
+                div
+                  = User.human_attribute_name(:average_rating).downcase
+
     h2 = t '.talk_history'
     .panel.panel-default
       - if @user.events_participated_in.any?
           table.table.table-striped.table-hover.record-table
             thead
               tr
-                th
+                th.main
                   = Event.human_attribute_name :title
+                th.text-center
+                  = Event.human_attribute_name :rating
                 th.text-center.hidden-md.hidden-sm.hidden-xs
                   = Event.human_attribute_name :rank
                 th.hidden-md.hidden-sm.hidden-xs
@@ -64,6 +90,11 @@
               - @user.events_participated_in.order(created_at: :desc).each do |event|
                 tr
                   td = event.title
+                  td.text-center
+                    - if event.rated?
+                      .large
+                        .label class="label-#{rating_label_color(event.average_rating)}" title=human_rating(event.average_rating)
+                          = number_with_precision event.average_rating, precision: 2, strip_insignificant_zeros: true
                   td.text-center.hidden-md.hidden-sm.hidden-xs
                     - if event.ranked?
                       .large
@@ -77,3 +108,11 @@
                   td.actions
                     .btn-group.btn-group-sm
                       = action_buttons event.conference, event, [:show]
+    h2 = t '.comments_from_the_audience'
+    - if @user.feedbacks_with_comment.size > 0
+      .panel.panel-default
+        table.table.table-striped
+          tbody
+            = render partial: '/management/shared/feedback', collection: @user.feedbacks_with_comment.order(created_at: :desc)
+    - else
+      p = t '.no_comments_received'

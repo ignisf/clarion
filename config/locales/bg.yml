@@ -118,6 +118,9 @@ bg:
     view:
       button: "Прегледай %{model}"
       title: "Преглед на %{model}"
+  attributes:
+    average_rating: Средна оценка
+    rating: Оценка
   activerecord:
     attributes:
       feedback:

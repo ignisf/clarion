@@ -1,0 +1,16 @@
+tr
+  td.text-center
+    .huge
+      .label class="label-#{rating_label_color(feedback.rating)}" title=human_rating(feedback.rating)
+        = feedback.rating
+  td
+    blockquote
+      = simple_format feedback.comment
+      footer
+        - if feedback.author_email.present?
+          = feedback.author_email
+        - else
+          = t(".anonymous")
+        - if !local_assigns[:show_title]
+          span<> = t '.about'
+          = link_to feedback.feedback_receiving.title, [:management, feedback.feedback_receiving.conference, feedback.feedback_receiving]

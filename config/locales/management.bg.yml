@@ -11,6 +11,16 @@ bg:
   events:
     metadata: "%{type} на %{language} с продължителност %{length} минути"
   management:
+    shared:
+      feedback:
+        anonymous: Анонимен
+        about: относно
+    personal_profiles:
+      show:
+        talk_history: Събития с участието на лектора
+        comments_from_the_audience: Коментари от аудиторията
+        no_comments_received: Все още няма коментари.
+        private_email: Личен e-mail
     events:
       show:
         average_grade: Средна оценка
@@ -20,3 +30,9 @@ bg:
         no_feedback_received: Все още няма обратна връзка
         no_comments_received: Все още няма коментари
         comments: Коментари
+  ratings:
+    poor: Слаб
+    average: Среден
+    good: Добър
+    very_good: Мн. добър
+    excellent: Отличен

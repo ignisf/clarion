@@ -66,10 +66,10 @@ module ApplicationHelper
 
   def rating_label_color(rating)
     case rating.round
-    when (0...3) then 'danger'
-    when 3       then 'warning'
-    when 4       then 'info'
-    when 5       then 'primary'
+    when (0...3) then 'primary'
+    when 3       then 'danger'
+    when 4       then 'warning'
+    when 5       then 'info'
     when 6       then 'success'
     end
   end

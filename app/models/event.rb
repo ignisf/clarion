@@ -11,8 +11,10 @@ class Event < ActiveRecord::Base
   has_many :participants, through: :approved_participations
   has_many :participants_with_personal_profiles, through: :approved_participations, source: :participant_with_personal_profile
   has_many :conflict_counts, -> { order(number_of_conflicts: :desc) }, foreign_key: :left_id
+
   has_many :feedbacks, as: :feedback_receiving
   has_many :feedbacks_with_comment, -> { where.not(comment: [nil, ""]) }, as: :feedback_receiving, class_name: 'Feedback'
+  include FeedbackReceiving
 
   belongs_to :event_type
 
@@ -35,14 +37,6 @@ class Event < ActiveRecord::Base
   delegate :status, to: :proposition
 
   accepts_nested_attributes_for :participations, allow_destroy: true
-
-  def average_rating
-    feedbacks.average(:rating)
-  end
-
-  def rated?
-    feedbacks.size > 0
-  end
 
   def all_participants_have_profiles?
     participants_with_personal_profiles.all? { |participant| participant.has_personal_profile? }
