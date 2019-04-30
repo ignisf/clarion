@@ -1,96 +1,123 @@
 - personal_profile = speaker.personal_profile(@conference) || speaker.personal_profiles.last
 
-.panel.panel-default
-  .panel-body
-    .media
-      .media-left.hidden-sm.hidden-xs
-          - if personal_profile.present?
-            = image_tag personal_profile.picture.medium.url, class: "profile-image"
-          - else
-            = icon :user, class: 'fa-5x'
-      .media-body
-        .text-center.visible-sm.visible-xs
-          - if personal_profile.present?
-            = image_tag personal_profile.picture.medium.url, class: "profile-image img-thumbnail"
-          - else
-            = icon :user, class: 'fa-5x'
-        - if personal_profile.present?
-          h4.media-heading
-            = personal_profile.name
-            - unless personal_profile.conference == @conference
-              small<
-                | (
-                = t('.profile_from', conference: personal_profile.conference.title)
-                | )
-          hr
-          h4 = PersonalProfile.human_attribute_name(:biography)
-          = simple_format personal_profile.biography
-
-          h4 = t '.contacts'
+.row
+  .col-sm-4
+    .panel.panel-default
+      - if personal_profile.present?
+        .panel-image
+          = image_tag personal_profile.picture.url
+        .panel-body
+          .media
+            .media-body
+              h4.media-heading
+                = personal_profile.name
+              hr
+              = simple_format(truncate(personal_profile.biography, omission: '... ', length: 300) { link_to(t('.continue'), [:management, @conference, personal_profile])})
+        ul.list-group
           - if personal_profile.organisation.present?
-            p #{icon :briefcase} @#{personal_profile.organisation}
+            li.list-group-item
+              h5.list-group-item-heading = PersonalProfile.human_attribute_name :organisation
+              p.list-group-item-text = personal_profile.organisation
           - if personal_profile.twitter.present?
-            p #{icon :twitter} @#{personal_profile.twitter}
-          - if personal_profile.public_email.present?
-            p #{icon :envelope} #{personal_profile.public_email} (#{PersonalProfile.human_attribute_name(:public_email).mb_chars.downcase})
-          p #{icon :envelope} #{speaker.email} (#{PersonalProfile.human_attribute_name(:email).mb_chars.downcase})
-          p #{glyph :phone} #{Phony.format(personal_profile.mobile_phone, format: :international)}
-        - else
-          h4.media-heading
-            = speaker.email
-          hr
-          p
-            = t('.no_profile')
-            =< link_to icon('user-plus', t('.create_profile')), new_management_conference_personal_profile_path(conference_id: @conference.id, user_id: speaker.id), class: ['btn', 'btn-primary', 'btn-xs']
+            li.list-group-item
+              h5.list-group-item-heading = PersonalProfile.human_attribute_name :twitter
+              p.list-group-item-text
+                = link_to "@#{personal_profile.twitter}", "https://twitter.com/#{personal_profile.twitter}", target: '_blank'
+          - if personal_profile.github.present?
+            li.list-group-item
+              h5.list-group-item-heading = PersonalProfile.human_attribute_name :github
+              p.list-group-item-text
+                = link_to personal_profile.github, "https://github.com/#{personal_profile.github}", target: '_blank'
+        .panel-footer
+          .text-right
+            .btn-group.btn-group-sm
+              - if personal_profile.conference == @conference
+                = action_buttons @conference, personal_profile, [:show, :edit]
+              - else
+                = link_to [:management, @conference, :personal_profiles, {personal_profile: {user_id: speaker.id}}], class: ['btn', 'btn-primary'], title: t('actions.clone.title', model: PersonalProfile.model_name.human), method: :post do
+                  => icon('clone')
+                = link_to [:new, :management, @conference, :personal_profile, {user_id: speaker.id}], class: ['btn', 'btn-primary'], title: t('actions.create.title', model: PersonalProfile.model_name.human) do
+                  => icon('user-plus')
+      - else
+        .panel-image
+          = image_tag 'user-secret-solid.svg'
+        .panel-body
+          .media
+            .media-body
+              h4.media-heading
+                speaker.email
+              hr
+              p = t '.the_participant_has_not_created_a_profile'
+        ul.list-group
+          li.list-group-item
+            h5.list-group-item-heading = t '.private_email'
+            p.list-group-item-text = speaker.email
 
+  .col-sm-8
+    .row
+      .col-md-6
+        .panel.panel-info
+          .panel-heading
+            .row
+              .col-xs-3
+                = icon 'files-o', '', class: 'fa-5x'
+              .col-xs-9.text-right
+                .huge
+                  = speaker.events_participated_in.size
+                div
+                  = Event.model_name.human(count: speaker.events_participated_in.size)
+      .col-md-6
+        .panel class="panel-#{rating_label_color(speaker.average_rating || 5)}" title=human_rating(speaker.average_rating)
+          .panel-heading
+            .row
+              .col-xs-3
+                = icon 'star', '', class: 'fa-5x'
+              .col-xs-9.text-right
+                .huge
+                  = number_with_precision(speaker.average_rating, precision: 2, strip_insignificant_zeros: true) || '–'
+                div
+                  = User.human_attribute_name(:average_rating).downcase
+
+    .row
+      .col-xs-12
+        h4 = t '.other_event_propositions'
         - if speaker.events_participated_in.where.not(id: @event.id).any?
-          h4 = t '.previous_event_propositions'
-          table.table.table-striped.table-hover.record-table
-            thead
-              tr
-                th
-                  = Event.human_attribute_name :title
-                th.text-center
-                  = t '.rating'
-                th.text-center
-                  = Event.human_attribute_name :rank
-                th
-                  = Event.human_attribute_name :conference
-                th
-                  = Event.human_attribute_name :status
-                th
-
-            tbody
-              - speaker.events_participated_in.where.not(id: @event.id).order(created_at: :desc).each do |event|
+          .panel.panel-default
+            table.table.table-striped.table-hover.record-table
+              thead
                 tr
-                  td = event.title
-                  td.text-center
-                    - if event.rated?
-                      .large
-                        .label class="label-#{rating_label_color(event.average_rating)}"
-                          = number_with_precision event.average_rating, precision: 2, strip_insignificant_zeros: true
-                  td.text-center
-                    - if event.ranked?
+                  th.main
+                    = Event.human_attribute_name :title
+                  th.text-center
+                    = Event.human_attribute_name :rating
+                  th.text-center.hidden-md.hidden-sm.hidden-xs
+                    = Event.human_attribute_name :rank
+                  th.hidden-md.hidden-sm.hidden-xs
+                    = Event.human_attribute_name :conference
+                  th.hidden-md.hidden-sm.hidden-xs
+                    = Event.human_attribute_name :status
+                  th.hidden-md.hidden-sm.hidden-xs
+
+              tbody
+                - speaker.events_participated_in.where.not(id: @event.id).order(created_at: :desc).each do |event|
+                  tr
+                    td = event.title
+                    td.text-center
+                      - if event.rated?
                         .large
-                          .label.label-info = event.rank
-                  td = event.conference.title
-                  td
-                    span class="label label-lg label-#{proposition_status_class(event.status)}"
-                      = icon(proposition_status_glyph(event.status), t("activerecord.attributes.proposition.statuses.#{event.status}"))
+                          .label class="label-#{rating_label_color(event.average_rating)}"
+                            = number_with_precision event.average_rating, precision: 2, strip_insignificant_zeros: true
+                    td.text-center.hidden-md.hidden-sm.hidden-xs
+                      - if event.ranked?
+                          .large
+                            .label.label-info = event.rank
+                    td.hidden-md.hidden-sm.hidden-xs = event.conference.title
+                    td.hidden-md.hidden-sm.hidden-xs
+                      span class="label label-lg label-#{proposition_status_class(event.status)}"
+                        = icon(proposition_status_glyph(event.status), t("activerecord.attributes.proposition.statuses.#{event.status}"))
 
-                  td.actions
-                    .btn-group.btn-group-sm
-                      = action_buttons event.conference, event, [:show]
-
-
-  - if personal_profile.present?
-    .panel-footer
-      .text-right
-        .btn-group.btn-group-sm
-          - if personal_profile.conference == @conference
-            = action_buttons @conference, personal_profile, [:show, :edit]
-          - else
-            = link_to [:management, @conference, :personal_profiles, {personal_profile: {user_id: speaker.id}}], class: ['btn', 'btn-primary'], title: t('actions.clone.title', model: PersonalProfile.model_name.human), method: :post do
-              => icon('clone')
-            = link_to [:new, :management, @conference, :personal_profile, {user_id: speaker.id}], class: ['btn', 'btn-primary'], title: t('actions.create.title', model: PersonalProfile.model_name.human) do
-              => icon('user-plus')
+                    td.actions
+                      .btn-group.btn-group-sm
+                        = action_buttons event.conference, event, [:show]
+        - else
+          p = t '.no_other_event_propositions'

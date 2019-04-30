@@ -30,6 +30,13 @@ bg:
         no_feedback_received: Все още няма обратна връзка
         no_comments_received: Все още няма коментари
         comments: Коментари
+        top_conflicts: Топ 5 конфликти
+      speaker:
+        continue: Още...
+        other_event_propositions: Други предложени събития
+        the_participant_has_not_created_a_profile: Потребителят не си е създал профил в системата.
+        private_email: Личен e-mail
+        no_other_event_propositions: Няма други предложени събития
   ratings:
     poor: Слаб
     average: Среден

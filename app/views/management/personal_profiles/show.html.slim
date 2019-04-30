@@ -11,7 +11,6 @@
       .panel-image
         = image_tag @profile.picture.url
       .panel-body
-
         .media
           .media-body
             h4.media-heading
@@ -19,6 +18,10 @@
             hr
             = simple_format @profile.biography
       ul.list-group
+        - if @profile.mobile_phone.present?
+          li.list-group-item
+            h5.list-group-item-heading = PersonalProfile.human_attribute_name :mobile_phone
+            p.list-group-item-text = Phony.format(@profile.mobile_phone, format: :international)
         - if @profile.organisation.present?
           li.list-group-item
             h5.list-group-item-heading = PersonalProfile.human_attribute_name :organisation

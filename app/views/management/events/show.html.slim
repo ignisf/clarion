@@ -65,38 +65,42 @@
     h3 = Event.human_attribute_name :participants
     = render partial: 'speaker', collection: @event.participants
 
-.row
-  .col-xs-12
-    h3 = Event.human_attribute_name :feedbacks
-    - if @event.rated?
-      .row
-        .col-md-10
-          .panel.panel-default
-            .panel-heading = t('.comments')
-            - if @event.feedbacks_with_comment.size > 0
-              table.table.table-striped
-                tbody
-                  = render partial: '/management/shared/feedback', collection: @event.feedbacks_with_comment
-            - else
-              .panel-body
-                = t ('.no_comments_received')
-        .col-md-2
-          .panel.panel-info
-            .panel-heading
-              = t '.average_grade'
-            .panel-body.text-right
-              .huge
-                = number_with_precision(@event.average_rating, precision: 2, strip_insignificant_zeros: true) || '–'
-              = t('.total_feedback_grades', total_grades: @event.feedbacks.count, count: @event.feedbacks.count)
-    - else
-      p = t '.no_feedback_received'
+- if @conference.start_date.past? || @event.rated?
+  .row
+    .col-xs-12
+      h3 = Event.human_attribute_name :feedbacks
+      - if @event.rated?
+        .row
+          .col-md-10
+            .panel.panel-default
+              .panel-heading = t('.comments')
+              - if @event.feedbacks_with_comment.size > 0
+                table.table.table-striped
+                  tbody
+                    = render partial: '/management/shared/feedback', collection: @event.feedbacks_with_comment
+              - else
+                .panel-body
+                  = t ('.no_comments_received')
+          .col-md-2
+            .panel.panel-info
+              .panel-heading
+                = t '.average_grade'
+              .panel-body.text-right
+                .huge
+                  = number_with_precision(@event.average_rating, precision: 2, strip_insignificant_zeros: true) || '–'
+                = t('.total_feedback_grades', total_grades: @event.feedbacks.count, count: @event.feedbacks.count)
+      - else
+        p = t '.no_feedback_received'
 
 
 - if @conference.has_vote_results? or @conference.has_voting_endpoint?
 .row
   .col-xs-12
     h2
-      = t '.conflicts'
+      - if @conference.start_date.future?
+        = t '.conflicts'
+      - else
+        = t '.top_conflicts'
       small< = t '.between_approved_events'
     .panel.panel-default
       table.table.table-striped.table-hover.record-table
@@ -105,13 +109,17 @@
             tr
               th.text-right
                 = t '.percent'
-              th
+              th.main
                 = Event.model_name.human.mb_chars.capitalize
               th
         tbody
           - if @conference.has_vote_results?
             - if @conference.approved_events.count > 2
-              - @event.conflict_counts.where(right_id: @conference.approved_events.pluck(:id)).includes(:right).each do |conflict_count|
+              - if @conference.start_date.future?
+                - conflict_counts = @event.conflict_counts.where(right_id: @conference.approved_events.pluck(:id)).includes(:right)
+              - else
+                - conflict_counts = @event.conflict_counts.where(right_id: @conference.approved_events.pluck(:id)).includes(:right).limit(5)
+              - conflict_counts.each do |conflict_count|
                 - conflict_percent = Rational(conflict_count.number_of_conflicts, @conference.number_of_ballots_cast)
                 tr
                   td.text-right
