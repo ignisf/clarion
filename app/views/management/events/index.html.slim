@@ -7,8 +7,8 @@
       = Event.model_name.human(count: 2).mb_chars.titleize
       small<
         | (
-        = t '.total', current: @events.count, total: current_conference.events.count
-        =< Event.model_name.human(count: current_conference.events.count)
+        = t '.total', current: @events.size, total: @conference.events.size
+        =< Event.model_name.human(count: @conference.events.size)
         | )
 .row.visible-sm
   .col-xs-12
@@ -21,73 +21,73 @@
       .panel-body
         ul.nav.nav-pills.nav-stacked
           = content_tag :li, role: "presentation", class: @filters[:event_type_id].blank? ? 'active' : nil
-            = link_to management_conference_events_path(current_conference, filters: @filters.except(:event_type_id))
+            = link_to management_conference_events_path(@conference, filters: @filters.except(:event_type_id))
               = t '.all'
-              span.badge.pull-right = current_conference.events.count
-          - current_conference.event_types.each do |event_type|
+              span.badge.pull-right = @conference.events.size
+          - @conference.event_types.each do |event_type|
             = content_tag :li, role: "presentation", class: @filters[:event_type_id].to_i == event_type.id ? 'active' : nil
-              = link_to management_conference_events_path(current_conference, filters: @filters.merge({event_type_id: event_type.id}))
+              = link_to management_conference_events_path(@conference, filters: @filters.merge({event_type_id: event_type.id}))
                 = event_type.name
-                span.badge.pull-right = current_conference.events.where(event_type: event_type).count
+                span.badge.pull-right = @conference.events.where(event_type: event_type).size
     .panel.panel-default
       .panel-heading
         = Event.human_attribute_name(:track)
       .panel-body
         ul.nav.nav-pills.nav-stacked
           = content_tag :li, role: "presentation", class: @filters[:track_id].blank? ? 'active' : nil
-            = link_to management_conference_events_path(current_conference, filters: @filters.except(:track_id))
+            = link_to management_conference_events_path(@conference, filters: @filters.except(:track_id))
               = t '.all'
-              span.badge.pull-right = current_conference.events.count
-          - current_conference.tracks.each do |track|
+              span.badge.pull-right = @conference.events.size
+          - @conference.tracks.each do |track|
             = content_tag :li, role: "presentation", class: @filters[:track_id] == track.id.to_s ? 'active' : nil
-              = link_to management_conference_events_path(current_conference, filters: @filters.merge({track_id: track.id}))
+              = link_to management_conference_events_path(@conference, filters: @filters.merge({track_id: track.id}))
                 = track.name
-                span.badge.pull-right = current_conference.events.where(track: track).count
+                span.badge.pull-right = @conference.events.where(track: track).size
     .panel.panel-default
       .panel-heading
         = Event.human_attribute_name(:language)
       .panel-body
         ul.nav.nav-pills.nav-stacked
           = content_tag :li, role: "presentation", class: @filters[:language].blank? ? 'active' : nil
-            = link_to management_conference_events_path(current_conference, filters: @filters.except(:language))
+            = link_to management_conference_events_path(@conference, filters: @filters.except(:language))
               = t '.all'
-              span.badge.pull-right = current_conference.events.count
+              span.badge.pull-right = @conference.events.size
           - I18n.available_locales.map(&:to_s).each do |language|
             = content_tag :li, role: "presentation", class: @filters[:language] == language ? 'active' : nil
-              = link_to management_conference_events_path(current_conference, filters: @filters.merge({language: language}))
+              = link_to management_conference_events_path(@conference, filters: @filters.merge({language: language}))
                 = t("locales.#{language}")
-                span.badge.pull-right = current_conference.events.where(language: language).count
+                span.badge.pull-right = @conference.events.where(language: language).size
     .panel.panel-default
       .panel-heading
         = Proposition.human_attribute_name(:status)
       .panel-body
         ul.nav.nav-pills.nav-stacked
           = content_tag :li, role: "presentation", class: @filters[:status].blank? ? 'active' : nil
-            = link_to management_conference_events_path(current_conference, filters: @filters.except(:status))
+            = link_to management_conference_events_path(@conference, filters: @filters.except(:status))
               = t '.all'
-              span.badge.pull-right = current_conference.events.count
+              span.badge.pull-right = @conference.events.size
           - Proposition.statuses.each do |status_name, status_id|
             = content_tag :li, role: "presentation", class: @filters[:status] == status_id.to_s ? 'active' : nil
-              = link_to management_conference_events_path(current_conference, filters: @filters.merge({status: status_id}))
+              = link_to management_conference_events_path(@conference, filters: @filters.merge({status: status_id}))
                 = t "activerecord.attributes.proposition.statuses.#{status_name}"
-                span.badge.pull-right = current_conference.events.joins(:proposition).where(propositions: {status: status_id}).count
+                span.badge.pull-right = @conference.events.joins(:proposition).where(propositions: {status: status_id}).size
     .panel.panel-default
       .panel-heading
         = Proposition.human_attribute_name(:confirmed)
       .panel-body
         ul.nav.nav-pills.nav-stacked
           = content_tag :li, role: "presentation", class: @filters[:confirmed].blank? && @filters[:not_confirmed].blank? ? 'active' : nil
-            = link_to management_conference_events_path(current_conference, filters: @filters.except(:confirmed, :not_confirmed))
+            = link_to management_conference_events_path(@conference, filters: @filters.except(:confirmed, :not_confirmed))
               = t '.all'
-              span.badge.pull-right = current_conference.events.count
+              span.badge.pull-right = @conference.events.size
           = content_tag :li, role: "presentation", class: @filters[:confirmed].present? ? 'active' : nil
-            = link_to management_conference_events_path(current_conference, filters: @filters.except(:not_confirmed).merge({confirmed: true}))
+            = link_to management_conference_events_path(@conference, filters: @filters.except(:not_confirmed).merge({confirmed: true}))
               = t "activerecord.attributes.proposition.confirmation.confirmed"
-              span.badge.pull-right = current_conference.events.joins(:proposition).approved.where.not(propositions: {confirmed_at: nil}).count
+              span.badge.pull-right = @conference.events.joins(:proposition).approved.where.not(propositions: {confirmed_at: nil}).size
           = content_tag :li, role: "presentation", class: @filters[:not_confirmed].present? ? 'active' : nil
-            = link_to management_conference_events_path(current_conference, filters: @filters.except(:confirmed).merge({not_confirmed: true}))
+            = link_to management_conference_events_path(@conference, filters: @filters.except(:confirmed).merge({not_confirmed: true}))
               = t "activerecord.attributes.proposition.confirmation.not_confirmed"
-              span.badge.pull-right = current_conference.events.joins(:proposition).approved.where(propositions: {confirmed_at: nil}).count
+              span.badge.pull-right = @conference.events.joins(:proposition).approved.where(propositions: {confirmed_at: nil}).size
 
   .col-md-9
     .panel.panel-default
@@ -102,5 +102,5 @@
         tbody
           = render(partial: 'event', collection: @events) || render(partial: 'no_records')
       .panel-footer.text-right
-        = link_to management_conference_events_path(current_conference, filters: @filters, format: 'csv'), class: 'btn btn-info'
+        = link_to management_conference_events_path(@conference, filters: @filters, format: 'csv'), class: 'btn btn-info'
           = icon :download, t('.export')
