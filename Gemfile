@@ -32,6 +32,7 @@ gem "carrierwave"
 gem "mini_magick"
 
 gem "refile", github: "refile/refile", require: ["refile/rails", "refile/simple_form"]
+gem "refile-mini_magick"
 gem "image_processing"
 
 gem "puma", group: :production
