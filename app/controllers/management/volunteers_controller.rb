@@ -3,7 +3,7 @@ module Management
     include CurrentConferenceAssigning
 
     def index
-      @filters = params[:filters] || {}
+      @filters = filter_params || {}
       @volunteers = VolunteerSearch.new(scope: Volunteer.where(conference: current_conference).eager_load(:volunteer_teams), filters: params[:filters]).results
     end
 
@@ -27,6 +27,10 @@ module Management
 
     private
 
+    def filter_params
+      params.fetch(:filters, {}).permit(:volunteer_team_id)
+    end
+    
     def volunteer_params
       params.require(:volunteer).permit(:name, :picture, :email, :phone,
         :tshirt_size, :tshirt_cut,
