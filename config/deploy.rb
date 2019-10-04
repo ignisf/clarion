@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock "3.11.0"
+lock "3.11.2"
 
 set :application, "clarion"
 set :repo_url, "https://github.com/ignisf/clarion.git"
@@ -39,7 +39,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push("log", "tmp/uploads", "tmp/pids",
 # Default value for keep_releases is 5
 set :keep_releases, 5
 
-set :rvm_ruby_version, "2.6.3"
+set :rvm_ruby_version, "2.6.5"
 
 set :puma_bind, ["tcp://127.0.0.1:9087"]
 set :puma_init_active_record, true
