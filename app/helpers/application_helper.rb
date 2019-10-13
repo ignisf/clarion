@@ -85,12 +85,4 @@ module ApplicationHelper
     when 6       then t('ratings.excellent')
     end
   end
-
-  def feedback_qr_code(event_id)
-    RQRCode::QRCode.new(new_event_feedback_url(event_id: event_id), level: :l)
-  end
-
-  def feedback_qr_code_as_svg(event_id)
-    feedback_qr_code(event_id).as_svg(shape_rendering: "crispEdges", module_size: 11, fill: "ffffff", offset: 10)
-  end
 end

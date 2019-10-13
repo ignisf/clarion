@@ -62,6 +62,8 @@ gem "faraday"
 
 gem "rqrcode"
 
+gem "draper"
+
 group :development do
   gem "spring"
   gem "spring-commands-rspec"

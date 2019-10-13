@@ -1,11 +1,15 @@
 class EventMailer < ActionMailer::Base
+  helper ApplicationHelper
+
   def confirmation_request(event)
-    @event = event
+    @event = event.decorate
     I18n.locale = @event.proposer.language
+
     attachments['feedback-link-qr-code.svg'] = {
       mime_type: 'image/svg+xml',
-      content: helpers.feedback_qr_code_as_svg(@event.id)
+      content: @event.feedback_qr_code_as_svg
     }
+
     mail to: @event.proposer.email,
          from: "program@openfest.org",
          subject: I18n.t("event_mailer.acceptance_notification.subject",
