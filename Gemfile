@@ -64,6 +64,8 @@ gem "rqrcode"
 
 gem "draper"
 
+gem "icalendar"
+
 group :development do
   gem "spring"
   gem "spring-commands-rspec"
