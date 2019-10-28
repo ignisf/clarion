@@ -1,0 +1,24 @@
+<%
+cal = Icalendar::Calendar.new
+
+@events.each do |event|
+  next unless event&.slot&.starts_at
+
+  cal.event do |ical_event|
+    ical_event.dtstart       = event.slot.starts_at
+    ical_event.dtend         = event.slot.ends_at
+    ical_event.summary       = event.title
+    ical_event.description   = event.description
+    ical_event.created       = event.created_at
+    ical_event.last_modified = event.updated_at
+    ical_event.location      = event.slot.hall.name
+    ical_event.url           = "https://www.openfest.org/2019/bg/full-schedule-bg/#lecture-#{event.id}"
+    ical_event.alarm do |alarm|
+      alarm.summary = event.title
+      alarm.trigger = "-PT15M"
+    end
+  end
+end
+cal.publish
+-%>
+<%= raw cal.to_ical %>
