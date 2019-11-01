@@ -1,23 +1,24 @@
 <%
 cal = Icalendar::Calendar.new
+cal.add_timezone(Time.zone.tzinfo.ical_timezone(Time.now))
 
 @events.each do |event|
-  next unless event&.slot&.starts_at
+    next unless event&.slot&.starts_at
 
-  cal.event do |ical_event|
-    ical_event.dtstart       = event.slot.starts_at
-    ical_event.dtend         = event.slot.ends_at
-    ical_event.summary       = event.title
-    ical_event.description   = event.description
-    ical_event.created       = event.created_at
-    ical_event.last_modified = event.updated_at
-    ical_event.location      = event.slot.hall.name
-    ical_event.url           = "https://www.openfest.org/2019/bg/full-schedule-bg/#lecture-#{event.id}"
-    ical_event.alarm do |alarm|
-      alarm.summary = event.title
-      alarm.trigger = "-PT15M"
+    cal.event do |ical_event|
+        ical_event.dtstart       = Icalendar::Values::DateTime.new(event.slot.starts_at, 'tzid' => event.slot.starts_at.time_zone.tzinfo.identifier)
+        ical_event.dtend         = Icalendar::Values::DateTime.new(event.slot.ends_at, 'tzid' => event.slot.ends_at.time_zone.tzinfo.identifier)
+        ical_event.summary       = event.title
+        ical_event.description   = event.description
+        ical_event.created       = Icalendar::Values::DateTime.new(event.created_at, 'tzid' => event.created_at.time_zone.tzinfo.identifier)
+        ical_event.last_modified = Icalendar::Values::DateTime.new(event.updated_at, 'tzid' => event.updated_at.time_zone.tzinfo.identifier)
+        ical_event.location      = event.slot.hall.name
+        ical_event.url           = "https://www.openfest.org/2019/bg/full-schedule-bg/#lecture-#{event.id}"
+        ical_event.alarm do |alarm|
+            alarm.summary = event.title
+            alarm.trigger = "-PT15M"
+        end
     end
-  end
 end
 cal.publish
 -%>

@@ -64,7 +64,7 @@ gem "rqrcode"
 
 gem "draper"
 
-gem "icalendar"
+gem "icalendar", require: ['icalendar', 'icalendar/tzinfo']
 
 group :development do
   gem "spring"
