@@ -13,7 +13,6 @@ cal.add_timezone(Time.zone.tzinfo.ical_timezone(Time.now))
         ical_event.created       = Icalendar::Values::DateTime.new(event.created_at, 'tzid' => event.created_at.time_zone.tzinfo.identifier)
         ical_event.last_modified = Icalendar::Values::DateTime.new(event.updated_at, 'tzid' => event.updated_at.time_zone.tzinfo.identifier)
         ical_event.location      = event.slot.hall.name
-        ical_event.url           = "https://www.openfest.org/2019/bg/full-schedule-bg/#lecture-#{event.id}"
         ical_event.alarm do |alarm|
             alarm.summary = event.title
             alarm.trigger = "-PT15M"
