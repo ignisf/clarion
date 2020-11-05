@@ -10,3 +10,13 @@ User.create(email: "foo@example.com",
             password_confirmation: "123qweASD",
             confirmed_at: Time.current,
             admin: true)
+
+Conference.create(
+    title: "TestFest",
+    email: "foo@example.com",
+    host_name: "clarion.openfest.test",
+    description: "Test Conference",
+    start_date: Date.today,
+    end_date: Date.today,
+    planned_cfp_end_date: Date.today.prev_day
+)
