@@ -1,0 +1,27 @@
+version: '3.7'
+
+services:
+  app:
+    build:
+      context: ./docker/app
+    depends_on:
+      - db
+    env_file:
+      - "./docker/dev.env"
+    volumes:
+      - ./:/clarion
+    environment:
+      - BUNDLE_PATH=./vendor
+    working_dir: "/clarion"
+    command: "./docker/app/run.sh"
+    ports:
+      - 127.0.0.1:3000:3000
+  db:
+    image: postgres:11.9
+    volumes:
+      - clarion-db:/var/lib/postgresql/data
+    env_file:
+      - "./docker/dev.env"
+
+volumes:
+  clarion-db:
