@@ -14,7 +14,6 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-/config/database.yml
 /config/secrets.yml
 /db/schema.rb
 /erd.pdf
