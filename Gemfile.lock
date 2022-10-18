@@ -1,6 +1,6 @@
 GIT
-  remote: git://github.com/refile/refile.git
-  revision: e690bf5c2d83b3dfd805764d54e8f5daf14993b0
+  remote: https://github.com/refile/refile
+  revision: c4ac577c6fdad92bc079a62a0e82888319daedc8
   specs:
     refile (0.7.0)
       mime-types
@@ -407,7 +407,7 @@ GEM
     spring (2.1.0)
     spring-commands-rspec (1.0.4)
       spring (>= 0.9.1)
-    sprockets (4.0.3)
+    sprockets (3.7.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
     sprockets-rails (3.4.2)
@@ -507,6 +507,7 @@ DEPENDENCIES
   slim-rails
   spring
   spring-commands-rspec
+  sprockets (< 4)
   sqlite3
   standard
   uglifier

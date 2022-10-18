@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 gem "rails", "~> 5.2.7"
 gem "bootsnap"
+gem "sprockets", "< 4"
 
 gem "sqlite3"
 gem "pg"
@@ -31,7 +32,7 @@ gem "carrierwave"
 # gem 'rmagick'
 gem "mini_magick"
 
-gem "refile", github: "refile/refile", require: ["refile/rails", "refile/simple_form"]
+gem "refile", git: "https://github.com/refile/refile", require: ["refile/rails", "refile/simple_form"]
 gem "refile-mini_magick"
 gem "image_processing"
 
