@@ -1,17 +1,17 @@
 class Public::EventFeedbacksController < Public::ApplicationController
   def new
-    if event.feedbacks.where(session_id: session.id).exists?
-      @feedback = event.feedbacks.where(session_id: session.id).order(updated_at: :asc).last
+    if event.feedbacks.where(session_id: session.id.to_s).exists?
+      @feedback = event.feedbacks.where(session_id: session.id.to_s).order(updated_at: :asc).last
     else
       @feedback = event.feedbacks.build
-      @feedback.author_email = Feedback.where(session_id: session.id).order(updated_at: :asc).last.try(:author_email)
+      @feedback.author_email = Feedback.where(session_id: session.id.to_s).order(updated_at: :asc).last.try(:author_email)
     end
   end
 
   def create
     @feedback = event.feedbacks.build(feedback_params)
     @feedback.ip_address = request.remote_ip
-    @feedback.session_id = session.id
+    @feedback.session_id = session.id.to_s
 
     if @feedback.save
       flash[:notice] = I18n.t("public.event_feedbacks.new.success")

@@ -5,7 +5,7 @@ h1.entry-title = t('.feedback_for_the_conference')
 p = t('.feedback_incentive')
 
 ul
-  - if @conference.feedbacks.where(session_id: session.id).exists?
+  - if @conference.feedbacks.where(session_id: session.id.to_s).exists?
     li = link_to t('.change_general_feedback_for', title: @conference.title), new_conference_feedback_path
   - else
     li = link_to t('.general_feedback_for', title: @conference.title), new_conference_feedback_path
