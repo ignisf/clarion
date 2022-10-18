@@ -22,9 +22,14 @@ class Conference < ActiveRecord::Base
   has_many :participants, -> { distinct }, class_name: "User", through: :events
   has_many :participant_profiles, class_name: "PersonalProfile"
   has_many :slots, through: :halls
-  has_many :feedbacks, as: :feedback_receiving
   has_many :editions, primary_key: :host_name, foreign_key: :host_name, class_name: "Conference"
   has_many :events_of_all_editions, through: :editions, source: :events
+
+  include FeedbackReceiving
+  has_many :feedbacks, as: :feedback_receiving
+  has_many :feedbacks_with_comment, -> { where.not(comment: [nil, ""]) }, as: :feedback_receiving, class_name: 'Feedback'
+  has_many :event_feedbacks, through: :events, source: :feedbacks
+  has_many :event_feedbacks_with_comment, through: :events, source: :feedbacks_with_comment
 
   accepts_nested_attributes_for :tracks, :halls, :event_types, :volunteer_teams,
     reject_if: :all_blank, allow_destroy: true

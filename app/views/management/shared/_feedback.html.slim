@@ -11,6 +11,6 @@ tr
           = feedback.author_email
         - else
           = t(".anonymous")
-        - if !local_assigns[:show_title]
+        - if !local_assigns[:hide_title]
           span<> = t '.about'
-          = link_to feedback.feedback_receiving.title, [:management, feedback.feedback_receiving.conference, feedback.feedback_receiving]
+          = link_to feedback.feedback_receiving.title, [:management, current_conference, feedback.feedback_receiving]

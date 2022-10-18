@@ -11,6 +11,18 @@ bg:
   events:
     metadata: "%{type} на %{language} с продължителност %{length} минути"
   management:
+    feedback:
+      index:
+        feedback: Обратна връзка
+        overall_organisation: За конференцията
+        comments: Коментари
+        average_grade: Средна оценка
+        total_feedback_grades:
+          one: от %{total_grades} оценка
+          other: от %{total_grades} оценки
+        no_feedback_received: Все още няма обратна връзка
+        no_comments_received: Все още няма коментари
+        events: За събитията
     shared:
       feedback:
         anonymous: Анонимен

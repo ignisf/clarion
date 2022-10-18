@@ -1,0 +1,8 @@
+<%- csv_headers = %w{id feedback_receiving_type feedback_receiving_id name/title author_email rating comment ip session_id created_at} -%>
+<%= CSV.generate_line(csv_headers).html_safe -%>
+<%- @conference.feedbacks.each do |feedback| -%>
+<%= CSV.generate_line([feedback.id, feedback.feedback_receiving_type, feedback.feedback_receiving_id, feedback.feedback_receiving&.title || feefback.feedback_receiving&.name, feedback.author_email, feedback.rating, feedback.comment, feedback.ip_address, feedback.session_id, feedback.created_at]).html_safe -%>
+<%- end -%>
+<%- @conference.event_feedbacks.each do |feedback| -%>
+<%= CSV.generate_line([feedback.id, feedback.feedback_receiving_type, feedback.feedback_receiving_id, feedback.feedback_receiving&.title || feefback.feedback_receiving&.name, feedback.author_email, feedback.rating, feedback.comment, feedback.ip_address, feedback.session_id, feedback.created_at]).html_safe -%>
+<%- end -%>

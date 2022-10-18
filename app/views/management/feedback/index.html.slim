@@ -1,0 +1,62 @@
+- content_for :title
+  = t '.feedback'
+
+.row
+  .col-lg-12
+    h1.page-header
+      = t '.feedback'
+      = link_to management_conference_feedback_index_path(@conference, format: 'csv'), class: 'btn btn-info pull-right'
+        = icon :download, t('.export')
+
+- if @conference.start_date.past? || @conference.rated?
+  .row
+    .col-xs-12
+      h3
+        =< t '.overall_organisation'
+      - if @conference.rated?
+        .row
+          .col-md-10
+            .panel.panel-default
+              .panel-heading = t('.comments')
+              - if @conference.feedbacks_with_comment.order(created_at: :asc).size > 0
+                table.table.table-striped
+                  tbody
+                    = render partial: '/management/shared/feedback', collection: @conference.feedbacks_with_comment.order(created_at: :asc), locals: {hide_title: true}
+              - else
+                .panel-body
+                  = t ('.no_comments_received')
+          .col-md-2
+            .panel.panel-info
+              .panel-heading
+                = t '.average_grade'
+              .panel-body.text-right
+                .huge
+                  = number_with_precision(@conference.average_rating, precision: 2, strip_insignificant_zeros: true) || '–'
+                = t('.total_feedback_grades', total_grades: @conference.feedbacks.count, count: @conference.feedbacks.count)
+      - else
+        p = t '.no_feedback_received'
+
+- if @conference.start_date.past? || @conference.event_feedbacks_with_comment.order(created_at: :asc).size > 0
+  .row
+    .col-xs-12
+      h3
+        =< t '.events'
+
+  - if @conference.event_feedbacks.size > 0
+    .row
+      .col-md-10
+        .panel.panel-default
+          .panel-heading = t('.comments')
+          table.table.table-striped
+            tbody
+              = render partial: '/management/shared/feedback', collection: @conference.event_feedbacks_with_comment.order(created_at: :asc)
+      .col-md-2
+        .panel.panel-info
+          .panel-heading
+            = t '.average_grade'
+          .panel-body.text-right
+            .huge
+              = number_with_precision(@conference.event_feedbacks.average(:rating), precision: 2, strip_insignificant_zeros: true) || '–'
+            = t('.total_feedback_grades', total_grades: @conference.event_feedbacks.count, count: @conference.event_feedbacks.count)
+  - else
+    p = t '.no_comments_received'
