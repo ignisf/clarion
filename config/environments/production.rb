@@ -54,7 +54,16 @@ Rails.application.configure do
   config.log_level = :debug
 
   # Prepend all log lines with the following tags.
-  config.log_tags = [:request_id]
+  config.log_tags = [
+    :request_id,
+    :subdomain,
+    ->(req) {
+      session_key = (Rails.application.config.session_options || {})[:key]
+      session_data = req.cookie_jar.encrypted[session_key] || {}
+      user_id = session_data["warden.user.user.key"]&.flatten&.first || "guest"
+      "user: #{user_id}"
+    }
+  ]
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
