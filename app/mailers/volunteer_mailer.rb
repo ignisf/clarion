@@ -2,8 +2,10 @@ class VolunteerMailer < ActionMailer::Base
   def team_notification(new_volunteer)
     @volunteer = new_volunteer
 
-    mail(to: @volunteer.conference.email,
-         subject: "Нов доброволец – #{@volunteer.name} <#{@volunteer.email}> за екип(и) #{@volunteer.volunteer_teams.map(&:name).join(", ")}")
+    mail(
+      to: @volunteer.conference.email,
+      subject: "Нов доброволец за #{@volunteer.conference.title}"
+    )
   end
 
   def volunteer_notification(new_volunteer)
