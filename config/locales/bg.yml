@@ -38,7 +38,7 @@ bg:
       vote_results:
         back_to: "Обратно към %{conference}"
         vote_results: "Резултати от гласуването"
-        vote_data_never_updated: "Резулатите от гласуването не са изтеглени"
+        vote_data_never_updated: "Резултатите от гласуването не са изтеглени"
         voting_results: "Резултати от гласуването"
         vote_data_updated_at: "последно обновяване %{updated_at}"
         vote_ratio: "%{votes} от общо %{total_votes} гласа"
@@ -49,7 +49,7 @@ bg:
         export: Експорт
       show:
         full_vote_results: "Пълни резултати от гласуването"
-        vote_data_never_updated: "Резулатите от гласуването не са изтеглени"
+        vote_data_never_updated: "Резултатите от гласуването не са изтеглени"
         voting_results: "Резултати от гласуването"
         vote_data_updated_at: "последно обновяване %{updated_at}"
         vote_ratio: "%{votes} от общо %{total_votes} гласа"
@@ -488,6 +488,6 @@ bg:
       error_occurred_while_applying: "Възникна грешка и кандидатурата Ви не беше изпратена"
       you_successfully_retracted_your_application_for: "Успешно оттеглихте кандидатурата си“"
   welcome: "Добре дошли, %{name}"
-  what_we_ask: "Бихме искали да получим предложенията Ви за лекции и уъркшопи, принадлежащи към следните категории, до %{date}г.:"
+  what_we_ask: "Бихме искали да получим предложенията Ви за лекции, уъркшопи и щандове, принадлежащи към следните категории, до %{date}г.:"
   workshop_was_successfully_confirmed: "Уъркшопът беше потвърден успешно"
   workshops: "Уъркшопи"

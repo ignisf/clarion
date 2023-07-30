@@ -76,7 +76,7 @@ en:
       hall:
         name: Name
       personal_profile:
-        biography: Short bography
+        biography: Short biography
         first_name: First name
         github: Github account
         last_name: Last name
@@ -121,7 +121,7 @@ en:
             github:
               invalid: can contain only alphabet characters, digits or a dash and cannot start with a dash
             twitter:
-              invalid: can contain a maximum of 15 symbols that need to be alphabet charachters, digits or an underscore
+              invalid: can contain a maximum of 15 symbols that need to be alphabet characters, digits or an underscore
         user:
           attributes:
             email:
@@ -203,7 +203,7 @@ en:
       subject: "Your submission for %{conference} for the %{submission_type} \"%{title}\" has not been approved"
   volunteer_mailer:
     success_notification:
-      subject: "Your application for volunteership on %{conference_name} was received"
+      subject: "Your application for \"volunteership\" on %{conference_name} was received"
   event_states:
     approved:
       one: Approved
@@ -327,8 +327,8 @@ en:
         public_email: E-mail address that will be visible for the attendees
         twitter: Your Twitter handle
       volunteer:
-        email: "Your E-mail address. It will be visible only to the organizsers"
-        phone: "Your mobile phone. It will be visible only to the organizsers"
+        email: "Your E-mail address. It will be visible only to the organizers"
+        phone: "Your mobile phone. It will be visible only to the organizers"
         picture: "A picture of you in jpeg, png or gif format"
         volunteer_teams: "The volunteer teams you'd like to be part of. You can find a description of each team <a href=\"/volunteer_teams?locale=en\" target=\"_blank\">here</a>"
       user:
@@ -346,7 +346,7 @@ en:
   suggestion_and_speaker_count: "%{suggestions} submissions by %{speakers} speakers"
   talks: Talks
   unlocks:
-    did_not_receive_unlock_instructions: DId not receive unlock instructions?
+    did_not_receive_unlock_instructions: Did not receive unlock instructions?
     resend: Resend
     resend_unlock_instructions: Resend unlock instructions
   update: Update
@@ -375,12 +375,12 @@ en:
       new_volunteer_title: Apply for a volunteer
       edit_volunteer_title: "Volunteership application of %{name}"
       apply: Apply for a volunteer
-      withdraw_application: Withraw your application
+      withdraw_application: Withdraw your application
       successful_application: "Your application was successfully submitted"
       successful_application_edit: "Your application was successfully updated"
       error_occurred_while_applying: "There was an error and your application could not be sent"
       you_successfully_retracted_your_application_for: "Your application was successfully retracted"
   welcome: Welcome, %{name}
-  what_we_ask: 'We would like to receive your lecture and workshop submissions that belong to the following tracks until %{date}:'
+  what_we_ask: 'We would like to receive your lecture, workshop, and stand submissions that belong to the following tracks until %{date}:'
   workshop_was_successfully_confirmed: The workshop was successfully confirmed
   workshops: Workshops
