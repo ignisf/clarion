@@ -1,20 +1,19 @@
 Hello,
 
-We are happy to notify you that your request for participation in <%= @event.conference.title %> with the <%= @event.event_type.name.downcase %> titled "<%= @event.title %>" was approved. <% if @event.slot.present? -%>
+We are thrilled to inform you that your request for participation in <%= @event.conference.title %> with the <%= @event.event_type.name.downcase %> titled "<%= @event.title %>" has been approved. <% if @event.slot.present? -%>
 It has been scheduled for <%= I18n.l @event.slot.starts_at, format: :long %>.
 <% else %>
 It has not been scheduled yet.
 <% end %>
 
-Please confirm your participation as soon as you can by following the following link:
+To confirm your participation please follow the link below as soon as you can /before Friday, October 13th/:
 <%= confirm_event_url @event, host: @event.conference.host_name, protocol: 'https' %>
 
-Please make sure you include the QR code attached to this email in your
-presentation. It contains a link to the feedback form for your <%= @event.event_type.name.downcase %>.
+We kindly request that you ensure the inclusion of the QR code attached to this email in your presentation. It links directly to the feedback form for your presentation, making it easier for attendees to provide valuable insights.
 
-Please reply to this email if your presentation will be remote or if you'll be presenting using a MacBook.
+Additionally, please respond to this email to let us know whether your presentation will be remote or if you plan to present using a MacBook.
 
-Please respond to this email in case you have any questions.
+Should you have any questions or require further information, please do not hesitate to contact us by replying to this email.
 
-Regards,
+Best regards,
 The <%= @event.conference.title %> Team
