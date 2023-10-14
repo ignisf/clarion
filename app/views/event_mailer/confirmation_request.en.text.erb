@@ -6,7 +6,7 @@ It has been scheduled for <%= I18n.l @event.slot.starts_at, format: :long %>.
 It has not been scheduled yet.
 <% end %>
 
-To confirm your participation please follow the link below as soon as you can /before Friday, October 13th/:
+To confirm your participation please follow the link below as soon as you can:
 <%= confirm_event_url @event, host: @event.conference.host_name, protocol: 'https' %>
 
 We kindly request that you ensure the inclusion of the QR code attached to this email in your presentation. It links directly to the feedback form for your presentation, making it easier for attendees to provide valuable insights.
