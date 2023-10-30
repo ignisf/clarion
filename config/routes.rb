@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end
 
   namespace :api do
-    resources :conferences, only: [] do
+    resources :conferences, only: [:index] do
       resources :events, only: :index do
         collection do
           get :halfnarp_friendly
