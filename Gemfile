@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "rails", "~> 5.2.7"
+gem "rails", "~> 6.0.0"
 gem "bootsnap"
 gem "sprockets", "< 4"
 
@@ -11,7 +11,6 @@ gem "sass-rails"
 
 gem "uglifier"
 gem "coffee-rails"
-gem "mini_racer", platforms: :ruby
 gem "jquery-rails"
 
 gem "slim-rails"
@@ -85,7 +84,6 @@ end
 
 group :development, :test do
   gem "rspec-rails"
-  gem "factory_bot_rails"
   gem "faker"
   gem "capybara"
   gem "selenium-webdriver"
@@ -101,4 +99,5 @@ end
 
 group :test do
   gem "database_cleaner"
+  gem "factory_bot_rails"
 end
