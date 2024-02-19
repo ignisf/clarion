@@ -1,8 +1,8 @@
 source "https://rubygems.org"
 
-gem "rails", "~> 6.1.0"
+gem "rails", "~> 7.0.0"
 gem "bootsnap"
-gem "sprockets", "< 4"
+gem "sprockets"
 
 gem "sqlite3"
 gem "pg"
@@ -23,7 +23,7 @@ gem "devise-i18n"
 gem "simple_form"
 
 # Phone validation
-gem "phony", "~> 2.15.11"
+gem "phony"
 gem "phony_rails"
 
 # Picture uploads
@@ -49,7 +49,7 @@ gem "font-awesome-sass", "~> 4.6.2"
 
 gem "nested_form"
 gem "jquery-datatables-rails"
-gem "morrisjs-rails"
+# gem "morrisjs-rails"
 gem "raphael-rails"
 
 gem "copy_carrierwave_file"
