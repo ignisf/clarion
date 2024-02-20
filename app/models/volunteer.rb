@@ -3,7 +3,7 @@ class Volunteer < ActiveRecord::Base
   TSHIRT_CUTS = [:unisex, :female]
   FOOD_PREFERENCES = [:none, :vegetarian, :vegan]
 
-  attachment :picture, type: :image
+  has_one_attached :picture
 
   validates :name, :language, :tshirt_size, :tshirt_cut, :food_preferences, presence: true
   validates :tshirt_size, inclusion: {in: TSHIRT_SIZES.map(&:to_s)}

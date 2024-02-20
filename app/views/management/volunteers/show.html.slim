@@ -10,15 +10,15 @@
   .panel-body
     .media
       .media-left.hidden-sm.hidden-xs
-        - if @volunteer.picture.present?
-          = attachment_image_tag(@volunteer, :picture, :fill, 150, 150)
+        - if @volunteer.picture.attached?
+          = image_tag @volunteer.picture.variant(resize_to_limit: [150, 150])
         - else
           = image_tag(PictureUploader.new.medium.url)
 
       .media-body
         .text-center.visible-sm.visible-xs
-          - if @volunteer.picture.present?
-            = attachment_image_tag(@volunteer, :picture, :fill, 150, 150)
+          - if @volunteer.picture.attached?
+            = image_tag @volunteer.picture.variant(resize_to_limit: [150, 150])
           - else
             = image_tag(PictureUploader.new.medium.url)
         h4.media-heading

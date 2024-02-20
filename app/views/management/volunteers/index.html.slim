@@ -41,7 +41,7 @@
                 .media
                   .media-left
                     - if volunteer.picture.present?
-                      = attachment_image_tag(volunteer, :picture, :fill, 50, 50)
+                      = image_tag volunteer.picture.variant(resize_to_limit: [50, 50])
                     - else
                       = image_tag(PictureUploader.new.thumb.url)
                   .media-body

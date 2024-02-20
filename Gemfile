@@ -1,8 +1,8 @@
 source "https://rubygems.org"
 
-gem "rails", "~> 5.2.7"
+gem "rails", "~> 7.1.0"
 gem "bootsnap"
-gem "sprockets", "< 4"
+gem "sprockets"
 
 gem "sqlite3"
 gem "pg"
@@ -11,7 +11,6 @@ gem "sass-rails"
 
 gem "uglifier"
 gem "coffee-rails"
-gem "mini_racer", platforms: :ruby
 gem "jquery-rails"
 
 gem "slim-rails"
@@ -24,17 +23,8 @@ gem "devise-i18n"
 gem "simple_form"
 
 # Phone validation
-gem "phony", "~> 2.15.11"
+gem "phony"
 gem "phony_rails"
-
-# Picture uploads
-gem "carrierwave"
-# gem 'rmagick'
-gem "mini_magick"
-
-gem "refile", git: "https://github.com/refile/refile", require: ["refile/rails", "refile/simple_form"]
-gem "refile-mini_magick"
-gem "image_processing"
 
 gem "puma", group: :production
 
@@ -50,7 +40,7 @@ gem "font-awesome-sass", "~> 4.6.2"
 
 gem "nested_form"
 gem "jquery-datatables-rails"
-gem "morrisjs-rails"
+# gem "morrisjs-rails"
 gem "raphael-rails"
 
 gem "copy_carrierwave_file"
@@ -75,17 +65,12 @@ group :development do
   gem "pry-rails"
   # gem 'hirb'
   gem "awesome_print"
-  gem "capistrano"
-  gem "capistrano-rails"
-  gem 'capistrano-rvm'
-  gem "capistrano3-puma"
   gem "better_errors"
   gem "binding_of_caller"
 end
 
 group :development, :test do
   gem "rspec-rails"
-  gem "factory_bot_rails"
   gem "faker"
   gem "capybara"
   gem "selenium-webdriver"
@@ -101,4 +86,5 @@ end
 
 group :test do
   gem "database_cleaner"
+  gem "factory_bot_rails"
 end

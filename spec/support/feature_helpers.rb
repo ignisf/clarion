@@ -103,7 +103,7 @@ module FeatureHelpers
     attach_file PersonalProfile.human_attribute_name(:picture), Rails.root.join("spec", "support", "picture.jpg")
     fill_in PersonalProfile.human_attribute_name(:first_name), with: "Foo"
     fill_in PersonalProfile.human_attribute_name(:last_name), with: "Bar"
-    fill_in PersonalProfile.human_attribute_name(:mobile_phone), with: "+359666666"
+    fill_in PersonalProfile.human_attribute_name(:mobile_phone), with: "+359883123456"
     fill_in PersonalProfile.human_attribute_name(:biography), with: "Lorem"
 
     click_on I18n.t("helpers.submit.create", model: PersonalProfile.model_name.human)

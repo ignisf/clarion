@@ -3,10 +3,9 @@
 
   .form-inputs
     .input
-      = image_tag(@profile.picture.medium.url) if @profile.picture?
-      = f.input :picture, as: :file, required: true, wrapper: false
-
-    = f.hidden_field :picture_cache, class: 'image_preview', wrapper: false
+      = image_tag(@profile.picture.variant(resize_to_limit: [150, 150])) if @profile.picture.attached?
+      = f.hidden_field :picture, value: @profile.picture.signed_id if @profile.picture.attached?
+      = f.input :picture, as: :file, required: true, wrapper: false, input_html: {direct_upload: true}
     = f.input :first_name, autofocus: true
     = f.input :last_name
     = f.input :public_email

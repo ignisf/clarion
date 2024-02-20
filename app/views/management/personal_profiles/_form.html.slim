@@ -10,9 +10,9 @@
     .panel-body
       .row
         .col-lg-12
-          - if f.object.picture.present?
+          - if f.object.picture.attached?
             .col-sm-offset-3.col-sm-9
-              = image_tag f.object.picture.medium.url, class: 'img-thumbnail'
+              = image_tag f.object.picture.variant(resize_to_limit: [150, 150]), class: 'img-thumbnail'
 
           = f.input :picture, wrapper: :horizontal_file_input
 

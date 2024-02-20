@@ -5,8 +5,8 @@
 
   .form-inputs
     .input
-      = attachment_image_tag(@volunteer, :picture, :fill, 150, 150) if @volunteer.picture.present?
-      = f.input :picture, as: :attachment, direct: true, wrapper: false
+      = image_tag @volunteer.picture.variant(resize_to_limit: [150, 150]) if @volunteer.picture.attached?
+      = f.input :picture, as: :file, direct: true, wrapper: false
     = f.input :name, autofocus: true
     = f.input :email
     = f.input :phone, input_html: {value: @volunteer.phone.try(:phony_formatted, format: :international)}

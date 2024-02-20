@@ -27,9 +27,7 @@
                 .media
                   .media-left
                     - if profile.present?
-                      = image_tag(profile.picture.thumb.url)
-                    - else
-                      = image_tag(PictureUploader.new.thumb.url)
+                      = image_tag(profile.picture)
 
                   .media-body
                     h4.media-heading

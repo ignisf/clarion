@@ -34,6 +34,8 @@ bg:
         no_comments_received: Все още няма коментари.
         private_email: Личен e-mail
     events:
+      update:
+        event_successfully_updated: Събитието беше обновено успешно
       show:
         average_grade: Средна оценка
         total_feedback_grades:
