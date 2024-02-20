@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
   def build_personal_profile(conference, params = {})
     if personal_profiles.last.present?
       new_personal_profile = personal_profiles.last.try(:dup)
-      CopyCarrierwaveFile::CopyFileService.new(personal_profiles.last, new_personal_profile, :picture).set_file
+      new_personal_profile.picture.attach(personal_profiles.last.picture.blob)
     else
       new_personal_profile = personal_profiles.build
     end

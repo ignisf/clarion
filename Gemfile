@@ -26,15 +26,6 @@ gem "simple_form"
 gem "phony"
 gem "phony_rails"
 
-# Picture uploads
-gem "carrierwave"
-# gem 'rmagick'
-gem "mini_magick"
-
-gem "refile", git: "https://github.com/refile/refile", require: ["refile/rails", "refile/simple_form"]
-gem "refile-mini_magick"
-gem "image_processing"
-
 gem "puma", group: :production
 
 gem "globalize"
@@ -74,10 +65,6 @@ group :development do
   gem "pry-rails"
   # gem 'hirb'
   gem "awesome_print"
-  gem "capistrano"
-  gem "capistrano-rails"
-  gem 'capistrano-rvm'
-  gem "capistrano3-puma"
   gem "better_errors"
   gem "binding_of_caller"
 end

@@ -13,7 +13,7 @@ class PersonalProfile < ActiveRecord::Base
 
   phony_normalize :mobile_phone, default_country_code: "BG", add_plus: false
 
-  mount_uploader :picture, PictureUploader
+  has_one_attached :picture
 
   accepts_nested_attributes_for :user
 

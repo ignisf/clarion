@@ -4,7 +4,6 @@
 
 Екипи: <%= @volunteer.volunteer_teams.map(&:name).join(', ') %>
 
-Снимка: <%= attachment_url(@volunteer, :picture, host: "https://#{@volunteer.conference.host_name}/") %>
 Език: <%= @volunteer.language %>
 Телефон: <%= @volunteer.phone %>
 Размер на тениска: <%= @volunteer.tshirt_size %>

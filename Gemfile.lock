@@ -1,11 +1,3 @@
-GIT
-  remote: https://github.com/refile/refile
-  revision: c4ac577c6fdad92bc079a62a0e82888319daedc8
-  specs:
-    refile (0.7.0)
-      mime-types
-      sinatra (>= 2.0.0, <= 3.0.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -89,8 +81,6 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.6)
       public_suffix (>= 2.0.2, < 6.0)
-    airbrussh (1.5.1)
-      sshkit (>= 1.6.1, != 1.7.0)
     ast (2.4.2)
     autoprefixer-rails (10.4.16.0)
       execjs (~> 2)
@@ -122,23 +112,6 @@ GEM
       railties (>= 3.1)
     builder (3.2.4)
     byebug (11.1.3)
-    capistrano (3.18.0)
-      airbrussh (>= 1.0.0)
-      i18n
-      rake (>= 10.0.0)
-      sshkit (>= 1.9.0)
-    capistrano-bundler (2.1.0)
-      capistrano (~> 3.1)
-    capistrano-rails (1.6.3)
-      capistrano (~> 3.1)
-      capistrano-bundler (>= 1.1, < 3)
-    capistrano-rvm (0.1.2)
-      capistrano (~> 3.0)
-      sshkit (~> 1.2)
-    capistrano3-puma (5.2.0)
-      capistrano (~> 3.7)
-      capistrano-bundler
-      puma (>= 4.0, < 6.0)
     capybara (3.40.0)
       addressable
       matrix
@@ -291,16 +264,11 @@ GEM
     marcel (1.0.2)
     matrix (0.4.2)
     method_source (1.0.0)
-    mime-types (3.5.2)
-      mime-types-data (~> 3.2015)
-    mime-types-data (3.2024.0206)
     mini_magick (4.12.0)
     mini_mime (1.1.5)
     mini_portile2 (2.8.5)
     minitest (5.22.2)
     msgpack (1.7.2)
-    mustermann (3.0.0)
-      ruby2_keywords (~> 0.0.1)
     mutex_m (0.2.0)
     nenv (0.3.0)
     nested_form (0.3.2)
@@ -313,13 +281,8 @@ GEM
       net-protocol
     net-protocol (0.2.2)
       timeout
-    net-scp (4.0.0)
-      net-ssh (>= 2.6.5, < 8.0.0)
-    net-sftp (4.0.0)
-      net-ssh (>= 5.0.0, < 8.0.0)
     net-smtp (0.4.0.1)
       net-protocol
-    net-ssh (7.2.1)
     nio4r (2.7.0)
     nokogiri (1.16.2)
       mini_portile2 (~> 2.8.2)
@@ -345,19 +308,17 @@ GEM
     psych (5.1.2)
       stringio
     public_suffix (5.0.4)
-    puma (5.6.8)
+    puma (6.4.2)
       nio4r (~> 2.0)
     racc (1.7.3)
-    rack (2.2.8)
-    rack-protection (3.0.0)
-      rack
-    rack-session (1.0.2)
-      rack (< 3)
+    rack (3.0.9)
+    rack-session (2.0.0)
+      rack (>= 3.0.0)
     rack-test (2.1.0)
       rack (>= 1.3)
-    rackup (1.0.0)
-      rack (< 3)
-      webrick
+    rackup (2.1.0)
+      rack (>= 3)
+      webrick (~> 1.8)
     rails (7.1.3)
       actioncable (= 7.1.3)
       actionmailbox (= 7.1.3)
@@ -403,9 +364,6 @@ GEM
       ffi (~> 1.0)
     rdoc (6.6.2)
       psych (>= 4.0.0)
-    refile-mini_magick (0.2.0)
-      mini_magick (~> 4.0)
-      refile (~> 0.5)
     regexp_parser (2.9.0)
     reline (0.4.2)
       io-console (~> 0.5)
@@ -480,7 +438,7 @@ GEM
       sprockets-rails
       tilt
     search_object (1.2.5)
-    selenium-webdriver (4.18.0)
+    selenium-webdriver (4.18.1)
       base64 (~> 0.2)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
@@ -495,11 +453,6 @@ GEM
       simplecov_json_formatter (~> 0.1)
     simplecov-html (0.12.3)
     simplecov_json_formatter (0.1.4)
-    sinatra (3.0.0)
-      mustermann (~> 3.0)
-      rack (~> 2.2, >= 2.2.4)
-      rack-protection (= 3.0.0)
-      tilt (~> 2.0)
     slim (5.2.1)
       temple (~> 0.10.0)
       tilt (>= 2.1.0)
@@ -520,11 +473,6 @@ GEM
       sprockets (>= 3.0.0)
     sqlite3 (1.7.2)
       mini_portile2 (~> 2.8.0)
-    sshkit (1.22.0)
-      mutex_m
-      net-scp (>= 1.1.2)
-      net-sftp (>= 2.1.2)
-      net-ssh (>= 2.8.0)
     ssrf_filter (1.1.2)
     standard (1.34.0)
       language_server-protocol (~> 3.17.0.2)
@@ -578,12 +526,7 @@ DEPENDENCIES
   bootstrap-sass-extras
   bootswatch-rails
   byebug
-  capistrano
-  capistrano-rails
-  capistrano-rvm
-  capistrano3-puma
   capybara
-  carrierwave
   coffee-rails
   copy_carrierwave_file
   database_cleaner
@@ -599,11 +542,9 @@ DEPENDENCIES
   guard-rspec
   i18n-tasks
   icalendar
-  image_processing
   jbuilder
   jquery-datatables-rails
   jquery-rails
-  mini_magick
   nested_form
   pg
   phony
@@ -614,8 +555,6 @@ DEPENDENCIES
   rails-erd
   rails-i18n
   raphael-rails
-  refile!
-  refile-mini_magick
   rqrcode
   rspec-rails
   sass-rails
@@ -633,4 +572,4 @@ DEPENDENCIES
   yaml_db
 
 BUNDLED WITH
-   2.4.12
+   2.5.6

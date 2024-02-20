@@ -9,7 +9,7 @@ Rails.application.config.assets.version = "1.0"
 Rails.application.config.assets.paths << "lib/initfest/assets/images"
 Rails.application.config.assets.paths << "lib/initfest/assets/javascripts"
 Rails.application.config.assets.paths << "lib/initfest/assets/stylesheets"
-Rails.application.config.assets.precompile << /\.(?:png|jpg|jpeg|gif)\z/
+#Rails.application.config.assets.precompile << /\.(?:png|jpg|jpeg|gif)\z/
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets

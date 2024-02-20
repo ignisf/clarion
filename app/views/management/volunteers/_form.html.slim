@@ -5,9 +5,9 @@
         .col-lg-12
           - if f.object.picture.present?
             .col-sm-offset-3.col-sm-9
-              = attachment_image_tag(@volunteer, :picture, :fill, 150, 150) if @volunteer.picture.present?
+              = @volunteer.picture.variant(resize_to_limit: [150, 150]) if @volunteer.picture.attached?
 
-          = f.input :picture, as: :attachment, wrapper: :horizontal_file_input, direct: true
+          = f.input :picture, as: :file, wrapper: :horizontal_file_input, direct: true
 
           = f.input :name, autofocus: true
           = f.input :email
